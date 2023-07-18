@@ -61,35 +61,46 @@
                             <p class="text-dark">JNP STORE est un module de networking qui vise à gérer les stocks dans les stations JNP</p>
                         </div>
                     </div>
-        
+
                     <!-- ################ TOUTES LES ROUTES RELATIVES AUX USERS ############### -->
                     <div class="bg-dark text-center mb-5">
                         <h1 class="text-white">TOUTES LES ROUTES RELATIVES AUX USERS</h1>
                     </div>
                     <div class="row" id="documenation">
                         <div class="col-md-12">
-        
+
                             <!-- REGISTRATION -->
-        
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <button disabled class="btn documentation ">##============ CREATION DE COMPTE ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/register </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/register </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "name": "gogo", <br>
-                                                "email": "christian@gmail.com", <br>
-                                                "password": "mypassword", <br>
-                                                "role": "is_admin",## is_admin,is_transporter,is_sender,is_supervisor,is_shipper,is_biller <br>
-                                                "lastname": "gogo",##Facultatif <br>
-                                                "phone": 23445757785,##Facultatif ## C'est Pour les transporteurs <br>
-                                                "adresse": "cotonou",##Facultatif ## C'est Pour les transporteurs <br>
+                                                "username": "gogo", <br>
+                                                "gender": "M", <br>
+                                                "country": "Bénin", <br>
+                                                "phone": "61765590",<br>
+                                                "password": "gogo",<br>
+                                                "lastname": "gogo",<br>
+                                                "firstname": "Christian",<br>
+                                                "email": "gogo@gmail.com",<br>
+                                                "parent_id": 1,##L'ID du user parent qui effectue l'ajout<br>
                                                 "phone": 23445757785,##Facultatif ## C'est Pour les transporteurs <br>
                                                 "phone": 23445757785,##Facultatif ## C'est Pour les transporteurs
                                                 <li>}</li>
@@ -97,41 +108,42 @@
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
-        
+
                             <!-- LOGIN -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <button disabled class="btn documentation ">##============ LOGIN D'UN USER ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/login </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/login </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "email": "christian@gmail.com", <br>
+                                                "account": "admin",##Soit le username, le mail ou soit le phone <br>
                                                 "password": "mypassword",
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data)</h5>
                                 </div>
                             </div>
-        
+
                             <!-- LOGOUT -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <button disabled class="btn documentation ">##============ LOGOUT D'UN USER ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/logout </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/logout </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
@@ -146,821 +158,855 @@
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
+
                             <!-- GET ALL USERS -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <button disabled class="btn documentation ">##============ RECUPERER TOUT LES USERS ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/users </h5>
-        
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/all </h5>
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
+
                             <!-- GET A USER -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <button disabled class="btn documentation ">##============ RECUPERER UN USER ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/users/< user_id>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/retrieve
                                     </h5>
-        
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url)</h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- UPDATE A USER -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ MODIFIER UN USER ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "column1": "value1",<br>
+                                                "column2": "value2",<br>
+                                                "column3": "value3",<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/update
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- DELETE A USER -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ SUPPRIMER UN USER ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/delete
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A PROFIL-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN PROFIL ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "profil_id": "2"##ID du profil<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-profil
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A RANG-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN RANG ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "rang_id": "2"##ID du rang<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-rang
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A RIGHT-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN RIGHT ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "right_id": "2"##ID du rang<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-right
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- ################ LES URLs RELATIFS AUX TYPES TRANSPORTS ############### -->
-                    <div class="bg-dark text-center mt-5">
-                        <h1 class="text-white">LES URLs RELATIFS AUX TYPES DE TRANSPORTS</h1>
+
+                    <!-- ################ TOUTES LES ROUTES RELATIVES AUX PROFILS ############### -->
+                    <div class="bg-dark text-center my-5">
+                        <h1 class="text-white">TOUTES LES ROUTES RELATIVES AUX PROFILS</h1>
                     </div>
                     <div class="row" id="documenation">
                         <div class="col-md-12">
-        
-                            <!-- AJOUT D'UN TYPE DE MOYEN DE TRANSPORT -->
-        
+
+                            <!-- AJOUT D'UN PROFIL -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ AJOUT D'UN TYPE DE MOYEN DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ AJOUT D'UN PROFILE ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/types/create </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/profil/add </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "name":'Type 1', <br>
-                                                "image": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752"#L'URL de l'image stockée sur cloudinary
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
+                                                "name": "gogo", <br>
+                                                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer", <br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUT LES TYPES DE MOYENS DE TRANSPORT -->
+
+                            <!-- GET ALL PROFILS -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES TYPES DE MOYENS DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER TOUT LES PROFILS ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/types </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/profil/all </h5>
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,json=header)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECHERCHE D'UN TYPE DE MOYEN DE TRANSPORT -->
+
+                            <!-- GET A PROFIL -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECHERCHE D'UN TYPE DE MOYEN DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER UN PROFIL ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/types/search </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-                                    <ul>
-                                        <li>data =
-                                            <ul>
-                                                <li>{</li>
-                                                "search":"searching..."#La recherche ici se fait en fonction du **name** du type de transport
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,option=header,json=data)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- SUPPRESSION D'UN TYPE DE MOYEN DE TRANSPORT -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ SUPPRESSION D'UN TYPE DE MOYEN DE TRANSPORT ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/types/< transportType_id>/delete </h5>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,option = header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- UPDATE D'UN TYPE DE MOYEN DE TRANSPORT -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ UPDATE D'UN TYPE DE MOYEN DE TRANSPORT ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/types/< transportType_id>/update
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/profil/< profil_id>/retrieve
                                     </h5>
-                                    <p class="">
-                                    <ul>
-                                        <li>data =
-                                            <ul>
-                                                <li>{</li>
-                                                "champ1":"Champ 1 modifié", <br>
-                                                "champ2":"Champ 1 modifié",
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- UPDATE A PROFIL -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ MODIFIER UN PROFIL ==========##</button>
+                                    </div>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjO0zZpxiOSBmpiTyom6a6EwuPzccmJ31eH5le4NLq-0i22qMv_GL3lQA", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "column1": "value1",<br>
+                                                "column2": "value2",<br>
+                                                "column3": "value3",<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/profil/< profil_id>/update
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- DELETE A PROFIL -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ SUPPRIMER UN PROFIL ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-        
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.PATCH(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/profil/< profil_id>/delete
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A PROFIL-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN PROFIL ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "profil_id": "2"##ID du profil<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-profil
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A RANG-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN RANG ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "rang_id": "2"##ID du rang<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-rang
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- ATTACH A USER TO A RIGHT-->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ ATTACHER UN USER A UN RIGHT ==========##</button>
+                                    </div>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>data =
+                                            <ul>
+                                                <li>{</li>
+                                                "user_id": "1"##ID du user,<br>
+                                                "right_id": "2"##ID du rang<br>
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/user/< user_id>/attach-right
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- ################ LES URLs RELATIFS AUX MOYENS DE TRANSPORTS ############### -->
-                    <div class="bg-dark text-center mt-5">
-                        <h1 class="text-white">LES URLs RELATIFS AUX MOYENS DE TRANSPORTS</h1>
+
+                    <!-- ################ TOUTES LES ROUTES RELATIVES AUX RANGS ############### -->
+                    <div class="bg-dark text-center my-5">
+                        <h1 class="text-white">TOUTES LES ROUTES RELATIVES AUX RANGS</h1>
                     </div>
                     <div class="row" id="documenation">
                         <div class="col-md-12">
-        
-                            <!-- AJOUT D'UN MOYEN DE TRANSPORT -->
-        
+
+                            <!-- AJOUT D'UN RANG -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ AJOUT D'UN MOYEN DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ AJOUT D'UN RANG ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/create </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/rand/add </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "user_id":2,#L'ID de l'utilisateur <br>
-                                                "type_id":2,#L'ID du type de transport <br>
-                                                "fabric_year": "13-06-199",#Année de fabrication <br>
-                                                "circulation_year": "13-06-200",#Année de mise en circulation <br>
-                                                "tech_visit_expire": "13-06-2999",#Année d'expiration de la voiste technique <br>
-                                                "gris_card": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752"#L'URL de l'image stockée sur cloudinary <br>
-                                                "tech_visit": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752" #L'URL de l'image stockée sur cloudinary <br>
-                                                "assurance_card": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752"#L'URL de l'image stockée sur cloudinary
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
+                                                "name": "gogo", <br>
+                                                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer", <br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUT LES MOYENS DE TRANSPORT -->
+
+                            <!-- GET ALL RANG -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES MOYENS DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER TOUT LES RANGS ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/rang/all </h5>
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,json=header)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUT LES MOYENS DE TRANSPORT D'UN USER(transporteur) -->
+
+                            <!-- GET A RANG -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES MOYENS DE TRANSPORT D'UN USER(transporteur) ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER UN RANG ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/user/<user_id>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/rang/< rang_id>/retrieve
                                     </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
-                            <!--   RECUPERATION D'UN MOYEN DE TRANSPORT -->
+
+                            <!-- UPDATE A RANG -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION D'UN MOYEN DE TRANSPORT ==========##</button>
+                                        <button disabled class="btn documentation ">##============ MODIFIER UN RANG ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/< transport_id>/retrieve
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!--   RECUPERATION DE TOUT LES MOYEN DE TRANSPORT VALIDES D'UN USER(transporteur) -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES MOYEN DE TRANSPORT VALIDES D'UN USER(transporteur) ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/user/< user_id>/validated
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- SUPPRESSION D'UN MOYEN DE TRANSPORT -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ SUPPRESSION D'UN MOYEN DE TRANSPORT ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/< transport_id>/delete </h5>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,option = header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- UPDATE D'UN MOYEN DE TRANSPORT -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ UPDATE D'UN MOYEN DE TRANSPORT ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/transports/< transport_id>/update
-                                    </h5>
-                                    <p class="">
-                                    <ul>
+
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "champ1":"Champ 1 modifié", <br>
-                                                "champ2":"Champ 1 modifié",
+                                                "column1": "value1",<br>
+                                                "column2": "value2",<br>
+                                                "column3": "value3",<br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/rang/< rang_id>/update
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- DELETE A RANG -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ SUPPRIMER UN RANG ==========##</button>
+                                    </div>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjO0zZpxiOSBmpiTyom6a6EwuPzccmJ31eH5le4NLq-0i22qMv_GL3lQA", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-        
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.PATCH(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/rang/< rang_id>/delete
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,header)</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- ################ LES URLs RELATIFS AUX FRETS ############### -->
-                    <div class="bg-dark text-center mt-5">
-                        <h1 class="text-white">LES URLs RELATIFS AUX FRETS</h1>
+
+                    <!-- ################ TOUTES LES ROUTES RELATIVES AUX ACTIONS ############### -->
+                    <div class="bg-dark text-center my-5">
+                        <h1 class="text-white">TOUTES LES ROUTES RELATIVES AUX ACTIONS</h1>
                     </div>
                     <div class="row" id="documenation">
                         <div class="col-md-12">
-        
-                            <!-- AJOUT D'UN FRET  -->
-        
+
+                            <!-- AJOUT D'UNE ACTION -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ AJOUT D'UN FRET ==========##</button>
+                                        <button disabled class="btn documentation ">##============ AJOUT D'UNE ACTION ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/create </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/action/add </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "user_id":2,#L'ID de l'utilisateur <br>
-                                                "name":2,#L'ID du type de transport <br>
-                                                "nature": "13-06-199",#Année de fabrication <br>
-                                                "vol_or_quant": 5,#Quantité ou volume <br>
-                                                "gris_card": "13-06-2999","https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752" #L'URL de l'image stockée sur cloudinary <br>
-                                                "charg_destination": "Cotonou" <br>
-                                                "tech_visit": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752" #L'URL de l'image stockée sur cloudinary <br>
-                                                "assurance_card": "https://www.shutterstock.com/fr/image-photo/golden-swirl-artistic-design-painter-uses-1243121752"#L'URL de l'image stockée sur cloudinary
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
+                                                "name": "gogo", <br>
+                                                "description": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer", <br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUT LES FRETS -->
+
+                            <!-- GET ALL ACTIONS -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES FRETS ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER TOUTES LES ACTIONS ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/action/all </h5>
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,json=header)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUT LES FRETS D'UN USER(Expéditeur) -->
+
+                            <!-- GET AN ACTION -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES FRETS D'UN USER(Expéditeur) ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER UNE ACTION ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/user/< user_id>
+
+                                    <p class="">
+                                    <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/action/< action_id>/retrieve
                                     </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
-        
-                            <!--   RECUPERATION D'UN FRET -->
+
+                            <!-- UPDATE AN ACTION -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION D'UN FRET ==========##</button>
+                                        <button disabled class="btn documentation ">##============ MODIFIER UNE ACTION ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/< fret_id>/retrieve
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2N", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!--   RECUPERATION DE TOUT LES FRETS VALIDES D'UN USER(Expéditeur) -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUT LES FRETS VALIDES D'UN USER(Expéditeur) ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/user/< user_id>/validated
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzO", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- SUPPRESSION D'UN FRET -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ SUPPRESSION D'UN FRET ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/< fret_id>/delete </h5>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,option = header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- UPDATE D'UN FRET -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ UPDATE D'UN FRET ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/frets/< fret_id>/update
-                                    </h5>
-                                    <p class="">
-                                    <ul>
+
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "champ1":"Champ 1 modifié", <br>
-                                                "champ2":"Champ 1 modifié",
+                                                "column1": "value1",<br>
+                                                "column2": "value2",<br>
+                                                "column3": "value3",<br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/action/< action_id>/update
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
+                                </div>
+                            </div>
+
+                            <!-- DELETE AN ACTION -->
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button disabled class="btn documentation ">##============ SUPPRIMER UNE ACTION ==========##</button>
+                                    </div>
+
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjO0zZpxiOSBmpiTyom6a6EwuPzccmJ31eH5le4NLq-0i22qMv_GL3lQA", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-        
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.PATCH(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/action/< action_id>/delete
+                                    </h5>
+
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,header)</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- ################ LES URLs RELATIFS AUX NOTIFICATIONS ############### -->
-                    <div class="bg-dark text-center mt-5">
-                        <h1 class="text-white">LES URLs RELATIFS AUX NOTIFICATIONS</h1>
+
+                    <!-- ################ TOUTES LES ROUTES RELATIVES AUX RIGHTS ############### -->
+                    <div class="bg-dark text-center my-5">
+                        <h1 class="text-white">TOUTES LES ROUTES RELATIVES AUX RIGHTS</h1>
                     </div>
                     <div class="row" id="documenation">
                         <div class="col-md-12">
-        
-                            <!-- AJOUT D'UNE NOTIFICATION  -->
-        
+
+                            <!-- AJOUT D'UN RIGHTS -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ AJOUT D'UNE NOTIFICATION ==========##</button>
+                                        <button disabled class="btn documentation ">##============ AJOUT D'UN RIGHT ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications/create </h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/right/add </h5>
                                     <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
                                     <p class="">
                                     <ul>
+                                        <li>header =
+                                            <ul>
+                                                <li>{</li>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
+                                                "type": "text"
+                                                <li>}</li>
+                                            </ul>
+                                        </li>
                                         <li>data =
                                             <ul>
                                                 <li>{</li>
-                                                "sender_id":2,#L'ID de l'utilisateur qui envoie la notification <br>
-                                                "receiver_id":3#L'ID de l'utilisateur qui reçoit la notification <br>
-                                                "message":"Contenu du message"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
+                                                "label": "gogo", <br>
+                                                "action_id": 1, <br>
+                                                "profil_id": 1, <br>
+                                                "rang_id": 1, <br>
+                                                "rang_id": 1, <br>
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                     </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.POST(url,data,header)</h5>
                                 </div>
                             </div>
-        
-                            <!-- RECUPERATION DE TOUTE LES NOTIFICATIONS -->
+
+                            <!-- GET ALL RIGHTS -->
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUTE LES NOTIFICATIONS ==========##</button>
+                                        <button disabled class="btn documentation ">##============ RECUPERER TOUT LES RIGHTS ==========##</button>
                                     </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/right/all </h5>
                                     <p class="">
                                     <ul>
                                         <li>header =
                                             <ul>
                                                 <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
+                                                "key": "Authorization",<br>
+                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwY",<br>
                                                 "type": "text"
                                                 <li>}</li>
                                             </ul>
                                         </li>
                                     </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,json=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!-- RECUPERATION DE TOUTES LES NOTIFICATIONS REçU PAR UN USER -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION DE TOUTES LES NOTIFICATIONS REçU PAR UN USER ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications/< user_id>/retreive
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2NjZTEzN2U0OWNmNmUyYzVmNzZjMjIxMzBjMTdmNzg3Mm", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!--   RECUPERATION D'UNE NOTIFICATION -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ RECUPERATION D'UNE NOTIFICATION ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications/< user_id>/retreive
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzOTAxM2N", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-                            <!--   SUPPRESSION D'UNE NOTIFICATION -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ SUPPRESSION D'UNE NOTIFICATION ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications/< notification_id>/delete
-                                    </h5>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">DATA ::</strong></h5>
-                                    <p class="">
-        
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjQyODkzZWIwYzk1ZDAzO", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.DELETE(url,option=header)</h5>
-                                </div>
-                            </div>
-        
-        
-        
-                            <!-- UPDATE D'UNE NOTIFICATION -->
-                            <div class="row mt-5">
-                                <div class="col-md-12">
-                                    <div class="text-center">
-                                        <button disabled class="btn documentation ">##============ UPDATE D'UNE NOTIFICATION ==========##</button>
-                                    </div>
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">URL ::</strong> BASE_URL/api/v1/notifications/< notification_id>/update
-                                    </h5>
-                                    <p class="">
-                                    <ul>
-                                        <li>data =
-                                            <ul>
-                                                <li>{</li>
-                                                "champ1":"Champ 1 modifié", <br>
-                                                "champ2":"Champ 1 modifié",
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <p class="">
-                                    <ul>
-                                        <li>header =
-                                            <ul>
-                                                <li>{</li>
-                                                "key": "Authorization", <br>
-                                                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjO0zZpxiOSBmpiTyom6a6EwuPzccmJ31eH5le4NLq-0i22qMv_GL3lQA", <br>
-                                                "type": "text"
-                                                <li>}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-        
-                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.PATCH(url,option=header,json=data)</h5>
+                                    <h5 class="mt-5"> <strong class="bg-dark p-1 text-white ">EXEMPLE DE REQUEST::</strong> fetch.GET(url,header)</h5>
                                 </div>
                             </div>
                         </div>
