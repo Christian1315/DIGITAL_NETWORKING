@@ -1,8 +1,10 @@
 
-## POURQUOI FRIK SMS
+## POURQUOI JSP STORE
 
-FRIK SMS innove afin de garantir à ses clients 
-une visibilité optimale DE MARKETING par messagérie
+----------
+
+
+-------------
 
 ## Development Technology
 
@@ -13,8 +15,8 @@ une visibilité optimale DE MARKETING par messagérie
 
 Accéder au projet
 ```bash
-$ git clone https://github.com/joelppj/FrikSMS_Backend.git
-$ cd FrikSMS_Backend
+$ git clone git@github.com:joelppj/DigitalNetwork_API.git
+$ cd DigitalNetwork_API
 
 ```
 Installer les dépendances
@@ -38,7 +40,7 @@ Migration des data par defaut dans la DB
 
 ==== DB migration  ============
     Tapez::
-    ==> $ php artisan migrate --seed(pour migrer les factories par defaut)
+    $ php artisan migrate --seed(pour migrer les factories par defaut)
 
 ```
 Démarrer le serveur en développement
@@ -52,8 +54,7 @@ Acceder au Projet par :http://127.0.0.1:8000
 
 ## CONSOMMATION DE L'API & UTILISATION DES ROUTES
 
-Accéder à AGBANDE_API/DOCUMENTATION.txt POUR VOIR TOUTES LES ROUTES AINSI QUE LEURS MODES D'EMPLOI.
 
 ## TEST DE L'API
 
-Importer  FRIK SMS.postman_collection.json sur Postman puis passer au test de l'API
+Importer  NETWORKING.postman_collection.json sur Postman puis passer au test de l'API
