@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\Api\V1\ActionController;
+use App\Http\Controllers\Api\V1\AgencyController;
+use App\Http\Controllers\Api\V1\AgentController;
 use App\Http\Controllers\Api\V1\Authorization;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ProfilController;
 use App\Http\Controllers\Api\V1\RangController;
 use App\Http\Controllers\Api\V1\RightController;
+use App\Http\Controllers\Api\V1\MasterController;
+use App\Http\Controllers\Api\V1\PosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,6 +83,50 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveRight'); #RECUPERATION D'UN DROIT
             Route::any('{id}/delete', 'DeleteRight'); #SUPPRESSION D'UN DROIT
             Route::any('{id}/update', 'UpdateRight'); #MODIFICATION D'UN DROIT
+        });
+    });
+
+    ###========== AGENTS ROUTINGS ========###
+    Route::controller(AgentController::class)->group(function () {
+        Route::prefix('agent')->group(function () {
+            Route::any('add', 'AddAgent'); #AJOUT D'UN AGENT
+            Route::any('all', 'Agents'); #GET ALL AGENTS
+            Route::any('{id}/retrieve', 'RetrieveAgent'); #RECUPERATION D'UN AGENT
+            Route::any('{id}/delete', 'DeleteAgent'); #SUPPRESSION D'UN AGENT
+            Route::any('{id}/update', 'UpdateAgent'); #MODIFICATION D'UN AGENT
+        });
+    });
+
+    ###========== AGENCY ROUTINGS ========###
+    Route::controller(AgencyController::class)->group(function () {
+        Route::prefix('agency')->group(function () {
+            Route::any('add', 'AddAgency'); #AJOUT D'UN AGENCY
+            Route::any('all', 'Agencys'); #GET ALL AGENCYS
+            Route::any('{id}/retrieve', 'RetrieveAgency'); #RECUPERATION D'UN AGENCY
+            Route::any('{id}/delete', 'DeleteAgency'); #SUPPRESSION D'UN AGENCY
+            Route::any('{id}/update', 'UpdateAgency'); #MODIFICATION D'UN AGENCY
+        });
+    });
+
+    ###========== MASTERS ROUTINGS ========###
+    Route::controller(MasterController::class)->group(function () {
+        Route::prefix('master')->group(function () {
+            Route::any('add', 'AddMaster'); #AJOUT D'UN MASTER
+            Route::any('all', 'Masters'); #GET ALL MASTERS
+            Route::any('{id}/retrieve', 'RetrieveMaster'); #RECUPERATION D'UN MASTER
+            Route::any('{id}/delete', 'DeleteMaster'); #SUPPRESSION D'UN MASTER
+            Route::any('{id}/update', 'UpdateMaster'); #MODIFICATION D'UN MASTER
+        });
+    });
+
+    ###========== POS ROUTINGS ========###
+    Route::controller(PosController::class)->group(function () {
+        Route::prefix('pos')->group(function () {
+            Route::any('add', 'AddPos'); #AJOUT D'UN POS
+            Route::any('all', 'Poss'); #GET ALL POS
+            Route::any('{id}/retrieve', 'RetrievePos'); #RECUPERATION D'UN POS
+            Route::any('{id}/delete', 'DeletePos'); #SUPPRESSION D'UN POS
+            Route::any('{id}/update', 'UpdatePos'); #MODIFICATION D'UN POS
         });
     });
 });

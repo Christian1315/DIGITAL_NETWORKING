@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         #======== CREATION DES ACTIONS PAR DEFAUT=========#
         $actions = [
             [
@@ -185,15 +185,145 @@ class DatabaseSeeder extends Seeder
         }
 
         #======== CREATION DES UTILISATEURS =========#
-        \App\Models\User::factory()->create([
-            'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
-            'phone' => "61765590",
-            "firstname"=> "Christian",
-            "lastname"=> "GOGO",
-            "country"=> "Bénin",
-            "complement"=>"L'admin de tout le système"
-        ]);
+        $users = [
+            [
+                'username' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
+                'phone' => "61765590",
+                "firstname" => "Christian",
+                "lastname" => "GOGO",
+                "country" => "Bénin",
+                "rang_id" => \App\Models\Rang::find(1),
+                "complement" => "L'admin 1 de tout le système"
+            ],
+
+            [
+                'username' => 'ppjjoel',
+                'email' => 'ppjjoel@gmail.com',
+                'password' => '$2y$10$ZT2msbcfYEUWGUucpnrHwekWMBDe1H0zGrvB.pzQGpepF8zoaGIMC', #ppjjoel
+                'phone' => "61765590",
+                "firstname" => "ppjjoel",
+                "lastname" => "ppjjoel",
+                "country" => "Bénin",
+                "rang_id" => \App\Models\Rang::find(1),
+                "complement" => "L'admin 2 de tout le système"
+            ],
+        ];
+
+        foreach ($users as $user) {
+            \App\Models\User::factory()->create($user);
+        }
+
+        #======== CREATION DES TYPES D'AGENT PAR DEFAUT =========#
+        $agentTypes = [
+            [
+                "name" => "AgentComMaster",
+                "description" => "Agent commercial d'un master",
+            ],
+            [
+                "name" => "AgentComDistributeur",
+                "description" => "Agent commercial d'un distributeur",
+            ],
+        ];
+        foreach ($agentTypes as $type) {
+            \App\Models\AgentType::factory()->create($type);
+        }
+
+        #======== CREATION DES TYPES D'AGENCE PAR DEFAUT =========#
+        $agencyTypes = [
+            [
+                "name" => "PARTNER",
+                "description" => "Partenaire",
+            ],
+            [
+                "name" => "POP",
+                "description" => "Point de présence",
+            ],
+        ];
+
+        foreach ($agencyTypes as $type) {
+            \App\Models\AgencyType::factory()->create($type);
+        }
+
+        #======== CREATION DES PIECES PAR DEFAUT =========#
+        $pieces = [
+            [
+                "name" => "CIN",
+                "description" => "Carte d'Identité Nationale - National Card ID",
+            ],
+            [
+                "name" => "LEPI",
+                "description" => "Carte de la Liste Eletorale Permanente Informatisé...",
+            ],
+            [
+                "name" => "Passeport",
+                "description" => "Passeport",
+            ],
+        ];
+
+        foreach ($pieces as $piece) {
+            \App\Models\Piece::factory()->create($piece);
+        }
+
+        #======== CREATION DES DOMAINES D'ACTIVITE  PAR DEFAUT =========#
+        $domaines_activites = [
+            [
+                "libele" => "Agroalimentaire",
+            ],
+            [
+                "libele" => "Banque / Assurance",
+            ],
+            [
+                "libele" => "Bois / Papier / Carton / Imprimerie",
+            ],
+
+            [
+                "libele" => "BTP / Matériaux de construction",
+            ],
+            [
+                "libele" => "Chimie / Parachimie  Commerce / Négoce / Distribut.",
+            ],
+            [
+                "libele" => "Édition / Communication / Multimédia",
+            ],
+            [
+                "libele" => "Électronique / Électricité",
+            ],
+
+
+
+            [
+                "libele" => "Études et conseils",
+            ],
+            [
+                "libele" => "Industrie pharmaceutique",
+            ],
+            [
+                "libele" => "Informatique / Télécoms",
+            ],
+            [
+                "libele" => "Machines et équipements / Automobile",
+            ],
+            [
+                "libele" => "Métallurgie / Travail du métal",
+            ],
+            [
+                "libele" => "Plastique / Caoutchouc",
+            ],
+            [
+                "libele" => "Services aux entreprises",
+            ],
+            [
+                "libele" => "Textile / Habillement / Chaussure",
+            ],
+            [
+                "libele" => "Transports / Logistique",
+            ],
+        ];
+
+        foreach ($domaines_activites as $domaines_activite) {
+            \App\Models\ActivityDomain::factory()->create($domaines_activite);
+        }
     }
 }

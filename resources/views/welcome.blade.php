@@ -50,6 +50,8 @@
                 <h1 class="title">Soyez les bienvenu sur l'API de JNP STORE</h1>
                 <p class="text-dark">Pour commencer,veuillez jetter un oeil sur la documentation pour avoir une vision plus claire de l'implementation des différentes routes!</p>
                 <a href="/documentation" class="btn documentation">Voir la documentation</a>
+
+                <!-- <img src="{{asset('pieces/logo (2).png')}}" alt="" srcset=""> -->
             </div>
         </div>
 

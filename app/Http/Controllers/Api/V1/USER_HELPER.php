@@ -25,7 +25,7 @@ class USER_HELPER extends BASE_HELPER
             'firstname' => ['required'],
             'lastname' => ['required'],
             'rang_id' => ['required'],
-            'parent_id' => ['required'],
+            // 'parent_id' => ['required'],
         ];
     }
 
@@ -42,7 +42,6 @@ class USER_HELPER extends BASE_HELPER
             'firstname.required' => 'Le champ firstname est réquis!',
             'lastname.required' => 'Le champ lastname est réquis!',
             'rang_id.required' => 'Le champ rang_id est réquis!',
-            'parent_id.required' => 'Le champ parent_id est réquis!',
         ];
     }
 
@@ -57,23 +56,19 @@ class USER_HELPER extends BASE_HELPER
 
     static function createUser($formData)
     {
+        return request()->user()->id;
         $rang = Rang::where('id', $formData['rang_id'])->get();
         if (count($rang) == 0) {
             return self::sendError("Ce Rang n'existe pas!", 404);
         }
 
-        $user_parent = User::where('id', $formData['parent_id'])->get();
-        if (count($user_parent) == 0) {
-            return self::sendError("Ce parent n'existe pas!", 404);
-        }
-
         $formData['password'] = Hash::make($formData['password']); #Hashing du password
+        $formData['parent_id'] = request()->user()->id; #Recuperation de l'ID du parent
 
         $user = User::create($formData); #ENREGISTREMENT DU USER DANS LA DB
         $user['rang'] = $user->rang();
         $user['profil'] = $user->profil();
         $user['rights'] = $user->rights;
-
 
         return self::sendResponse($user, 'User crée avec succès!!');
     }

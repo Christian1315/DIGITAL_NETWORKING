@@ -23,9 +23,9 @@ return new class extends Migration
             $table->text('profile_picture')->nullable();
 
             $table->integer('parent_id')->nullable();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('country');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('country')->nullable();
             $table->string('complement')->nullable();
             $table->boolean('visible')->default(true);
 
