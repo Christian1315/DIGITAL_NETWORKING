@@ -16,11 +16,15 @@ class Pos extends Model
         "phone"
     ];
 
+    public function master():BelongsTo
+    {
+        return $this->belongsTo(Master::class,'master_id');
+    }
 
-    // #ONE TO ONE RELATIONSHIP/INVERSE(UN MASTER NE S'ENREGISTRE QU'AU NOM D'UN SEUL USER)
-    // public function user():BelongsTo
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+
+    public function owner():BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 
 }

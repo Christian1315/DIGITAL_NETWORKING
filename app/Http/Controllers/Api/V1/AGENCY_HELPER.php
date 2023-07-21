@@ -85,15 +85,52 @@ class AGENCY_HELPER extends BASE_HELPER
             return self::sendError("Cet utilisateur existe déjà!", 404);
         }
 
+        $user = User::where("phone", $formData['phone'])->get();
+        if (count($user) != 0) {
+            return self::sendError("Un compte existe déjà au nom de ce identifiant!", 404);
+        }
+        $user = User::where("email", $formData['email'])->get();
+        if (count($user) != 0) {
+            return self::sendError("Un compte existe déjà au nom de ce identifiant!!", 404);
+        }
+
+
         $userData = [
             "username" => $number,
             "phone" => $formData['phone'],
             "email" => $formData['email'],
             "password" => $number,
+            "profil_id" => 5, #UNE AGENCE
+            "rang_id" => 2, #UN MODERATEUR
         ];
         $user = User::create($userData);
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
+
+
+        $master =  request()->user()->master;
+        $agencyData = [
+            "number" => $formData['number'],
+            "name" => $formData['name'],
+            "ifu" => $formData['ifu'],
+            "ifu_file" => $formData['ifu_file'],
+            "rccm" => $formData['rccm'],
+            "rccm_file" => $formData['rccm_file'],
+            "country" => $formData['country'],
+            "commune" => $formData['commune'],
+            "phone" => $formData['phone'],
+            "email" => $formData['email'],
+            "numero_piece" => $formData['numero_piece'],
+            "piece_file" => $formData['piece_file'],
+            "photo" => $formData['photo'],
+            "comment" => $formData['comment'],
+            "comment" => $formData['comment'],
+            "domaine_activite" => $formData['domaine_activite'],
+            "type_piece" => $formData['type_piece'],
+            "user_id" => $formData['user_id'],
+            "master_id" => $master->id,
+            "type_id" => $formData['type_id'],
+        ];
 
         #SON ENREGISTREMENT EN TANT QU'UNE AGENCE
         ##GESTION DES FICHIERS
@@ -115,45 +152,56 @@ class AGENCY_HELPER extends BASE_HELPER
         $request->file('photo')->move("pieces", $photo_name);
 
         //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE **MASTERS**
-        $formData["ifu_file"] = asset("pieces/" . $ifu_name);
-        $formData["rccm_file"] = asset("pieces/" . $rccm_name);
-        $formData["piece_file"] = asset("pieces/" . $piece_name);
-        $formData["photo"] = asset("pieces/" . $photo_name);
+        $agencyData["ifu_file"] = asset("pieces/" . $ifu_name);
+        $agencyData["rccm_file"] = asset("pieces/" . $rccm_name);
+        $agencyData["piece_file"] = asset("pieces/" . $piece_name);
+        $agencyData["photo"] = asset("pieces/" . $photo_name);
 
 
-        $agency = Agency::create($formData); #ENREGISTREMENT DE L'AGENCE DANS LA DB
+        $agency = Agency::create($agencyData); #ENREGISTREMENT DE L'AGENCE DANS LA DB
+        $agency['owner'] = request()->user()->id;
+        $agency->save();
         $agency['domaine_activite'] = $domaine_activite;
         return self::sendResponse($agency, 'Agence crée avec succès!!');
     }
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master"])->orderBy('id', 'desc')->get();
+        $Agencys =  Agency::with(["master", "owner"])->where(['owner' => request()->user()->id])->get();
         return self::sendResponse($Agencys, 'Tout les Agences récupérés avec succès!!');
     }
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["master"])->where('id', $id)->get();
+        $agency = Agency::with(["master", "owner"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($agency->count() == 0) {
-            return self::sendError("Cette Agence n'existe pas!", 404);
+            return self::sendResponse($agency, "Master recupere avec succès!!");
         }
 
+        $agency = $agency[0];
+        $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
+        $rang = $user->rang;
+        $profil = $user->profil;
+        // return $rang;
+        #renvoie des droits du user 
+        $agency['rights'] = User_Rights($rang->id, $profil->id);
+        // return $agency;
         $parent = request()->user();
-        $piece = Piece::find($agency[0]->type_piece);
+        $piece = Piece::find($agency->type_piece);
         $agency['parent'] = $parent;
         $agency['piece'] = $piece;
+
 
         return self::sendResponse($agency, "Agence récupéré avec succès:!!");
     }
 
     static function _updateAgent($formData, $id)
     {
-        $AGENCY = Agency::with(['users', "rights"])->where('id', $id)->get();
+        $AGENCY = Agency::with(['master', "owner"])->where('id', $id)->get();
         if (count($AGENCY) == 0) {
             return self::sendError("Ce AGENCY n'existe pas!", 404);
         };
-        $AGENCY = Agency::with(['users', "rights"])->find($id);
+        $AGENCY = Agency::with(['master', "owner"])->find($id);
         $AGENCY->update($formData);
         return self::sendResponse($AGENCY, 'Ce AGENCY a été modifié avec succès!');
     }
@@ -164,7 +212,7 @@ class AGENCY_HELPER extends BASE_HELPER
         if (count($AGENCY) == 0) {
             return self::sendError("Ce AGENCY n'existe pas!", 404);
         };
-        $AGENCY = Agency::with(['users', "rights"])->find($id);
+        $AGENCY = Agency::with(['master', "owner"])->find($id);
         $AGENCY->delete();
         return self::sendResponse($AGENCY, 'Ce AGENCY a été supprimé avec succès!');
     }

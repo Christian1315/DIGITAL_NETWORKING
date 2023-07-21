@@ -34,6 +34,16 @@ class Agency extends Model
     #ONE TO MANY RELATIONSHIP/INVERSE(UN MASTER PEUT CREER PLUSIEURS AGENCES)
     public function master(): BelongsTo
     {
-        return $this->belongsTo(Master::class);
+        return $this->belongsTo(Master::class,'master_id');
+    }
+
+    public function owner(): BelongsTo
+    {
+        return $this->belongsTo(Agency::class,"owner");
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

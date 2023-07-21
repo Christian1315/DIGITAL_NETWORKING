@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('description')->nullable();
 
             $table->integer("domaine_activite");
-                
+
             $table->foreignId("type_piece")
                 ->nullable()
                 ->constrained('pieces', 'id')
@@ -37,6 +37,12 @@ return new class extends Migration
             #il est d'abord enregistré comme un user avant d'etre enregistrer dans la db en tant qu'un master
 
             $table->foreignId("user_id")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("owner")
                 ->nullable()
                 ->constrained('users', 'id')
                 ->onUpdate("CASCADE")

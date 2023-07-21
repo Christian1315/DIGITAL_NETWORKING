@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\ActivityDomain;
 use App\Models\Master;
 use App\Models\Piece;
+use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -22,7 +23,7 @@ class MASTER_HELPER extends BASE_HELPER
             "rccm_file" => ['required'],
             "country" => ['required'],
             "commune" => ['required'],
-            "domaine_activite" => ['required','integer'],
+            "domaine_activite" => ['required', 'integer'],
             "type_piece" => ['required', 'integer'],
             "numero_piece" => ['required'],
             "phone" => ['required', Rule::unique("users")],
@@ -60,11 +61,18 @@ class MASTER_HELPER extends BASE_HELPER
         $label = "MAS";
 
         $number =  Admin_Add_Number($user, $label); ##Get_Number est un helper qui genère le **number** 
-
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
         if (count($user) != 0) {
-            return self::sendError("Cet utilisateur existe déjà!", 404);
+            return self::sendError("Un compte existe déjà au nom de ce identifiant!", 404);
+        }
+        $user = User::where("phone", $formData['phone'])->get();
+        if (count($user) != 0) {
+            return self::sendError("Un compte existe déjà au nom de ce identifiant!", 404);
+        }
+        $user = User::where("email", $formData['email'])->get();
+        if (count($user) != 0) {
+            return self::sendError("Un compte existe déjà au nom de ce identifiant!!", 404);
         }
 
         $userData = [
@@ -72,7 +80,10 @@ class MASTER_HELPER extends BASE_HELPER
             "phone" => $formData['phone'],
             "email" => $formData['email'],
             "password" => $number,
+            "profil_id" => 6, #UN MASTER
+            "rang_id" => 2, #UN MODERATEUR
         ];
+
         $user = User::create($userData);
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
@@ -90,34 +101,52 @@ class MASTER_HELPER extends BASE_HELPER
         $request->file('rccm_file')->move("pieces", $rccm_name);
 
         //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE **MASTERS**
-        $formData["ifu_file"] = asset("pieces/".$ifu_name);
-        $formData["rccm_file"] = asset("pieces/".$rccm_name);
-        
+        $formData["ifu_file"] = asset("pieces/" . $ifu_name);
+        $formData["rccm_file"] = asset("pieces/" . $rccm_name);
+
+        if (Is_User_An_Admin(request()->user()->id)) {
+            $parentId = null; #S'il est un admin alors le master qu'on veut creer n'a pas de parent
+        } else {
+            $parent = request()->user(); #S'il n'est pas un admin alors il est un master. Il est donc le parent du master qu'on cree
+            $parentId = $parent->master->id;
+        }
+
+        $formData['parent'] = $parentId;
+
         $Master = Master::create($formData); #ENREGISTREMENT DU MASTER DANS LA DB
+        $Master['owner'] = request()->user()->id;
+        $Master->save();
         $Master['domaine_activite'] = $domaine_activite;
         return self::sendResponse($Master, 'Master crée avec succès!!');
     }
 
     static function allMasters()
     {
-        $masters =  Master::with(["agents"])->orderBy('id', 'desc')->get();
+        $masters =  Master::with(["agents","parent","poss"])->where(['owner'=>request()->user()->id])->get();
         return self::sendResponse($masters, 'Tout les masters récupérés avec succès!!');
     }
 
     static function _retrieveMaster($id)
     {
-        $Master = Master::with(["agents"])->where('id', $id)->get();
-        // return $Master;
+        $Master = Master::with(["agents", "parent","poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($Master->count() == 0) {
-            return self::sendError("Ce Master n'existe pas!", 404);
+            return self::sendResponse($Master, "Master recupere avec succès!!");
         }
+
+        $master = $Master[0];
+        $user = $master->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
+        $rang = $user->rang;
+        $profil = $user->profil;
+
+        #renvoie des droits du user 
+        $master['rights'] = User_Rights($rang->id, $profil->id);
 
         $parent = request()->user();
         $piece = Piece::find($Master[0]->type_piece);
         $Master['parent'] = $parent;
         $Master['piece'] = $piece;
 
-        return self::sendResponse($Master, "Master récupéré avec succès:!!");
+        return self::sendResponse($master, "Master récupéré avec succès:!!");
     }
 
     static function _updateMaster($formData, $id)

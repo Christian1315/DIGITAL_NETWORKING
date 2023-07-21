@@ -17,7 +17,7 @@ class CheckMaster
     {
         if (!Is_User_A_Master(request()->user()->id)) {
             return response()->json([
-                'status'=>true,
+                'status'=>false,
                 "message"=>"Seuls les Masters sont autorisés à effectuer cette opération"
             ],404);
         }

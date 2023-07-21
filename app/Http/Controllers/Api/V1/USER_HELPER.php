@@ -196,10 +196,17 @@ class USER_HELPER extends BASE_HELPER
         if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
             $user = Auth::user();
             $token = $user->createToken('MyToken', ['api-access'])->accessToken;
-            $user['rang'] = $user->rang();
-            $user['profil'] = $user->profil();
+            $user['rang'] = $user->rang;
+            $user['profil'] = $user->profil;
             $user['rights'] = $user->rights;
             $user['token'] = $token;
+
+            #renvoie des droits du user 
+            if (Is_User_An_Admin($user->id)) { #s'il est un admin
+                $user['rights'] = All_Rights();
+            } else {
+                $user['rights'] = User_Rights($user->rang['id'], $user->profil['id']);
+            }
 
             #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
             return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
@@ -211,26 +218,33 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', 'rights'])->latest()->get();
+        $users =  User::with(['rang', 'profil'])->latest()->get();
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
     static function _updateUser($formData, $id)
     {
-        $user = User::with(['rang', 'profil', 'rights'])->where('id', $id)->get();
+        $user = User::with(['rang', 'profil'])->where('id', $id)->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
-        $user = User::with(['rang', 'profil', 'rights'])->find($id);
+        $user = User::with(['rang', 'profil'])->find($id);
         $user->update($formData);
         return self::sendResponse($user, 'Ce utilisateur a été modifié avec succès!');
     }
 
     static function retrieveUsers($id)
     {
-        $user = User::with(['rang', 'profil', 'rights'])->where('id', $id)->get();
+        $user = User::with(['rang', 'profil'])->where('id', $id)->get();
         if ($user->count() == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
+        }
+        $user = $user[0];
+        #renvoie des droits du user 
+        if (Is_User_An_Admin($user->id)) { #s'il est un admin
+            $user['rights'] = All_Rights();
+        } else {
+            $user['rights'] = User_Rights($user->rang->id, $user->profil->id);
         }
         return self::sendResponse($user, "Utilisateur récupéré(e) avec succès:!!");
     }

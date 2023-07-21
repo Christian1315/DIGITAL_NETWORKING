@@ -13,22 +13,23 @@ return new class extends Migration
     {
         Schema::create('rights', function (Blueprint $table) {
             $table->id();
-            $table->text("label");
+            $table->integer("module")->default(0);
 
-            $table->foreignId("profil_id")
-                ->constrained('profils', 'id')
+            $table->foreignId("action")
+                ->constrained('actions', 'id')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-
-            $table->foreignId("rang_id")
+            $table->foreignId("rang")
                 ->constrained('rangs', 'id')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            $table->foreignId("action_id")
-                ->constrained('actions', 'id')
+            $table->foreignId("profil")
+                ->constrained('profils', 'id')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table->text("description");
             $table->timestamps();
         });
     }

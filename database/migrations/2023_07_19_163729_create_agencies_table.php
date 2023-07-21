@@ -43,6 +43,12 @@ return new class extends Migration
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
+            $table->foreignId("owner")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
             $table->foreignId("master_id")
                 ->nullable()
                 ->constrained('masters', 'id')

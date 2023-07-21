@@ -25,6 +25,17 @@ class Agent extends Model
     #ONE TO MANY RELATIONSHIP/INVERSE(UN MASTER PEUT CREER PLUSIEURS AGENTS)
     public function master():BelongsTo
     {
-        return $this->belongsTo(Master::class,"agent_id");
+        return $this->belongsTo(Master::class,"master_id");
+    }
+
+    #LE USER CORRESPONDANT A CE AGENT
+    public function user():BelongsTo
+    {
+        return $this->belongsTo(User::class,"user_id");
+    }
+
+    public function owner():BelongsTo
+    {
+        return $this->belongsTo(User::class,"user_id");
     }
 }

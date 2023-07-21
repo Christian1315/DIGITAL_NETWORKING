@@ -17,12 +17,6 @@ return new class extends Migration
             $table->string("country");
             $table->string("phone");
 
-            $table->foreignId("agent_id")
-                ->nullable()
-                ->constrained('agents', 'id')
-                ->onUpdate("CASCADE")
-                ->onDelete("CASCADE");
-
             $table->foreignId("master_id")
                 ->nullable()
                 ->constrained('masters', 'id')
@@ -35,14 +29,10 @@ return new class extends Migration
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
-            $table->foreignId("agency_id")
-                ->nullable()
-                ->constrained('agencies', 'id')
-                ->onUpdate("CASCADE")
-                ->onDelete("CASCADE");
+            
             #Le POS est enregistrée aussi comme un user, comme cela se fait pour les masters également,users et autres
             #elle est d'abord enregistrée comme un user avant d'etre enregistrer dans la db en tant qu'une agence
-            $table->integer("user_id")
+            $table->foreignId("user_id")
                 ->nullable()
                 ->constrained('users', 'id')
                 ->onUpdate("CASCADE")
