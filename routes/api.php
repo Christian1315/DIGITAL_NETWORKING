@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\ActionController;
 use App\Http\Controllers\Api\V1\ActivityDomainController;
 use App\Http\Controllers\Api\V1\AgencyController;
+use App\Http\Controllers\Api\V1\AgencyTypeController;
 use App\Http\Controllers\Api\V1\AgentController;
 use App\Http\Controllers\Api\V1\AgentTypeController;
 use App\Http\Controllers\Api\V1\Authorization;
@@ -105,6 +106,14 @@ Route::prefix('v1')->group(function () {
         Route::prefix('agentType')->group(function () {
             Route::any('all', 'AgentTypes'); #RECUPERATION DE TOUT LES TYPES D'AGENT
             Route::any('{id}/retrieve', 'RetrieveAgentType'); #RECUPERATION D'UN TYPE D'AGENT
+        });
+    });
+
+    ###========== AGENCY TYPE ROUTINGS ========###
+    Route::controller(AgencyTypeController::class)->group(function () {
+        Route::prefix('agencyType')->group(function () {
+            Route::any('all', 'AgencyTypes'); #RECUPERATION DE TOUT LES TYPES D'AGENCE
+            Route::any('{id}/retrieve', 'RetrieveAgencyType'); #RECUPERATION D'UN TYPE D'AGENCE
         });
     });
 
