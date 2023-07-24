@@ -172,6 +172,8 @@ return [
 
         // Maatwebsite\Excel\ExcelServiceProvider::class
 
+        \FlexFlux\LaravelElasticEmail\LaravelElasticEmailServiceProvider::class,
+
     ])->toArray(),
 
     /*

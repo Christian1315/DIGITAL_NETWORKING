@@ -41,20 +41,19 @@ class RANG_HELPER extends BASE_HELPER
     {
         $rang = Rang::create($formData); #ENREGISTREMENT DU RANG DANS LA DB
         $rang['users']=$rang->users();
-        $rang['rights']=$rang->rights;
 
         return self::sendResponse($rang, 'Rang crée avec succès!!');
     }
 
     static function allRangs()
     {
-        $rangs =  Rang::with(['users','rights'])->latest()->get();
+        $rangs =  Rang::with(['users'])->latest()->get();
         return self::sendResponse($rangs, 'Tout les rangs récupérés avec succès!!');
     }
 
     static function _retrieveRang($id)
     {
-        $rang = Rang::with(['users','rights'])->where('id', $id)->get();
+        $rang = Rang::with(['users'])->where('id', $id)->get();
         if ($rang->count() == 0) {
             return self::sendError("Ce rang n'existe pas!", 404);
         }

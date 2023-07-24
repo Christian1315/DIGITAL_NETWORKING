@@ -4,30 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Right extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "label",
-        "profil_id",
-        "rang_id",
-        "action_id"
+        "module",
+        "profil",
+        "rang",
+        "action",
+        "description"
     ];
 
     #MANY TO MANY RELATIONSHIP(UN RIGHT PEUT APPARTENIR A PLUSIEURS RANGS)
-    function rangs():BelongsToMany{
-        return $this->belongsToMany(Rang::class,'rangs_rights',"right_id","rang_id");
+    function rang():BelongsTo{
+        return $this->belongsTo(Rang::class,'rang');
     }
 
-    #MANY TO MANY RELATIONSHIP(UN DROIT PEUT APPARTENIR A PLUISIEURS USERS)
-    function actions():BelongsToMany{
-        return $this->belongsToMany(User::class,'rights_users','right_id','user_id');
+    function action():BelongsTo{
+        return $this->belongsTo(Action::class,'action');
     }
 
     #MANY TO MANY RELATIONSHIP(UN DROIT PEUT APPARTENIR A PLUISIEURS PROFILS)
-    function profils():BelongsToMany{
-        return $this->belongsToMany(Profil::class,'profils_rights','right_id','profil_id');
+    function profil():BelongsTo{
+        return $this->belongsTo(Profil::class,'profil');
     }
 }

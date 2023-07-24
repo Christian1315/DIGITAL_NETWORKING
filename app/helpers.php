@@ -63,6 +63,6 @@ function User_Rights($rangId,$profilId){ #
 
 ##======== CE HELPER PERMET DE RECUPERER TOUTS LES DROITS PAR DEFAUT ==========## 
 function All_Rights(){ #
-    $rights = Right::all();
+    $rights = Right::with(["action","profil"])->get();
     return $rights;
 }

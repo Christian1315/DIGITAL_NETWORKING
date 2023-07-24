@@ -119,7 +119,7 @@ class AGENT_HELPER extends BASE_HELPER
     {
         $Agent_collec = Agent::with(['master',"owner"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($Agent_collec->count() == 0) {
-            return self::sendResponse($Agent_collec, "Master recupere avec succès!!");
+            return self::sendResponse($Agent_collec, "Agent recuperé avec succès!!");
         }
         $agent = $Agent_collec[0];
         $user = $agent->user;#RECUPERATION DU MASTER EN TANT QU'UN USER

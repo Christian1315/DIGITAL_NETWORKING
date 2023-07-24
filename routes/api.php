@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\Api\V1\ActionController;
+use App\Http\Controllers\Api\V1\ActivityDomainController;
 use App\Http\Controllers\Api\V1\AgencyController;
 use App\Http\Controllers\Api\V1\AgentController;
+use App\Http\Controllers\Api\V1\AgentTypeController;
 use App\Http\Controllers\Api\V1\Authorization;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ProfilController;
 use App\Http\Controllers\Api\V1\RangController;
 use App\Http\Controllers\Api\V1\RightController;
 use App\Http\Controllers\Api\V1\MasterController;
+use App\Http\Controllers\Api\V1\PieceController;
 use App\Http\Controllers\Api\V1\PosController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,16 +31,12 @@ Route::prefix('v1')->group(function () {
     ###========== USERs ROUTINGS ========###
     Route::controller(UserController::class)->group(function () {
         Route::prefix('user')->group(function () {
-            Route::any('register', 'Register');
             Route::any('login', 'Login');
             Route::middleware(['auth:api'])->get('logout', 'Logout');
             Route::any('all', 'Users');
             Route::any('{id}/retrieve', 'RetrieveUser');
             Route::any('{id}/update', 'UpdateUser');
             Route::any('{id}/delete', 'DeleteUser');
-            Route::any('/attach-profil', 'AttachUserToProfil'); #ATTACHER UN USER A UN PROFIL
-            Route::any('/attach-rang', 'AttachUserToRang');#ATTACHER UN USER A UN RANG
-            Route::any('/attach-right', 'AttachUserToRight');#ATTACHER UN USER A UN DROIT
         });
     });
     Route::any('authorization', [Authorization::class, 'Authorization'])->name('authorization');
@@ -82,7 +81,30 @@ Route::prefix('v1')->group(function () {
             Route::any('all', 'Rights'); #GET ALL RIGHTS
             Route::any('{id}/retrieve', 'RetrieveRight'); #RECUPERATION D'UN DROIT
             Route::any('{id}/delete', 'DeleteRight'); #SUPPRESSION D'UN DROIT
-            Route::any('{id}/update', 'UpdateRight'); #MODIFICATION D'UN DROIT
+        });
+    });
+
+    ###========== DOMAIN ACTIVITY ROUTINGS ========###
+    Route::controller(ActivityDomainController::class)->group(function () {
+        Route::prefix('activity')->group(function () {
+            Route::any('all', 'DomainActivities'); #RECUPERATION DE TOUT LES DOMAINES D'ACTIVITE
+            Route::any('{id}/retrieve', 'RetrieveDomainActivity'); #RECUPERATION D'UN DOMAIN D'ACTIVITE
+        });
+    });
+
+    ###========== PIECE ROUTINGS ========###
+    Route::controller(PieceController::class)->group(function () {
+        Route::prefix('pieces')->group(function () {
+            Route::any('all', 'Pieces'); #RECUPERATION DE TOUTES LES PIECES
+            Route::any('{id}/retrieve', 'RetrievePiece'); #RECUPERATION D'UNE PIECE
+        });
+    });
+
+    ###========== AGENT TYPE ROUTINGS ========###
+    Route::controller(AgentTypeController::class)->group(function () {
+        Route::prefix('agentType')->group(function () {
+            Route::any('all', 'AgentTypes'); #RECUPERATION DE TOUT LES TYPES D'AGENT
+            Route::any('{id}/retrieve', 'RetrieveAgentType'); #RECUPERATION D'UN TYPE D'AGENT
         });
     });
 

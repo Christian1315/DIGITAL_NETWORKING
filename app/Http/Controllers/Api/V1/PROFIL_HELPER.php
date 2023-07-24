@@ -43,13 +43,13 @@ class PROFIL_HELPER extends BASE_HELPER
 
     static function allProfils()
     {
-        $profils =  Profil::with(['users',"rights"])->orderBy('id','desc')->get();
+        $profils =  Profil::with(['users'])->orderBy('id','desc')->get();
         return self::sendResponse($profils, 'Tout les profils récupérés avec succès!!');
     }
 
     static function _retrieveProfil($id)
     {
-        $profil = Profil::with(['users',"rights"])->where('id', $id)->get();
+        $profil = Profil::with(['users'])->where('id', $id)->get();
         if ($profil->count() == 0) {
             return self::sendError("Ce profil n'existe pas!", 404);
         }
@@ -58,11 +58,11 @@ class PROFIL_HELPER extends BASE_HELPER
 
     static function _updateProfil($formData,$id)
     {
-        $profil = Profil::with(['users',"rights"])->where('id',$id)->get();
+        $profil = Profil::with(['users'])->where('id',$id)->get();
         if (count($profil) == 0) {
             return self::sendError("Ce profil n'existe pas!", 404);
         };
-        $profil = Profil::with(['users',"rights"])->find($id);
+        $profil = Profil::with(['users'])->find($id);
         $profil->update($formData);
         return self::sendResponse($profil, 'Ce profil a été modifié avec succès!');
     }
@@ -73,7 +73,7 @@ class PROFIL_HELPER extends BASE_HELPER
         if (count($profil) == 0) {
             return self::sendError("Ce profil n'existe pas!", 404);
         };
-        $profil = Profil::with(['users',"rights"])->find($id);
+        $profil = Profil::with(['users'])->find($id);
         $profil->delete();
         return self::sendResponse($profil, 'Ce profil a été supprimé avec succès!');
     }

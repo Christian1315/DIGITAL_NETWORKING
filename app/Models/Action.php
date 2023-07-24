@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Action extends Model
 {
@@ -17,7 +18,7 @@ class Action extends Model
     ];
 
     #MANY TO MANY RELATIONSHIP(UNE ACTION PEUT APPARTENIR A PLUISIEURS DROITS)
-    function rights():BelongsToMany{
-        return $this->belongsToMany(Right::class,'actions_rights','action_id','right_id');
+    function rights():HasMany{
+        return $this->hasMany(Right::class,'action',);
     }
 }

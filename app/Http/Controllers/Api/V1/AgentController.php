@@ -48,7 +48,7 @@ class AgentController extends AGENT_HELPER
     }
 
     #GET A Agent
-    function RetrieveAgent(Request $request,$id)
+    function RetrieveAgent(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
@@ -70,7 +70,7 @@ class AgentController extends AGENT_HELPER
         };
 
         #RECUPERATION D'UN Agent VIA SON **id**
-        return $this->_updateAgent($request->all(),$id);
+        return $this->_updateAgent($request->all(), $id);
     }
 
     function DeleteAgent(Request $request, $id)

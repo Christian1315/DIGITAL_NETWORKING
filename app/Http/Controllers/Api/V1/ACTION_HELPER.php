@@ -39,7 +39,6 @@ class ACTION_HELPER extends BASE_HELPER
     static function _createAction($formData)
     {
         $action = Action::create($formData); #ENREGISTREMENT DE L'ACTION DANS LA DB
-        $action['rights']=$action->rights;
         return self::sendResponse($action, 'Action crée avec succès!!');
     }
 

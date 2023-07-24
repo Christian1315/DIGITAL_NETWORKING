@@ -57,20 +57,7 @@ class RightController extends RIGHTS_HELPER
         #RECUPERATION DU RIGHT
         return $this->_retrieveRight($id);
     }
-
-    #MODIFIER UN RIGHT
-    function UpdateRight(Request $request, $id)
-    {
-        #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR USER_HELPER
-            return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
-        };
-
-        #UPDATE D'UN RANG VIA SON **id**
-        return $this->_updateRight($request->all(), $id);
-    }
-
+    
     function DeleteRight(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
