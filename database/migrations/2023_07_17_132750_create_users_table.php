@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('lastname')->nullable();
             $table->string('country')->nullable();
             $table->string('complement')->nullable();
-            $table->boolean('visible')->default(true);
 
             $table->foreignId("rang_id")
                 ->nullable()
@@ -40,6 +39,9 @@ return new class extends Migration
                 ->constrained('profils', 'id')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
 
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

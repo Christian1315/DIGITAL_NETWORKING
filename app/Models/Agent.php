@@ -34,6 +34,11 @@ class Agent extends Model
         return $this->belongsTo(User::class,"user_id");
     }
 
+    public function agency():BelongsTo
+    {
+        return $this->belongsTo(Agency::class,"agency_id");
+    }
+
     public function owner():BelongsTo
     {
         return $this->belongsTo(User::class,"user_id");

@@ -68,4 +68,6 @@ class RightController extends RIGHTS_HELPER
 
         return $this->rightDelete($id);
     }
+
+    
 }

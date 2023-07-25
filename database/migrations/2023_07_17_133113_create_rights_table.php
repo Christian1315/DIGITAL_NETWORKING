@@ -19,7 +19,7 @@ return new class extends Migration
                 ->constrained('actions', 'id')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-                
+
             $table->foreignId("rang")
                 ->constrained('rangs', 'id')
                 ->onUpdate('CASCADE')
@@ -30,7 +30,13 @@ return new class extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            $table->text("description"); 
+            $table->foreignId("user_id")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+
+            $table->text("description");
             $table->timestamps();
         });
     }

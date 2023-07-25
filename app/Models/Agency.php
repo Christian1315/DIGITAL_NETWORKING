@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Agency extends Model
 {
@@ -39,11 +40,23 @@ class Agency extends Model
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(Agency::class,"owner");
+        return $this->belongsTo(Master::class,"owner");
     }
+
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
+    public function agents(): HasMany
+    {
+        return $this->hasMany(Agent::class);
+    }
+
+    public function poss(): HasMany
+    {
+        return $this->hasMany(Pos::class,"owner");
+    }
+
 }

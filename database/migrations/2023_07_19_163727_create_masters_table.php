@@ -54,6 +54,15 @@ return new class extends Migration
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
+            $table->foreignId("admin")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
+
             $table->timestamps();
         });
     }

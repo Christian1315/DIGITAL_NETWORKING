@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckMaster
+class CheckMasterOrAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class CheckMaster
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Is_User_A_Master(request()->user()->id)) {
+        if (!Is_User_A_Master_Or_Admin(request()->user()->id)) {
             return response()->json([
                 'status'=>false,
-                "message"=>"Seuls les Masters sont autorisés à effectuer cette opération"
+                "message"=>"Seuls les Masters et les Admis sont autorisés à effectuer cette opération"
             ],404);
         }
         return $next($request);

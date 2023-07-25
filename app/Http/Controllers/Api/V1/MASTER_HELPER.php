@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\ActivityDomain;
 use App\Models\Master;
 use App\Models\Piece;
-use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -58,9 +57,9 @@ class MASTER_HELPER extends BASE_HELPER
         }
 
         $user = request()->user();
-        $label = "MAS";
+        $type = "MAST";
 
-        $number =  Admin_Add_Number($user, $label); ##Get_Number est un helper qui genère le **number** 
+        $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
         if (count($user) != 0) {
@@ -104,17 +103,22 @@ class MASTER_HELPER extends BASE_HELPER
         $formData["ifu_file"] = asset("pieces/" . $ifu_name);
         $formData["rccm_file"] = asset("pieces/" . $rccm_name);
 
-        if (Is_User_An_Admin(request()->user()->id)) {
+        $userId = request()->user()->id;
+
+        if (Is_User_An_Admin($userId)) {
             $parentId = null; #S'il est un admin alors le master qu'on veut creer n'a pas de parent
+            $admin = $userId; #L'admin
         } else {
             $parent = request()->user(); #S'il n'est pas un admin alors il est un master. Il est donc le parent du master qu'on cree
             $parentId = $parent->master->id;
+            $admin = null;
         }
 
         $formData['parent'] = $parentId;
 
         $Master = Master::create($formData); #ENREGISTREMENT DU MASTER DANS LA DB
-        $Master['owner'] = request()->user()->id;
+        $Master['owner'] = $userId;
+        $Master['admin'] = $admin;
         $Master->save();
         $Master['domaine_activite'] = $domaine_activite;
         return self::sendResponse($Master, 'Master crée avec succès!!');
@@ -122,13 +126,14 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function allMasters()
     {
-        $masters =  Master::with(["agents","parent","poss"])->where(['owner'=>request()->user()->id])->get();
+        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->get();
+        
         return self::sendResponse($masters, 'Tout les masters récupérés avec succès!!');
     }
 
     static function _retrieveMaster($id)
     {
-        $Master = Master::with(["agents", "parent","poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $Master = Master::with(["agents", "parent", "poss"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if ($Master->count() == 0) {
             return self::sendResponse($Master, "Master recupere avec succès!!");
         }
@@ -139,7 +144,13 @@ class MASTER_HELPER extends BASE_HELPER
         $profil = $user->profil;
 
         #renvoie des droits du user 
-        $master['rights'] = User_Rights($rang->id, $profil->id);
+        $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
+
+        if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
+            $master['rights'] = User_Rights($rang->id, $profil->id);
+        } else {
+            $master['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
+        }
 
         $parent = request()->user();
         $piece = Piece::find($Master[0]->type_piece);
@@ -151,7 +162,7 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function _updateMaster($formData, $id)
     {
-        $Master = Master::where('id', $id)->get();
+        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
         if (count($Master) == 0) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };
@@ -162,12 +173,15 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function masterDelete($id)
     {
-        $Master = Master::where('id', $id)->get();
+        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
         if (count($Master) == 0) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };
+
         $Master = Master::find($id);
-        $Master->delete();
+        $Master->delete_at = now();
+        $Master->visible = false;
+        $Master->save();
         return self::sendResponse($Master, 'Ce Master a été supprimé avec succès!');
     }
 }

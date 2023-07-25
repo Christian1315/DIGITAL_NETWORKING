@@ -36,8 +36,9 @@ class POS_HELPER extends BASE_HELPER
         #SON ENREGISTREMENT EN TANT QU'UN USER
 
         $user = request()->user();
-        $label = "POS";
-        $number =  Master_Add_Number($user, $label); ##Get_Number est un helper qui genère le **number**
+        $type = "POS";
+
+        $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
 
         $userData = [
             "username" => $number,
@@ -60,62 +61,86 @@ class POS_HELPER extends BASE_HELPER
         $user = User::create($userData);
         $formData['user_id'] = $user['id'];
         $current_user = request()->user();
-        $master =  $current_user->master;
+        // $master =  $current_user->master;
         // return $master;
         $posData = [
             "username" => $number,
             "country" => $formData['country'],
             "phone" => $formData['phone'],
-            "user_id" => $formData['user_id'], 
-            "master_id" => $master->id, 
-            "owner" => $current_user->id, 
+            "user_id" => $formData['user_id'],
+            // "master_id" => $master->id, 
+            "owner" => $current_user->id,
         ];
         // return $posData;
         #============= SON ENREGISTREMENT EN TANT QU'UN Pos ==========#
         $Pos = Pos::create($posData); #ENREGISTREMENT DU Pos DANS LA DB
         $Pos->user_id = $formData['user_id'];
-        $Pos->master_id = $master->id;
+        // $Pos->master_id = $master->id;
         $Pos->owner = $current_user->id;
-        $Pos->save();
 
-        
+        // if (Is_User_An_Agency_Or_Admin($user->id)) { #Si c'est pas un master
+        //     $agency['master_id'] = request()->user()->master;
+        // } else {
+        //     $agency['admin'] = request()->user()->id;
+        // }
+        $Pos->save();
         return self::sendResponse($Pos, 'Pos crée avec succès!!');
     }
 
     static function allPoss()
     {
-        $Pos =  Pos::with(["master","owner"])->where('owner',request()->user()->id)->get();
+        $Pos =  Pos::with(["admin", "owner"])->where(['owner' => request()->user()->id, 'visible' => 1])->get();
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
 
     static function _retrievePos($id)
     {
-        $pos = Pos::with(['master',"owner"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $pos = Pos::with(['admin', "owner"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if ($pos->count() == 0) {
-            return self::sendResponse($pos, "Pos recupere avec succès!!");
+            return self::sendError("Ce Pos n'existe pas", 404);
         }
+
+        $pos = Pos::find($id);
+        #renvoie des droits du user 
+        $user =  $pos->user;
+        $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
+        // return $attached_rights;
+
+        if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
+            if (Is_User_An_Admin($user->id)) { #s'il est un admin
+                $pos['rights'] = All_Rights();
+            } else {
+                $pos['rights'] = User_Rights($user->rang['id'], $user->profil['id']);
+            }
+        } else {
+            $pos['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
+        }
+
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
     }
 
-    static function _updateMaster($formData, $id)
+    static function _updatePos($formData, $id)
     {
-        $Master = Master::where('id', $id)->get();
-        if (count($Master) == 0) {
-            return self::sendError("Ce Master n'existe pas!", 404);
+        $Pos = Pos::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+        if (count($Pos) == 0) {
+            return self::sendError("Ce Pos n'existe pas!", 404);
         };
-        $Master = Master::find($id);
-        $Master->update($formData);
-        return self::sendResponse($Master, 'Ce Master a été modifié avec succès!');
+        $Pos = Pos::find($id);
+        $Pos->update($formData);
+        return self::sendResponse($Pos, 'Ce Pos a été modifié avec succès!');
     }
 
-    static function masterDelete($id)
+    static function posDelete($id)
     {
-        $Master = Master::where('id', $id)->get();
-        if (count($Master) == 0) {
-            return self::sendError("Ce Master n'existe pas!", 404);
+        $Pos = Pos::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
+        if (count($Pos) == 0) {
+            return self::sendError("Ce Pos n'existe pas!", 404);
         };
-        $Master = Master::find($id);
-        $Master->delete();
-        return self::sendResponse($Master, 'Ce Master a été supprimé avec succès!');
+
+        $Pos = Pos::find($id);
+        $Pos->delete_at = now();
+        $Pos->visible = false;
+        $Pos->save();
+        return self::sendResponse($Pos, 'Ce Pos a été supprimé avec succès!');
     }
 }

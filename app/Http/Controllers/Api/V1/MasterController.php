@@ -10,6 +10,7 @@ class MasterController extends MASTER_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
+        $this->middleware('checkMasterOrAdmin');
     }
 
     #AJOUT DU MASTER

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\AgentType;
 use App\Models\User;
@@ -48,8 +49,9 @@ class AGENT_HELPER extends BASE_HELPER
 
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $user = request()->user();
-        $label = "AGT";
-        $number =  Master_Add_Number($user, $label); ##Get_Number est un helper qui genère le **number**
+        $type = "AGT";
+
+        $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
 
         $agent_type = AgentType::where('id', $formData['type_id'])->get();
         if (count($agent_type) == 0) {
@@ -90,51 +92,65 @@ class AGENT_HELPER extends BASE_HELPER
         $formData['user_id'] = $create_user['id'];
         $formData['number'] = $number;
 
-        $master =  request()->user()->master;
+        $_user =  request()->user();
+        // return $_user;
         $agentData = [
             "firstname" => $formData['firstname'],
             "lastname" => $formData['lastname'],
             "phone" => $formData['phone'],
             "email" => $formData['email'],
-            "sexe" => $formData['sexe'], 
-            "type_id" => $formData['type_id'], 
-            "user_id" => $formData['user_id'], 
-            "number" => $formData['number'], 
-            "master_id" => $master->id, 
+            "sexe" => $formData['sexe'],
+            "type_id" => $formData['type_id'],
+            "user_id" => $formData['user_id'],
+            "number" => $formData['number'],
         ];
         #SON ENREGISTREMENT EN TANT QU'UN AGENT
         $Agent = Agent::create($agentData); #ENREGISTREMENT DU Agent DANS LA DB
         $Agent['owner'] = request()->user()->id;
+        if (Is_User_A_Master($_user->id)) { #Si c'est pas un master
+            $Agent['master_id'] = request()->user()->master;
+        } else {
+            $Agent['admin'] = request()->user()->id;
+        }
         $Agent->save();
+
         return self::sendResponse($Agent, 'Agent crée avec succès!!');
     }
 
     static function allAgents()
     {
-        $Agents =  Agent::with(["master","owner"])->where(['owner'=>request()->user()->id])->get();
+        $Agents =  Agent::with(["master", "owner","agency"])->where(['owner' => request()->user()->id,'visible'=>1])->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
     static function _retrieveAgent($id)
     {
-        $Agent_collec = Agent::with(['master',"owner"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $Agent_collec = Agent::with(['master', "owner"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
         if ($Agent_collec->count() == 0) {
-            return self::sendResponse($Agent_collec, "Agent recuperé avec succès!!");
+            return self::sendError("Ce Agent n'existe pas!", 404);
         }
         $agent = $Agent_collec[0];
-        $user = $agent->user;#RECUPERATION DU MASTER EN TANT QU'UN USER
+        $user = $agent->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
         $rang = $user->rang;
         $profil = $user->profil;
 
+        
         #renvoie des droits du user 
-        $agent['rights'] = User_Rights($rang->id, $profil->id);
+        $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
+        // return $attached_rights;
+
+        if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
+            $agent['rights'] = User_Rights($rang->id, $profil->id);
+        } else {
+            $agent['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
+        }
 
         return self::sendResponse($agent, "Agent récupéré avec succès:!!");
     }
 
     static function _updateAgent($formData, $id)
     {
-        $Agent = Agent::with(['master', "owner"])->where('id', $id)->get();
+        $Agent = Agent::with(['master', "owner"])->where(['id'=> $id,"owner"=>request()->id,"visible"=>1])->get();
         if (count($Agent) == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
@@ -145,12 +161,37 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function AgentDelete($id)
     {
-        $Agent = Agent::where('id', $id)->get();
+        $Agent = Agent::where(['id'=> $id,'owner' => request()->user()->id,'visible'=> true])->get();
         if (count($Agent) == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
-        $Agent = Agent::with(['master', "owner"])->find($id);
-        $Agent->delete();
+
+        $Agent = Agent::find($id);
+        $Agent->delete_at = now();
+        $Agent->visible = false;
+        $Agent->save();
         return self::sendResponse($Agent, 'Ce Agent a été supprimé avec succès!');
+    }
+
+    static function _AffectToAgency($formData)
+    {
+
+        $agent = Agent::where(['id'=>$formData['agent_id'],"visible"=>1])->get();
+        $agency = Agency::where(['id'=>$formData['agency_id'],"visible"=>1])->get();
+
+        if ($agent->count()==0) {
+            return  self::sendError("Ce Agent n'existe pas!!",404);
+        }
+
+        if ($agency->count()==0) {
+            return  self::sendError("Cette Agence n'existe pas!!",404);
+        }
+
+        $agent = Agent::find($formData["agent_id"]);
+        // return $agent;
+        $agent->agency_id = $formData["agency_id"]; 
+        $agent->save();
+
+        return self::sendResponse([],"Affectation effectuée avec succès!!");
     }
 }

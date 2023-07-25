@@ -80,4 +80,8 @@ class User extends Authenticatable
     function agents():HasMany{
         return $this->hasMany(Agent::class,"owner");
     }
+
+    function drts():HasMany{
+        return $this->hasMany(Right::class,"user_id");
+    }
 }

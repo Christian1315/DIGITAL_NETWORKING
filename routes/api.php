@@ -38,6 +38,8 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveUser');
             Route::any('{id}/update', 'UpdateUser');
             Route::any('{id}/delete', 'DeleteUser');
+            Route::any('attach-user', 'AttachRightToUser'); #Attacher un droit au user 
+            Route::any('desattach-user', 'DesAttachRightToUser'); #Attacher un droit au user 
         });
     });
     Route::any('authorization', [Authorization::class, 'Authorization'])->name('authorization');
@@ -123,6 +125,7 @@ Route::prefix('v1')->group(function () {
             Route::any('add', 'AddAgent'); #AJOUT D'UN AGENT
             Route::any('all', 'Agents'); #GET ALL AGENTS
             Route::any('{id}/retrieve', 'RetrieveAgent'); #RECUPERATION D'UN AGENT
+            Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
             Route::any('{id}/delete', 'DeleteAgent'); #SUPPRESSION D'UN AGENT
             Route::any('{id}/update', 'UpdateAgent'); #MODIFICATION D'UN AGENT
         });

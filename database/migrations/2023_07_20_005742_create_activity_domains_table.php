@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('activity_domains', function (Blueprint $table) {
             $table->id();
             $table->text("libele");
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
             $table->timestamps();
         });
     }

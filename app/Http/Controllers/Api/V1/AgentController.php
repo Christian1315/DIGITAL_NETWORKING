@@ -11,7 +11,7 @@ class AgentController extends AGENT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('checkMaster');
+        $this->middleware('checkMasterOrAdmin');
     }
 
     function AddAgent(Request $request)
@@ -82,5 +82,16 @@ class AgentController extends AGENT_HELPER
         };
 
         return $this->AgentDelete($id);
+    }
+
+    function AffectToAgency(Request $request)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
+            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        return $this->_AffectToAgency($request);
     }
 }

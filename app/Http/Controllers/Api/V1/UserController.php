@@ -94,7 +94,7 @@ class UserController extends USER_HELPER
         return $this->userDelete($id);
     }
 
-    function AttachUserToProfil(Request $request)
+    function AttachRightToUser(Request $request)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
@@ -103,45 +103,7 @@ class UserController extends USER_HELPER
         };
 
         #VALIDATION DES DATAs DEPUIS LA CLASS USER_HELPER
-        $validator = $this->Attach_Profil_Validator($request->all());
-
-        if ($validator->fails()) {
-            #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
-            return $this->sendError($validator->errors(), 404);
-        }
-
-        return $this->profilAttach($request->all());
-    }
-
-    function AttachUserToRang(Request $request)
-    {
-        #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_HELPER
-            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
-        };
-
-        #VALIDATION DES DATAs DEPUIS LA CLASS USER_HELPER
-        $validator = $this->Attach_Rang_Validator($request->all());
-
-        if ($validator->fails()) {
-            #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
-            return $this->sendError($validator->errors(), 404);
-        }
-
-        return $this->rangAttach($request->all());
-    }
-
-    function AttachUserToRight(Request $request)
-    {
-        #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_HELPER
-            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
-        };
-
-        #VALIDATION DES DATAs DEPUIS LA CLASS USER_HELPER
-        $validator = $this->Attach_Right_Validator($request->all());
+        $validator = $this->ATTACH_Validator($request->all());
 
         if ($validator->fails()) {
             #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
@@ -149,5 +111,24 @@ class UserController extends USER_HELPER
         }
 
         return $this->rightAttach($request->all());
+    }
+
+    function DesAttachRightToUser(Request $request)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_HELPER
+            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        #VALIDATION DES DATAs DEPUIS LA CLASS USER_HELPER
+        $validator = $this->ATTACH_Validator($request->all());
+
+        if ($validator->fails()) {
+            #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
+            return $this->sendError($validator->errors(), 404);
+        }
+
+        return $this->rightDesAttach($request->all());
     }
 }

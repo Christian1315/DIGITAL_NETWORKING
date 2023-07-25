@@ -10,7 +10,9 @@ class PosController extends POS_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('checkMaster');
+        $this->middleware('CheckAgency');
+        // $this->middleware('checkAgencyOrAdmin');
+
     }
 
     function AddPos(Request $request)
@@ -80,6 +82,6 @@ class PosController extends POS_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        return $this->PosDelete($id);
+        return $this->posDelete($id);
     }
 }
