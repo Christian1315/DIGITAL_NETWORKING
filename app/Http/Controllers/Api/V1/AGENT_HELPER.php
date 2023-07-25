@@ -88,6 +88,8 @@ class AGENT_HELPER extends BASE_HELPER
         }
 
         $create_user = User::create($userData); #ENREGISTREMENT
+        $create_user->pass_default = $number;
+        $create_user->save();
 
         $formData['user_id'] = $create_user['id'];
         $formData['number'] = $number;

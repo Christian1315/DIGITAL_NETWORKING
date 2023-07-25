@@ -79,11 +79,14 @@ class MASTER_HELPER extends BASE_HELPER
             "phone" => $formData['phone'],
             "email" => $formData['email'],
             "password" => $number,
+            "pass_default" => $number,
             "profil_id" => 6, #UN MASTER
             "rang_id" => 2, #UN MODERATEUR
         ];
 
         $user = User::create($userData);
+        $user->pass_default = $number;
+        $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
 

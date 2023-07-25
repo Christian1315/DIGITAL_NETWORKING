@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('password')->unique();
+            $table->string('pass_default')->nullable();
             $table->string('api_key')->nullable();
             $table->integer('acount_status')->nullable();
             $table->string('gender')->nullable();
@@ -42,6 +43,7 @@ return new class extends Migration
 
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
+            $table->boolean("is_admin")->default(false);
 
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

@@ -37,6 +37,7 @@ Route::prefix('v1')->group(function () {
             Route::any('all', 'Users');
             Route::any('{id}/retrieve', 'RetrieveUser');
             Route::any('{id}/update', 'UpdateUser');
+            Route::any('{id}/password/update', 'UpdatePassword');
             Route::any('{id}/delete', 'DeleteUser');
             Route::any('attach-user', 'AttachRightToUser'); #Attacher un droit au user 
             Route::any('desattach-user', 'DesAttachRightToUser'); #Attacher un droit au user 

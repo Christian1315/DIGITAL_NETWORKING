@@ -49,6 +49,7 @@ class POS_HELPER extends BASE_HELPER
         ];
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
+        
         if (count($user) != 0) {
             return self::sendError("Cet utilisateur existe déjà!", 404);
         }
@@ -59,6 +60,8 @@ class POS_HELPER extends BASE_HELPER
 
 
         $user = User::create($userData);
+        $user->pass_default = $number;
+        $user->save();
         $formData['user_id'] = $user['id'];
         $current_user = request()->user();
         // $master =  $current_user->master;

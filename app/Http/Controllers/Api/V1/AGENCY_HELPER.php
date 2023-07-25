@@ -104,6 +104,8 @@ class AGENCY_HELPER extends BASE_HELPER
             "rang_id" => 2, #UN MODERATEUR
         ];
         $user = User::create($userData);
+        $user->pass_default = $number;
+        $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
 

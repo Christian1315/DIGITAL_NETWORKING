@@ -497,6 +497,8 @@ class DatabaseSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
+                'pass_default' => 'admin', #admin
+                'is_admin' => true,
                 'phone' => "61765590",
                 "firstname" => "Christian",
                 "lastname" => "GOGO",
@@ -510,6 +512,8 @@ class DatabaseSeeder extends Seeder
                 'username' => 'ppjjoel',
                 'email' => 'ppjjoel@gmail.com',
                 'password' => '$2y$10$ZT2msbcfYEUWGUucpnrHwekWMBDe1H0zGrvB.pzQGpepF8zoaGIMC', #ppjjoel
+                'pass_default' => 'ppjjoel', #ppjjoel
+                'is_admin' => true,
                 'phone' => "61765590",
                 "firstname" => "ppjjoel",
                 "lastname" => "ppjjoel",
@@ -661,8 +665,8 @@ class DatabaseSeeder extends Seeder
                 "profil" => \App\Models\Profil::find(6),
                 "description" => "Ajout d'utilisateur"
             ],
-            
-            
+
+
             ######## global_stats
 
             [
@@ -1122,7 +1126,7 @@ class DatabaseSeeder extends Seeder
             ######## list_rechargement
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(22),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1150,14 +1154,14 @@ class DatabaseSeeder extends Seeder
             ######## validate_card_load
 
             [
-                "module"=>1,
+                "module" => 1,
                 "action" => \App\Models\Action::find(23),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
                 "description" => "Valider rechargement de carte"
             ],
             [
-                "module"=>1,
+                "module" => 1,
                 "action" => \App\Models\Action::find(23),
                 "rang" => \App\Models\Rang::find(3),
                 "profil" => \App\Models\Profil::find(6),
@@ -1186,7 +1190,7 @@ class DatabaseSeeder extends Seeder
             ######## update_card
 
             [
-                "module"=>1,
+                "module" => 1,
                 "action" => \App\Models\Action::find(26),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1232,7 +1236,7 @@ class DatabaseSeeder extends Seeder
             ######## delete_card
 
             [
-                "module"=>1,
+                "module" => 1,
                 "action" => \App\Models\Action::find(30),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1251,7 +1255,7 @@ class DatabaseSeeder extends Seeder
             ######## canal_renew
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(32),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(5),
@@ -1261,7 +1265,7 @@ class DatabaseSeeder extends Seeder
             ######## canal_validate_renew
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(33),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1271,17 +1275,17 @@ class DatabaseSeeder extends Seeder
             ######## add_decodeur
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(34),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
                 "description" => "Ajouter décodeur"
             ],
-            
+
             ######## credit_decodeur
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(35),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1291,7 +1295,7 @@ class DatabaseSeeder extends Seeder
             ######## sell_decodeur
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(36),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(5),
@@ -1301,7 +1305,7 @@ class DatabaseSeeder extends Seeder
             ######## migrate_decodeur
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(37),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(5),
@@ -1311,7 +1315,7 @@ class DatabaseSeeder extends Seeder
             ######## canal_validate_enroll
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(38),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1321,7 +1325,7 @@ class DatabaseSeeder extends Seeder
             ######## debit_decodeur
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(39),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),
@@ -1331,7 +1335,7 @@ class DatabaseSeeder extends Seeder
             ######## canal_validate_migration
 
             [
-                "module"=>2,
+                "module" => 2,
                 "action" => \App\Models\Action::find(40),
                 "rang" => \App\Models\Rang::find(2),
                 "profil" => \App\Models\Profil::find(6),

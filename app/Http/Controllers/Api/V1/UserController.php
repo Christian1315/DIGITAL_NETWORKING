@@ -9,7 +9,7 @@ class UserController extends USER_HELPER
     #VERIFIONS SI LE USER EST AUTHENTIFIE
     public function __construct()
     {
-        $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware(['auth:api', 'scope:api-access'])->except(['Login','UpdatePassword']);
     }
 
     #GET ALL USERS
@@ -56,7 +56,27 @@ class UserController extends USER_HELPER
         };
 
         #RECUPERATION D'UN USER VIA SON **id**
-        return $this->_updateUser($request->all(),$id);
+        return $this->_updateUser($request->all(), $id);
+    }
+
+    #RECUPERER UN USER
+    function UpdatePassword(Request $request, $id)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR USER_HELPER
+            return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        #VALIDATION DES DATAs DEPUIS LA CLASS USER_HELPER
+        $validator = $this->NEW_PASSWORD_Validator($request->all());
+        if ($validator->fails()) {
+            #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
+            return $this->sendError($validator->errors(), 404);
+        }
+
+        #RECUPERATION D'UN USER VIA SON **id**
+        return $this->_updatePassword($request->all(), $id);
     }
 
     #RECUPERER UN USER
