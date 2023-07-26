@@ -2,6 +2,7 @@
 
 use App\Models\Agency;
 use App\Models\Master;
+use App\Models\Pos;
 use App\Models\Right;
 use App\Models\User;
 
@@ -49,6 +50,19 @@ function Is_User_A_Master_Or_Admin($userId)
             return true;
         }
         return false; #S'il n'est ni Master ni Admin
+    }
+    return true; #Sil est un Master
+}
+
+##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UN POS OU UN ADMIN==========## 
+function Is_User_A_Pos_Or_Admin($userId)
+{ #
+    $pos = Pos::where('user_id', $userId)->get();
+    if (count($pos) == 0) { #S'il n'est pas un Pos
+        if (Is_User_An_Admin($userId)) { #On verifie S'il est admin
+            return true;
+        }
+        return false; #S'il n'est ni Pos ni Admin
     }
     return true; #Sil est un Master
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\V1\RightController;
 use App\Http\Controllers\Api\V1\MasterController;
 use App\Http\Controllers\Api\V1\PieceController;
 use App\Http\Controllers\Api\V1\PosController;
+use App\Http\Controllers\Api\V1\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -162,6 +163,17 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrievePos'); #RECUPERATION D'UN POS
             Route::any('{id}/delete', 'DeletePos'); #SUPPRESSION D'UN POS
             Route::any('{id}/update', 'UpdatePos'); #MODIFICATION D'UN POS
+        });
+    });
+
+    ###========== STORE ROUTINGS ========###
+    Route::controller(StoreController::class)->group(function () {
+        Route::prefix('store')->group(function () {
+            Route::any('add', 'CreateStore'); #AJOUT D'UN STORE
+            Route::any('all', 'Stores'); #GET ALL STORES
+            Route::any('{id}/retrieve', 'RetrieveStore'); #RECUPERATION D'UN STORE
+            Route::any('{id}/delete', 'DeleteStore'); #SUPPRESSION D'UN STORE
+            Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
         });
     });
 });

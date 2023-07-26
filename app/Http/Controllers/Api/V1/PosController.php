@@ -11,8 +11,6 @@ class PosController extends POS_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access']);
         $this->middleware('CheckAgency');
-        // $this->middleware('checkAgencyOrAdmin');
-
     }
 
     function AddPos(Request $request)

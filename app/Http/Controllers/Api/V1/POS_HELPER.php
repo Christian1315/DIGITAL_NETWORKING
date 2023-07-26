@@ -64,8 +64,7 @@ class POS_HELPER extends BASE_HELPER
         $user->save();
         $formData['user_id'] = $user['id'];
         $current_user = request()->user();
-        // $master =  $current_user->master;
-        // return $master;
+
         $posData = [
             "username" => $number,
             "country" => $formData['country'],

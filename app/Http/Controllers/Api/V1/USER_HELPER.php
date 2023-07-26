@@ -136,8 +136,8 @@ class USER_HELPER extends BASE_HELPER
                 $is_password_equalTo_default_password =   Hash::check($user[0]->pass_default, $user[0]->password);
 
                 if ($is_password_equalTo_default_password) { #Son password par defaut existe. Il n'est donc pas authorisé à se connecter
-                    return self::sendError("Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe en clicquant ici:".env("BASE_URL")."/api/v1/user/".$user[0]->id."/update", 404);
-                } else { #Il peut se connecter donc parce qu'il n'a plus de password par defaut
+                    return self::sendError("Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe en clicquant ici:" . env("BASE_URL") . "/api/v1/user/" . $user[0]->id . "/update", 404);
+                } else { #Il peut se connecter donc parce que son password n'est plus égal à son password par defaut
                     if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
                         $user = Auth::user();
                         $token = $user->createToken('MyToken', ['api-access'])->accessToken;
@@ -174,7 +174,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', "rights"])->where(['visible' => 1])->get();
+        $users =  User::with(['rang', 'profil', "drts","masters","agents"])->where(['visible' => 1])->get();
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
@@ -198,8 +198,8 @@ class USER_HELPER extends BASE_HELPER
         };
         $user = User::with(['rang', 'profil'])->find($id);
         // return $user;
-        $user->update(["password"=>$formData["new_password"]]);
-        return self::sendResponse($user, 'Ce utilisateur a été modifié avec succès!');
+        $user->update(["password" => $formData["new_password"]]);
+        return self::sendResponse($user, 'Mot de passe modifié avec succès!');
     }
 
     static function retrieveUsers($id)
