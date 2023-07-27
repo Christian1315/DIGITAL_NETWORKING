@@ -105,8 +105,6 @@ class USER_HELPER extends BASE_HELPER
             $user = User::where(["username" => $request->get('account')])->get();
         }
 
-        return $credentials;
-
         if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
             if ($user[0]->is_admin) { #IL peut se connecter avec son password default s'il est un admin
                 $user = Auth::user();

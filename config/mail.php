@@ -88,7 +88,7 @@ return [
         'elastic_email' => [
             'transport' => 'elastic_email',
             'key' => env('ELASTIC_KEY')
-        ],
+        ], 
     ],
 
     /*

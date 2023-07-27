@@ -35,6 +35,7 @@ class AGENCY_HELPER extends BASE_HELPER
             'photo' => ['required'],
             'comment' => ['required'],
             'type_id' => ['required', 'integer'],
+            'agent_dad' => ['required', 'integer'],
         ];
     }
 
@@ -115,6 +116,20 @@ class AGENCY_HELPER extends BASE_HELPER
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
+
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+            
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
+                $token
+            );
+        }
+        #=====FIN D'ENVOIE D'SMS =======~####
 
 
         $agencyData = [

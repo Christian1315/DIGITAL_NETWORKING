@@ -93,6 +93,20 @@ class AGENT_HELPER extends BASE_HELPER
         $create_user->pass_default = $default_password;
         $create_user->save();
 
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+            
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
+                $token
+            );
+        }
+        #=====FIN D'ENVOIE D'SMS =======~####
+
         $formData['user_id'] = $create_user['id'];
         $formData['number'] = $number;
 

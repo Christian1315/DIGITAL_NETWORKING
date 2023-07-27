@@ -91,6 +91,23 @@ class MASTER_HELPER extends BASE_HELPER
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
 
+
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+            
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
+                $token
+            );
+        }
+
+        #=====FIN D'ENVOIE D'SMS =======~####
+
+
         #============= SON ENREGISTREMENT EN TANT QU'UN MASTER ==========#
 
         ##GESTION DES FICHIERS
