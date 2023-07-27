@@ -54,6 +54,7 @@ return new class extends Migration
 
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
+            $table->boolean("affected")->default(false);
 
 
             #on lui associe son type d'agent

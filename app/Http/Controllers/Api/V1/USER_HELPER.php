@@ -129,6 +129,8 @@ class USER_HELPER extends BASE_HELPER
                     $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
                 }
 
+                $user["stores"] = $user->stores;
+
                 #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                 return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
             } else {
@@ -136,7 +138,12 @@ class USER_HELPER extends BASE_HELPER
                 $is_password_equalTo_default_password =   Hash::check($user[0]->pass_default, $user[0]->password);
 
                 if ($is_password_equalTo_default_password) { #Son password par defaut existe. Il n'est donc pas authorisé à se connecter
-                    return self::sendError("Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe en clicquant ici:" . env("BASE_URL") . "/api/v1/user/" . $user[0]->id . "/update", 404);
+                    return self::sendResponse(
+                        [
+                            "id" => $user[0]->id,
+                        ], 
+                        "Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe"
+                    );
                 } else { #Il peut se connecter donc parce que son password n'est plus égal à son password par defaut
                     if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
                         $user = Auth::user();
@@ -160,7 +167,7 @@ class USER_HELPER extends BASE_HELPER
                             $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
                         }
 
-
+                        $user["stores"] = $user->stores;
                         #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                         return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
                     }
@@ -174,7 +181,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', "drts","masters","agents"])->where(['visible' => 1])->get();
+        $users =  User::with(['rang', 'profil', "drts", "masters", "agents", "stores"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
@@ -204,7 +211,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencys"])->where(['id' => $id, 'visible' => 1])->get();
         if ($user->count() == 0) {
 
             return self::sendError("Ce utilisateur n'existe pas!", 404);

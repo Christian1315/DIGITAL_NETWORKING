@@ -6,8 +6,16 @@ use App\Models\Pos;
 use App\Models\Right;
 use App\Models\User;
 
-function userCount() {
+function userCount()
+{
     return count(User::all()) + 1;
+}
+
+function Custom_Timestamp()
+{
+    $date = new DateTimeImmutable();
+    $micro = (int)$date->format('Uu'); // Timestamp in microseconds
+    return $micro;
 }
 function Add_Number($user, $type)
 {
@@ -15,7 +23,7 @@ function Add_Number($user, $type)
 
     $year = explode("-", $created_date)[0]; ##RECUPERATION DES TROIS PREMIERS LETTRES DU USERNAME
     $an = substr($year, -2);
-    
+
     $number = "JNP" . $type . $an . userCount();
     return $number;
 }
@@ -96,13 +104,13 @@ function Is_User_An_Agency_Or_Admin($userId)
 ##======== CE HELPER PERMET DE RECUPERER LES DROITS D'UN UTILISATEUR ==========## 
 function User_Rights($rangId, $profilId)
 { #
-    $rights = Right::with(["action", "profil","rang"])->where(["rang" => $rangId, "profil" => $profilId])->get();
+    $rights = Right::with(["action", "profil", "rang"])->where(["rang" => $rangId, "profil" => $profilId])->get();
     return $rights;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER TOUTS LES DROITS PAR DEFAUT ==========## 
 function All_Rights()
 { #
-    $allrights = Right::with(["action", "profil","rang"])->get();
+    $allrights = Right::with(["action", "profil", "rang"])->get();
     return $allrights;
 }

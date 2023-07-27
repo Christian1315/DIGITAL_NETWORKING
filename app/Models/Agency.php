@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Agency extends Model
 {
@@ -29,7 +30,8 @@ class Agency extends Model
         "piece_file",
         "photo",
         "user_id",
-        "number"
+        "number",
+        "agent_dad"
     ];
 
     #ONE TO MANY RELATIONSHIP/INVERSE(UN MASTER PEUT CREER PLUSIEURS AGENCES)
@@ -40,7 +42,7 @@ class Agency extends Model
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(Master::class,"owner");
+        return $this->belongsTo(User::class,"owner");
     }
 
 
@@ -59,4 +61,8 @@ class Agency extends Model
         return $this->hasMany(Pos::class,"owner");
     }
 
+    public function agentDad(): HasOne
+    {
+        return $this->hasOne(Agent::class,'id');
+    }
 }

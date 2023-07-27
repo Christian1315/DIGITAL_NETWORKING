@@ -81,7 +81,15 @@ class User extends Authenticatable
         return $this->hasMany(Agent::class,"owner");
     }
 
+    function agencies():HasMany{
+        return $this->hasMany(Agency::class,"owner");
+    }
+
     function drts():HasMany{
         return $this->hasMany(Right::class,"user_id");
+    }
+
+    function stores():HasMany{
+        return $this->hasMany(Store::class,"owner");
     }
 }

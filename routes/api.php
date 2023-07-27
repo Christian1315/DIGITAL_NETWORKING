@@ -176,4 +176,15 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
         });
     });
+
+    ###========== PRODUCT ROUTINGS ========###
+    Route::controller(StoreController::class)->group(function () {
+        Route::prefix('store')->group(function () {
+            Route::any('add', 'CreateStore'); #AJOUT D'UN STORE
+            Route::any('all', 'Stores'); #GET ALL STORES
+            Route::any('{id}/retrieve', 'RetrieveStore'); #RECUPERATION D'UN STORE
+            Route::any('{id}/delete', 'DeleteStore'); #SUPPRESSION D'UN STORE
+            Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
+        });
+    });
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\ActivityDomain;
 use App\Models\Agency;
 use App\Models\AgencyType;
+use App\Models\Agent;
 use App\Models\Piece;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -63,8 +64,9 @@ class AGENCY_HELPER extends BASE_HELPER
         }
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $piece_type = Piece::where('id', $formData['type_piece'])->get();
-
         $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
+        $agent_dad = Agent::where('id', $formData['agent_dad'])->get();
+
 
         if (count($domaine_activite) == 0) {
             return self::sendError("Ce domaine d'activité n'existe pas!!", 404);
@@ -74,10 +76,15 @@ class AGENCY_HELPER extends BASE_HELPER
             return self::sendError("Ce type de piece n'existe pas!!", 404);
         }
 
+        if (count($agent_dad) == 0) {
+            return self::sendError("Ce Agent n'existe pas!!", 404);
+        }
+
         $user = request()->user();
-        $type = "AGC";
+        $type = "AGY";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
+        $default_password = $number.Custom_Timestamp();
 
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
@@ -104,7 +111,7 @@ class AGENCY_HELPER extends BASE_HELPER
             "rang_id" => 2, #UN MODERATEUR
         ];
         $user = User::create($userData);
-        $user->pass_default = $number;
+        $user->pass_default = $default_password;
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
@@ -129,11 +136,9 @@ class AGENCY_HELPER extends BASE_HELPER
             "domaine_activite" => $formData['domaine_activite'],
             "type_piece" => $formData['type_piece'],
             "user_id" => $formData['user_id'],
-            // "master_id" => $master->id,
+            "agent_dad" => $formData['agent_dad'],
             "type_id" => $formData['type_id'],
         ];
-
-
 
         #SON ENREGISTREMENT EN TANT QU'UNE AGENCE
         ##GESTION DES FICHIERS
@@ -176,13 +181,13 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master", "owner","agents","poss"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $Agencys =  Agency::with(["agentDad","master", "owner","agents","poss"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
         return self::sendResponse($Agencys, 'Tout les Agences récupérés avec succès!!');
     }
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["master", "owner","agents","poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $agency = Agency::with(["agentDad","master", "owner","agents","poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($agency->count() == 0) {
             return self::sendResponse($agency, "Agences recupere avec succès!!");
         }
@@ -195,7 +200,6 @@ class AGENCY_HELPER extends BASE_HELPER
 
         #renvoie des droits du user 
         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
-        // return $attached_rights;
 
         if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
             $agency['rights'] = User_Rights($rang->id, $profil->id);
@@ -203,12 +207,8 @@ class AGENCY_HELPER extends BASE_HELPER
             $agency['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
         }
 
-        $parent = request()->user();
         $piece = Piece::find($agency->type_piece);
-        $agency['parent'] = $parent;
         $agency['piece'] = $piece;
-
-
         return self::sendResponse($agency, "Agence récupéré avec succès:!!");
     }
 

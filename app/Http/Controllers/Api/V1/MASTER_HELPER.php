@@ -60,6 +60,8 @@ class MASTER_HELPER extends BASE_HELPER
         $type = "MAST";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
+        $default_password = $number.Custom_Timestamp();
+
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
         if (count($user) != 0) {
@@ -78,14 +80,13 @@ class MASTER_HELPER extends BASE_HELPER
             "username" => $number,
             "phone" => $formData['phone'],
             "email" => $formData['email'],
-            "password" => $number,
-            "pass_default" => $number,
+            "password" => $default_password,
             "profil_id" => 6, #UN MASTER
             "rang_id" => 2, #UN MODERATEUR
         ];
 
         $user = User::create($userData);
-        $user->pass_default = $number;
+        $user->pass_default = $default_password;
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
@@ -129,7 +130,7 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function allMasters()
     {
-        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->get();
+        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id","desc")->get();
         
         return self::sendResponse($masters, 'Tout les masters récupérés avec succès!!');
     }

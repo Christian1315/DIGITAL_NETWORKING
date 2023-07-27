@@ -67,6 +67,12 @@ return new class extends Migration
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
+            $table->foreignId("agent_dad")
+                ->nullable()
+                ->constrained('agents', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
 

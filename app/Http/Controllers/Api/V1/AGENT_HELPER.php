@@ -52,6 +52,8 @@ class AGENT_HELPER extends BASE_HELPER
         $type = "AGT";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
+        $default_password = $number.Custom_Timestamp();
+
 
         $agent_type = AgentType::where('id', $formData['type_id'])->get();
         if (count($agent_type) == 0) {
@@ -88,7 +90,7 @@ class AGENT_HELPER extends BASE_HELPER
         }
 
         $create_user = User::create($userData); #ENREGISTREMENT
-        $create_user->pass_default = $number;
+        $create_user->pass_default = $default_password;
         $create_user->save();
 
         $formData['user_id'] = $create_user['id'];
@@ -110,7 +112,7 @@ class AGENT_HELPER extends BASE_HELPER
         $Agent = Agent::create($agentData); #ENREGISTREMENT DU Agent DANS LA DB
         $Agent['owner'] = request()->user()->id;
         if (Is_User_A_Master($_user->id)) { #Si c'est pas un master
-            $Agent['master_id'] = request()->user()->master;
+            $Agent['master_id'] = request()->user()->master->id;#L'id du master
         } else {
             $Agent['admin'] = request()->user()->id;
         }
@@ -192,6 +194,8 @@ class AGENT_HELPER extends BASE_HELPER
         $agent = Agent::find($formData["agent_id"]);
         // return $agent;
         $agent->agency_id = $formData["agency_id"]; 
+        $agent->affected = true; 
+
         $agent->save();
 
         return self::sendResponse([],"Affectation effectuée avec succès!!");
