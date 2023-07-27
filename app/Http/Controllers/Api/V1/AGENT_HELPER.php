@@ -67,7 +67,7 @@ class AGENT_HELPER extends BASE_HELPER
             "lastname" => $formData['lastname'],
             "phone" => $formData['phone'],
             "email" => $formData['email'],
-            "password" => $number,
+            "password" => $default_password,
             "profil_id" => 7, #UN AGENT
             "rang_id" => 2, #UN MODERATEUR
         ];

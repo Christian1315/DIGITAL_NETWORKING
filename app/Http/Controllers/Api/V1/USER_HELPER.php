@@ -105,6 +105,7 @@ class USER_HELPER extends BASE_HELPER
             $user = User::where(["username" => $request->get('account')])->get();
         }
 
+        return $credentials;
 
         if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
             if ($user[0]->is_admin) { #IL peut se connecter avec son password default s'il est un admin
@@ -136,7 +137,6 @@ class USER_HELPER extends BASE_HELPER
             } else {
                 #On verifie d'abord si son password est egal à son password par defaut
                 $is_password_equalTo_default_password =   Hash::check($user[0]->pass_default, $user[0]->password);
-
                 if ($is_password_equalTo_default_password) { #Son password par defaut existe. Il n'est donc pas authorisé à se connecter
                     return self::sendResponse(
                         [
