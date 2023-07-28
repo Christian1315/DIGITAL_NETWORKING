@@ -53,7 +53,7 @@ class AGENT_HELPER extends BASE_HELPER
         $type = "AGT";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
-        $default_password = $number.Custom_Timestamp();
+        $default_password = $number . Custom_Timestamp();
 
 
         $agent_type = AgentType::where('id', $formData['type_id'])->get();
@@ -94,19 +94,6 @@ class AGENT_HELPER extends BASE_HELPER
         $create_user->pass_default = $default_password;
         $create_user->save();
 
-        #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            
-            $response = Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
-                $token
-            );
-        }
-        #=====FIN D'ENVOIE D'SMS =======~####
 
         $formData['user_id'] = $create_user['id'];
         $formData['number'] = $number;
@@ -127,24 +114,38 @@ class AGENT_HELPER extends BASE_HELPER
         $Agent = Agent::create($agentData); #ENREGISTREMENT DU Agent DANS LA DB
         $Agent['owner'] = request()->user()->id;
         if (Is_User_A_Master($_user->id)) { #Si c'est pas un master
-            $Agent['master_id'] = request()->user()->master->id;#L'id du master
+            $Agent['master_id'] = request()->user()->master->id; #L'id du master
         } else {
             $Agent['admin'] = request()->user()->id;
         }
         $Agent->save();
+
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                $token
+            );
+        }
+        #=====FIN D'ENVOIE D'SMS =======~####
 
         return self::sendResponse($Agent, 'Agent crée avec succès!!');
     }
 
     static function allAgents()
     {
-        $Agents =  Agent::with(["master", "owner","agency","pos","stores"])->where(['owner' => request()->user()->id,'visible'=>1])->orderBy("id","desc")->get();
+        $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id", "desc")->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
     static function _retrieveAgent($id)
     {
-        $Agent_collec = Agent::with(['master', "owner","pos","stores"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
+        $Agent_collec = Agent::with(['master', "owner", "pos", "stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if ($Agent_collec->count() == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         }
@@ -153,7 +154,7 @@ class AGENT_HELPER extends BASE_HELPER
         $rang = $user->rang;
         $profil = $user->profil;
 
-        
+
         #renvoie des droits du user 
         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
         // return $attached_rights;
@@ -169,7 +170,7 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _updateAgent($formData, $id)
     {
-        $Agent = Agent::with(['master', "owner"])->where(['id'=> $id,"owner"=>request()->id,"visible"=>1])->get();
+        $Agent = Agent::with(['master', "owner"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
         if (count($Agent) == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
@@ -180,7 +181,7 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function AgentDelete($id)
     {
-        $Agent = Agent::where(['id'=> $id,'owner' => request()->user()->id,'visible'=> true])->get();
+        $Agent = Agent::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
         if (count($Agent) == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
@@ -195,48 +196,48 @@ class AGENT_HELPER extends BASE_HELPER
     static function _AffectToAgency($formData)
     {
 
-        $agent = Agent::where(['owner'=>request()->user()->id,'id'=>$formData['agent_id'],"visible"=>1])->get();
-        $agency = Agency::where(['owner'=>request()->user()->id,'id'=>$formData['agency_id'],"visible"=>1])->get();
+        $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
+        $agency = Agency::where(['owner' => request()->user()->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
 
-        if ($agent->count()==0) {
-            return  self::sendError("Ce Agent n'existe pas!!",404);
+        if ($agent->count() == 0) {
+            return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        if ($agency->count()==0) {
-            return  self::sendError("Cette Agence n'existe pas!!",404);
+        if ($agency->count() == 0) {
+            return  self::sendError("Cette Agence n'existe pas!!", 404);
         }
 
         $agent = Agent::find($formData["agent_id"]);
         // return $agent;
-        $agent->agency_id = $formData["agency_id"]; 
-        $agent->affected = true; 
+        $agent->agency_id = $formData["agency_id"];
+        $agent->affected = true;
 
         $agent->save();
 
-        return self::sendResponse([],"Affectation effectuée avec succès!!");
+        return self::sendResponse([], "Affectation effectuée avec succès!!");
     }
 
     static function _AffectToPos($formData)
     {
 
         // return $formData;
-        $agent = Agent::where(['owner'=>request()->user()->id,'id'=>$formData['agent_id'],"visible"=>1])->get();
-        $pos = Pos::where(['owner'=>request()->user()->id,'id'=>$formData['pos_id'],"visible"=>1])->get();
+        $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
+        $pos = Pos::where(['owner' => request()->user()->id, 'id' => $formData['pos_id'], "visible" => 1])->get();
 
-        if ($agent->count()==0) {
-            return  self::sendError("Ce Agent n'existe pas!!",404);
+        if ($agent->count() == 0) {
+            return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        if ($pos->count()==0) {
-            return  self::sendError("Ce Pos n'existe pas!!",404);
+        if ($pos->count() == 0) {
+            return  self::sendError("Ce Pos n'existe pas!!", 404);
         }
 
         $agent = Agent::find($formData["agent_id"]);
-        $agent->pos_id = $formData["pos_id"]; 
-        $agent->affected = true; 
+        $agent->pos_id = $formData["pos_id"];
+        $agent->affected = true;
 
         $agent->save();
 
-        return self::sendResponse([],"Affectation effectuée avec succès!!");
+        return self::sendResponse([], "Affectation effectuée avec succès!!");
     }
 }
