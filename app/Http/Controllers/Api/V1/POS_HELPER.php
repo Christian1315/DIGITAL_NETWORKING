@@ -52,13 +52,13 @@ class POS_HELPER extends BASE_HELPER
 
     static function allPoss()
     {
-        $Pos =  Pos::with(["owner", "agents","agencies"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+        $Pos =  Pos::with(["owner", "agents","agencies","stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
 
     static function _retrievePos($id)
     {
-        $pos = Pos::with(["owner", "agents","agencies"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+        $pos = Pos::with(["owner", "agents","agencies","stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if ($pos->count() == 0) {
             return self::sendError("Ce Pos n'existe pas", 404);
         }

@@ -10,7 +10,7 @@ class AgencyController extends AGENCY_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('checkMasterOrAdmin');
+        $this->middleware('CheckMasterOrAdmin');
     }
 
     function AddAgency(Request $request)

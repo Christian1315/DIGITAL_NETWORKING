@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Agent extends Model
 {
@@ -48,5 +49,10 @@ class Agent extends Model
     public function owner():BelongsTo
     {
         return $this->belongsTo(User::class,"owner");
+    }
+
+    public function stores(): HasMany
+    {
+        return $this->hasMany(Store::class,"agent_id");
     }
 }

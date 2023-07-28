@@ -197,7 +197,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master", "owner", "agents", "poss"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $Agencys =  Agency::with(["master", "owner", "agents", "poss","stores"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
 
         foreach ($Agencys as $agency) {
             $agent_dad_id =  $agency->agent_dad;
@@ -209,7 +209,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["master", "owner", "agents", "poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $agency = Agency::with(["master", "owner", "agents", "poss","stores"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($agency->count() == 0) {
             return self::sendResponse($agency, "Agences recupere avec succès!!");
         }

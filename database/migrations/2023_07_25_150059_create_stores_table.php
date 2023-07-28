@@ -18,10 +18,30 @@ return new class extends Migration
 
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
+            $table->boolean("affected")->default(false);
+
 
             $table->foreignId("owner")
                 ->nullable()
                 ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("pos_id")
+                ->nullable()
+                ->constrained('pos', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("agent_id")
+                ->nullable()
+                ->constrained('agents', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("agency_id")
+                ->nullable()
+                ->constrained('agencies', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 

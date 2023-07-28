@@ -61,4 +61,9 @@ class Agency extends Model
         return $this->hasMany(Pos::class,"agency_id");
     }
 
+    public function stores(): HasMany
+    {
+        return $this->hasMany(Store::class,"agency_id");
+    }
+
 }

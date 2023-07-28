@@ -176,6 +176,9 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveStore'); #RECUPERATION D'UN STORE
             Route::any('{id}/delete', 'DeleteStore'); #SUPPRESSION D'UN STORE
             Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
+            Route::any('affect-to-pos', 'AffectToPos'); #AFFECTER A UN POS
+            Route::any('affect-to-agent', 'AffectToAgent'); #AFFECTER A UN AGENT
+            Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
         });
     });
 

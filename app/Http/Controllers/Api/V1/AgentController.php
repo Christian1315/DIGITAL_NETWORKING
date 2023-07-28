@@ -11,7 +11,7 @@ class AgentController extends AGENT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('checkMasterOrAdmin');
+        $this->middleware('CheckMasterOrAdmin');
     }
 
     function AddAgent(Request $request)

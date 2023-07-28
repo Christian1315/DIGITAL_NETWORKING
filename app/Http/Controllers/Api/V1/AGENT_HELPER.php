@@ -138,13 +138,13 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function allAgents()
     {
-        $Agents =  Agent::with(["master", "owner","agency","pos"])->where(['owner' => request()->user()->id,'visible'=>1])->orderBy("id","desc")->get();
+        $Agents =  Agent::with(["master", "owner","agency","pos","stores"])->where(['owner' => request()->user()->id,'visible'=>1])->orderBy("id","desc")->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
     static function _retrieveAgent($id)
     {
-        $Agent_collec = Agent::with(['master', "owner","pos"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
+        $Agent_collec = Agent::with(['master', "owner","pos","stores"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
         if ($Agent_collec->count() == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         }

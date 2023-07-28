@@ -14,7 +14,8 @@ class Pos extends Model
     protected $fillable = [
         "username",
         "country",
-        "phone"
+        "phone",
+        "pos_id"
     ];
 
 
@@ -23,17 +24,17 @@ class Pos extends Model
         return $this->belongsTo(User::class,'owner');
     }
 
-
-    public function stores() : HasMany {
-        return $this->hasMany(Store::class,"owner");
-    }
-
     public function agents() : HasMany {
         return $this->hasMany(Agent::class,);
     }
 
     public function agencies() : BelongsTo {
         return $this->belongsTo(Agency::class,"agency_id");
+    }
+
+    public function stores(): HasMany
+    {
+        return $this->hasMany(Store::class,"pos_id");
     }
 
 }
