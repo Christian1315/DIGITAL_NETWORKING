@@ -133,6 +133,10 @@ class USER_HELPER extends BASE_HELPER
                 $user["agents"] = $user->agents;
                 $user["agencies"] = $user->agencies;
 
+                $user["AGENT"]  = AGENT(request()->user()->id);
+                $user["AGENCY"]  = AGENCY(request()->user()->id);
+
+
 
                 #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                 return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
@@ -174,6 +178,8 @@ class USER_HELPER extends BASE_HELPER
                         $user["agents"] = $user->agents;
                         $user["agencies"] = $user->agencies;
 
+                        $user["AGENT"]  = AGENT(request()->user()->id);
+                        $user["AGENCY"]  = AGENCY(request()->user()->id);
 
 
                         #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
@@ -189,7 +195,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', "drts", "masters", "agents","agencies", "stores","poss"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
+        $users =  User::with(['rang', 'profil', "drts", "masters", "agents", "agencies", "stores", "poss"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
@@ -219,7 +225,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencies","poss"])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1])->get();
         if ($user->count() == 0) {
 
             return self::sendError("Ce utilisateur n'existe pas!", 404);

@@ -96,4 +96,5 @@ class User extends Authenticatable
     function poss():HasMany{
         return $this->hasMany(Pos::class,"owner");
     }
+
 }

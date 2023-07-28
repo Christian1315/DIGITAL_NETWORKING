@@ -149,3 +149,20 @@ function Agent_Dad($agent_dad_id)
     $agent_dad = Agent::where("id",$agent_dad_id)->get();
     return $agent_dad;
 }
+
+
+##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN AGENT DEPUIS LA TABLE **agents**  ==========## 
+
+function AGENT($user_id)
+{
+    $agent = Agent::where("user_id",$user_id)->get();
+    return $agent;
+}
+
+##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UNE AGENCY DEPUIS LA TABLE **agencies**  ==========## 
+
+function AGENCY($user_id)
+{
+    $agency = Agency::where("user_id",$user_id)->get();
+    return $agency;
+}
