@@ -10,7 +10,7 @@ class PosController extends POS_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckAgency');
+        $this->middleware('checkMasterOrAdmin');
     }
 
     function AddPos(Request $request)
@@ -29,7 +29,7 @@ class PosController extends POS_HELPER
             return $this->sendError($validator->errors(), 404);
         }
 
-        #ENREGISTREMENT DANS LA DB VIA **createUser** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+        #ENREGISTREMENT DANS LA DB VIA **_createPos** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
         return $this->_createPos($request);
     }
 
@@ -81,5 +81,16 @@ class PosController extends POS_HELPER
         };
 
         return $this->posDelete($id);
+    }
+
+    function AffectToAgency(Request $request)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
+            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        return $this->_AffectToAgency($request);
     }
 }

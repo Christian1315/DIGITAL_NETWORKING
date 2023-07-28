@@ -19,7 +19,8 @@ class Agent extends Model
         "sexe",
         "user_id",
         "type_id",
-        "master_id"
+        "master_id",
+        "pos_id"
     ];
 
     #ONE TO MANY RELATIONSHIP/INVERSE(UN MASTER PEUT CREER PLUSIEURS AGENTS)
@@ -37,6 +38,11 @@ class Agent extends Model
     public function agency():BelongsTo
     {
         return $this->belongsTo(Agency::class,"agency_id");
+    }
+
+    public function pos():BelongsTo
+    {
+        return $this->belongsTo(Pos::class,);
     }
 
     public function owner():BelongsTo

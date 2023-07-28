@@ -499,9 +499,9 @@ class DatabaseSeeder extends Seeder
                 'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
                 'pass_default' => 'admin', #admin
                 'is_admin' => true,
-                'phone' => "61765590",
-                "firstname" => "Christian",
-                "lastname" => "GOGO",
+                'phone' => "61765591",
+                "firstname" => "Admin 1",
+                "lastname" => "Admin",
                 "country" => "Bénin",
                 "rang_id" => \App\Models\Rang::find(1),
                 "profil_id" => \App\Models\Profil::find(9),
@@ -514,9 +514,9 @@ class DatabaseSeeder extends Seeder
                 'password' => '$2y$10$ZT2msbcfYEUWGUucpnrHwekWMBDe1H0zGrvB.pzQGpepF8zoaGIMC', #ppjjoel
                 'pass_default' => 'ppjjoel', #ppjjoel
                 'is_admin' => true,
-                'phone' => "61765590",
-                "firstname" => "ppjjoel",
-                "lastname" => "ppjjoel",
+                'phone' => "61765592",
+                "firstname" => "Admin",
+                "lastname" => "Admin 2",
                 "country" => "Bénin",
                 "rang_id" => \App\Models\Rang::find(1),
                 "profil_id" => \App\Models\Profil::find(9),

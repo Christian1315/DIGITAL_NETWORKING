@@ -20,20 +20,20 @@ class Pos extends Model
 
     public function owner():BelongsTo
     {
-        return $this->belongsTo(Agency::class,'owner');
-    }
-
-    public function admin():BelongsTo
-    {
         return $this->belongsTo(User::class,'owner');
     }
-    public function user():BelongsTo
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
+
 
     public function stores() : HasMany {
         return $this->hasMany(Store::class,"owner");
+    }
+
+    public function agents() : HasMany {
+        return $this->hasMany(Agent::class,);
+    }
+
+    public function agencies() : BelongsTo {
+        return $this->belongsTo(Agency::class,"agency_id");
     }
 
 }

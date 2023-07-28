@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\AgentType;
+use App\Models\Pos;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -137,13 +138,13 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function allAgents()
     {
-        $Agents =  Agent::with(["master", "owner","agency"])->where(['owner' => request()->user()->id,'visible'=>1])->get();
+        $Agents =  Agent::with(["master", "owner","agency","pos"])->where(['owner' => request()->user()->id,'visible'=>1])->orderBy("id","desc")->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
     static function _retrieveAgent($id)
     {
-        $Agent_collec = Agent::with(['master', "owner"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
+        $Agent_collec = Agent::with(['master', "owner","pos"])->where(['id' => $id, 'owner' => request()->user()->id,'visible'=>1])->get();
         if ($Agent_collec->count() == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         }
@@ -194,8 +195,8 @@ class AGENT_HELPER extends BASE_HELPER
     static function _AffectToAgency($formData)
     {
 
-        $agent = Agent::where(['id'=>$formData['agent_id'],"visible"=>1])->get();
-        $agency = Agency::where(['id'=>$formData['agency_id'],"visible"=>1])->get();
+        $agent = Agent::where(['owner'=>request()->user()->id,'id'=>$formData['agent_id'],"visible"=>1])->get();
+        $agency = Agency::where(['owner'=>request()->user()->id,'id'=>$formData['agency_id'],"visible"=>1])->get();
 
         if ($agent->count()==0) {
             return  self::sendError("Ce Agent n'existe pas!!",404);
@@ -208,6 +209,30 @@ class AGENT_HELPER extends BASE_HELPER
         $agent = Agent::find($formData["agent_id"]);
         // return $agent;
         $agent->agency_id = $formData["agency_id"]; 
+        $agent->affected = true; 
+
+        $agent->save();
+
+        return self::sendResponse([],"Affectation effectuée avec succès!!");
+    }
+
+    static function _AffectToPos($formData)
+    {
+
+        // return $formData;
+        $agent = Agent::where(['owner'=>request()->user()->id,'id'=>$formData['agent_id'],"visible"=>1])->get();
+        $pos = Pos::where(['owner'=>request()->user()->id,'id'=>$formData['pos_id'],"visible"=>1])->get();
+
+        if ($agent->count()==0) {
+            return  self::sendError("Ce Agent n'existe pas!!",404);
+        }
+
+        if ($pos->count()==0) {
+            return  self::sendError("Ce Pos n'existe pas!!",404);
+        }
+
+        $agent = Agent::find($formData["agent_id"]);
+        $agent->pos_id = $formData["pos_id"]; 
         $agent->affected = true; 
 
         $agent->save();

@@ -60,7 +60,7 @@ class MASTER_HELPER extends BASE_HELPER
         $type = "MAST";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
-        $default_password = $number.Custom_Timestamp();
+        $default_password = $number . Custom_Timestamp();
 
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
@@ -90,22 +90,6 @@ class MASTER_HELPER extends BASE_HELPER
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
-
-
-        #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            
-            $response = Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
-                $token
-            );
-        }
-
-        #=====FIN D'ENVOIE D'SMS =======~####
 
 
         #============= SON ENREGISTREMENT EN TANT QU'UN MASTER ==========#
@@ -142,13 +126,30 @@ class MASTER_HELPER extends BASE_HELPER
         $Master['admin'] = $admin;
         $Master->save();
         $Master['domaine_activite'] = $domaine_activite;
+
+
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                $token
+            );
+        }
+
+        #=====FIN D'ENVOIE D'SMS =======~####
+
         return self::sendResponse($Master, 'Master crée avec succès!!');
     }
 
     static function allMasters()
     {
-        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id","desc")->get();
-        
+        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id", "desc")->get();
+
         return self::sendResponse($masters, 'Tout les masters récupérés avec succès!!');
     }
 
@@ -183,7 +184,7 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function _updateMaster($formData, $id)
     {
-        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
+        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if (count($Master) == 0) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };
@@ -194,7 +195,7 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function masterDelete($id)
     {
-        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
+        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if (count($Master) == 0) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };

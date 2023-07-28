@@ -92,4 +92,8 @@ class User extends Authenticatable
     function stores():HasMany{
         return $this->hasMany(Store::class,"owner");
     }
+
+    function poss():HasMany{
+        return $this->hasMany(Pos::class,"owner");
+    }
 }

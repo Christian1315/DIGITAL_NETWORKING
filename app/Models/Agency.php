@@ -58,11 +58,7 @@ class Agency extends Model
 
     public function poss(): HasMany
     {
-        return $this->hasMany(Pos::class,"owner");
+        return $this->hasMany(Pos::class,"agency_id");
     }
 
-    public function agentDad(): HasOne
-    {
-        return $this->hasOne(Agent::class,'id');
-    }
 }

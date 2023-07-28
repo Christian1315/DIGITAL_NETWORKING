@@ -85,7 +85,7 @@ class AGENCY_HELPER extends BASE_HELPER
         $type = "AGY";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
-        $default_password = $number.Custom_Timestamp();
+        $default_password = $number . Custom_Timestamp();
 
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
@@ -116,20 +116,6 @@ class AGENCY_HELPER extends BASE_HELPER
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
-
-        #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            
-            $response = Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::".$number."; Password par defaut::".$default_password,
-                $token
-            );
-        }
-        #=====FIN D'ENVOIE D'SMS =======~####
 
 
         $agencyData = [
@@ -191,18 +177,39 @@ class AGENCY_HELPER extends BASE_HELPER
         }
         $agency->save();
         $agency['domaine_activite'] = $domaine_activite;
+
+        #=====ENVOIE D'SMS =======~####
+        $sms_login =  Login_To_Frik_SMS();
+
+        if ($sms_login['status']) {
+            $token =  $sms_login['data']['token'];
+
+            $response = Send_SMS(
+                $formData['phone'],
+                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                $token
+            );
+        }
+        #=====FIN D'ENVOIE D'SMS =======~####
+
         return self::sendResponse($agency, 'Agence crée avec succès!!');
     }
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["agentDad","master", "owner","agents","poss"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $Agencys =  Agency::with(["master", "owner", "agents", "poss"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+
+        foreach ($Agencys as $agency) {
+            $agent_dad_id =  $agency->agent_dad;
+            $agent_dad = Agent_Dad($agent_dad_id);
+            $agency["agent_dad"] = $agent_dad;
+        }
         return self::sendResponse($Agencys, 'Tout les Agences récupérés avec succès!!');
     }
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["agentDad","master", "owner","agents","poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $agency = Agency::with(["master", "owner", "agents", "poss"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($agency->count() == 0) {
             return self::sendResponse($agency, "Agences recupere avec succès!!");
         }
@@ -211,6 +218,11 @@ class AGENCY_HELPER extends BASE_HELPER
         $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
         $rang = $user->rang;
         $profil = $user->profil;
+
+        $agent_dad_id =  $agency->agent_dad;
+        $agent_dad = Agent_Dad($agent_dad_id);
+
+        $agency["agent_dad"] = $agent_dad;
 
 
         #renvoie des droits du user 
@@ -229,7 +241,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _updateAgent($formData, $id)
     {
-        $AGENCY = Agency::with(['master', "owner","agents"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
+        $AGENCY = Agency::with(['master', "owner", "agents"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
         if (count($AGENCY) == 0) {
             return self::sendError("Ce AGENCY n'existe pas!", 404);
         };

@@ -46,7 +46,7 @@ class Master extends Model
     #ONE TO MANY RELATIONSHIP(UN MASTER PEUT CREER PLUSIEURS POS)
     public function poss():HasMany
     {
-        return $this->hasMany(Pos::class,"user_id");
+        return $this->hasMany(Pos::class,"owner");
     }
 
     #ONE TO ONE RELATIONSHIP/INVERSE(UN MASTER NE S'ENREGISTRE QU'AU NOM D'UN SEUL USER)

@@ -129,6 +129,10 @@ class USER_HELPER extends BASE_HELPER
                 }
 
                 $user["stores"] = $user->stores;
+                $user["poss"] = $user->poss;
+                $user["agents"] = $user->agents;
+                $user["agencies"] = $user->agencies;
+
 
                 #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                 return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
@@ -139,7 +143,7 @@ class USER_HELPER extends BASE_HELPER
                     return self::sendResponse(
                         [
                             "id" => $user[0]->id,
-                        ], 
+                        ],
                         "Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe"
                     );
                 } else { #Il peut se connecter donc parce que son password n'est plus égal à son password par defaut
@@ -166,6 +170,12 @@ class USER_HELPER extends BASE_HELPER
                         }
 
                         $user["stores"] = $user->stores;
+                        $user["poss"] = $user->poss;
+                        $user["agents"] = $user->agents;
+                        $user["agencies"] = $user->agencies;
+
+
+
                         #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                         return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
                     }
@@ -179,7 +189,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', "drts", "masters", "agents", "stores"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
+        $users =  User::with(['rang', 'profil', "drts", "masters", "agents","agencies", "stores","poss"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
@@ -209,7 +219,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencys"])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencies","poss"])->where(['id' => $id, 'visible' => 1])->get();
         if ($user->count() == 0) {
 
             return self::sendError("Ce utilisateur n'existe pas!", 404);
@@ -217,7 +227,6 @@ class USER_HELPER extends BASE_HELPER
         $user = $user[0];
         #renvoie des droits du user 
         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
-        // return $attached_rights;
 
         if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
             if (Is_User_An_Admin($user->id)) { #s'il est un admin

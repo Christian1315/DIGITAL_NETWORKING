@@ -48,7 +48,13 @@ return new class extends Migration
 
             $table->foreignId("agency_id")
                 ->nullable()
-                ->constrained('users', 'id')
+                ->constrained('agencies', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("pos_id")
+                ->nullable()
+                ->constrained('pos', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
