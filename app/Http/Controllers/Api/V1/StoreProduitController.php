@@ -61,7 +61,7 @@ class StoreProduitController extends PRODUCT_HELPER
         };
 
         #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
-        $validator = $this->Product_category_Validator($request->all());
+        $validator = $this->Product_Validator($request->all());
 
         if ($validator->fails()) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
