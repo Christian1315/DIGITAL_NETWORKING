@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 
-class StoreCategoryController extends CATEGORY_PRODUCT_HELPER
+class StoreProduitController extends PRODUCT_HELPER
 {
     #VERIFIONS SI LE USER EST AUTHENTIFIE
     public function __construct()
@@ -12,68 +12,68 @@ class StoreCategoryController extends CATEGORY_PRODUCT_HELPER
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
     }
 
-    #GET ALL CATEGORIES
-    function ProductCategories(Request $request)
+    #GET ALL PRODUCTS
+    function Products(Request $request)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        #RECUPERATION DE TOUTES LES CATEGORIES DE PRODUIT
-        return $this->allProductCategory();
+        #RECUPERATION DE TOUT LES PRODUIT
+        return $this->allProduct();
     }
 
-    #MODIFIER UNE CATEGORIE DE PRODUIT
-    function UpdateProductCategory(Request $request, $id)
+    #MODIFIER UN PRODUIT
+    function UpdateProduct(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        #RECUPERATION D'UNE CATEGORIE DE PRODUIT VIA SON **id**
-        return $this->_updateProductCategory($request->all(), $id);
+        #RECUPERATION D'UN PRODUIT VIA SON **id**
+        return $this->_updateProduct($request->all(), $id);
     }
 
-    #RECUPERER UNE CATEGORIE DE PRODUIT
-    function RetrieveProductCategory(Request $request, $id)
+    #RECUPERER UN PRODUIT
+    function RetrieveProduct(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        #RECUPERATION D'UNE CATEGORY DE PRODUIT VIA SON **id**
-        return $this->_retrieveProductCategory($id);
+        #RECUPERATION D'UN PRODUIT VIA SON **id**
+        return $this->_retrieveProduct($id);
     }
 
-    function CreateProductCategory(Request $request)
+    function CreateProduct(Request $request)
     {
 
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
         $validator = $this->Product_category_Validator($request->all());
 
         if ($validator->fails()) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
             return $this->sendError($validator->errors(), 404);
         }
 
-        #ENREGISTREMENT DANS LA DB VIA **_createProductCategory** DE LA CLASS BASE_HELPER HERITEE PAR CATEGORY_PRODUCT_HELPER
-        return $this->_createProductCategory($request->all());
+        #ENREGISTREMENT DANS LA DB VIA **_createProduct** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
+        return $this->_createProduct($request->all());
     }
 
 
-    function _DeleteProductCategory(Request $request, $id)
+    function _DeleteProduct(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "DELETE") == False) {
@@ -81,6 +81,6 @@ class StoreCategoryController extends CATEGORY_PRODUCT_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        return $this->productCategoryDelete($id);
+        return $this->productDelete($id);
     }
 }

@@ -14,7 +14,9 @@ use App\Http\Controllers\Api\V1\RightController;
 use App\Http\Controllers\Api\V1\MasterController;
 use App\Http\Controllers\Api\V1\PieceController;
 use App\Http\Controllers\Api\V1\PosController;
+use App\Http\Controllers\Api\V1\StoreCategoryController;
 use App\Http\Controllers\Api\V1\StoreController;
+use App\Http\Controllers\Api\V1\StoreProduitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -182,14 +184,26 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-    ###========== PRODUCT ROUTINGS ========###
-    Route::controller(StoreController::class)->group(function () {
-        Route::prefix('store')->group(function () {
-            Route::any('add', 'CreateStore'); #AJOUT D'UN STORE
-            Route::any('all', 'Stores'); #GET ALL STORES
-            Route::any('{id}/retrieve', 'RetrieveStore'); #RECUPERATION D'UN STORE
-            Route::any('{id}/delete', 'DeleteStore'); #SUPPRESSION D'UN STORE
-            Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
+    Route::prefix('products')->group(function () {
+
+        ###========== PRODUCT CATEGORY ROUTINGS ========###
+        Route::controller(StoreCategoryController::class)->group(function () {
+            Route::prefix('category')->group(function () {
+                Route::any('add', 'CreateProductCategory'); #AJOUT D'UNE CATEGORIE DE PRODUIT
+                Route::any('all', 'ProductCategories'); #GET ALL CATEGORY DE PRDUIT
+                Route::any('{id}/retrieve', 'RetrieveProductCategory'); #RECUPERATION D'UNE CATEGORY DE PRDUIT
+                Route::any('{id}/delete', '_DeleteProductCategory'); #SUPPRESSION D'UNE CATEGORY DE PRDUIT
+                Route::any('{id}/update', 'UpdateProductCategory'); #MODIFICATION D'UN CATEGORY DE PRODUIT
+            });
+        });
+
+        ###========== PRODUCTS ROUTINGS ========###
+        Route::controller(StoreProduitController::class)->group(function () {
+            Route::any('add', 'CreateProduct'); #AJOUT D'UN PRODUIT
+            Route::any('all', 'Products'); #GET ALL PRDUIT
+            Route::any('{id}/retrieve', 'RetrieveProduct'); #RECUPERATION D'UN PRDUIT
+            Route::any('{id}/delete', '_DeleteProduct'); #SUPPRESSION D'UN PRDUIT
+            Route::any('{id}/update', 'UpdateProduct'); #MODIFICATION D'UN PRODUIT
         });
     });
 });

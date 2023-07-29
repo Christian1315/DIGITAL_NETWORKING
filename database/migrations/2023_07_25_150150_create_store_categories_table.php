@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('store_categories', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->foreignId("owner")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->boolean("active")->default(true);
             $table->timestamps();
         });

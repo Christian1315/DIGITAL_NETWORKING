@@ -13,6 +13,28 @@ return new class extends Migration
     {
         Schema::create('store_produits', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->string("price");
+            $table->longText("description");
+            $table->foreignId("store")
+                ->nullable()
+                ->constrained('stores', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("category")
+                ->nullable()
+                ->constrained('store_categories', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("owner")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->boolean("active")->default(true);
             $table->timestamps();
         });
     }

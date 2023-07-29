@@ -14,7 +14,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     static function product_category_rules(): array
     {
         return [
-            'name' => ['required', Rule::unique("stores")],
+            'name' => ['required', Rule::unique("store_categories")],
             'active' => ['required', 'integer'],
         ];
     }
@@ -23,7 +23,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         return [
             // 'name.required' => 'Le champ name est réquis!',
-            // 'acti.unique' => 'Cette action existe déjà',
+            // 'active.unique' => 'Cette action existe déjà',
             // 'description.required' => 'Le champ description est réquis!',
         ];
     }
@@ -39,19 +39,22 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function _createProductCategory($formData)
     {
+        // return $formData;
         $product_category = StoreCategory::create($formData); #ENREGISTREMENT DU STORE DANS LA DB
+        $product_category->owner = request()->user()->id;
+        $product_category->save();
         return self::sendResponse($product_category, 'Catégory de produit crée avec succès!!');
     }
 
     static function allProductCategory()
     {
-        $product_category =  StoreCategory::with(['owner'])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $product_category =  StoreCategory::with(['owner'])->where(["owner" => request()->user()->id])->orderBy('id', 'desc')->get();
         return self::sendResponse($product_category, 'Tout les categories de produits récupérés avec succès!!');
     }
 
     static function _retrieveProductCategory($id)
     {
-        $product_category = StoreCategory::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
+        $product_category = StoreCategory::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product_category->count() == 0) {
             return self::sendError("Ce product_category n'existe pas!", 404);
         }
@@ -60,26 +63,25 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function _updateProductCategory($formData, $id)
     {
-        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
+        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id])->get();
         if (count($product_category) == 0) {
             return self::sendError("Ce product_category n'existe pas!", 404);
         };
         $product_category = StoreCategory::find($id);
         $product_category->update($formData);
-        return self::sendResponse($product_category, 'Ce Catégorie de produit a été modifié avec succès!');
+        return self::sendResponse($product_category, 'Cette Catégorie de produit a été modifié avec succès!');
     }
 
-    static function deleteProductCategory($id)
+    static function productCategoryDelete($id)
     {
-        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
+        // return $id;
+        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id])->get();
         if (count($product_category) == 0) {
             return self::sendError("Cette Catégorie de produit n'existe pas!", 404);
         };
         $product_category = StoreCategory::find($id);
-        $product_category->visible = 0;
-        $product_category->delete_at = now();
 
-        $product_category->save();
+        $product_category->delete();
         return self::sendResponse($product_category, 'Cette Catégorie de produit a été supprimée avec succès!');
     }
 }

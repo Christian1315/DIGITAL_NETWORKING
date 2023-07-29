@@ -139,6 +139,8 @@ function Send_SMS($phone, $message,$token)
         "expediteur" => env("EXPEDITEUR"),
     ]);
 
+    $response->getBody()->rewind();
+
     return $response;
 }
 
