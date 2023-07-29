@@ -17,10 +17,11 @@ class PRODUCT_HELPER extends BASE_HELPER
         return [
             'name' => ['required', Rule::unique("store_produits")],
             'price' => ['required'],
+            'img' => ['required'],
             'description' => ['required'],
-            'category' => ['required',"integer"],
-            'store' => ['required',"integer"],
-            'active' => ['required',"integer"],
+            'category' => ['required', "integer"],
+            'store' => ['required', "integer"],
+            'active' => ['required', "integer"],
         ];
     }
 
@@ -42,20 +43,33 @@ class PRODUCT_HELPER extends BASE_HELPER
         return $validator;
     }
 
-    static function _createProduct($formData)
+    static function _createProduct($request)
     {
+        $formData = $request->all();
         // return $formData;
-        $product_category = StoreCategory::where(['owner'=>request()->user()->id,'id'=>$formData["category"]])->get();
-        $store = Store::where(['id'=>$formData["store"]])->get();
+        $product_category = StoreCategory::where(['owner' => request()->user()->id, 'id' => $formData["category"]])->get();
+        $store = Store::where(['id' => $formData["store"]])->get();
 
-        if ($product_category->count()==0) {
-            return self::sendError("Cette categorie de produit n'existe pas!!",404);
+        if ($product_category->count() == 0) {
+            return self::sendError("Cette categorie de produit n'existe pas!!", 404);
         }
 
-        if ($store->count()==0) {
-            return self::sendError("Ce Store n'existe pas!!",404);
+        if ($store->count() == 0) {
+            return self::sendError("Ce Store n'existe pas!!", 404);
         }
+
+        ##GESTION DE L'IMAGE
+        $prod_img = $request->file('img');
+        $prod_img_name = $prod_img->getClientOriginalName();
+
+        $request->file('img')->move("products", $prod_img_name);
+
+        //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE **STORE PRODUCTS**
+        $formData["img"] = asset("products/" . $prod_img_name);
+
         $product = StoreProduit::create($formData); #ENREGISTREMENT DU PRODUIT DANS LA DB
+        $product->img = $formData["img"];
+
         $product->owner = request()->user()->id;
 
         $product->save();
@@ -70,7 +84,7 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function _retrieveProduct($id)
     {
-        $product= StoreProduit::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product->count() == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }

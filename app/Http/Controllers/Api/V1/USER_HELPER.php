@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Rang;
+use App\Mail\Inscription;
 use App\Models\Right;
 use App\Models\User;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class USER_HELPER extends BASE_HELPER
@@ -106,8 +106,10 @@ class USER_HELPER extends BASE_HELPER
         }
 
         if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
+
             if ($user[0]->is_admin) { #IL peut se connecter avec son password default s'il est un admin
                 $user = Auth::user();
+                // return $user->email;
                 $token = $user->createToken('MyToken', ['api-access'])->accessToken;
                 $user['rang'] = $user->rang;
                 $user['profil'] = $user->profil;

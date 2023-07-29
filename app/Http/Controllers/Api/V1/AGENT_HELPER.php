@@ -126,7 +126,7 @@ class AGENT_HELPER extends BASE_HELPER
         if ($sms_login['status']) {
             $token =  $sms_login['data']['token'];
 
-            $response = Send_SMS(
+            Send_SMS(
                 $formData['phone'],
                 "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
                 $token

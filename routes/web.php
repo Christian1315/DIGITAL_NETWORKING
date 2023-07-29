@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\V1\Notifications;
 use App\Http\Controllers\PdfController;
+use App\Mail\Inscription;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/sendMail',function(){
+    $user = [];
+    Mail::to("gogochristian009@gmail.com")->send(new Inscription($user));
+    // dd("MESSAGE ENVOY2 AVEC SUCCèS");
 });
 
 Route::get('/documentation', function () {

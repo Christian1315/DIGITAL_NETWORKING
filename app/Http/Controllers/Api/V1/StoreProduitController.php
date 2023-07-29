@@ -69,7 +69,7 @@ class StoreProduitController extends PRODUCT_HELPER
         }
 
         #ENREGISTREMENT DANS LA DB VIA **_createProduct** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
-        return $this->_createProduct($request->all());
+        return $this->_createProduct($request);
     }
 
 

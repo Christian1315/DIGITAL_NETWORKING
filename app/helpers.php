@@ -129,10 +129,11 @@ function Login_To_Frik_SMS()
     return $response;
 }
 
-function Send_SMS($phone, $message,$token)
+function Send_SMS($phone, $message, $token)
 {
-    $response = Http::timeout(-1)->withHeaders([
-        'Authorization' => "Bearer ".$token,
+    
+    $response = Http::withHeaders([
+        'Authorization' => "Bearer " . $token,
     ])->post(env("SEND_SMS_API_URL") . "/api/v1/sms/send", [
         "phone" => $phone,
         "message" => $message,
@@ -148,7 +149,7 @@ function Send_SMS($phone, $message,$token)
 
 function Agent_Dad($agent_dad_id)
 {
-    $agent_dad = Agent::where("id",$agent_dad_id)->get();
+    $agent_dad = Agent::where("id", $agent_dad_id)->get();
     return $agent_dad;
 }
 
@@ -157,7 +158,7 @@ function Agent_Dad($agent_dad_id)
 
 function AGENT($user_id)
 {
-    $agent = Agent::with(["pos","stores","agency"])->where("user_id",$user_id)->get();
+    $agent = Agent::with(["pos", "stores", "agency"])->where("user_id", $user_id)->get();
     return $agent;
 }
 
@@ -165,6 +166,6 @@ function AGENT($user_id)
 
 function AGENCY($user_id)
 {
-    $agency = Agency::with(["poss","stores","agents"])->where("user_id",$user_id)->get();
+    $agency = Agency::with(["poss", "stores", "agents"])->where("user_id", $user_id)->get();
     return $agency;
 }
