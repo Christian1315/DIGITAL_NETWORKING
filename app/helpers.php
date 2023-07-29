@@ -141,7 +141,7 @@ function Send_SMS($phone, $message,$token)
 
     $response->getBody()->rewind();
 
-    return $response;
+    // return $response;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER L'AGENT DAD D'UNE AGENCE ==========## 
