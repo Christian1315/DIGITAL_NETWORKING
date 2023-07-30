@@ -22,4 +22,8 @@ class StoreProduit extends Model
     function owner() : BelongsTo {
         return $this->belongsTo(User::class,"owner");
     }
+
+    function store() : BelongsTo {
+        return $this->belongsTo(Store::class,"store");
+    }
 }

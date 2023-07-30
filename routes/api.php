@@ -15,8 +15,10 @@ use App\Http\Controllers\Api\V1\MasterController;
 use App\Http\Controllers\Api\V1\PieceController;
 use App\Http\Controllers\Api\V1\PosController;
 use App\Http\Controllers\Api\V1\StoreCategoryController;
+use App\Http\Controllers\Api\V1\StoreCommandController;
 use App\Http\Controllers\Api\V1\StoreController;
 use App\Http\Controllers\Api\V1\StoreProduitController;
+use App\Http\Controllers\Api\V1\StoreTableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -204,6 +206,28 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveProduct'); #RECUPERATION D'UN PRDUIT
             Route::any('{id}/delete', '_DeleteProduct'); #SUPPRESSION D'UN PRDUIT
             Route::any('{id}/update', 'UpdateProduct'); #MODIFICATION D'UN PRODUIT
+        });
+    });
+
+    ###========== TABLES ROUTINGS ========###
+    Route::prefix("tables")->group(function () {
+        Route::controller(StoreTableController::class)->group(function () {
+            Route::any('add', 'CreateTable'); #AJOUT D'UNE TABLE
+            Route::any('all', 'Tables'); #GET ALL TABLES
+            Route::any('{id}/retrieve', 'RetrieveTable'); #RECUPERATION D'UNE TABLE
+            Route::any('{id}/delete', '_DeleteTable'); #SUPPRESSION D'UN TABLE
+            Route::any('{id}/update', 'UpdateTable'); #MODIFICATION D'UN TABLE
+        });
+    });
+
+    ###========== COMMANDS ROUTINGS ========###
+    Route::prefix("commands")->group(function () {
+        Route::controller(StoreCommandController::class)->group(function () {
+            Route::any('add', 'CreateCommand'); #AJOUT D'UNE COMMANDE
+            Route::any('all', 'Commands'); #GET ALL COMMANDS
+            Route::any('{id}/retrieve', 'RetrieveCommand'); #RECUPERATION D'UNE COMMANDE
+            Route::any('{id}/delete', '_DeleteCommand'); #SUPPRESSION D'UN COMMANDE
+            Route::any('{id}/update', 'UpdateCommand'); #MODIFICATION D'UN COMMANDE
         });
     });
 });

@@ -78,13 +78,13 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function allProduct()
     {
-        $product =  StoreProduit::with(['owner'])->where(["owner" => request()->user()->id])->orderBy('id', 'desc')->get();
+        $product =  StoreProduit::with(['owner','store'])->where(["owner" => request()->user()->id,"visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');
     }
 
     static function _retrieveProduct($id)
     {
-        $product = StoreProduit::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::with(['owner',"store"])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product->count() == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
@@ -93,7 +93,7 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function _updateProduct($formData, $id)
     {
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         };
@@ -105,13 +105,14 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function productDelete($id)
     {
         // return $id;
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Produit n'existe pas!", 404);
         };
         $product = StoreProduit::find($id);
-
-        $product->delete();
+        $product->visible = 0;
+        $product->delete_at = now();
+        $product->save();
         return self::sendResponse($product, 'Ce Produit a été supprimé avec succès!');
     }
 }

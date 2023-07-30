@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string("name");
             $table->boolean("active")->default(true);
 
-            $table->string("delete_at")->nullable();
-            $table->boolean("visible")->default(true);
             $table->boolean("affected")->default(false);
 
 
@@ -44,6 +42,9 @@ return new class extends Migration
                 ->constrained('agencies', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
+
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
 
             $table->timestamps();
         });

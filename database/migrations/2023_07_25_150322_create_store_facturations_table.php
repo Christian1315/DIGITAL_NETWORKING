@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('store_facturations', function (Blueprint $table) {
             $table->id();
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
+
             $table->timestamps();
         });
     }

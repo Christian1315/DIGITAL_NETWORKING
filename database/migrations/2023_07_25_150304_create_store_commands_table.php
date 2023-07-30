@@ -13,6 +13,36 @@ return new class extends Migration
     {
         Schema::create('store_commands', function (Blueprint $table) {
             $table->id();
+            $table->string("qty");
+            $table->string("rate")->nullable();
+            $table->string("amount");
+
+            $table->foreignId("store")
+                ->nullable()
+                ->constrained('stores', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("table")
+                ->nullable()
+                ->constrained('store_tables', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("product")
+                ->nullable()
+                ->constrained('store_produits', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("owner")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
+
             $table->timestamps();
         });
     }

@@ -36,6 +36,9 @@ return new class extends Migration
                 ->onDelete("CASCADE");
 
             $table->boolean("active")->default(true);
+            $table->string("delete_at")->nullable();
+            $table->boolean("visible")->default(true);
+
             $table->timestamps();
         });
     }
