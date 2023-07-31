@@ -419,6 +419,286 @@ class DatabaseSeeder extends Seeder
                 'name' => 'validate_facture',
                 'description' => 'Valider des factures',
                 'visible' => true
+            ],
+            [
+                'name' => "list_master",
+                'description' => "Lister les masters",
+                'visible' => true
+            ],
+            [
+                'name' => "add_master",
+                'description' => "Ajouter un master",
+                'visible' => true
+            ],
+            [
+                'name' => "update_master",
+                'description' => "Mettre à jour un master",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_master",
+                'description' => "Supprimer un master",
+                'visible' => true
+            ],
+            [
+                'name' => "list_agency",
+                'description' => "Lister les agencies",
+                'visible' => true
+            ],
+            [
+                'name' => "add_agency",
+                'description' => "Ajouter un agency",
+                'visible' => true
+            ],
+            [
+                'name' => "update_agency",
+                'description' => "Mettre à jour un agency",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_agency",
+                'description' => "Supprimer un agency",
+                'visible' => true
+            ],
+            [
+                'name' => "list_agent",
+                'description' => "Lister les agents",
+                'visible' => true
+            ],
+            [
+                'name' => "add_agent",
+                'description' => "Ajouter un agent",
+                'visible' => true
+            ],
+            [
+                'name' => "update_agent",
+                'description' => "Mettre à jour un agent",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_agent",
+                'description' => "Supprimer un agent",
+                'visible' => true
+            ],
+            [
+                'name' => "list_pos",
+                'description' => "Lister les pos",
+                'visible' => true
+            ],
+            [
+                'name' => "add_pos",
+                'description' => "Ajouter un pos",
+                'visible' => true
+            ],
+            [
+                'name' => "update_pos",
+                'description' => "Mettre à jour un pos",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_pos",
+                'description' => "Supprimer un pos",
+                'visible' => true
+            ],
+            [
+                'name' => "list_table",
+                'description' => "Lister les tables",
+                'visible' => true
+            ],
+            [
+                'name' => "add_table",
+                'description' => "Ajouter une table",
+                'visible' => true
+            ],
+            [
+                'name' => "update_table",
+                'description' => "Mettre à jour une table",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_table",
+                'description' => "Supprimer une table",
+                'visible' => true
+            ],
+            [
+                'name' => "list_product",
+                'description' => "Lister les products",
+                'visible' => true
+            ],
+            [
+                'name' => "add_product",
+                'description' => "Ajouter un product",
+                'visible' => true
+            ],
+            [
+                'name' => "update_product",
+                'description' => "Mettre à jour un product",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_product",
+                'description' => "Supprimer un product",
+                'visible' => true
+            ],
+            [
+                'name' => "list_order",
+                'description' => "Lister les orders",
+                'visible' => true
+            ],
+            [
+                'name' => "add_order",
+                'description' => "Ajouter un order",
+                'visible' => true
+            ],
+            [
+                'name' => "update_order",
+                'description' => "Mettre à jour un order",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_order",
+                'description' => "Supprimer un order",
+                'visible' => true
+            ],
+            [
+                'name' => "list_product_category",
+                'description' => "Lister les product_categories",
+                'visible' => true
+            ],
+            [
+                'name' => "add_product_category",
+                'description' => "Ajouter un product_category",
+                'visible' => true
+            ],
+            [
+                'name' => "update_product_category",
+                'description' => "Mettre à jour un product_category",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_product_category",
+                'description' => "Supprimer un product_category",
+                'visible' => true
+            ],
+            [
+                'name' => "list_store",
+                'description' => "Lister les stores",
+                'visible' => true
+            ],
+            [
+                'name' => "add_store",
+                'description' => "Ajouter un store",
+                'visible' => true
+            ],
+            [
+                'name' => "update_store",
+                'description' => "Mettre à jour un store",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_store",
+                'description' => "Supprimer un store",
+                'visible' => true
+            ],
+            [
+                'name' => "list_user",
+                'description' => "Lister les users",
+                'visible' => true
+            ],
+            [
+                'name' => "update_user",
+                'description' => "Mettre à jour un user",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_user",
+                'description' => "Supprimer un user",
+                'visible' => true
+            ],
+            [
+                'name' => "list_right",
+                'description' => "Lister les rights",
+                'visible' => true
+            ],
+            [
+                'name' => "add_right",
+                'description' => "Ajouter un right",
+                'visible' => true
+            ],
+            [
+                'name' => "update_right",
+                'description' => "Mettre à jour un right",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_right",
+                'description' => "Supprimer un right",
+                'visible' => true
+            ],
+            [
+                'name' => "list_profil",
+                'description' => "Lister les profils",
+                'visible' => true
+            ],
+            [
+                'name' => "add_profil",
+                'description' => "Ajouter un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "update_profil",
+                'description' => "Mettre à jour un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_profil",
+                'description' => "Supprimer un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "list_rang",
+                'description' => "Lister les rangs",
+                'visible' => true
+            ],
+            [
+                'name' => "add_rang",
+                'description' => "Ajouter un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "update_rang",
+                'description' => "Mettre à jour un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_rang",
+                'description' => "Supprimer un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "list_action",
+                'description' => "Lister les action",
+                'visible' => true
+            ],
+            [
+                'name' => "add_action",
+                'description' => "Ajouter un action",
+                'visible' => true
+            ],
+            [
+                'name' => "update_action",
+                'description' => "Mettre à jour un action",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_action",
+                'description' => "Supprimer un action",
+                'visible' => true
+            ],
+            [
+                'name' => "affect_right",
+                'description' => "Affecter un droit",
+                'visible' => true
             ]
         ];
 
@@ -1342,6 +1622,63 @@ class DatabaseSeeder extends Seeder
                 "description" => "Valider les recrutements (vente de décodeur)"
             ],
             ####### NB::::: JE ME SUIS ARRETER ICI AU DROIT 104 DE LA DB DE MR JOEL
+
+            ["action" => \App\Models\Action::find(137), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Affecter un droit"],
+            ["action" => \App\Models\Action::find(136), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un action"],
+            ["action" => \App\Models\Action::find(135), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un action"],
+            ["action" => \App\Models\Action::find(134), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un action"],
+            ["action" => \App\Models\Action::find(133), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les action"],
+            ["action" => \App\Models\Action::find(132), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un rang"],
+            ["action" => \App\Models\Action::find(131), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un rang"],
+            ["action" => \App\Models\Action::find(130), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un rang"],
+            ["action" => \App\Models\Action::find(129), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les rangs"],
+            ["action" => \App\Models\Action::find(128), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un profil"],
+            ["action" => \App\Models\Action::find(127), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un profil"],
+            ["action" => \App\Models\Action::find(126), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un profil"],
+            ["action" => \App\Models\Action::find(125), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les profils"],
+            ["action" => \App\Models\Action::find(124), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un right"],
+            ["action" => \App\Models\Action::find(123), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un right"],
+            ["action" => \App\Models\Action::find(122), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un right"],
+            ["action" => \App\Models\Action::find(121), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les rights"],
+            ["action" => \App\Models\Action::find(120), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un user"],
+            ["action" => \App\Models\Action::find(119), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un user"],
+            ["action" => \App\Models\Action::find(118), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les users"],
+            ["action" => \App\Models\Action::find(117), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un store"],
+            ["action" => \App\Models\Action::find(116), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un store"],
+            ["action" => \App\Models\Action::find(115), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un store"],
+            ["action" => \App\Models\Action::find(114), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les stores"],
+            ["action" => \App\Models\Action::find(113), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un product_category"],
+            ["action" => \App\Models\Action::find(112), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un product_category"],
+            ["action" => \App\Models\Action::find(111), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un product_category"],
+            ["action" => \App\Models\Action::find(110), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les product_categories"],
+            ["action" => \App\Models\Action::find(109), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un order"],
+            ["action" => \App\Models\Action::find(108), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un order"],
+            ["action" => \App\Models\Action::find(107), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un order"],
+            ["action" => \App\Models\Action::find(106), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les orders"],
+            ["action" => \App\Models\Action::find(105), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un product"],
+            ["action" => \App\Models\Action::find(104), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un product"],
+            ["action" => \App\Models\Action::find(103), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un product"],
+            ["action" => \App\Models\Action::find(102), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les products"],
+            ["action" => \App\Models\Action::find(101), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer une table"],
+            ["action" => \App\Models\Action::find(100), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour une table"],
+            ["action" => \App\Models\Action::find(99), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter une table"],
+            ["action" => \App\Models\Action::find(98), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les tables"],
+            ["action" => \App\Models\Action::find(97), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un pos"],
+            ["action" => \App\Models\Action::find(96), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un pos"],
+            ["action" => \App\Models\Action::find(95), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un pos"],
+            ["action" => \App\Models\Action::find(94), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les pos"],
+            ["action" => \App\Models\Action::find(93), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un agent"],
+            ["action" => \App\Models\Action::find(92), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un agent"],
+            ["action" => \App\Models\Action::find(91), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un agent"],
+            ["action" => \App\Models\Action::find(90), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les agents"],
+            ["action" => \App\Models\Action::find(89), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un agency"],
+            ["action" => \App\Models\Action::find(88), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un agency"],
+            ["action" => \App\Models\Action::find(87), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un agency"],
+            ["action" => \App\Models\Action::find(86), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les agencies"],
+            ["action" => \App\Models\Action::find(85), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un master"],
+            ["action" => \App\Models\Action::find(84), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un master"],
+            ["action" => \App\Models\Action::find(83), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un master"],
+            ["action" => \App\Models\Action::find(82), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les masters"]
         ];
 
         foreach ($rights as $right) {

@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/sendMail',function(){
     $user = [];
     Mail::to("gogochristian009@gmail.com")->send(new Inscription($user));
-    // dd("MESSAGE ENVOY2 AVEC SUCCèS");
+    dd("MESSAGE ENVOYE AVEC SUCCèS");
 });
 
 Route::get('/documentation', function () {
