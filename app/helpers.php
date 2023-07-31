@@ -175,6 +175,6 @@ function AGENCY($user_id)
 
 function myUsers($user_id)
 {
-    $users = User::where("owner", $user_id)->get();
+    $users = User::with(['rang', 'profil'])->where("owner", $user_id)->get();
     return $users;
 }

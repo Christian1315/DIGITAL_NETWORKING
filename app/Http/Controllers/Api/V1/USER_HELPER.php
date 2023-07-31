@@ -215,7 +215,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function _updatePassword($formData, $id)
     {
-        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
+        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
