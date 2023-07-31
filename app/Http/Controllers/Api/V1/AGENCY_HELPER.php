@@ -113,6 +113,7 @@ class AGENCY_HELPER extends BASE_HELPER
         ];
         $user = User::create($userData);
         $user->pass_default = $default_password;
+        $user->owner = request()->user()->id;
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;

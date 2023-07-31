@@ -41,6 +41,12 @@ return new class extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
+            $table->foreignId("owner")
+                ->nullable()
+                ->constrained('users', 'id')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
             $table->boolean("is_admin")->default(false);

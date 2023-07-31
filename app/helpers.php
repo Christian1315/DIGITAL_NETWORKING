@@ -169,3 +169,12 @@ function AGENCY($user_id)
     $agency = Agency::with(["poss", "stores", "agents"])->where("user_id", $user_id)->get();
     return $agency;
 }
+
+
+##======== CE HELPER PERMET DE RECUPERER LES USERS CREES PAR UN USER  ==========## 
+
+function myUsers($user_id)
+{
+    $users = User::where("owner", $user_id)->get();
+    return $users;
+}

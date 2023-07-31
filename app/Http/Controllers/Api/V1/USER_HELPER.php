@@ -197,17 +197,17 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users =  User::with(['rang', 'profil', "drts", "masters", "agents", "agencies", "stores", "poss"])->where(['visible' => 1])->orderBy('id', 'desc')->get();
+        $users = myUsers(request()->user()->id);
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
     static function _updateUser($formData, $id)
     {
-        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(['owner', 'rang', 'profil'])->where(['id' => $id, 'visible' => 1])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
-        $user = User::with(['rang', 'profil'])->find($id);
+        $user = User::with(['owner', 'rang', 'profil'])->find($id);
         // return $user;
         $user->update($formData);
         return self::sendResponse($user, 'Ce utilisateur a été modifié avec succès!');
@@ -215,7 +215,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function _updatePassword($formData, $id)
     {
-        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(['rang', 'profil'])->where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
@@ -227,12 +227,14 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(['rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1])->get();
+        $user = User::with(["owner", 'rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
         if ($user->count() == 0) {
 
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         }
         $user = $user[0];
+
+        // return $user->owner();
         #renvoie des droits du user 
         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
 
@@ -259,7 +261,7 @@ class USER_HELPER extends BASE_HELPER
     static function userDelete($id)
     {
 
-        $User = User::where(['id' => $id, 'visible' => 1])->get();
+        $User = User::where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
         if (count($User) == 0) {
             return self::sendError("Ce User n'existe pas!", 404);
         };
@@ -275,7 +277,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightAttach($formData)
     {
-        $user = User::where('id', $formData['user_id'])->get();
+        $user = User::where(['id'=> $formData['user_id'],'owner' => request()->user()->id])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
@@ -296,7 +298,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightDesAttach($formData)
     {
-        $user = User::where('id', $formData['user_id'])->get();
+        $user = User::where(['id'=> $formData['user_id'],'owner' => request()->user()->id])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };

@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
         */
-
+        // Service Provider DomPDF
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -169,8 +170,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        // Maatwebsite\Excel\ExcelServiceProvider::class
 
         \FlexFlux\LaravelElasticEmail\LaravelElasticEmailServiceProvider::class,
 
@@ -188,6 +187,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        // Façade Laravel-dompdf
+        "PDF" => Barryvdh\DomPDF\Facade::class
     ])->toArray(),
 ];

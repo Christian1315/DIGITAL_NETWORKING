@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Notifications;
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\Api\V1\PdfController;
 use App\Mail\Inscription;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+// use PDF;
 
 
 /*
@@ -22,19 +23,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sendMail',function(){
+Route::get('/sendMail', function () {
     $user = [];
     Mail::to("gogochristian009@gmail.com")->send(new Inscription($user));
     dd("MESSAGE ENVOYE AVEC SUCCèS");
 });
 
+
+Route::get('pdf',[PdfController::class,'getPdf']);
+
+
 Route::get('/documentation', function () {
     return view('documentation');
 });
-Route::get("user/{id?}",function($id=null){
-    return 'User '.$id;
+Route::get("user/{id?}", function ($id = null) {
+    return 'User ' . $id;
 });
 
-Route::get('pdf',[PdfController::class,'getPostPdf']);
+// Route::get('pdf', [PdfController::class, 'getPostPdf']);
 
-Route::get('send-mail',[Notifications::class,'testMail']);
+Route::get('send-mail', [Notifications::class, 'testMail']);

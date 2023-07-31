@@ -92,6 +92,7 @@ class AGENT_HELPER extends BASE_HELPER
 
         $create_user = User::create($userData); #ENREGISTREMENT
         $create_user->pass_default = $default_password;
+        $create_user->owner = request()->user()->id;
         $create_user->save();
 
 

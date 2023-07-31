@@ -97,4 +97,7 @@ class User extends Authenticatable
         return $this->hasMany(Pos::class,"owner");
     }
 
+    function owner():BelongsTo {
+        return $this->belongsTo(User::class,"owner");
+    }
 }
