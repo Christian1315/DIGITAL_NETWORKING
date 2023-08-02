@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\V1\StoreCommandController;
 use App\Http\Controllers\Api\V1\StoreController;
 use App\Http\Controllers\Api\V1\StoreProduitController;
 use App\Http\Controllers\Api\V1\StoreTableController;
+use App\Http\Controllers\Api\V1\UserSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,7 @@ Route::prefix('v1')->group(function () {
             Route::any('desattach-user', 'DesAttachRightToUser'); #Attacher un droit au user 
         });
     });
+
     Route::any('authorization', [Authorization::class, 'Authorization'])->name('authorization');
 
     ###========== PROFILS ROUTINGS ========###
@@ -160,7 +162,7 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-    ###========== POS ROUTINGS ========###
+    ### ========== POS ROUTINGS ========###
     Route::controller(PosController::class)->group(function () {
         Route::prefix('pos')->group(function () {
             Route::any('add', 'AddPos'); #AJOUT D'UN POS
@@ -169,6 +171,16 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/delete', 'DeletePos'); #SUPPRESSION D'UN POS
             Route::any('{id}/update', 'UpdatePos'); #MODIFICATION D'UN POS
             Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
+        });
+    });
+
+    ### ========= USERs SESSION ROUTINGS ========###
+    Route::controller(UserSessionController::class)->group(function () {
+        Route::prefix('session')->group(function () {
+            Route::any('create', 'CreateSession');
+            Route::any('logout', 'SessionLogout');
+            Route::any('login', '_SessionLogin');
+            Route::any('{id}/delete', 'DeleteSession');
         });
     });
 

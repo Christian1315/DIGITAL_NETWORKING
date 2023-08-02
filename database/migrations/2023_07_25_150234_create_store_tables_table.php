@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('store_tables', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->string("name");
             $table->integer("capacity");
             $table->boolean("status")->default(true);

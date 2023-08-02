@@ -41,9 +41,9 @@ class TABLE_HELPER extends BASE_HELPER
 
     static function _createTable($formData)
     {
-        $store = Store::where(["id" => $formData["store"], "owner" => request()->user()->id,"visible" => 1])->get();
-        if ($store->count()==0) {
-            return self::sendError("Ce store n'existe pas",404);
+        $store = Store::where(["id" => $formData["store"], "owner" => request()->user()->id, "visible" => 1])->get();
+        if ($store->count() == 0) {
+            return self::sendError("Ce store n'existe pas", 404);
         }
         // return $formData;
         $table = StoreTable::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
@@ -54,13 +54,13 @@ class TABLE_HELPER extends BASE_HELPER
 
     static function allTables()
     {
-        $tables =  StoreTable::with(['owner'])->where(["owner" => request()->user()->id,"visible" => 1])->orderBy('id', 'desc')->get();
+        $tables =  StoreTable::with(['owner'])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($tables, 'Toutes les tables récupérés avec succès!!');
     }
 
     static function _retrieveTable($id)
     {
-        $table = StoreTable::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $table = StoreTable::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if ($table->count() == 0) {
             return self::sendError("Cette table n'existe pas!", 404);
         }
@@ -69,7 +69,7 @@ class TABLE_HELPER extends BASE_HELPER
 
     static function _updateTable($formData, $id)
     {
-        $table = StoreTable::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $table = StoreTable::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($table) == 0) {
             return self::sendError("Cette Table n'existe pas!", 404);
         };
@@ -80,7 +80,7 @@ class TABLE_HELPER extends BASE_HELPER
 
     static function tableDelete($id)
     {
-        $table = StoreTable::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $table = StoreTable::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($table) == 0) {
             return self::sendError("Cette Table n'existe pas!", 404);
         };
@@ -88,6 +88,10 @@ class TABLE_HELPER extends BASE_HELPER
         $table = $table[0];
         $table->visible = 0;
         $table->delete_at = now();
+
+        $session = GetSession(request()->user()->id);
+        $table->session = $session->id;
+
         $table->save();
         return self::sendResponse($table, 'Cette table a été supprimée avec succès!');
     }

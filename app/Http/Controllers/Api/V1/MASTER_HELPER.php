@@ -183,12 +183,62 @@ class MASTER_HELPER extends BASE_HELPER
         return self::sendResponse($master, "Master récupéré avec succès:!!");
     }
 
-    static function _updateMaster($formData, $id)
+    static function _updateMaster($request, $id)
     {
+        $formData = $request->all();
         $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if (count($Master) == 0) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };
+
+        if ($request->get("phone")) {
+            $phone = User::where('phone', $formData['phone'])->get();
+
+            if (!count($phone) == 0) {
+                return self::sendError("Ce phone existe déjà!!", 404);
+            }
+        }
+
+        if ($request->get("email")) {
+            $email = User::where('email', $formData['email'])->get();
+
+            if (!count($email) == 0) {
+                return self::sendError("Ce email existe déjà!!", 404);
+            }
+        }
+
+        #####TRAITEMENT DES DATAS AVANT UPDATE ######
+        if ($request->get("type_piece")) {
+            $piece_type = Piece::where('id', $formData['type_piece'])->get();
+            if (count($piece_type) == 0) {
+                return self::sendError("Ce type de piece n'existe pas!", 404);
+            }
+        }
+
+        if ($request->get("domaine_activite")) {
+            $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
+            if (count($domaine_activite) == 0) {
+                return self::sendError("Ce domaine d'activité n'existe pas!!", 404);
+            }
+        }
+
+        ##GESTION DES FICHIERS
+        if ($request->file("ifu_file")) {
+            $ifu_file = $request->file('ifu_file');
+            $ifu_name = $ifu_file->getClientOriginalName();
+            $request->file('ifu_file')->move("pieces", $ifu_name);
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["ifu_file"] = asset("pieces/" . $ifu_name);
+        }
+        if ($request->file("rccm_file")) {
+            $rccm_file = $request->file('rccm_file');
+
+            $rccm_name = $rccm_file->getClientOriginalName();
+            $request->file('rccm_file')->move("pieces", $rccm_name);
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["rccm_file"] = asset("pieces/" . $rccm_name);
+        }
+
         $Master = Master::find($id);
         $Master->update($formData);
         return self::sendResponse($Master, 'Ce Master a été modifié avec succès!');

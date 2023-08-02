@@ -71,7 +71,7 @@ class MasterController extends MASTER_HELPER
         };
 
         #RECUPERATION D'UN MASTER VIA SON **id**
-        return $this->_updateMaster($request->all(),$id);
+        return $this->_updateMaster($request,$id);
     }
 
     function DeleteMaster(Request $request, $id)

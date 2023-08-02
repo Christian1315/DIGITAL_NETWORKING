@@ -6,7 +6,6 @@ use App\Models\Store;
 use App\Models\StoreCategory;
 use App\Models\StoreProduit;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class PRODUCT_HELPER extends BASE_HELPER
 {
@@ -15,7 +14,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function product_rules(): array
     {
         return [
-            'name' => ['required', Rule::unique("store_produits")],
+            'name' => ['required'],
             'price' => ['required'],
             'img' => ['required'],
             'description' => ['required'],
@@ -46,7 +45,6 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function _createProduct($request)
     {
         $formData = $request->all();
-        // return $formData;
         $product_category = StoreCategory::where(['owner' => request()->user()->id, 'id' => $formData["category"]])->get();
         $store = Store::where(['id' => $formData["store"]])->get();
 
@@ -71,6 +69,8 @@ class PRODUCT_HELPER extends BASE_HELPER
         $product->img = $formData["img"];
 
         $product->owner = request()->user()->id;
+        $session = GetSession(request()->user()->id);
+        $product->session = $session->id;
 
         $product->save();
         return self::sendResponse($product, 'Produit crée avec succès!!');
@@ -78,34 +78,48 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function allProduct()
     {
-        $product =  StoreProduit::with(['owner','store'])->where(["owner" => request()->user()->id,"visible" => 1])->orderBy('id', 'desc')->get();
+        $product =  StoreProduit::with(['owner', 'store'])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');
     }
 
     static function _retrieveProduct($id)
     {
-        $product = StoreProduit::with(['owner',"store"])->where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::with(['owner', "store"])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product->count() == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
         return self::sendResponse($product, "Produit récupéré avec succès:!!");
     }
 
-    static function _updateProduct($formData, $id)
+    static function _updateProduct($request, $id)
     {
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $formData = $request->all();
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         };
+
+        // return $request->file("img");
+        if ($request->file("img")) {
+            $img = $request->file('img');
+
+            $img_name = $img->getClientOriginalName();
+            $request->file('img')->move("products", $img_name);
+
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["img"] = asset("products/" . $img_name);
+        }
+        // return $formData["img"];
         $product = StoreProduit::find($id);
         $product->update($formData);
+        $product->img = $formData["img"];
+        $product->save();
         return self::sendResponse($product, 'Ce Produit a été modifié avec succès!');
     }
 
     static function productDelete($id)
     {
-        // return $id;
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Produit n'existe pas!", 404);
         };

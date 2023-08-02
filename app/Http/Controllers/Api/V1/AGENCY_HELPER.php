@@ -161,7 +161,7 @@ class AGENCY_HELPER extends BASE_HELPER
         $request->file('piece_file')->move("pieces", $piece_name);
         $request->file('photo')->move("pieces", $photo_name);
 
-        //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE **MASTERS**
+        //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
         $agencyData["ifu_file"] = asset("pieces/" . $ifu_name);
         $agencyData["rccm_file"] = asset("pieces/" . $rccm_name);
         $agencyData["piece_file"] = asset("pieces/" . $piece_name);
@@ -198,7 +198,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master", "owner", "agents", "poss","stores"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
 
         foreach ($Agencys as $agency) {
             $agent_dad_id =  $agency->agent_dad;
@@ -210,7 +210,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["master", "owner", "agents", "poss","stores"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
+        $agency = Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
         if ($agency->count() == 0) {
             return self::sendResponse($agency, "Agences recupere avec succès!!");
         }
@@ -240,13 +240,99 @@ class AGENCY_HELPER extends BASE_HELPER
         return self::sendResponse($agency, "Agence récupéré avec succès:!!");
     }
 
-    static function _updateAgent($formData, $id)
+    static function _updateAgency($request, $id)
     {
         $AGENCY = Agency::with(['master', "owner", "agents"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
         if (count($AGENCY) == 0) {
             return self::sendError("Ce AGENCY n'existe pas!", 404);
         };
+
+        $formData = $request->all();
+
         $AGENCY = Agency::with(['master', "owner"])->find($id);
+
+        #####TRAITEMENT DES DATAS AVANT UPDATE ######
+        if ($request->get("type_id")) {
+            $agency_type = AgencyType::where('id', $formData['type_id'])->get();
+            if (count($agency_type) == 0) {
+                return self::sendError("Ce type d'agence n'existe pas!", 404);
+            }
+        }
+
+        if ($request->get("type_piece")) {
+            $piece_type = Piece::where('id', $formData['type_piece'])->get();
+            if (count($piece_type) == 0) {
+                return self::sendError("Ce type de piece n'existe pas!!", 404);
+            }
+        }
+
+        if ($request->get("domaine_activite")) {
+            $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
+            if (count($domaine_activite) == 0) {
+                return self::sendError("Ce domaine d'activité n'existe pas!!", 404);
+            }
+        }
+
+        if ($request->get("agent_dad")) {
+            $agent_dad = Agent::where('id', $formData['agent_dad'])->get();
+
+            if (count($agent_dad) == 0) {
+                return self::sendError("Ce Agent n'existe pas!!", 404);
+            }
+        }
+
+        if ($request->get("phone")) {
+            $phone = User::where('phone', $formData['phone'])->get();
+
+            if (!count($phone) == 0) {
+                return self::sendError("Ce phone existe déjà!!", 404);
+            }
+        }
+
+        if ($request->get("email")) {
+            $email = User::where('email', $formData['email'])->get();
+
+            if (!count($email) == 0) {
+                return self::sendError("Ce email existe déjà!!", 404);
+            }
+        }
+
+        ##GESTION DES FICHIERS
+        if ($request->file("ifu_file")) {
+            $ifu_file = $request->file('ifu_file');
+            $ifu_name = $ifu_file->getClientOriginalName();
+            $request->file('ifu_file')->move("pieces", $ifu_name);
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["ifu_file"] = asset("pieces/" . $ifu_name);
+        }
+        if ($request->file("rccm_file")) {
+            $rccm_file = $request->file('rccm_file');
+
+            $rccm_name = $rccm_file->getClientOriginalName();
+            $request->file('rccm_file')->move("pieces", $rccm_name);
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["rccm_file"] = asset("pieces/" . $rccm_name);
+        }
+
+        if ($request->file("piece_file")) {
+            $piece_file = $request->file('piece_file');
+            $piece_name = $piece_file->getClientOriginalName();
+            $request->file('piece_file')->move("pieces", $piece_name);
+
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["piece_file"] = asset("pieces/" . $piece_name);
+        }
+
+        if ($request->file("photo")) {
+            $photo = $request->file('photo');
+
+            $photo_name = $photo->getClientOriginalName();
+            $request->file('photo')->move("pieces", $photo_name);
+
+            //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
+            $formData["photo"] = asset("pieces/" . $photo_name);
+        }
+
         $AGENCY->update($formData);
         return self::sendResponse($AGENCY, 'Ce AGENCY a été modifié avec succès!');
     }

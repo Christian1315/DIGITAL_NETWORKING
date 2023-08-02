@@ -39,9 +39,10 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function _createProductCategory($formData)
     {
-        // return $formData;
+        $session = GetSession(request()->user()->id);
         $product_category = StoreCategory::create($formData); #ENREGISTREMENT DU STORE DANS LA DB
         $product_category->owner = request()->user()->id;
+        $product_category->session = $session->id;
         $product_category->save();
         return self::sendResponse($product_category, 'Catégory de produit crée avec succès!!');
     }

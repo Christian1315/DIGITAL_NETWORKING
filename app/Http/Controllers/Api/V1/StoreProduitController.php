@@ -10,6 +10,7 @@ class StoreProduitController extends PRODUCT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware('CheckSession');
     }
 
     #GET ALL PRODUCTS
@@ -35,7 +36,7 @@ class StoreProduitController extends PRODUCT_HELPER
         };
 
         #RECUPERATION D'UN PRODUIT VIA SON **id**
-        return $this->_updateProduct($request->all(), $id);
+        return $this->_updateProduct($request, $id);
     }
 
     #RECUPERER UN PRODUIT

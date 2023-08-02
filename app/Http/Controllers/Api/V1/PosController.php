@@ -17,19 +17,19 @@ class PosController extends POS_HELPER
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
         $validator = $this->Add_Pos_Validator($request->all());
 
         if ($validator->fails()) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
             return $this->sendError($validator->errors(), 404);
         }
 
-        #ENREGISTREMENT DANS LA DB VIA **_createPos** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+        #ENREGISTREMENT DANS LA DB VIA **_createPos** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
         return $this->_createPos($request);
     }
 
@@ -38,7 +38,7 @@ class PosController extends POS_HELPER
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
@@ -47,11 +47,11 @@ class PosController extends POS_HELPER
     }
 
     #GET A Pos
-    function RetrievePos(Request $request,$id)
+    function RetrievePos(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
@@ -64,19 +64,27 @@ class PosController extends POS_HELPER
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
+        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
+        $validator = $this->Update_Pos_Validator($request->all());
+
+        if ($validator->fails()) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
+            return $this->sendError($validator->errors(), 404);
+        }
+
         #RECUPERATION D'UN Pos VIA SON **id**
-        return $this->_updatePos($request->all(),$id);
+        return $this->_updatePos($request, $id);
     }
 
     function DeletePos(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "DELETE") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS POS_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
@@ -87,7 +95,7 @@ class PosController extends POS_HELPER
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
-            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS POS_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 

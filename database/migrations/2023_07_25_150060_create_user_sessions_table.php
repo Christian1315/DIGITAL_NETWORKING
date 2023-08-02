@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('store_facturations', function (Blueprint $table) {
+        Schema::create('user_sessions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("session")
+            $table->foreignId("user")
                 ->nullable()
-                ->constrained('user_sessions', 'id')
+                ->constrained("users", 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
-            $table->string("delete_at")->nullable();
-            $table->boolean("visible")->default(true);
-
+            $table->string("ip")->nullable();
+            $table->string("begin_date")->nullable();
+            $table->string("end_date")->nullable();
+            $table->string("session_time")->nullable();
+            $table->boolean("active")->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('store_facturations');
+        Schema::dropIfExists('user_sessions');
     }
 };

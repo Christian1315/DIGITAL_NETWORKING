@@ -6,6 +6,7 @@ use App\Models\Master;
 use App\Models\Pos;
 use App\Models\Right;
 use App\Models\User;
+use App\Models\UserSession;
 use Illuminate\Support\Facades\Http;
 
 function userCount()
@@ -131,7 +132,7 @@ function Login_To_Frik_SMS()
 
 function Send_SMS($phone, $message, $token)
 {
-    
+
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . $token,
     ])->post(env("SEND_SMS_API_URL") . "/api/v1/sms/send", [
@@ -177,4 +178,35 @@ function myUsers($user_id)
 {
     $users = User::with(['rang', 'profil'])->where("owner", $user_id)->get();
     return $users;
+}
+
+
+##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ==========## 
+
+function CheckSessionExiste($user_id)
+{
+    $session = UserSession::where(["user" => $user_id])->get();
+    if ($session->count() == 0) {
+        return false; #IL N'A PAS DE SESSION
+    }
+    return true; #IL A UNE SESSION
+}
+
+
+##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ACTIVE==========## 
+
+function CheckSessionActive($user_id)
+{
+    $sessionActive = UserSession::where(["user" => $user_id, "active" => 1])->get();
+    if ($sessionActive->count() == 0) {
+        return false; #IL N'A PAS DE SESSION ACTIVE
+    }
+    return true; #IL A UNE SESSION ACTIVE
+}
+
+##======== CE HELPER PERMET DE RECUPERER LA SESSION D'UN USER ==========## 
+
+function GetSession($user_id)
+{
+    return UserSession::where(["user" => $user_id])->get()[0];
 }

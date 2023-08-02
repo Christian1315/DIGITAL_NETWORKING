@@ -10,6 +10,7 @@ class StoreTableController extends TABLE_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware('CheckSession');
     }
 
     #GET ALL TABLES

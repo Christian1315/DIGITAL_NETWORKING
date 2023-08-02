@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'CheckAgencyOrAdmin' => \App\Http\Middleware\CheckAgencyOrAdmin::class,
         'CheckMasterOrAdmin' => \App\Http\Middleware\CheckMasterOrAdmin::class,
         'CheckPosOrAdmin' => \App\Http\Middleware\CheckPosOrAdmin::class,
+        'CheckSession' => \App\Http\Middleware\CheckSession::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

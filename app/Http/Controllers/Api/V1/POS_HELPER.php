@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 
 class POS_HELPER extends BASE_HELPER
 {
-    ##======== POS VALIDATION =======##
+    ##======== ADD POS VALIDATION =======##
     static function pos_rules(): array
     {
         return [
@@ -29,6 +29,22 @@ class POS_HELPER extends BASE_HELPER
         return $validator;
     }
 
+    ##======== UPDATE POS VALIDATION =======##
+    static function update_pos_rules(): array
+    {
+        return [
+            "username" => [Rule::unique("pos")],
+            "phone" => [Rule::unique("pos")],
+        ];
+    }
+
+    static function Update_Pos_Validator($formDatas)
+    {
+        $rules = self::update_pos_rules();
+
+        $validator = Validator::make($formDatas, $rules);
+        return $validator;
+    }
     static function _createPos($request)
     {
         $formData = $request->all();
@@ -52,13 +68,13 @@ class POS_HELPER extends BASE_HELPER
 
     static function allPoss()
     {
-        $Pos =  Pos::with(["owner", "agents","agencies","stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+        $Pos =  Pos::with(["owner", "agents", "agencies", "stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
 
     static function _retrievePos($id)
     {
-        $pos = Pos::with(["owner", "agents","agencies","stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+        $pos = Pos::with(["owner", "agents", "agencies", "stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if ($pos->count() == 0) {
             return self::sendError("Ce Pos n'existe pas", 404);
         }
@@ -66,12 +82,14 @@ class POS_HELPER extends BASE_HELPER
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
     }
 
-    static function _updatePos($formData, $id)
+    static function _updatePos($request, $id)
     {
+        $formData = $request->all();
         $Pos = Pos::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         if (count($Pos) == 0) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };
+
         $Pos = Pos::find($id);
         $Pos->update($formData);
         return self::sendResponse($Pos, 'Ce Pos a été modifié avec succès!');
@@ -90,7 +108,6 @@ class POS_HELPER extends BASE_HELPER
         $Pos->save();
         return self::sendResponse($Pos, 'Ce Pos a été supprimé avec succès!');
     }
-
 
     static function _AffectToAgency($formData)
     {

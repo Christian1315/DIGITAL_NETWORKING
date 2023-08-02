@@ -169,13 +169,39 @@ class AGENT_HELPER extends BASE_HELPER
         return self::sendResponse($agent, "Agent récupéré avec succès:!!");
     }
 
-    static function _updateAgent($formData, $id)
+    static function _updateAgent($request, $id)
     {
+        $formData = $request->all();
         $Agent = Agent::with(['master', "owner"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
         if (count($Agent) == 0) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
         $Agent = Agent::with(['master', "owner"])->find($id);
+
+        #####TRAITEMENT DES DATAS AVANT UPDATE ######
+        if ($request->get("type_id")) {
+            $agent_type = AgentType::where('id', $formData['type_id'])->get();
+            if (count($agent_type) == 0) {
+                return self::sendError("Ce type d'agent n'existe pas!", 404);
+            }
+        }
+
+        if ($request->get("phone")) {
+            $phone = User::where('phone', $formData['phone'])->get();
+
+            if (!count($phone) == 0) {
+                return self::sendError("Ce phone existe déjà!!", 404);
+            }
+        }
+
+        if ($request->get("email")) {
+            $email = User::where('email', $formData['email'])->get();
+
+            if (!count($email) == 0) {
+                return self::sendError("Ce email existe déjà!!", 404);
+            }
+        }
+
         $Agent->update($formData);
         return self::sendResponse($Agent, 'Ce Agent a été modifié avec succès!');
     }

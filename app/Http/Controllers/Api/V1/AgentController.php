@@ -70,7 +70,7 @@ class AgentController extends AGENT_HELPER
         };
 
         #RECUPERATION D'UN Agent VIA SON **id**
-        return $this->_updateAgent($request->all(), $id);
+        return $this->_updateAgent($request, $id);
     }
 
     function DeleteAgent(Request $request, $id)

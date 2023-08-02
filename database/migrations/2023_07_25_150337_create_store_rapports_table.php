@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('store_rapports', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
             $table->timestamps();

@@ -7,7 +7,6 @@ use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreTable;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class COMMAND_HELPER extends BASE_HELPER
 {
@@ -102,6 +101,10 @@ class COMMAND_HELPER extends BASE_HELPER
         
         $command->visible = 0;
         $command->delete_at = now();
+
+        $session = GetSession(request()->user()->id);
+        $command->session = $session->id;
+
         $command->save();
         return self::sendResponse($command, 'Cette commande a été supprimée avec succès!');
     }

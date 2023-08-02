@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('store_stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->integer("quantity");
             $table->text("comments");
             $table->foreignId("owner")

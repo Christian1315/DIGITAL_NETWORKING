@@ -69,7 +69,7 @@ class AgencyController extends AGENCY_HELPER
         };
 
         #RECUPERATION D'UN AGENCY VIA SON **id**
-        return $this->_updateAgency($request->all(), $id);
+        return $this->_updateAgency($request, $id);
     }
 
     function DeleteAgency(Request $request, $id)
