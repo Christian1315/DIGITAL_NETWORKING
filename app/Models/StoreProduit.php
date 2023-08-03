@@ -16,7 +16,8 @@ class StoreProduit extends Model
         "description",
         "category",
         "store",
-        "active"
+        "active",
+        "product_type"
     ];
 
     function owner() : BelongsTo {

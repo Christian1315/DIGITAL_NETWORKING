@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\ProductType;
 use App\Models\Store;
 use App\Models\StoreCategory;
 use App\Models\StoreProduit;
@@ -21,6 +22,7 @@ class PRODUCT_HELPER extends BASE_HELPER
             'category' => ['required', "integer"],
             'store' => ['required', "integer"],
             'active' => ['required', "integer"],
+            'product_type' => ['required', "integer"],
         ];
     }
 
@@ -45,8 +47,15 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function _createProduct($request)
     {
         $formData = $request->all();
+        $product_type = ProductType::where(['id' => $formData["product_type"]])->get();
+
         $product_category = StoreCategory::where(['owner' => request()->user()->id, 'id' => $formData["category"]])->get();
         $store = Store::where(['id' => $formData["store"]])->get();
+
+        if ($product_type->count() == 0) {
+            return self::sendError("Ce type de produit n'existe pas!!", 404);
+        }
+
 
         if ($product_category->count() == 0) {
             return self::sendError("Cette categorie de produit n'existe pas!!", 404);

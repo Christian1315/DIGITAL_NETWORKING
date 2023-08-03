@@ -18,6 +18,7 @@ return new class extends Migration
                 ->constrained('user_sessions', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
+
             $table->string("name");
             $table->string("price");
             $table->text("img")->nullable();
@@ -25,6 +26,12 @@ return new class extends Migration
             $table->foreignId("store")
                 ->nullable()
                 ->constrained('stores', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("product_type")
+                ->nullable()
+                ->constrained('product_types', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
