@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\V1\RightController;
 use App\Http\Controllers\Api\V1\MasterController;
 use App\Http\Controllers\Api\V1\PieceController;
 use App\Http\Controllers\Api\V1\PosController;
+use App\Http\Controllers\Api\V1\ProductTypeController;
 use App\Http\Controllers\Api\V1\StoreCategoryController;
 use App\Http\Controllers\Api\V1\StoreCommandController;
 use App\Http\Controllers\Api\V1\StoreController;
@@ -180,6 +181,7 @@ Route::prefix('v1')->group(function () {
             Route::any('create', 'CreateSession');
             Route::any('logout', 'SessionLogout');
             Route::any('login', '_SessionLogin');
+            Route::any('{id}/retrieve', '_SessionRetrieve');
             Route::any('{id}/delete', 'DeleteSession');
         });
     });
@@ -199,7 +201,13 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::prefix('products')->group(function () {
-
+        ###========== PRODUCT TYPE ROUTINGS ========###
+        Route::controller(ProductTypeController::class)->group(function () {
+            Route::prefix('type')->group(function () {
+                Route::any('all', 'ProductTypes'); #RECUPERATION DE TOUT LES TYPES DE PRODUIT
+                Route::any('{id}/retrieve', 'RetrieveProductType'); #RECUPERATION D'UN TYPE DE PRODUIT
+            });
+        });
         ###========== PRODUCT CATEGORY ROUTINGS ========###
         Route::controller(StoreCategoryController::class)->group(function () {
             Route::prefix('category')->group(function () {

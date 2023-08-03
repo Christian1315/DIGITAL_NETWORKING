@@ -27,7 +27,7 @@ class UserSessionController extends USER_SESSION_HELPER
     function SessionLogout(Request $request)
     {
         #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "GET") == False) {
+        if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
@@ -39,7 +39,7 @@ class UserSessionController extends USER_SESSION_HELPER
     function _SessionLogin(Request $request)
     {
         #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "GET") == False) {
+        if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
@@ -47,14 +47,26 @@ class UserSessionController extends USER_SESSION_HELPER
         return $this->sessionLogin($request);
     }
 
-    #SESSION DELETE
-    function DeleteSession(Request $request)
+    #SESSION RETRIEVE
+    function _SessionRetrieve(Request $request, $id)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
-        return $this->sessionDelete($request);
+
+        return $this->_retrieveSession($id);
+    }
+
+    #SESSION DELETE
+    function DeleteSession(Request $request, $id)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "DELETE") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
+            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+        return $this->sessionDelete($id);
     }
 }

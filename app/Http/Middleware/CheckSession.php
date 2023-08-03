@@ -15,16 +15,16 @@ class CheckSession
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!CheckSessionExiste(request()->user()->id)) {
+        if (!CheckIfUserHasASession(request()->user()->id)) {
             return response()->json([
                 'status' => false,
                 "message" => "Vous n'avez pas de session! Veuillez en initier une!"
             ], 404);
         }
-        if (!CheckSessionActive(request()->user()->id)) {
+        if (!CheckIfUserHasAnActiveSession(request()->user()->id)) {
             return response()->json([
                 'status' => false,
-                "message" => "Votre session n'est pas active! Veuillez l'activer"
+                "message" => "Aucune de vos session n'est active. Veuillez activer une"
             ], 404);
         }
         return $next($request);

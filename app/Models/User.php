@@ -100,4 +100,8 @@ class User extends Authenticatable
     function owner():BelongsTo {
         return $this->belongsTo(User::class,"owner");
     }
+
+    function sessions() : HasMany {
+        return $this->hasMany(UserSession::class,"user");
+    }
 }

@@ -918,7 +918,6 @@ class DatabaseSeeder extends Seeder
         }
 
         #======== CREATION DES RIGHTS  PAR DEFAUT =========#
-
         $rights = [
             ##### add_user
             [
@@ -1683,6 +1682,21 @@ class DatabaseSeeder extends Seeder
 
         foreach ($rights as $right) {
             \App\Models\Right::factory()->create($right);
+        }
+
+        #======== CREATION DES TYPES DE PRODUIT PAR DEFAUT =========#
+        $produitTypes = [
+            [
+                "name" => "Stockable",
+                "description" => "Produit stockable",
+            ],
+            [
+                "name" => "Non Stockable",
+                "description" => "Produit non stockable",
+            ],
+        ];
+        foreach ($produitTypes as $type) {
+            \App\Models\ProductType::factory()->create($type);
         }
     }
 }

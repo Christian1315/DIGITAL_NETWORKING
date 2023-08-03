@@ -49,13 +49,16 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function allProductCategory()
     {
-        $product_category =  StoreCategory::with(['owner'])->where(["owner" => request()->user()->id,"visible" => 1],)->orderBy('id', 'desc')->get();
+        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
+        // return GetSession(request()->user()->id);
+        $product_category =  StoreCategory::with(['owner'])->where(["owner" => request()->user()->id, "session" => $session_id, "visible" => 1],)->orderBy('id', 'desc')->get();
         return self::sendResponse($product_category, 'Tout les categories de produits récupérés avec succès!!');
     }
 
     static function _retrieveProductCategory($id)
     {
-        $product_category = StoreCategory::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
+        $product_category = StoreCategory::with(['owner'])->where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
         if ($product_category->count() == 0) {
             return self::sendError("Ce product_category n'existe pas!", 404);
         }
@@ -64,7 +67,8 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function _updateProductCategory($formData, $id)
     {
-        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id,"visible" => 1])->get();
+        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSION DANS LAQUELLE LA CATEGORY A ETE CREE
+        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
         if (count($product_category) == 0) {
             return self::sendError("Ce product_category n'existe pas!", 404);
         };
@@ -75,8 +79,9 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function productCategoryDelete($id)
     {
-        // return $id;
-        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id])->get();
+        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSION DANS LAQUELLE LA CATEGORY A ETE CREE
+        $product_category = StoreCategory::where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
+
         if (count($product_category) == 0) {
             return self::sendError("Cette Catégorie de produit n'existe pas!", 404);
         };

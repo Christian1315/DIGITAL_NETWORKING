@@ -111,10 +111,18 @@ class USER_HELPER extends BASE_HELPER
                 $user = Auth::user();
                 // return $user->email;
                 $token = $user->createToken('MyToken', ['api-access'])->accessToken;
+                $user["sessions"] = $user->sessions;
                 $user['rang'] = $user->rang;
                 $user['profil'] = $user->profil;
                 $user['rights'] = $user->rights;
                 $user['token'] = $token;
+                $user["stores"] = $user->stores;
+                $user["poss"] = $user->poss;
+                $user["agents"] = $user->agents;
+                $user["agencies"] = $user->agencies;
+
+                $user["AGENT"]  = AGENT(request()->user()->id);
+                $user["AGENCY"]  = AGENCY(request()->user()->id);
 
                 #renvoie des droits du user 
                 $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
@@ -129,16 +137,6 @@ class USER_HELPER extends BASE_HELPER
                 } else {
                     $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
                 }
-
-                $user["stores"] = $user->stores;
-                $user["poss"] = $user->poss;
-                $user["agents"] = $user->agents;
-                $user["agencies"] = $user->agencies;
-
-                $user["AGENT"]  = AGENT(request()->user()->id);
-                $user["AGENCY"]  = AGENCY(request()->user()->id);
-
-
 
                 #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                 return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
@@ -156,10 +154,18 @@ class USER_HELPER extends BASE_HELPER
                     if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
                         $user = Auth::user();
                         $token = $user->createToken('MyToken', ['api-access'])->accessToken;
+                        $user["sessions"] = $user->sessions;
                         $user['rang'] = $user->rang;
                         $user['profil'] = $user->profil;
                         $user['rights'] = $user->rights;
                         $user['token'] = $token;
+                        $user["stores"] = $user->stores;
+                        $user["poss"] = $user->poss;
+                        $user["agents"] = $user->agents;
+                        $user["agencies"] = $user->agencies;
+
+                        $user["AGENT"]  = AGENT(request()->user()->id);
+                        $user["AGENCY"]  = AGENCY(request()->user()->id);
 
                         #renvoie des droits du user 
                         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
@@ -174,15 +180,6 @@ class USER_HELPER extends BASE_HELPER
                         } else {
                             $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
                         }
-
-                        $user["stores"] = $user->stores;
-                        $user["poss"] = $user->poss;
-                        $user["agents"] = $user->agents;
-                        $user["agencies"] = $user->agencies;
-
-                        $user["AGENT"]  = AGENT(request()->user()->id);
-                        $user["AGENCY"]  = AGENCY(request()->user()->id);
-
 
                         #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                         return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');
@@ -227,7 +224,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(["owner", 'rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
+        $user = User::with(["sessions", "owner", 'rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1, 'owner' => request()->user()->id])->get();
         if ($user->count() == 0) {
 
             return self::sendError("Ce utilisateur n'existe pas!", 404);
@@ -261,7 +258,7 @@ class USER_HELPER extends BASE_HELPER
     static function userDelete($id)
     {
 
-        $User = User::where(['id' => $id, 'visible' => 1,'owner' => request()->user()->id])->get();
+        $User = User::where(['id' => $id, 'visible' => 1, 'owner' => request()->user()->id])->get();
         if (count($User) == 0) {
             return self::sendError("Ce User n'existe pas!", 404);
         };
@@ -277,7 +274,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightAttach($formData)
     {
-        $user = User::where(['id'=> $formData['user_id'],'owner' => request()->user()->id])->get();
+        $user = User::where(['id' => $formData['user_id'], 'owner' => request()->user()->id])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
@@ -298,7 +295,7 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightDesAttach($formData)
     {
-        $user = User::where(['id'=> $formData['user_id'],'owner' => request()->user()->id])->get();
+        $user = User::where(['id' => $formData['user_id'], 'owner' => request()->user()->id])->get();
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };

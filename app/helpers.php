@@ -176,14 +176,14 @@ function AGENCY($user_id)
 
 function myUsers($user_id)
 {
-    $users = User::with(['rang', 'profil'])->where("owner", $user_id)->get();
+    $users = User::with(["sessions", 'rang', 'profil'])->where("owner", $user_id)->get();
     return $users;
 }
 
 
 ##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ==========## 
 
-function CheckSessionExiste($user_id)
+function CheckIfUserHasASession($user_id)
 {
     $session = UserSession::where(["user" => $user_id])->get();
     if ($session->count() == 0) {
@@ -195,7 +195,7 @@ function CheckSessionExiste($user_id)
 
 ##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ACTIVE==========## 
 
-function CheckSessionActive($user_id)
+function CheckIfUserHasAnActiveSession($user_id)
 {
     $sessionActive = UserSession::where(["user" => $user_id, "active" => 1])->get();
     if ($sessionActive->count() == 0) {
@@ -208,5 +208,5 @@ function CheckSessionActive($user_id)
 
 function GetSession($user_id)
 {
-    return UserSession::where(["user" => $user_id])->get()[0];
+    return UserSession::where(["user" => $user_id,"active" => 1])->get()[0];
 }
