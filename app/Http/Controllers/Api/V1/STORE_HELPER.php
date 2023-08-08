@@ -49,13 +49,13 @@ class STORE_HELPER extends BASE_HELPER
 
     static function allStores()
     {
-        $stores =  Store::with(['owner',"agent","agency","pos"])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
 
     static function _retrieveStore($id)
     {
-        $store = Store::with(['owner',"agent","agency","pos"])->where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
+        $store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if ($store->count() == 0) {
             return self::sendError("Ce store n'existe pas!", 404);
         }

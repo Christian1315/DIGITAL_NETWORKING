@@ -19,7 +19,9 @@ use App\Http\Controllers\Api\V1\StoreCategoryController;
 use App\Http\Controllers\Api\V1\StoreCommandController;
 use App\Http\Controllers\Api\V1\StoreController;
 use App\Http\Controllers\Api\V1\StoreProduitController;
+use App\Http\Controllers\Api\V1\StoreSupplyController;
 use App\Http\Controllers\Api\V1\StoreTableController;
+use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -224,6 +226,7 @@ Route::prefix('v1')->group(function () {
             Route::any('add', 'CreateProduct'); #AJOUT D'UN PRODUIT
             Route::any('all', 'Products'); #GET ALL PRDUIT
             Route::any('{id}/retrieve', 'RetrieveProduct'); #RECUPERATION D'UN PRDUIT
+            Route::any('supply', '_SupplyProduct'); #APPROVISIONNER UN PRODUIT DANS UN SUPPLY
             Route::any('{id}/delete', '_DeleteProduct'); #SUPPRESSION D'UN PRDUIT
             Route::any('{id}/update', 'UpdateProduct'); #MODIFICATION D'UN PRODUIT
         });
@@ -248,6 +251,27 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveCommand'); #RECUPERATION D'UNE COMMANDE
             Route::any('{id}/delete', '_DeleteCommand'); #SUPPRESSION D'UN COMMANDE
             Route::any('{id}/update', 'UpdateCommand'); #MODIFICATION D'UN COMMANDE
+        });
+    });
+
+    ###========== SUPPLY ROUTINGS ========###
+    Route::prefix("supply")->group(function () {
+        Route::controller(StoreSupplyController::class)->group(function () {
+            Route::any('add', 'CreateSupply'); #AJOUT D'UN APPROVISIONNEMENT
+            Route::any('all', '_AllSupply'); #GET ALL APPROVISIONNEMENT
+            Route::any('{id}/retrieve', 'RetrieveSupply'); #RECUPERATION D'UN APPROVISIONNEMENT
+            Route::any('{id}/delete', '_DeleteSupply'); #SUPPRESSION D'UN APPROVISIONNEMENT
+            Route::any('{id}/update', 'UpdateSupply'); #MODIFICATION D'UN APPROVISIONNEMENT
+        });
+    });
+
+    ###========== SUPPLY A PRODUCT ROUTINGS ========###
+    Route::prefix("supply-product")->group(function () {
+        Route::controller(SupplyProductController::class)->group(function () {
+            Route::any('supply', 'Supply_A_Product'); #AJOUT D'UN PRODUIT A UN APPROVISIONNEMENT
+            // Route::any('all', '_AllSupply'); #GET ALL APPROVISIONNEMENT
+            // Route::any('{id}/retrieve', 'RetrieveSupply'); #RECUPERATION D'UN APPROVISIONNEMENT
+            // Route::any('{id}/delete', '_DeleteSupply'); #SUPPRESSION D'UN APPROVISIONNEMENT
         });
     });
 });

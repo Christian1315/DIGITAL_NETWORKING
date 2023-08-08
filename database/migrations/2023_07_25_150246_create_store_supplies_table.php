@@ -11,46 +11,35 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('store_produits', function (Blueprint $table) {
+        Schema::create('store_supplies', function (Blueprint $table) {
             $table->id();
+            $table->text("comments");
             $table->foreignId("session")
                 ->nullable()
                 ->constrained('user_sessions', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
-
-            $table->string("name");
-            $table->string("price");
-            $table->text("img")->nullable();
-            $table->longText("description");
-            $table->foreignId("store")
-                ->nullable()
-                ->constrained('stores', 'id')
-                ->onUpdate("CASCADE")
-                ->onDelete("CASCADE");
-
-            $table->foreignId("product_type")
-                ->nullable()
-                ->constrained('product_types', 'id')
-                ->onUpdate("CASCADE")
-                ->onDelete("CASCADE");
-
-            $table->foreignId("category")
-                ->nullable()
-                ->constrained('store_categories', 'id')
-                ->onUpdate("CASCADE")
-                ->onDelete("CASCADE");
-
             $table->foreignId("owner")
                 ->nullable()
                 ->constrained('users', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
-            $table->boolean("supplied")->default(false);
-            
-            $table->boolean("active")->default(true);
-            $table->string("delete_at")->nullable();
+            $table->foreignId("pos")
+                ->nullable()
+                ->constrained('pos', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->foreignId("store")
+                ->nullable()
+                ->constrained('stores', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
+
+            $table->boolean("status")->default(true);
+
+            $table->text("delete_at")->nullable();
             $table->boolean("visible")->default(true);
 
             $table->timestamps();
@@ -62,6 +51,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('store_produits');
+        Schema::dropIfExists('store_supplies');
     }
 };

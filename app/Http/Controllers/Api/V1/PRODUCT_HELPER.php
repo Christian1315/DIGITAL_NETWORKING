@@ -6,6 +6,7 @@ use App\Models\ProductType;
 use App\Models\Store;
 use App\Models\StoreCategory;
 use App\Models\StoreProduit;
+use App\Models\StoreSupply;
 use Illuminate\Support\Facades\Validator;
 
 class PRODUCT_HELPER extends BASE_HELPER
@@ -43,6 +44,35 @@ class PRODUCT_HELPER extends BASE_HELPER
         $validator = Validator::make($formDatas, $rules, $messages);
         return $validator;
     }
+
+    ##======== SUPPLY PRODUCT VALIDATION =======##
+
+    static function supply_product_rules(): array
+    {
+        return [
+            'product_id' => ['required', 'integer'],
+            'supply_id' => ['required', 'integer'],
+        ];
+    }
+
+    static function supply_product_messages(): array
+    {
+        return [
+            // 'name.required' => 'Le champ name est réquis!',
+            // 'active.unique' => 'Cette action existe déjà',
+            // 'description.required' => 'Le champ description est réquis!',
+        ];
+    }
+
+    static function Supply_Product_Validator($formDatas)
+    {
+        $rules = self::supply_product_rules();
+        $messages = self::supply_product_messages();
+
+        $validator = Validator::make($formDatas, $rules, $messages);
+        return $validator;
+    }
+
 
     static function _createProduct($request)
     {
@@ -141,5 +171,40 @@ class PRODUCT_HELPER extends BASE_HELPER
         $product->delete_at = now();
         $product->save();
         return self::sendResponse($product, 'Ce Produit a été supprimé avec succès!');
+    }
+
+    static function supplyProduct($request)
+    {
+        $product_id = $request->get("product_id");
+        $supply_id = $request->get("supply_id");
+
+        $product = StoreProduit::where(["id" => $product_id, "owner" => request()->user()->id, "visible" => 1]);
+        $supply = StoreSupply::where(["id" => $supply_id, "owner" => request()->user()->id, "visible" => 1]);
+
+        if ($product->count() == 0) {
+            return self::sendError("Ce produit n'existe pas", 404);
+        }
+
+        if ($supply->count() == 0) {
+            return self::sendError("Ce supply n'existe pas", 404);
+        }
+
+        $product = $product[0]; #Retrieve du produit
+
+        if ($product->product_type = 2) { #Le produit n'est pas stockable
+            return self::sendError("Ce produit n'est pas Stockable", 404);
+        }
+
+        #SI LE PRODUIT EST STOCKABLE
+        #voyons s'il est déjà stocké
+        if ($product->supplied) {
+            return self::sendError("Ce produit est déjà stocké", 505);
+        }
+        #S'il n'est pas deja stocké, on passe à son stockage
+        $product->supply = $supply_id;
+        $product->supplied = true;
+        $product->save();
+
+        return self::sendResponse($product, 'Ce Produit a été stocké avec succès!');
     }
 }

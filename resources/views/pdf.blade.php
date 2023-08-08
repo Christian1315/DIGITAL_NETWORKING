@@ -28,7 +28,7 @@
                         </a>
                     </div>
                 </div>
-                <table class="table table-dark table-striped">
+                <table class="table  table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -49,44 +49,13 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
-                <table class="table table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
-
+<!-- 
         <div class="row">
             <div class="col-md-12 text-center">
                 <img src="https://www.shutterstock.com/image-illustration/futuristic-sports-car-motion-front-260nw-1950153520.jpg" alt="" srcset="">
             </div>
-        </div>
+        </div> -->
 
         <div class="row bg-dark bottom-fixed">
             <div class="col-md-12">

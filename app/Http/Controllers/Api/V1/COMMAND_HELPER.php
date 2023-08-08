@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
+use App\Models\StoreStock;
 use App\Models\StoreTable;
+use App\Models\SupplyProduct;
 use Illuminate\Support\Facades\Validator;
 
 class COMMAND_HELPER extends BASE_HELPER
@@ -46,7 +48,8 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $store = Store::where(["id" => $formData["store"], "owner" => request()->user()->id, "visible" => 1])->get();
         $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
-        $product = StoreProduit::where(["id" => $formData["product"], "owner" => request()->user()->id, "visible" => 1])->get();
+        #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
+        $product_stock = StoreStock::where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
 
         if ($store->count() == 0) {
             return self::sendError("Ce Store n'existe pas", 404);
@@ -54,15 +57,44 @@ class COMMAND_HELPER extends BASE_HELPER
         if ($table->count() == 0) {
             return self::sendError("Cette Table n'existe pas", 404);
         }
-        if ($product->count() == 0) {
-            return self::sendError("Ce Produit n'existe pas", 404);
+        if ($product_stock->count() == 0) {
+            return self::sendError("Ce Produit n'existe pas dans le stock du store", 404);
         }
 
+        $product_stock = $product_stock[0];
+
+        #Verifions la quantité du produit
+        if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
+            return self::sendError("Ce produit est fini dans le stock!Veuillez approvisionner le stock avant de passer aux commandes", 505);
+        }
+
+        #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
+        if ($product_stock->quantity < $formData["qty"]) {
+            return self::sendError("Stock insuffisant!Dimuniez la quantité de votre commande", 505);
+        }
+        #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
         $command->owner = request()->user()->id;
         $session = GetSession(request()->user()->id);
         $command->session = $session->id;
         $command->save();
+
+        #Décrementons la quantité de ce stock et changeons sa **visibilité** et son **update_at**
+        $product_stock->visible = false;
+        $product_stock->update_at = now();
+        $product_stock->save();
+
+        #Recréeons une nouvelle ligne de ce produit dans la table des stocks
+        $new_stock = new StoreStock();
+        $new_stock->session = $session->id;
+        $new_stock->owner = request()->user()->id;
+        $new_stock->product = $formData["product"];
+        $new_stock->store = $formData["store"];
+        $new_stock->quantity =$product_stock->quantity - $formData["qty"];
+
+        $new_stock->comments = $product_stock->comments;
+        $new_stock->save();
+
         return self::sendResponse($command, 'Commande crée avec succès!!');
     }
 
@@ -86,7 +118,7 @@ class COMMAND_HELPER extends BASE_HELPER
     static function _updateCommand($formData, $id)
     {
         $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::where(["id" => $id, "owner" => request()->user()->id,"session" => $session_id, "visible" => 1])->get();
+        $command = StoreCommand::where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
         if (count($command) == 0) {
             return self::sendError("Cette Commande n'existe pas!", 404);
         };
@@ -98,7 +130,7 @@ class COMMAND_HELPER extends BASE_HELPER
     static function commandDelete($id)
     {
         $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::where(["id" => $id, "owner" => request()->user()->id,"session" => $session_id, "visible" => 1])->get();
+        $command = StoreCommand::where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
         if (count($command) == 0) {
             return self::sendError("Cette Commande n'existe pas!", 404);
         };
