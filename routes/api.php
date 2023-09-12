@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\AgencyTypeController;
 use App\Http\Controllers\Api\V1\AgentController;
 use App\Http\Controllers\Api\V1\AgentTypeController;
 use App\Http\Controllers\Api\V1\Authorization;
+use App\Http\Controllers\Api\V1\CardStatusController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ProfilController;
 use App\Http\Controllers\Api\V1\RangController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\Api\V1\StoreSupplyController;
 use App\Http\Controllers\Api\V1\StoreTableController;
 use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
+use App\Http\Controllers\Api\V1\CardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -272,6 +274,30 @@ Route::prefix('v1')->group(function () {
             // Route::any('all', '_AllSupply'); #GET ALL APPROVISIONNEMENT
             // Route::any('{id}/retrieve', 'RetrieveSupply'); #RECUPERATION D'UN APPROVISIONNEMENT
             // Route::any('{id}/delete', '_DeleteSupply'); #SUPPRESSION D'UN APPROVISIONNEMENT
+        });
+    });
+
+
+    ##~~~~~~~~ MODULE UBA ~~~~~~~~##
+    ###========== CARD ROUTINGS ========###
+    Route::prefix("card")->group(function () {
+        // LES STATUS
+        Route::prefix("status")->group(function () {
+            Route::controller(CardStatusController::class)->group(function () {
+                Route::any('all', 'CardStatus');
+                Route::any('{id}/retrieve', 'RetrieveCardStatus');
+            });
+        });
+        // LES CARDS
+        Route::controller(CardController::class)->group(function () {
+            Route::any('add', 'AddCard');
+            Route::any('import', 'ImportCards');
+            Route::any('all', 'Cards');
+            Route::any('{id}/retrieve', 'RetrieveCard');
+            Route::any('{id}/update', 'UpdateCard');
+            Route::any('{id}/delete', 'DeleteCard');
+            Route::any('{id}/partial-activation', 'PartialCardActivation');
+            Route::any('/affect-to-agency', 'AffectCartToAgency');
         });
     });
 });

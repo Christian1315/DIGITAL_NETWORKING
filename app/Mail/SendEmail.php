@@ -13,7 +13,7 @@ use Illuminate\Mail\Mailables\Envelope;
 class SendEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
     public $details;
 
     /**
@@ -31,13 +31,13 @@ class SendEmail extends Mailable
     {
         return new Envelope(
             subject: 'Notification',
-            from: new Address('christiangogo13154@gmail.com', 'AGBANDE'),
+            from: new Address('no-reply@digitalnetwork.global', 'DIGITAL NETWORK'),
             replyTo: [
-                new Address('christiangogo13154@gmail.com', 'AGBANDE'),
+                new Address('no-reply@digitalnetwork.global', 'DIGITAL NETWORK'),
             ],
         );
     }
-  
+
 
     /**
      * Get the message content definition.

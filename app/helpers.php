@@ -124,7 +124,7 @@ function Login_To_Frik_SMS()
 {
     $response = Http::post(env("SEND_SMS_API_URL") . "/api/v1/login", [
         "username" => "admin",
-        "password" => "admin",
+        "password" => "gogo@1315",
     ]);
 
     return $response;

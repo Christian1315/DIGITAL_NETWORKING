@@ -5,6 +5,10 @@
 /public/storage
 /storage/*.key
 /vendor
+
+/public/pieces
+/public/products
+
 env
 .env.backup
 .env.production

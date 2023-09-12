@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>JNP STORE</title>
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>DIGITAL NETWORK</title>
+    <link rel="shortcut icon" href="digital-logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                        <a class="navbar-brand text-white bg--red rounded shadow px-3" href="/"> <strong>JNP STORE</strong></a>
+                        <a class="navbar-brand text-white bg--red rounded shadow px-3" href="/"> <strong>DIGITAL NETWORK</strong></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -34,7 +34,7 @@
                                 </li>
                             </ul>
                             <form class="d-flex" role="search">
-                                <img src="logo.png" class="logo shadow-lg p-3 bg-body rounded" alt="" srcset="">
+                                <img src="digital-logo.jpeg" class="logo shadow-lg p-3 bg-body rounded" alt="" srcset="">
                             </form>
                         </div>
                     </div>
@@ -58,6 +58,8 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h1 class="title">bienvenu sur la documentation de l'API</h1>
+                            <img src="digital-logo.jpeg" class="rounded shadow-lg" width="500" alt="" srcset=""><br><br>
+
                             <p class="text-dark">JNP STORE est un module de networking qui vise à gérer les stocks dans les stations JNP</p>
                         </div>
                     </div>

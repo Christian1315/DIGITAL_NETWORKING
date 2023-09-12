@@ -779,7 +779,7 @@ class DatabaseSeeder extends Seeder
                 'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
                 'pass_default' => 'admin', #admin
                 'is_admin' => true,
-                'phone' => "61765591",
+                'phone' => "61765590",
                 "firstname" => "Admin 1",
                 "lastname" => "Admin",
                 "country" => "Bénin",
@@ -794,9 +794,9 @@ class DatabaseSeeder extends Seeder
                 'password' => '$2y$10$ZT2msbcfYEUWGUucpnrHwekWMBDe1H0zGrvB.pzQGpepF8zoaGIMC', #ppjjoel
                 'pass_default' => 'ppjjoel', #ppjjoel
                 'is_admin' => true,
-                'phone' => "61765592",
-                "firstname" => "Admin",
-                "lastname" => "Admin 2",
+                'phone' => "22997555619",
+                "firstname" => "PPJ",
+                "lastname" => "Joel",
                 "country" => "Bénin",
                 "rang_id" => \App\Models\Rang::find(1),
                 "profil_id" => \App\Models\Profil::find(9),
@@ -1697,6 +1697,57 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($produitTypes as $type) {
             \App\Models\ProductType::factory()->create($type);
+        }
+
+        #======== CREATION DES STATUS DE CARD PAR DEFAUT =========#
+        $statusCards = [
+            [
+                "name" => "on_old",
+                "label" => "Attente",
+                "description" => "Cette carte est en attente",
+            ],
+            [
+                "name" => "rejected",
+                "label" => "Activation rejetée",
+                "description" => "Cette carte est est rejetée",
+            ],
+            [
+                "name" => "unactivated",
+                "label" => "Non activée",
+                "description" => "Cette carte n'est pas encore activée",
+            ],
+            [
+                "name" => "partial_activated",
+                "label" => "Activée partiellement",
+                "description" => "Cette carte est activée partiellement",
+            ],
+            [
+                "name" => "activated",
+                "label" => "Activée",
+                "description" => "Cette Carte est activée",
+            ],
+        ];
+        foreach ($statusCards as $statusCard) {
+            \App\Models\CardStatus::factory()->create($statusCard);
+        }
+
+        #======== CREATION DES TYPES DE CARTES PAR DEFAUT =========#
+        $cardTypes = [
+            [
+                "name" => "Low",
+                "description" => "La carte Low est plafonné à 200.000 pour la recharge",
+            ],
+            [
+                "name" => "Mid",
+                "description" => "La carte Low est plafonné à 1.000.000 pour la recharge",
+            ],
+            [
+                "name" => "High",
+                "description" => "La carte Low est plafonné à 2.000.000 pour la recharge",
+            ],
+        ];
+        foreach ($cardTypes as $type) {
+            \App\Models\CardType::factory()->create($type);
         }
     }
 }
