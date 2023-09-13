@@ -778,7 +778,7 @@ class DatabaseSeeder extends Seeder
                 'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
                 'pass_default' => 'admin', #admin
                 'is_admin' => true,
-                'phone' => "61765590",
+                'phone' => "22961765590",
                 "firstname" => "Admin 1",
                 "lastname" => "Admin",
                 "country" => "Bénin",

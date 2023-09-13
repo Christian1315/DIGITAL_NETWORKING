@@ -76,7 +76,7 @@ class AGENT_HELPER extends BASE_HELPER
 
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
-        // return !count($user)===0;
+
         if (!count($user) === 0) {
             return self::sendError("Cet utilisateur existe déjà!", 404);
         }
@@ -100,7 +100,7 @@ class AGENT_HELPER extends BASE_HELPER
         $formData['number'] = $number;
 
         $_user =  request()->user();
-        // return $_user;
+
         $agentData = [
             "firstname" => $formData['firstname'],
             "lastname" => $formData['lastname'],
@@ -111,6 +111,7 @@ class AGENT_HELPER extends BASE_HELPER
             "user_id" => $formData['user_id'],
             "number" => $formData['number'],
         ];
+
         #SON ENREGISTREMENT EN TANT QU'UN AGENT
         $Agent = Agent::create($agentData); #ENREGISTREMENT DU Agent DANS LA DB
         $Agent['owner'] = request()->user()->id;
@@ -121,15 +122,16 @@ class AGENT_HELPER extends BASE_HELPER
         }
         $Agent->save();
 
-        #=====ENVOIE D'SMS =======~####
+        #~~===== ENVOIE D'SMS =======~####
         $sms_login =  Login_To_Frik_SMS();
+        // return $sms_login;
 
         if ($sms_login['status']) {
             $token =  $sms_login['data']['token'];
 
             Send_SMS(
                 $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                "Votre compte a été crée avec succès sur DIGITAL-NETWORK. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
                 $token
             );
         }

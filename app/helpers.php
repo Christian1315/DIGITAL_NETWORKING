@@ -86,7 +86,6 @@ function Is_User_An_Agency($userId)
     if (count($agency) == 0) { #S'il n'est pas une Agence
         return false; #S'il n'est ni Agence ni Admin
     }
-
     return true;
 }
 
@@ -122,7 +121,7 @@ function All_Rights()
 function Login_To_Frik_SMS()
 {
     $response = Http::post(env("SEND_SMS_API_URL") . "/api/v1/login", [
-        "username" => "admin",
+        "account" => "admin",
         "password" => "gogo@1315",
     ]);
 
