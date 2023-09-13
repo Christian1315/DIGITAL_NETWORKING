@@ -25,8 +25,19 @@ class CardClient extends Model
         "piece",
         "piece_picture",
         "souscrib_form_picture",
-        "card_type"
+        "card_type",
+        "visible"
     ];
+
+    function piece(): BelongsTo
+    {
+        return $this->belongsTo(Piece::class, "piece");
+    }
+
+    function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "owner");
+    }
 
     function card_type(): BelongsTo
     {

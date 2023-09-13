@@ -160,9 +160,9 @@ class CLIENT_CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $client =  CardClient::with(["card_type", "card"])->orderBy("id", "desc")->get();
+            $client =  CardClient::with(["owner", "piece", "card_type", "card"])->orderBy("id", "desc")->get();
         } else {
-            $client =  CardClient::with(["card_type", "card"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+            $client =  CardClient::with(["owner", "piece", "card_type", "card"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
         }
         return self::sendResponse($client, 'Tout les clients récupérés avec succès!!');
     }
@@ -171,9 +171,9 @@ class CLIENT_CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $client =  CardClient::with(["owner", "status", "type", "client", "agency"])->find($id);
+            $client =  CardClient::with(["owner", "piece", "card_type", "card"])->find($id);
         } else {
-            $client =  CardClient::with(["owner", "status", "type", "client", "agency"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+            $client =  CardClient::with(["owner", "piece", "card_type", "card"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
         }
         return self::sendResponse($client, "Client récupéré avec succès:!!");
     }
@@ -181,55 +181,37 @@ class CLIENT_CARD_HELPER extends BASE_HELPER
     static function _updateClient($request, $id)
     {
         $user = request()->user();
-        $client =  CardClient::with(["owner"])->where(['id' => $id, 'owner' => $user->id, 'visible' => 1])->find($id);
+        $formData = $request->all();
 
+        $client =  CardClient::where(['owner' => $user->id, 'visible' => 1])->find($id);
         if (!$client) {
             return self::sendError("Ce Client n'existe pas!", 404);
         }
 
-        if ($request->get("card_id")) {
-            if (!is_numeric($request->get("card_id"))) {
-                return self::sendError("L'ID de la Carte doit être un entier!", 505);
-            }
+        ##GESTION DES IMAGES
+        if ($request->file("piece_picture")) {
+            $piece_picture = $request->file('piece_picture');
+            $piece_picture_name = $piece_picture->getClientOriginalName();
+            $request->file('piece_picture')->move("pieces", $piece_picture_name);
+            $formData["piece_picture"] = asset("pieces/" . $piece_picture_name);
         }
 
-        if ($request->get("card_num")) {
-            if (!is_numeric($request->get("card_num"))) {
-                return self::sendError("Le numéro de la Carte doit être en entier!", 505);
-            }
+        if ($request->file("souscrib_form_picture")) {
+            $souscrib_form_picture = $request->file('souscrib_form_picture');
+            $souscrib_form_picture_name = $souscrib_form_picture->getClientOriginalName();
+            $request->file('souscrib_form_picture')->move("souscrib_form_pictures", $souscrib_form_picture_name);
+            $formData["souscrib_form_picture"] = asset("souscrib_form_picture/" . $souscrib_form_picture_name);
         }
 
-        if ($request->get("client")) {
-            $cardClient = Card::where(["client" => $request->get("client")])->get();
-
-            if ($cardClient->count() != 0) {
-                return self::sendError("Une carte existe déjà au nom de ce client", 505);
-            }
-        }
-
-        if ($request->get("status")) {
-            if (!is_numeric($request->get("status"))) {
-                return self::sendError("Le status de la Carte doit être en entier!", 505);
-            }
-
-            #ETUDE DU STATUS
-            $status = CardStatus::find($request->get("status"));
-            if (!$status) {
-                return self::sendError("Ce status de carte n'existe pas!", 505);
-            }
-            #Changement de status
-            $card->status = $request->get("status");
-            $card->save();
-        }
-
-        $card->update($request->all());
-        return self::sendResponse($card, 'Cette carte a été modifiée avec succès!');
+        ##___
+        $client->update($formData);
+        return self::sendResponse($client, 'Cette carte a été modifiée avec succès!');
     }
 
     static function ClientDelete($id)
     {
         $user = request()->user();
-        $client =  CardClient::with(["owner"])->where(['id' => $id, 'owner' => $user->id, 'visible' => 1])->find($id);
+        $client =  CardClient::where(['owner' => $user->id, 'visible' => 1])->find($id);
 
         if (!$client) {
             return self::sendError("Cette Carte n'existe pas!", 404);
