@@ -25,6 +25,8 @@ use App\Http\Controllers\Api\V1\StoreTableController;
 use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
 use App\Http\Controllers\Api\V1\CardController;
+use App\Http\Controllers\Api\V1\CardClientController;
+use App\Http\Controllers\Api\V1\CardTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -288,6 +290,14 @@ Route::prefix('v1')->group(function () {
                 Route::any('{id}/retrieve', 'RetrieveCardStatus');
             });
         });
+
+        // LES TYPES
+        Route::prefix("type")->group(function () {
+            Route::controller(CardTypeController::class)->group(function () {
+                Route::any('all', 'CardType');
+                Route::any('{id}/retrieve', 'RetrieveCardType');
+            });
+        });
         // LES CARDS
         Route::controller(CardController::class)->group(function () {
             Route::any('add', 'AddCard');
@@ -296,8 +306,20 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveCard');
             Route::any('{id}/update', 'UpdateCard');
             Route::any('{id}/delete', 'DeleteCard');
-            Route::any('{id}/partial-activation', 'PartialCardActivation');
+            Route::any('/verify-card', 'VerifyCard');
             Route::any('/affect-to-agency', 'AffectCartToAgency');
+        });
+    });
+
+    ###========== CARD CLIENT ROUTINGS ========###
+    Route::prefix("client")->group(function () {
+        Route::controller(CardClientController::class)->group(function () {
+            Route::any('{card}/partial-validate', 'CardPartialValidation');
+
+            Route::any('all', 'Clients');
+            Route::any('{id}/retrieve', 'RetrieveClient');
+            Route::any('{id}/update', 'UpdateClient');
+            Route::any('{id}/delete', 'DeleteClient');
         });
     });
 });

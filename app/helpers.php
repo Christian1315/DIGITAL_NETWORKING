@@ -79,7 +79,6 @@ function Is_User_A_Pos_Or_Admin($userId)
 }
 
 
-
 ##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UNE AGENCE OU PAS ==========## 
 function Is_User_An_Agency($userId)
 { #

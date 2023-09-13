@@ -35,13 +35,14 @@ return new class extends Migration
                 ->constrained("users", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
+
             $table->foreignId("agency")
                 ->nullable()
                 ->constrained("agencies", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
             $table->foreignId("status")
-                ->nullable()
+                ->default(1)
                 ->constrained("card_statuses", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");

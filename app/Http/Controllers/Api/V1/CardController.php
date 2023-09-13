@@ -16,8 +16,7 @@ class CardController extends CARD_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin');
-        $this->middleware('CheckAgencyOrAdmin')->only("PartialCardActivation");
+        $this->middleware('CheckMasterOrAdmin')->except("VerifyCard");
     }
 
     function AddCard(Request $request)
@@ -90,15 +89,23 @@ class CardController extends CARD_HELPER
         return $this->CardDelete($id);
     }
 
-    function PartialCardActivation(Request $request, $id)
+    function VerifyCard(Request $request)
     {
         #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "GET") == False) {
+        if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS CARD_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
 
-        return $this->_PartialCardActivation($id);
+        #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR CARD_HELPER
+        $validator = $this->Verify_Card_Validator($request->all());
+
+        if ($validator->fails()) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CARD_HELPER
+            return $this->sendError($validator->errors(), 404);
+        }
+
+        return $this->_VerifyCard($request);
     }
 
     function AffectCartToAgency(Request $request)
@@ -133,7 +140,8 @@ class CardController extends CARD_HELPER
             return $this->sendError("Veuillez charger les cartes via le fichier excel !", 404);
         }
         Excel::import(new CardImport, $request->file('cards'));
-        return "gogo";
+
+        ##____EVITER LES DOUBLONS
         $Cards = Card::all();
         foreach ($Cards as $Card) {
             $Card_duplicates = Card::where([
@@ -151,7 +159,7 @@ class CardController extends CARD_HELPER
                 }
             }
         }
-
+        ##____
         return self::sendResponse([], "Importantion de cartes éffectuée avec succès!");
     }
 }

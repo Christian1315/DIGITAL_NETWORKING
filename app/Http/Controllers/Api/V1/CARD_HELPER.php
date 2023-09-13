@@ -47,7 +47,7 @@ class CARD_HELPER extends BASE_HELPER
         return $validator;
     }
 
-    ##VALIDATION DE L'AFFECTION DES CARTES AUX ABENCES
+    ##VALIDATION DE L'AFFECTION DES CARTES AUX AGENCES
 
     static function Affect_Card_rules(): array
     {
@@ -72,6 +72,34 @@ class CARD_HELPER extends BASE_HELPER
     {
         $rules = self::Affect_Card_rules();
         $messages = self::Affect_Card_messages();
+
+        $validator = Validator::make($formDatas, $rules, $messages);
+        return $validator;
+    }
+
+
+    ##VALIDATION DE LA VERIFICATION DES CARTES
+
+    static function Verify_Card_rules(): array
+    {
+        return [
+            'card_id' => ['required'],
+            'card_num' => ['required'],
+        ];
+    }
+
+    static function Verify_Card_messages(): array
+    {
+        return [
+            'card_id.required' => 'L\'ID de la Carte est réquis!',
+            'card_num.required' => 'Le numéro de la carte est réquise!',
+        ];
+    }
+
+    static function Verify_Card_Validator($formDatas)
+    {
+        $rules = self::Verify_Card_rules();
+        $messages = self::Verify_Card_messages();
 
         $validator = Validator::make($formDatas, $rules, $messages);
         return $validator;
@@ -183,8 +211,13 @@ class CARD_HELPER extends BASE_HELPER
     {
         $formData = $request->all();
         $user = request()->user();
-        $card = Card::where(['owner' => $user->id, 'id' => $formData['card_id'], "visible" => 1])->get();
-        $agency = Agency::where(['owner' => $user->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
+        if ($user->is_admin) {
+            $card = Card::where(['id' => $formData['card_id'], "visible" => 1])->get();
+            $agency = Agency::where(['id' => $formData['agency_id'], "visible" => 1])->get();
+        } else {
+            $card = Card::where(['owner' => $user->id, 'id' => $formData['card_id'], "visible" => 1])->get();
+            $agency = Agency::where(['owner' => $user->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
+        }
 
         if ($card->count() == 0) {
             return  self::sendError("Cette carte n'existe pas!!", 404);
@@ -211,15 +244,14 @@ class CARD_HELPER extends BASE_HELPER
         return self::sendResponse($card, "Affectation effectuée avec succès!!");
     }
 
-    function _PartialCardActivation($id)
+    function _VerifyCard($request)
     {
-        $card = Card::find($id);
-        if (!$card) {
+        $formData = $request->all();
+        $card = Card::where(["card_id" => $formData["card_id"], "card_num" => $formData["card_num"]])->get();
+        if ($card->count() == 0) {
             return self::sendError("Cette carte n'existe pas!", 404);
         }
-        #___
-        $card->status = 4;
-        $card->save();
-        return self::sendResponse($card, "Carte activée partiellement! Attendez sa validation complète de la part de votre Master");
+
+        return self::sendResponse($card, "Carte vérifiée!");
     }
 }

@@ -751,7 +751,6 @@ class DatabaseSeeder extends Seeder
         }
 
         #======== CREATION DES RANGS PAR DEFAUT=========#
-
         $rangs = [
             [
                 "name" => "admin",
