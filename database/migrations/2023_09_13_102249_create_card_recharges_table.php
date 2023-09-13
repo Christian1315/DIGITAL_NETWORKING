@@ -6,27 +6,29 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('cards', function (Blueprint $table) {
+        Schema::create('card_recharges', function (Blueprint $table) {
             $table->id();
             $table->text("card_id");
             $table->text("card_num");
-            $table->text("expire_date");
-            $table->longText("comment")->nullable();
-
-            $table->foreignId("type")
+            $table->foreignId("card_type")
                 ->nullable()
                 ->constrained("card_types", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
-
             $table->foreignId("client")
                 ->nullable()
                 ->constrained("card_clients", "id")
+                ->onDelete("CASCADE")
+                ->onUpdate("CASCADE");
+
+            $table->foreignId("card")
+                ->nullable()
+                ->constrained("cards", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
 
@@ -36,18 +38,10 @@ return new class extends Migration
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
 
-            $table->foreignId("agency")
-                ->nullable()
-                ->constrained("agencies", "id")
-                ->onDelete("CASCADE")
-                ->onUpdate("CASCADE");
-            $table->foreignId("status")
-                ->default(1)
-                ->constrained("card_statuses", "id")
-                ->onDelete("CASCADE")
-                ->onUpdate("CASCADE");
+            $table->string("amount");
+            $table->string("frais_amount");
+            $table->string("amount_to_pay");
             $table->boolean("visible")->default(true);
-            $table->boolean("affected")->default(false);
             $table->timestamps();
         });
     }
@@ -57,6 +51,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('card_recharges');
     }
 };

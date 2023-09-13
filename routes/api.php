@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
 use App\Http\Controllers\Api\V1\CardController;
 use App\Http\Controllers\Api\V1\CardClientController;
+use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -320,6 +321,19 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveClient');
             Route::any('{id}/update', 'UpdateClient');
             Route::any('{id}/delete', 'DeleteClient');
+        });
+    });
+
+    ###========== CARD RECHARGEMENT ROUTINGS ========###
+    Route::prefix("rechargement")->group(function () {
+        Route::controller(CardRechargeController::class)->group(function () {
+            Route::prefix("card")->group(function () {
+                Route::any('{card}/recharge', 'AddRechargement');
+            });
+            Route::any('all', 'Rechargements');
+            Route::any('{id}/retrieve', 'RetrieveRechargement');
+            Route::any('{id}/update', 'UpdateRechargement');
+            Route::any('{id}/delete', 'DeleteRechargement');
         });
     });
 });

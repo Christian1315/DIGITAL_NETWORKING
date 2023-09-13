@@ -175,6 +175,10 @@ class CLIENT_CARD_HELPER extends BASE_HELPER
         } else {
             $client =  CardClient::with(["owner", "piece", "card_type", "card"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
         }
+
+        if (!$client) {
+            return self::sendError("Ce client n'existe pas!", 404);
+        }
         return self::sendResponse($client, "Client récupéré avec succès:!!");
     }
 

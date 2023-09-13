@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agency;
-use App\Models\Agent;
 use App\Models\Card;
 use App\Models\CardStatus;
 use App\Models\CardType;
@@ -127,9 +126,9 @@ class CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $cards =  Card::with(["owner", "status", "type", "client", "agency"])->orderBy("id", "desc")->get();
+            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->orderBy("id", "desc")->get();
         } else {
-            $cards =  Card::with(["owner", "status", "type", "client", "agency"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
         }
         return self::sendResponse($cards, 'Toute les Cartes récupérés avec succès!!');
     }
@@ -138,9 +137,13 @@ class CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $card =  Card::with(["owner", "status", "type", "client", "agency"])->find($id);
+            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->find($id);
         } else {
-            $card =  Card::with(["owner", "status", "type", "client", "agency"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+        }
+
+        if (!$card) {
+            return self::sendError("Cette Carte n'existe pas!", 404);
         }
         return self::sendResponse($card, "Carte récupérée avec succès:!!");
     }
@@ -148,7 +151,7 @@ class CARD_HELPER extends BASE_HELPER
     static function _updateCard($request, $id)
     {
         $user = request()->user();
-        $card =  Card::with(["owner"])->where(['id' => $id, 'owner' => $user->id, 'visible' => 1])->find($id);
+        $card =  Card::with(["owner"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
 
         if (!$card) {
             return self::sendError("Cette Carte n'existe pas!", 404);
@@ -184,6 +187,15 @@ class CARD_HELPER extends BASE_HELPER
             if (!$status) {
                 return self::sendError("Ce status de carte n'existe pas!", 505);
             }
+
+            ##__S'IL VEUT ACTIVER LA CARTE
+            if ($request->get("status") == 5) {
+                ##___Verifions si cette carte est déjà activée partiellement
+                if ($card->status != 4) {
+                    return self::sendError("Cette carte n'est pas encore activée partiellement! Vous ne pouvez pas l'activer complètement!", 404);
+                }
+            }
+
             #Changement de status
             $card->status = $request->get("status");
             $card->save();

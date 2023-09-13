@@ -46,6 +46,6 @@ class CardClient extends Model
 
     function card(): HasOne
     {
-        return $this->hasOne(Card::class, "client");
+        return $this->hasOne(Card::class, "client")->with("rechargement");
     }
 }
