@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agency;
 use App\Models\Pos;
-use App\Models\User;
+use App\Models\Sold;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -45,12 +45,13 @@ class POS_HELPER extends BASE_HELPER
         $validator = Validator::make($formDatas, $rules);
         return $validator;
     }
+
     static function _createPos($request)
     {
         $formData = $request->all();
         #SON ENREGISTREMENT EN TANT QU'UN USER
 
-        $current_user = request()->user();
+        $user = request()->user();
 
         $posData = [
             "username" => $formData['username'],
@@ -60,22 +61,36 @@ class POS_HELPER extends BASE_HELPER
 
         #============= SON ENREGISTREMENT EN TANT QU'UN Pos ==========#
         $Pos = Pos::create($posData); #ENREGISTREMENT DU Pos DANS LA DB
-        $Pos->owner = $current_user->id;
-
+        $Pos->owner = $user->id;
         $Pos->save();
+
+        ### CREATION DU SOLDE DU POS
+        $solde = new Sold();
+        $solde->pos = $Pos->id;
+        $solde->save();
         return self::sendResponse($Pos, 'Pos crée avec succès!!');
     }
 
     static function allPoss()
     {
-        $Pos =  Pos::with(["owner", "agents", "agencies", "stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+        $user = request()->user();
+        if ($user->is_admin) {
+            $Pos =  Pos::with(["owner", "agents", "agencies", "stores", "sold"])->latest()->get();
+        } else {
+            $Pos =  Pos::with(["owner", "agents", "agencies", "stores", "sold"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+        }
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
 
     static function _retrievePos($id)
     {
-        $pos = Pos::with(["owner", "agents", "agencies", "stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if ($pos->count() == 0) {
+        $user = request()->user();
+        if ($user->is_admin) {
+            $pos = Pos::with(["owner", "agents", "agencies", "stores", "sold"])->find($id);
+        } else {
+            $pos = Pos::with(["owner", "agents", "agencies", "stores", "sold"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+        }
+        if (!$pos) {
             return self::sendError("Ce Pos n'existe pas", 404);
         }
 
@@ -85,26 +100,24 @@ class POS_HELPER extends BASE_HELPER
     static function _updatePos($request, $id)
     {
         $formData = $request->all();
-        $Pos = Pos::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if (count($Pos) == 0) {
+        $Pos = Pos::where(['owner' => request()->user()->id, 'visible' => 1])->find($id);
+        if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };
 
-        $Pos = Pos::find($id);
         $Pos->update($formData);
         return self::sendResponse($Pos, 'Ce Pos a été modifié avec succès!');
     }
 
     static function posDelete($id)
     {
-        $Pos = Pos::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
-        if (count($Pos) == 0) {
+        $Pos = Pos::where(['owner' => request()->user()->id, 'visible' => 1])->find($id);
+        if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };
 
-        $Pos = Pos::find($id);
         $Pos->delete_at = now();
-        $Pos->visible = false;
+        $Pos->visible = 0;
         $Pos->save();
         return self::sendResponse($Pos, 'Ce Pos a été supprimé avec succès!');
     }
@@ -112,23 +125,23 @@ class POS_HELPER extends BASE_HELPER
     static function _AffectToAgency($formData)
     {
 
-        // return $formData;
+        $pos = Pos::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['pos_id']);
+        $agency = Agency::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['agency_id']);
 
-        $pos = Pos::where(['owner' => request()->user()->id, 'id' => $formData['pos_id'], "visible" => 1])->get();
-        $agency = Agency::where(['owner' => request()->user()->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
+        if ($pos->affected) {
+            return  self::sendError("Ce Pos est déjà affecté à une agence!!", 404);
+        }
 
-        if ($pos->count() == 0) {
+        if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
         }
 
-        if ($agency->count() == 0) {
+        if (!$agency) {
             return  self::sendError("Cette Agence n'existe pas!!", 404);
         }
 
-        $pos = Pos::find($formData["pos_id"]);
         $pos->agency_id = $formData["agency_id"];
         $pos->affected = true;
-
         $pos->save();
 
         return self::sendResponse([], "Affectation effectuée avec succès!!");

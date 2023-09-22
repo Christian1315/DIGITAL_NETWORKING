@@ -1,13 +1,16 @@
 <?php
 
+use App\Mail\SendEmail;
 use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Master;
 use App\Models\Pos;
 use App\Models\Right;
+use App\Models\Sold;
 use App\Models\User;
 use App\Models\UserSession;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 function userCount()
 {
@@ -20,6 +23,7 @@ function Custom_Timestamp()
     $micro = (int)$date->format('Uu'); // Timestamp in microseconds
     return $micro;
 }
+
 function Add_Number($user, $type)
 {
     $created_date = $user->created_at;
@@ -27,8 +31,17 @@ function Add_Number($user, $type)
     $year = explode("-", $created_date)[0]; ##RECUPERATION DES TROIS PREMIERS LETTRES DU USERNAME
     $an = substr($year, -2);
 
-    $number = "JNP" . $type . $an . userCount();
+    $number = "DGT" . $type . $an . userCount();
     return $number;
+}
+
+function Is_THIS_ADMIN_PPJJOEL()
+{ #
+    $user = request()->user();
+    if ($user->id == 2) {
+        return true; #il est PPJJOEL
+    }
+    return false; #il n'est pas PPJJOEL
 }
 
 ##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UN ADMIN OU PAS ==========## 
@@ -75,7 +88,17 @@ function Is_User_A_Pos_Or_Admin($userId)
         }
         return false; #S'il n'est ni Pos ni Admin
     }
-    return true; #Sil est un Master
+    return true; #Sil est un POS
+}
+
+##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UN POS =========## 
+function Is_User_A_Pos($userId)
+{
+    $pos = Pos::where('user_id', $userId)->get();
+    if (count($pos) == 0) { #S'il n'est pas un Pos
+        return false;
+    }
+    return true; #Sil est un POS
 }
 
 
@@ -140,8 +163,6 @@ function Send_SMS($phone, $message, $token)
     ]);
 
     $response->getBody()->rewind();
-
-    // return $response;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER L'AGENT DAD D'UNE AGENCE ==========## 
@@ -152,6 +173,79 @@ function Agent_Dad($agent_dad_id)
     return $agent_dad;
 }
 
+##======== CE HELPER PERMET DE DECREDITER LE SOLDE D'USER ==========## 
+function Decredite_User_Account($userId, $formData)
+{
+    $solde = Sold::where(['owner' => $userId, 'visible' => 1])->get();
+
+    #####______GESTION DU SOLDE DE L'AGENCE
+
+    ##~~l'ancien solde pour l'agence
+    $old_solde = $solde[0];
+    $old_solde->visible = 0;
+    $old_solde->status = null;
+    $old_solde->owner = $userId;
+    $old_solde->decredited_at = now();
+    $old_solde->save();
+
+    ##~~le nouveau solde pour l'agence
+    $new_solde = new Sold();
+    $new_solde->amount = $old_solde->amount - $formData["amount"]; ##decreditation du compte
+    $new_solde->module = $formData["module_type"];
+    $new_solde->comments = $formData["comments"];
+    $new_solde->agency = $old_solde->agency;
+    $new_solde->status = 2;
+    $new_solde->owner = $userId;
+    $new_solde->credited_at = now();
+    $new_solde->save();
+
+    #####______GESTION DU SOLDE DU POS
+    $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
+
+    ##~~l'ancien solde DU POS
+    $pos_old_solde = $pos_solde[0];
+    $pos_old_solde->visible = 0;
+    $pos_old_solde->pos = $formData["pos"];
+    $pos_old_solde->status = null;
+    $pos_old_solde->decredited_at = now();
+    $pos_old_solde->save();
+
+    ##~~le nouveau solde DU POS
+    $pos_solde = new Sold();
+    $pos_solde->amount = $pos_old_solde->amount + $formData["amount"]; ##decreditation du compte
+    $pos_solde->module = $formData["module_type"];
+    $pos_solde->comments = "Solde crédité par l'agence " . request()->user()->username;
+    $pos_solde->pos = $formData["pos"];
+    $pos_solde->status = 2;
+    $pos_solde->credited_at = now();
+    $pos_solde->save();
+}
+
+##======== CE HELPER PERMET DE VERIFIER SI LE USER DISPOSE D'UN COMPTE SUFFISANT OU PAS ==========## 
+function Is_User_Account_Enough($userId, $amount)
+{
+    ####___________
+    $solde = Sold::where(['owner' => $userId, 'visible' => 1])->get();
+    if (count($solde) == 0) {
+        return false; ##IL NE DISPOSE MEME PAS DE COMPTE
+    }
+    ###Il DISPOSE D'UN COMPTE
+    $solde = $solde[0];
+    if ($solde->amount >= $amount) {
+        return true; #Son solde est suffisant!
+    }
+    return false; #Son solde est insuffisant
+}
+
+##====== ENVOIE DE MAIL
+function Send_Email($email, $subject, $message)
+{
+    $data = [
+        "subject" => $subject,
+        "message" => $message,
+    ];
+    Mail::to($email)->send(new SendEmail($data));
+}
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN AGENT DEPUIS LA TABLE **agents**  ==========## 
 
@@ -169,7 +263,6 @@ function AGENCY($user_id)
     return $agency;
 }
 
-
 ##======== CE HELPER PERMET DE RECUPERER LES USERS CREES PAR UN USER  ==========## 
 
 function myUsers($user_id)
@@ -177,7 +270,6 @@ function myUsers($user_id)
     $users = User::with(["sessions", 'rang', 'profil'])->where("owner", $user_id)->get();
     return $users;
 }
-
 
 ##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ==========## 
 
@@ -189,7 +281,6 @@ function CheckIfUserHasASession($user_id)
     }
     return true; #IL A UNE SESSION
 }
-
 
 ##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ACTIVE==========## 
 
@@ -206,5 +297,5 @@ function CheckIfUserHasAnActiveSession($user_id)
 
 function GetSession($user_id)
 {
-    return UserSession::where(["user" => $user_id,"active" => 1])->get()[0];
+    return UserSession::where(["user" => $user_id, "active" => 1])->get()[0];
 }

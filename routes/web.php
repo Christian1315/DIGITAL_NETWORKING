@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Notifications;
 use App\Http\Controllers\Api\V1\PdfController;
 use App\Mail\Inscription;
+use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 // use PDF;
@@ -24,13 +25,16 @@ Route::get('/', function () {
 });
 
 Route::get('/sendMail', function () {
-    $user = [];
-    Mail::to("gogochristian009@gmail.com")->send(new Inscription($user));
+    $details = [
+        "subject" => "Activation de compte sur FRIK-SMS",
+        "message" => "Hello bro",
+    ];
+    Mail::to("gogochristian009@gmail.com")->send(new SendEmail($details));
     dd("MESSAGE ENVOYE AVEC SUCCèS");
 });
 
 
-Route::get('pdf',[PdfController::class,'getPdf']);
+Route::get('pdf', [PdfController::class, 'getPdf']);
 
 
 Route::get('/documentation', function () {

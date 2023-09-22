@@ -7,6 +7,7 @@ use App\Models\Agency;
 use App\Models\AgencyType;
 use App\Models\Agent;
 use App\Models\Piece;
+use App\Models\Sold;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -58,6 +59,7 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _createAgency($request)
     {
+        $user = request()->user();
         $formData = $request->all();
         $agency_type = AgencyType::where('id', $formData['type_id'])->get();
         if (count($agency_type) == 0) {
@@ -66,7 +68,7 @@ class AGENCY_HELPER extends BASE_HELPER
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $piece_type = Piece::where('id', $formData['type_piece'])->get();
         $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
-        $agent_dad = Agent::where('id', $formData['agent_dad'])->get();
+        $agent_dad = Agent::where(['id' => $formData['agent_dad'], "owner" => $user->id])->get();
 
 
         if (count($domaine_activite) == 0) {
@@ -95,11 +97,11 @@ class AGENCY_HELPER extends BASE_HELPER
 
         $user = User::where("phone", $formData['phone'])->get();
         if (count($user) != 0) {
-            return self::sendError("Un compte existe déjà au nom de ce identifiant!", 404);
+            return self::sendError("Un compte existe déjà au nom de ce phone!", 404);
         }
         $user = User::where("email", $formData['email'])->get();
         if (count($user) != 0) {
-            return self::sendError("Un compte existe déjà au nom de ce identifiant!!", 404);
+            return self::sendError("Un compte existe déjà au nom de ce mail!!", 404);
         }
 
 
@@ -179,18 +181,31 @@ class AGENCY_HELPER extends BASE_HELPER
         $agency->save();
         $agency['domaine_activite'] = $domaine_activite;
 
+
+        ### CREATION DU SOLDE DU USER
+        $solde = new Sold();
+        $solde->agency = $agency->id;
+        $solde->owner = $user->id;
+        $solde->save();
+
         #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
+        Send_Email(
+            $formData['email'],
+            "Création de compte Agence",
+            "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        );
 
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
+        // $sms_login =  Login_To_Frik_SMS();
 
-            $response = Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-                $token
-            );
-        }
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
+
+        //     Send_SMS(
+        //         $formData['phone'],
+        //         "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        //         $token
+        //     );
+        // }
         #=====FIN D'ENVOIE D'SMS =======~####
 
         return self::sendResponse($agency, 'Agence crée avec succès!!');

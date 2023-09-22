@@ -30,7 +30,7 @@ class SendEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Notification',
+            subject: $this->details["subject"],
             from: new Address('no-reply@digitalnetwork.global', 'DIGITAL NETWORK'),
             replyTo: [
                 new Address('no-reply@digitalnetwork.global', 'DIGITAL NETWORK'),
@@ -45,7 +45,7 @@ class SendEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.inscription',
+            view: 'emails.sendEmail',
         );
     }
 

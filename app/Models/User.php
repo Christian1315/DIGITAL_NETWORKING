@@ -58,50 +58,66 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    
+
     #ONE TO ONE/REVERSE RELATIONSHIP(UN UTILISATEUR NE PEUT QU'AVOIR UN SEUL RANG)
-    function rang():BelongsTo{
-        return $this->belongsTo(Rang::class,'rang_id');
+    function rang(): BelongsTo
+    {
+        return $this->belongsTo(Rang::class, 'rang_id');
     }
 
     #ONE TO MANY/INVERSE RELATIONSHIP (UN USER PEUT APPARTENIR A PLUISIEURS PROFILS)
-    function profil():BelongsTo{
-        return $this->belongsTo(Profil::class,'profil_id');
+    function profil(): BelongsTo
+    {
+        return $this->belongsTo(Profil::class, 'profil_id');
     }
 
-    function master():HasOne{
+    function master(): HasOne
+    {
         return $this->hasOne(Master::class);
     }
 
-    function masters():HasMany{
-        return $this->hasMany(Master::class,"owner");
+    function masters(): HasMany
+    {
+        return $this->hasMany(Master::class, "owner");
     }
 
-    function agents():HasMany{
-        return $this->hasMany(Agent::class,"owner");
+    function agents(): HasMany
+    {
+        return $this->hasMany(Agent::class, "owner");
     }
 
-    function agencies():HasMany{
-        return $this->hasMany(Agency::class,"owner");
+    function agencies(): HasMany
+    {
+        return $this->hasMany(Agency::class, "owner");
     }
 
-    function drts():HasMany{
-        return $this->hasMany(Right::class,"user_id");
+    function drts(): HasMany
+    {
+        return $this->hasMany(Right::class, "user_id");
     }
 
-    function stores():HasMany{
-        return $this->hasMany(Store::class,"owner");
+    function stores(): HasMany
+    {
+        return $this->hasMany(Store::class, "owner");
     }
 
-    function poss():HasMany{
-        return $this->hasMany(Pos::class,"owner");
+    function poss(): HasMany
+    {
+        return $this->hasMany(Pos::class, "owner");
     }
 
-    function owner():BelongsTo {
-        return $this->belongsTo(User::class,"owner");
+    function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "owner");
     }
 
-    function sessions() : HasMany {
-        return $this->hasMany(UserSession::class,"user");
+    function sessions(): HasMany
+    {
+        return $this->hasMany(UserSession::class, "user");
+    }
+
+    function sold(): HasOne
+    {
+        return $this->hasOne(Sold::class, "owner");
     }
 }

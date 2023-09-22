@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Sold;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -805,6 +807,28 @@ class DatabaseSeeder extends Seeder
 
         foreach ($users as $user) {
             \App\Models\User::factory()->create($user);
+        }
+
+        // #=========== CREER DE SOLDE POUR LE COMPTE *admin* PAR DEFAUT ============#
+
+        // $sold = new Sold();
+        // $sold->owner = 1;
+        // $sold->manager = 2;
+        // $sold->save();
+
+        #======== CREATION DES STATUS DE SOLDE PAR DEFAUT =========#
+        $soldStatus = [
+            [
+                "name" => "initié",
+                "description" => "Ce sold est en phase d'initiation",
+            ],
+            [
+                "name" => "Validé",
+                "description" => "Ce sold est validé!",
+            ],
+        ];
+        foreach ($soldStatus as $status) {
+            \App\Models\SoldStatus::factory()->create($status);
         }
 
         #======== CREATION DES TYPES D'AGENT PAR DEFAUT =========#
@@ -1747,6 +1771,65 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($cardTypes as $type) {
             \App\Models\CardType::factory()->create($type);
+        }
+
+        #======== CREATION DES TYPES DE MODULE PAR DEFAUT =========#
+        $modules = [
+            [
+                "name" => "Card",
+                "description" => "Carte prépayée",
+            ],
+            [
+                "name" => "Canal",
+                "description" => "CanalPlus",
+            ],
+            [
+                "name" => "MoMo",
+                "description" => "Mobile Money",
+            ],
+            [
+                "name" => "Code",
+                "description" => "Code internet",
+            ],
+            [
+                "name" => "Western",
+                "description" => "Western Union transfer",
+            ],
+            [
+                "name" => "MoneyGram",
+                "description" => "MoneyGram transfer",
+            ],
+            [
+                "name" => "Assurance",
+                "description" => "Insurance",
+            ],
+            [
+                "name" => "Ecobank",
+                "description" => "Ecobank Mobile",
+            ],
+            [
+                "name" => "Crypto",
+                "description" => "Crypto Transfert",
+            ],
+            [
+                "name" => "Ticket",
+                "description" => "Ticket bus",
+            ],
+            [
+                "name" => "Dashbord",
+                "description" => "Tableau de bord",
+            ],
+            [
+                "name" => "Facture",
+                "description" => "SBEE et SONEB",
+            ],
+            [
+                "name" => "Store",
+                "description" => "Superrette",
+            ],
+        ];
+        foreach ($modules as $module) {
+            \App\Models\Module::factory()->create($module);
         }
     }
 }

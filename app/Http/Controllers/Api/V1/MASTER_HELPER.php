@@ -130,17 +130,24 @@ class MASTER_HELPER extends BASE_HELPER
 
 
         #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
 
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
+        Send_Email(
+            $formData['email'],
+            "Création de compte Master",
+            "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        );
 
-            $response = Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur JNP Store. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-                $token
-            );
-        }
+        // $sms_login =  Login_To_Frik_SMS();
+
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
+
+        //     Send_SMS(
+        //         $formData['phone'],
+        //         "Votre compte a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        //         $token
+        //     );
+        // }
 
         #=====FIN D'ENVOIE D'SMS =======~####
 

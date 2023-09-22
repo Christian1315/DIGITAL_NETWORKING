@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Mail\Inscription;
 use App\Models\Right;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class USER_HELPER extends BASE_HELPER
@@ -116,6 +114,7 @@ class USER_HELPER extends BASE_HELPER
                 $user['profil'] = $user->profil;
                 $user['rights'] = $user->rights;
                 $user['token'] = $token;
+                $user['sold'] = $user->sold;
                 $user["stores"] = $user->stores;
                 $user["poss"] = $user->poss;
                 $user["agents"] = $user->agents;
@@ -148,7 +147,7 @@ class USER_HELPER extends BASE_HELPER
                         [
                             "id" => $user[0]->id,
                         ],
-                        "Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe"
+                        "Vous n'etes pas autorisé à vous connecter avec votre password par defaut! Veuillez changer votre mot de passe "
                     );
                 } else { #Il peut se connecter donc parce que son password n'est plus égal à son password par defaut
                     if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
@@ -159,6 +158,7 @@ class USER_HELPER extends BASE_HELPER
                         $user['profil'] = $user->profil;
                         $user['rights'] = $user->rights;
                         $user['token'] = $token;
+                        $user['sold'] = $user->sold;
                         $user["stores"] = $user->stores;
                         $user["poss"] = $user->poss;
                         $user["agents"] = $user->agents;

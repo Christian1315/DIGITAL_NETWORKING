@@ -28,6 +28,9 @@ use App\Http\Controllers\Api\V1\CardController;
 use App\Http\Controllers\Api\V1\CardClientController;
 use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardTypeController;
+use App\Http\Controllers\Api\V1\SoldController;
+use App\Http\Controllers\Api\V1\SoldStatusController;
+use App\Models\Sold;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +43,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
 
 Route::prefix('v1')->group(function () {
     ###========== USERs ROUTINGS ========###
@@ -334,6 +336,26 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveRechargement');
             Route::any('{id}/update', 'UpdateRechargement');
             Route::any('{id}/delete', 'DeleteRechargement');
+        });
+    });
+
+    ###========== SOLDES  ROUTINGS ========###
+    Route::controller(SoldController::class)->group(function () {
+        Route::prefix('sold')->group(function () {
+            // LES STATUS
+            Route::prefix("status")->group(function () {
+                Route::controller(SoldStatusController::class)->group(function () {
+                    Route::any('all', 'SoldStatus');
+                    Route::any('{id}/retrieve', 'RetrieveSoldStatus');
+                });
+            });
+
+            ###____
+            Route::any('initiate', 'InitiateSold');
+            Route::any('creditate-for-pos', 'CreditateSoldForPos');
+            Route::any('agency/{id}/validate', 'ValidateSold');
+            Route::any('all', 'Soldes');
+            Route::any('{id}/retrieve', 'RetrieveSold');
         });
     });
 });

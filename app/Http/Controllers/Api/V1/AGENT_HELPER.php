@@ -47,7 +47,6 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _createAgent($formData)
     {
-
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $user = request()->user();
         $type = "AGT";
@@ -83,11 +82,11 @@ class AGENT_HELPER extends BASE_HELPER
 
         $user = User::where("phone", $formData['phone'])->get();
         if (count($user) != 0) {
-            return self::sendError("Un compte existe déjà au nom de ce identifiant!", 404);
+            return self::sendError("Un compte existe déjà au nom de ce phone!", 404);
         }
         $user = User::where("email", $formData['email'])->get();
         if (count($user) != 0) {
-            return self::sendError("Un compte existe déjà au nom de ce identifiant!!", 404);
+            return self::sendError("Un compte existe déjà au nom de ce email!!", 404);
         }
 
         $create_user = User::create($userData); #ENREGISTREMENT
@@ -123,18 +122,22 @@ class AGENT_HELPER extends BASE_HELPER
         $Agent->save();
 
         #~~===== ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-        // return $sms_login;
+        Send_Email(
+            $formData['email'],
+            "Création de compte Agent",
+            "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        );
+        // $sms_login =  Login_To_Frik_SMS();
 
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
 
-            Send_SMS(
-                $formData['phone'],
-                "Votre compte a été crée avec succès sur DIGITAL-NETWORK. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-                $token
-            );
-        }
+        //     Send_SMS(
+        //         $formData['phone'],
+        //         "Votre compte a été crée avec succès sur DIGITAL-NETWORK. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        //         $token
+        //     );
+        // }
         #=====FIN D'ENVOIE D'SMS =======~####
 
         return self::sendResponse($Agent, 'Agent crée avec succès!!');
