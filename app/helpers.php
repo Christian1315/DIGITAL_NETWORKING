@@ -112,6 +112,16 @@ function Is_User_An_Agency($userId)
     return true;
 }
 
+##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UN AGENT OU PAS ==========## 
+function Is_User_An_Agent($userId)
+{ #
+    $agent = Agent::where('user_id', $userId)->get();
+    if (count($agent) == 0) { #S'il n'est pas une Agence
+        return false; #S'il n'est ni Agence ni Admin
+    }
+    return true;
+}
+
 ##======== CE HELPER PERMET DE VERIFIER SI LE USER EST UNE AGENCE OU UN ADMIN ==========## 
 function Is_User_An_Agency_Or_Admin($userId)
 { #

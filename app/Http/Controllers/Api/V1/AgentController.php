@@ -11,7 +11,8 @@ class AgentController extends AGENT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin');
+        $this->middleware('CheckMasterOrAdmin')->except(["ConfirmPosAmount"]);
+        $this->middleware('CheckAgent')->only(["ConfirmPosAmount"]);
     }
 
     function AddAgent(Request $request)
@@ -104,5 +105,14 @@ class AgentController extends AGENT_HELPER
         };
 
         return $this->_AffectToPos($request);
+    }
+
+    function ConfirmPosAmount(Request $request)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+        return $this->confirm_Pos_Amount($request);
     }
 }

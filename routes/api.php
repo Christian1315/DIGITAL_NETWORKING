@@ -145,8 +145,9 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveAgent'); #RECUPERATION D'UN AGENT
             Route::any('{id}/delete', 'DeleteAgent'); #SUPPRESSION D'UN AGENT
             Route::any('{id}/update', 'UpdateAgent'); #MODIFICATION D'UN AGENT
-            Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
+            // Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
             Route::any('affect-to-pos', 'AffectToPos'); #AFFECTER A UN POS
+            Route::any('confirm-pos-amount', 'ConfirmPosAmount'); #CONFIRMATION DU SOLD DE MON POS
         });
     });
 

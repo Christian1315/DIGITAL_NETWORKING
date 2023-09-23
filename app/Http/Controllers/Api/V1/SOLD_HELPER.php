@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agency;
+use App\Models\Master;
 use App\Models\Module;
 use App\Models\Pos;
 use App\Models\Sold;
@@ -112,6 +113,13 @@ class SOLD_HELPER extends BASE_HELPER
         $agency = Agency::find($agency_id);
         if (!$agency) {
             return self::sendError("Cette agence n'existe pas!", 404);
+        }
+        $master = Master::where(["user_id" => $user->id])->get();
+        $master = $master[0];
+
+        ####___SI LE CURRENT MASTER A UN PARENT
+        if ($master->parent) {
+            return self::sendError("Désolé! Seul le Master parent a le droit de valider un solde", 505);
         }
 
         ###___VERIFIONS D'ABORD SI CETTE AGENCE LUI APPARTIENT
@@ -229,7 +237,7 @@ class SOLD_HELPER extends BASE_HELPER
     static function allSoldes()
     {
         $user = request()->user();
-        
+
         if ($user->is_admin) {
             $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager"])->latest()->get();
         } else {

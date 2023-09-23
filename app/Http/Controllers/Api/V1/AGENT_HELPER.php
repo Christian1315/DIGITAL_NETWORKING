@@ -227,7 +227,6 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _AffectToAgency($formData)
     {
-
         $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
         $agency = Agency::where(['owner' => request()->user()->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
 
@@ -251,25 +250,63 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _AffectToPos($formData)
     {
-
         // return $formData;
-        $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
-        $pos = Pos::where(['owner' => request()->user()->id, 'id' => $formData['pos_id'], "visible" => 1])->get();
+        $user = request()->user();
+        $agent = Agent::where(['owner' => $user->id, "visible" => 1])->find($formData['agent_id']);
+        $pos = Pos::where(['owner' => $user->id, "visible" => 1])->find($formData['pos_id']);
 
-        if ($agent->count() == 0) {
+        if (!$agent) {
             return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        if ($pos->count() == 0) {
+        if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
         }
 
-        $agent = Agent::find($formData["agent_id"]);
         $agent->pos_id = $formData["pos_id"];
         $agent->affected = true;
-
         $agent->save();
 
         return self::sendResponse([], "Affectation effectuée avec succès!!");
+    }
+
+    function confirm_Pos_Amount($request)
+    {
+        $formData = $request->all();
+        $user = request()->user();
+
+        if ($request->amount == null) {
+            return self::sendError("Veuillez préciser le montant existant sur votre POS!", 505);
+        }
+        if (!$request->pos_id) {
+            return self::sendError("Veuillez préciser le POS en question!", 505);
+        }
+
+        $pos = Pos::find($formData["pos_id"]);
+        if (!$pos) {
+            return self::sendError("Ce Pos n'existe pas!", 404);
+        }
+
+        $current_agent = Agent::where(["user_id" => $user->id])->get();
+        $current_agent = $current_agent[0];
+
+
+        ###__LES AGENTS ASSOCIES A CE POS
+        $posAgents = $pos->agents;
+
+        if ($posAgents) {
+            # code...
+            ###__VERIFIONS SI CE AGENT FAIT PARTI DES AGENTS ASSOCIES AU POS
+            foreach ($posAgents as $posAgent) {
+                if ($posAgent->id == $current_agent->id) {
+                    if ($pos->sold->amount != $formData["amount"]) {
+                        return self::sendError("Ce montant ne corresponds pas à celui de votre POS", 404);
+                    }
+                    return self::sendResponse([], "Ce montant corresponds à celui de votre POS");
+                }
+            }
+        }
+
+        return self::sendError("Aucun agent n'est associé à ce POS!", 505);
     }
 }

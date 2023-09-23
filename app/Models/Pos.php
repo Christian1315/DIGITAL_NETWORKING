@@ -30,7 +30,7 @@ class Pos extends Model
         return $this->hasMany(Agent::class,);
     }
 
-    public function agencies(): BelongsTo
+    public function agencie(): BelongsTo
     {
         return $this->belongsTo(Agency::class, "agency_id");
     }

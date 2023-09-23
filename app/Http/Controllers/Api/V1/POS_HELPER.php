@@ -75,9 +75,9 @@ class POS_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $Pos =  Pos::with(["owner", "agents", "agencies", "stores", "sold"])->latest()->get();
+            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->latest()->get();
         } else {
-            $Pos =  Pos::with(["owner", "agents", "agencies", "stores", "sold"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
         }
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
@@ -86,9 +86,9 @@ class POS_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $pos = Pos::with(["owner", "agents", "agencies", "stores", "sold"])->find($id);
+            $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->find($id);
         } else {
-            $pos = Pos::with(["owner", "agents", "agencies", "stores", "sold"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+            $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
         }
         if (!$pos) {
             return self::sendError("Ce Pos n'existe pas", 404);

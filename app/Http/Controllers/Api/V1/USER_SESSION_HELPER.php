@@ -61,6 +61,12 @@ class USER_SESSION_HELPER extends BASE_HELPER
         $user_phone = request()->user()->phone;
 
         #=====ENVOIE DE L'IP DE LA SESSION AU USER PAR SMS =======~####
+        Send_Email(
+            $formData['email'],
+            "Création de compte Master",
+            "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        );
+        
         $sms_login =  Login_To_Frik_SMS();
 
         if ($sms_login['status']) {
