@@ -45,39 +45,43 @@ class USER_SESSION_HELPER extends BASE_HELPER
 
     static function _createSession()
     {
-        $user_session_all = UserSession::where(["user" => request()->user()->id, "active" => 1])->get();
+        $user = request()->user();
+        if (CheckIfUserHasAnActiveSession($user->id)) {
+            return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant d'initier une autre!", 201);
+        }
+        $user_session_all = UserSession::where(["user" => $user->id, "active" => 1])->get();
         #DESACTIVATION DE TOUTES LES PRECEDENTES SECTION DU USER
         foreach ($user_session_all as $user_session) {
             $user_session->active = 0;
             $user_session->save();
         }
         $session = new UserSession();
-        $session->user = request()->user()->id;
+        $session->user = $user->id;
         $session->ip = Str::uuid();
         $session->begin_date = now();
         $session->active = true;
         $session->save();
 
-        $user_phone = request()->user()->phone;
+        // $user_phone = $user->phone;
 
         #=====ENVOIE DE L'IP DE LA SESSION AU USER PAR SMS =======~####
         Send_Email(
-            $formData['email'],
-            "Création de compte Master",
-            "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+            $user->email,
+            "Votre session a été initiée!",
+            "Votre session a été inité avec succès. Voici son IP::" . $session->ip,
         );
-        
-        $sms_login =  Login_To_Frik_SMS();
 
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
+        // $sms_login =  Login_To_Frik_SMS();
 
-            Send_SMS(
-                $user_phone,
-                "Votre session a été crée avec succès. Voici son IP::" . $session->ip,
-                $token
-            );
-        }
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
+
+        //     Send_SMS(
+        //         $user_phone,
+        //         "Votre session a été crée avec succès. Voici son IP::" . $session->ip,
+        //         $token
+        //     );
+        // }
         return self::sendResponse($session, 'Session crée avec succès!!');
     }
 
@@ -112,6 +116,10 @@ class USER_SESSION_HELPER extends BASE_HELPER
             return self::sendError("Cette Session n'existe pas!", 404);
         };
         $user_session = $user_session[0];
+
+        if (!$user_session->active) {
+            return self::sendError("Cette session est déjà deconnectée!", 505);
+        }
         $user_session->active = 0;
         $user_session->save();
         return self::sendResponse($user_session, 'Déconnexion éffectuée avec succès!');

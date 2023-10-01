@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Card;
 use App\Models\CardClient;
 use App\Models\CardRecharge;
-use App\Models\CardStatus;
 use App\Models\CardType;
 use Illuminate\Support\Facades\Validator;
 

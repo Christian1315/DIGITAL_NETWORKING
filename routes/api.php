@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\AgencyTypeController;
 use App\Http\Controllers\Api\V1\AgentController;
 use App\Http\Controllers\Api\V1\AgentTypeController;
 use App\Http\Controllers\Api\V1\Authorization;
+use App\Http\Controllers\Api\V1\CanalFormulaController;
 use App\Http\Controllers\Api\V1\CardStatusController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ProfilController;
@@ -28,8 +29,11 @@ use App\Http\Controllers\Api\V1\CardController;
 use App\Http\Controllers\Api\V1\CardClientController;
 use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardTypeController;
+use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
+use App\Models\CanalSubscriptionOption;
+use App\Models\CanalSubscriptionStatus;
 use App\Models\Sold;
 use Illuminate\Support\Facades\Route;
 
@@ -284,7 +288,29 @@ Route::prefix('v1')->group(function () {
     });
 
 
+    ###========== SOLDES  ROUTINGS ========###
+    Route::controller(SoldController::class)->group(function () {
+        Route::prefix('sold')->group(function () {
+            // LES STATUS
+            Route::prefix("status")->group(function () {
+                Route::controller(SoldStatusController::class)->group(function () {
+                    Route::any('all', 'SoldStatus');
+                    Route::any('{id}/retrieve', 'RetrieveSoldStatus');
+                });
+            });
+
+            ###____
+            Route::any('initiate', 'InitiateSold');
+            Route::any('creditate-for-pos', 'CreditateSoldForPos');
+            Route::any('agency/{id}/validate', 'ValidateSold');
+            Route::any('all', 'Soldes');
+            Route::any('{id}/retrieve', 'RetrieveSold');
+        });
+    });
+
+
     ##~~~~~~~~ MODULE UBA ~~~~~~~~##
+
     ###========== CARD ROUTINGS ========###
     Route::prefix("card")->group(function () {
         // LES STATUS
@@ -316,10 +342,22 @@ Route::prefix('v1')->group(function () {
     });
 
     ###========== CARD CLIENT ROUTINGS ========###
-    Route::prefix("client")->group(function () {
-        Route::controller(CardClientController::class)->group(function () {
-            Route::any('{card}/partial-validate', 'CardPartialValidation');
 
+    // Route::prefix("client")->group(function () {
+    //     Route::controller(CardClientController::class)->group(function () {
+    //         Route::any('{card}/partial-validate', 'CardPartialValidation');
+
+    //         Route::any('all', 'Clients');
+    //         Route::any('{id}/retrieve', 'RetrieveClient');
+    //         Route::any('{id}/update', 'UpdateClient');
+    //         Route::any('{id}/delete', 'DeleteClient');
+    //     });
+    // });
+
+    ###========== CLIENT ROUTINGS ========###
+    Route::prefix("client")->group(function () {
+        Route::controller(ClientController::class)->group(function () {
+            Route::any('create', 'AddClient');
             Route::any('all', 'Clients');
             Route::any('{id}/retrieve', 'RetrieveClient');
             Route::any('{id}/update', 'UpdateClient');
@@ -340,23 +378,32 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-    ###========== SOLDES  ROUTINGS ========###
-    Route::controller(SoldController::class)->group(function () {
-        Route::prefix('sold')->group(function () {
-            // LES STATUS
-            Route::prefix("status")->group(function () {
-                Route::controller(SoldStatusController::class)->group(function () {
-                    Route::any('all', 'SoldStatus');
-                    Route::any('{id}/retrieve', 'RetrieveSoldStatus');
-                });
-            });
+    ##~~~~~~~~ MODULE UBA ~~~~~~~~##
 
-            ###____
-            Route::any('initiate', 'InitiateSold');
-            Route::any('creditate-for-pos', 'CreditateSoldForPos');
-            Route::any('agency/{id}/validate', 'ValidateSold');
-            Route::any('all', 'Soldes');
-            Route::any('{id}/retrieve', 'RetrieveSold');
+    ###========== CARD ROUTINGS ========###
+    Route::prefix("canal")->group(function () {
+        // LES FORMULE
+        Route::prefix("formule")->group(function () {
+            Route::controller(CanalFormulaController::class)->group(function () {
+                Route::any('all', 'Formules');
+                Route::any('{id}/retrieve', 'RetrieveFormule');
+            });
+        });
+
+        // LES OPTIONS
+        Route::prefix("option")->group(function () {
+            Route::controller(CanalSubscriptionOption::class)->group(function () {
+                Route::any('all', 'Option');
+                Route::any('{id}/retrieve', 'RetrieveOption');
+            });
+        });
+
+        // LES STATUS
+        Route::prefix("status")->group(function () {
+            Route::controller(CanalSubscriptionStatus::class)->group(function () {
+                Route::any('all', 'Status');
+                Route::any('{id}/retrieve', 'RetrieveStatus');
+            });
         });
     });
 });

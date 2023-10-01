@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Card;
 use App\Models\CardClient;
-use App\Models\CardStatus;
 use App\Models\CardType;
 use App\Models\Piece;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class CLIENT_CARD_HELPER extends BASE_HELPER
 {

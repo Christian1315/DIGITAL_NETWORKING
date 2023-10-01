@@ -809,13 +809,6 @@ class DatabaseSeeder extends Seeder
             \App\Models\User::factory()->create($user);
         }
 
-        // #=========== CREER DE SOLDE POUR LE COMPTE *admin* PAR DEFAUT ============#
-
-        // $sold = new Sold();
-        // $sold->owner = 1;
-        // $sold->manager = 2;
-        // $sold->save();
-
         #======== CREATION DES STATUS DE SOLDE PAR DEFAUT =========#
         $soldStatus = [
             [
@@ -1830,6 +1823,89 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($modules as $module) {
             \App\Models\Module::factory()->create($module);
+        }
+
+        #======== CREATION DES TYPES DE MODULE PAR DEFAUT =========#
+        $formules = [
+            [
+                "name" => "ACCESS",
+                "description" => "FORMULE ACCESS",
+                "amount" => "5000.00000",
+            ],
+            [
+                "name" => "EVASION",
+                "description" => "FORMULE EVASION",
+                "amount" => "10000.00000",
+            ],
+            [
+                "name" => "ESSENTIEL+",
+                "description" => "FORMULE ESSENTIEL PLUS",
+                "amount" => "12000.00000",
+            ],
+            [
+                "name" => "ACCESS +",
+                "description" => "FORMULE ACCESS PLUS",
+                "amount" => "15000.00000",
+            ],
+            [
+                "name" => "ACCESS +",
+                "description" => "FORMULE ACCESS PLUS",
+                "amount" => "15000.00000",
+            ],
+            [
+                "name" => "EVASION +",
+                "description" => "FORMULE EVASION PLUS",
+                "amount" => "20000.00000",
+            ],
+            [
+                "name" => "TOUT CANAL",
+                "description" => "TOUS LE BOUQUET CANAL",
+                "amount" => "40000.00000",
+            ],
+
+        ];
+        foreach ($formules as $formule) {
+            \App\Models\CanalFormula::factory()->create($formule);
+        }
+
+        #======== CREATION DES OPTIONS DE SOUSCRIPTION PAR DEFAUT =========#
+        $subscriptions_options = [
+            [
+                "name" => "Charme",
+                "description" => "OPTION CHARME",
+                "amount" => "6000.00000",
+            ],
+            [
+                "name" => "2EME ECRAN",
+                "description" => "OPTION 2EME ECRAN",
+                "amount" => "6000.00000",
+            ]
+        ];
+        foreach ($subscriptions_options as $option) {
+            \App\Models\CanalSubscriptionOption::factory()->create($option);
+        }
+
+        #======== CREATION DES STATUS DE SOUSCRIPTION PAR DEFAUT =========#
+        $subscriptions_status = [
+            [
+                "name" => "PENDING",
+                "description" => "PENDING - ATTENTE",
+            ],
+            [
+                "name" => "CANCEL",
+                "description" => "CANCEL - ANNULE",
+            ],
+            [
+                "name" => "SUCCESS",
+                "description" => "SUCCESS - SUCCES",
+            ],
+            [
+                "name" => "ENROLL",
+                "description" => "RECRUTEMENT - EN COURS DE TRAITEMENT",
+            ]
+        ];
+        foreach ($subscriptions_status as $status) {
+            \App\Models\CanalSubscriptionStatus::factory()->create($status);
         }
     }
 }
