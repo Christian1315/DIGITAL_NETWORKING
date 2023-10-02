@@ -1747,6 +1747,38 @@ class DatabaseSeeder extends Seeder
             \App\Models\CardStatus::factory()->create($statusCard);
         }
 
+        #======== CREATION DES STATUS DE RECHARGEMENT PAR DEFAUT =========#
+        $statusRechargeCards = [
+            [
+                "name" => "on_old",
+                "label" => "Attente",
+                "description" => "Ce rechargement est en attente",
+            ],
+            [
+                "name" => "rejected",
+                "label" => "Rejetée",
+                "description" => "Ce rechargement a été rejeté",
+            ],
+            [
+                "name" => "unactivated",
+                "label" => "Non activé",
+                "description" => "Ce rechargement n'est pas encore activé",
+            ],
+            [
+                "name" => "initiated",
+                "label" => "Initié",
+                "description" => "Ce rechargement a été initié",
+            ],
+            [
+                "name" => "validated",
+                "label" => "Validé",
+                "description" => "Ce rechargement a été validé",
+            ],
+        ];
+        foreach ($statusRechargeCards as $statusRechargeCard) {
+            \App\Models\CardRechargeStatus::factory()->create($statusRechargeCard);
+        }
+
         #======== CREATION DES TYPES DE CARTES PAR DEFAUT =========#
         $cardTypes = [
             [

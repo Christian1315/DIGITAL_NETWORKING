@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agency;
+use App\Models\Agent;
 use App\Models\Card;
 use App\Models\CardStatus;
 use App\Models\CardType;
@@ -133,6 +134,7 @@ class CARD_HELPER extends BASE_HELPER
             }
         }
 
+
         ##__Vérifions si la carte a été activée partiellement
         if ($card->status == 4) {
             return self::sendError("Cette carte a déjà été activée partiellement!", 505);
@@ -147,6 +149,39 @@ class CARD_HELPER extends BASE_HELPER
         $piece = Piece::find($formData["type_piece"]);
         if (!$piece) {
             return self::sendError("Ce type de piece d'identité n'existe pas", 404);
+        }
+
+        $current_agent = Agent::where(["user_id" => $user->id])->get();
+        if ($current_agent->count() == 0) {
+            return self::sendError("Le compte agent auquel vous êtes associé.e n'existe plus", 404);
+        }
+
+        ###L'agent actuel
+        $current_agent = $current_agent[0];
+
+        ##CETTE VARIABLE BOOLEENNE PERMET DE SAVOIR SI L'AGENT APPARTIENT A L'UN DES POS DE L'AGENCE DETENANT CETTE CARTE
+        $is_this_current_agent_among_all_agents_affected_to_this_agency_poss = false;
+
+        ####_____
+        $agency = Agency::find($card->agency);
+
+        ###tout les POS associciés à cette agence
+        $all_poss_affected_to_this_agency = $agency->poss;
+
+        ###je parcoure tout les pos
+        foreach ($all_poss_affected_to_this_agency as $pos) {
+            $this_pos_agents = $pos->agents;
+            ###je parcoure tout les agents associés à ce pos
+            foreach ($this_pos_agents as $agent) {
+                if ($agent->id == $current_agent->id) { ###Le current_agent en fait partis
+                    $is_this_current_agent_among_all_agents_affected_to_this_agency_poss = true;
+                }
+            }
+        }
+
+        ###S'il n'a fait pas partis
+        if (!$is_this_current_agent_among_all_agents_affected_to_this_agency_poss) {
+            return self::sendError("Désolé! Vous ne faites pas partis des agents de l'un des POS associés à l'agence detenant cette carte", 505);
         }
 
         ##__Verifions si la carte a été affectée au user au cas ou ce dernier est une Agence.
@@ -180,7 +215,6 @@ class CARD_HELPER extends BASE_HELPER
         $card->save();
         return self::sendResponse($card, 'Carte partiellement activée avec succès!! Attendez le master pour une activation complete');
     }
-
 
     static function _createCard($formData)
     {
@@ -267,8 +301,10 @@ class CARD_HELPER extends BASE_HELPER
             ##__S'IL VEUT ACTIVER LA CARTE
             if ($request->get("status") == 5) {
                 ##___Verifions si cette carte est déjà activée partiellement
-                if ($card->status != 4) {
-                    return self::sendError("Cette carte n'est pas encore activée partiellement! Vous ne pouvez pas l'activer complètement!", 404);
+                if ($card->status!=5) {
+                    if ($card->status != 4) {
+                        return self::sendError("Cette carte n'est pas encore activée partiellement! Vous ne pouvez pas l'activer complètement!", 404);
+                    }
                 }
             }
 

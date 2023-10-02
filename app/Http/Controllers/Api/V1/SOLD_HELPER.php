@@ -205,19 +205,25 @@ class SOLD_HELPER extends BASE_HELPER
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         Decredite_User_Account($user->id, $formData);
 
+        ##___CREDITATION DU SOLDE DU POS
+        CreditateSoldForPos($formData);
+
         $message = "L'agence (ou le partenanire) " . $user->username . " vient de créditer votre Solde de " . $formData["amount"] . " sur DIGITAL NETWORK.";
 
         #=====ENVOIE D'SMS =======~####
 
-        #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            Send_SMS(
-                $pos->phone,
-                $message,
-                $token
-            );
+        try {
+            $sms_login =  Login_To_Frik_SMS();
+            if ($sms_login['status']) {
+                $token =  $sms_login['data']['token'];
+                Send_SMS(
+                    $pos->phone,
+                    $message,
+                    $token
+                );
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
         return self::sendResponse($pos_solde, "Solde crédité avec succès!!");
     }

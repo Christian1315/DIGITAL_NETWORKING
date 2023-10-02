@@ -10,10 +10,11 @@ class CardRechargeController extends CARD_RECHARGE_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckAgencyOrAdmin')->only(["AddRechargement","UpdateRechargement"]);
+        $this->middleware('CheckAgent')->only(["InitiateRechargement"]);
+        $this->middleware('CheckAgencyOrAdmin')->only(["AddRechargement", "UpdateRechargement"]);
     }
 
-    function AddRechargement(Request $request,$card)
+    function InitiateRechargement(Request $request, $card)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
@@ -29,9 +30,10 @@ class CardRechargeController extends CARD_RECHARGE_HELPER
             return $this->sendError($validator->errors(), 404);
         }
 
-        #ENREGISTREMENT DANS LA DB VIA **_rechargeCard** DE LA CLASS BASE_HELPER HERITEE PAR CARD_HELPER
-        return $this->_rechargeCard($request,$card);
+        #ENREGISTREMENT DANS LA DB VIA **_initiateRechargement** DE LA CLASS BASE_HELPER HERITEE PAR CARD_HELPER
+        return $this->_initiateRechargement($request, $card);
     }
+
 
     #GET ALL Rechargements
     function Rechargements(Request $request)

@@ -25,6 +25,11 @@ class CardRecharge extends Model
         return $this->belongsTo(User::class, "owner");
     }
 
+    function status(): BelongsTo
+    {
+        return $this->belongsTo(CardRechargeStatus::class, "status");
+    }
+
     function card(): BelongsTo
     {
         return $this->belongsTo(Card::class, "card");

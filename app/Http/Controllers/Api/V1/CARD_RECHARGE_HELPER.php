@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agency;
+use App\Models\Agent;
 use App\Models\Card;
 use App\Models\CardClient;
 use App\Models\CardRecharge;
@@ -56,7 +58,7 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
 
     ##_______
 
-    static function _rechargeCard($request, $id)
+    static function _initiateRechargement($request, $id)
     {
         $formData = $request->all();
         $user = request()->user();
@@ -66,6 +68,7 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
         if (!$card) {
             return self::sendError("Cette carte n'existe pas!", 404);
         }
+
         $cardClient = $card->client;
 
         ##___Verifions si cette carte est activée ou pas
@@ -99,15 +102,48 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
         if (!$client) {
             return self::sendError("Ce client n'existe pas", 404);
         }
-        // return $client;
+
         ##___Verifions si ce **client** corresponds vraiment au client lié à la carte.
         if ($cardClient != $formData["client"]) {
             return self::sendError("Ce client ne corresponds pas à celui qui detient la carte!", 404);
         }
 
-        // return $user->sold;
+        ###L'agent actuel
+        $current_agent = Agent::where(["user_id" => $user->id])->get();
+        if ($current_agent->count() == 0) {
+            return self::sendError("Le compte agent auquel vous êtes associé.e n'existe plus", 404);
+        }
+        $current_agent = $current_agent[0];
+
+        ##CETTE VARIABLE BOOLEENNE PERMET DE SAVOIR SI L'AGENT APPARTIENT A L'UN DES POS DE L'AGENCE DETENANT CETTE CARTE
+        $is_this_current_agent_among_all_agents_affected_to_this_agency_poss = false;
+
+        ####_____
+        $agency = Agency::find($card->agency);
+
+        ###tout les POS associciés à cette agence
+        $all_poss_affected_to_this_agency = $agency->poss;
+        $my_pos = null;
+
+        ###je parcoure tout les pos
+        foreach ($all_poss_affected_to_this_agency as $pos) {
+            $this_pos_agents = $pos->agents;
+            ###je parcoure tout les agents associés à ce pos
+            foreach ($this_pos_agents as $agent) {
+                if ($agent->id == $current_agent->id) { ###Le current_agent en fait partis
+                    $my_pos = $pos;
+                    $is_this_current_agent_among_all_agents_affected_to_this_agency_poss = true;
+                }
+            }
+        }
+
+        ###S'il na fait pas partis
+        if (!$is_this_current_agent_among_all_agents_affected_to_this_agency_poss) {
+            return self::sendError("Désolé! Vous ne faites pas partis des agents de l'un des POS associés à l'agence detenant cette carte", 505);
+        }
+
         ###____VERIFIONS SI LE SOLDE DE L'AGENCE EST SUFFISANT
-        if (!Is_User_Account_Enough($user->id, $formData["amount"])) {
+        if (!Is_Pos_Account_Enough($my_pos->id, $formData["amount"])) {
             return self::sendError("Votre solde est insuffisant! Vous ne pouvez pas recharger cette carte", 505);
         }
 
@@ -116,26 +152,27 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
             "module_type" => 1,
             "comments" => "Décreditation de solde pour recharger une carte!",
             "amount" => $formData["amount"],
-            "pos" => null
+            "pos" => $my_pos->id
         ];
 
-        Decredite_User_Account($user->id, $countData);
+        Decredite_Pos_Account($countData);
 
         ##___....
         $recharge = CardRecharge::create($formData);
         $recharge->owner = $user->id;
         $recharge->card = $id;
+        $recharge->status = 4;
         $recharge->save();
-        return self::sendResponse($recharge, 'Rechargement éffectué avec succès!!');
+        return self::sendResponse($recharge, 'Rechargement initié avec succès!!');
     }
 
     static function allRechargements()
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $rechargement =  CardRecharge::with(["owner", "card", "client"])->orderBy("id", "desc")->get();
+            $rechargement =  CardRecharge::with(["owner", "card", "client", "status"])->orderBy("id", "desc")->get();
         } else {
-            $rechargement =  CardRecharge::with(["owner", "card", "client"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+            $rechargement =  CardRecharge::with(["owner", "card", "client", "status"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
         }
         return self::sendResponse($rechargement, 'Tout les rechargements récupérés avec succès!!');
     }
@@ -158,11 +195,20 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
     static function _updateRechargement($request, $id)
     {
         $user = request()->user();
-        $rechargement =  CardRecharge::with(["owner"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $rechargement =  CardRecharge::with(["owner", "status"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
 
         if (!$rechargement) {
             return self::sendError("Ce rechargement n'existe pas!", 404);
         }
+
+        ##__S'IL VEUT VALIDER LA CARTE
+        if ($request->get("status") == 5) {
+            ##___Verifions si ce rechargement est déjà initié
+            if ($rechargement->status != 4) {
+                return self::sendError("Ce rechargement n'est pas encore initié! Vous ne pouvez pas le valider!", 404);
+            }
+        }
+
 
         $rechargement->update($request->all());
         return self::sendResponse($rechargement, 'Ce rechargement a été modifié avec succès!');

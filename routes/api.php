@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
 use App\Http\Controllers\Api\V1\CardController;
 use App\Http\Controllers\Api\V1\CardRechargeController;
+use App\Http\Controllers\Api\V1\CardRechargeStatusController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\SoldController;
@@ -328,7 +329,7 @@ Route::prefix('v1')->group(function () {
         });
         // LES CARDS
         Route::controller(CardController::class)->group(function () {
-            Route::any('{card}/partial-validate', 'CardPartialValidation'); 
+            Route::any('{card}/partial-validate', 'CardPartialValidation');
             Route::any('add', 'AddCard');
             Route::any('import', 'ImportCards');
             Route::any('all', 'Cards');
@@ -339,19 +340,6 @@ Route::prefix('v1')->group(function () {
             Route::any('/affect-to-agency', 'AffectCartToAgency');
         });
     });
-
-    ###========== CARD CLIENT ROUTINGS ========###
-
-    // Route::prefix("client")->group(function () {
-    //     Route::controller(CardClientController::class)->group(function () {
-    //         Route::any('{card}/partial-validate', 'CardPartialValidation');
-
-    //         Route::any('all', 'Clients');
-    //         Route::any('{id}/retrieve', 'RetrieveClient');
-    //         Route::any('{id}/update', 'UpdateClient');
-    //         Route::any('{id}/delete', 'DeleteClient');
-    //     });
-    // });
 
     ###========== CLIENT ROUTINGS ========###
     Route::prefix("client")->group(function () {
@@ -368,8 +356,17 @@ Route::prefix('v1')->group(function () {
     Route::prefix("rechargement")->group(function () {
         Route::controller(CardRechargeController::class)->group(function () {
             Route::prefix("card")->group(function () {
-                Route::any('{card}/recharge', 'AddRechargement');
+                Route::any('{card}/initiate', 'InitiateRechargement');
             });
+
+            // LES STATUS
+            Route::prefix("status")->group(function () {
+                Route::controller(CardRechargeStatusController::class)->group(function () {
+                    Route::any('all', 'CardRechargeStatus');
+                    Route::any('{id}/retrieve', 'RetrieveRechargeCardStatus');
+                });
+            });
+
             Route::any('all', 'Rechargements');
             Route::any('{id}/retrieve', 'RetrieveRechargement');
             Route::any('{id}/update', 'UpdateRechargement');

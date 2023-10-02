@@ -42,6 +42,6 @@ class Pos extends Model
 
     public function sold(): HasOne
     {
-        return $this->hasOne(Sold::class, "pos");
+        return $this->hasOne(Sold::class, "pos")->where(["status"=>2,"visible"=>1]);
     }
 }

@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->text("card_id");
             $table->text("card_num");
+            $table->foreignId("status")
+                ->nullable()
+                ->constrained("card_recharge_statuses", "id")
+                ->onDelete("CASCADE")
+                ->onUpdate("CASCADE");
             $table->foreignId("card_type")
                 ->nullable()
                 ->constrained("card_types", "id")
