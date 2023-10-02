@@ -193,16 +193,14 @@ function Decredite_User_Account($userId, $formData)
     ##~~l'ancien solde pour l'agence
     $old_solde = $solde[0];
     $old_solde->visible = 0;
-    $old_solde->status = null;
-    $old_solde->owner = $userId;
     $old_solde->decredited_at = now();
     $old_solde->save();
 
     ##~~le nouveau solde pour l'agence
     $new_solde = new Sold();
     $new_solde->amount = $old_solde->amount - $formData["amount"]; ##decreditation du compte
-    $new_solde->module = $formData["module_type"];
-    $new_solde->comments = $formData["comments"];
+    $new_solde->module = $formData["module_type"] ? $old_solde->module_type : null;
+    $new_solde->comments = $formData["comments"] ? $old_solde->comments : null;
     $new_solde->agency = $old_solde->agency;
     $new_solde->status = 2;
     $new_solde->owner = $userId;
@@ -210,25 +208,28 @@ function Decredite_User_Account($userId, $formData)
     $new_solde->save();
 
     #####______GESTION DU SOLDE DU POS
-    $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
+    if ($formData["pos"]) {
+        # code...
+        $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
 
-    ##~~l'ancien solde DU POS
-    $pos_old_solde = $pos_solde[0];
-    $pos_old_solde->visible = 0;
-    $pos_old_solde->pos = $formData["pos"];
-    $pos_old_solde->status = null;
-    $pos_old_solde->decredited_at = now();
-    $pos_old_solde->save();
+        ##~~l'ancien solde DU POS
+        $pos_old_solde = $pos_solde[0];
+        $pos_old_solde->visible = 0;
+        $pos_old_solde->pos = $formData["pos"];
+        $pos_old_solde->status = null;
+        $pos_old_solde->decredited_at = now();
+        $pos_old_solde->save();
 
-    ##~~le nouveau solde DU POS
-    $pos_solde = new Sold();
-    $pos_solde->amount = $pos_old_solde->amount + $formData["amount"]; ##decreditation du compte
-    $pos_solde->module = $formData["module_type"];
-    $pos_solde->comments = "Solde crédité par l'agence " . request()->user()->username;
-    $pos_solde->pos = $formData["pos"];
-    $pos_solde->status = 2;
-    $pos_solde->credited_at = now();
-    $pos_solde->save();
+        ##~~le nouveau solde DU POS
+        $pos_solde = new Sold();
+        $pos_solde->amount = $pos_old_solde->amount + $formData["amount"]; ##decreditation du compte
+        $pos_solde->module = $formData["module_type"];
+        $pos_solde->comments = "Solde crédité par l'agence " . request()->user()->username;
+        $pos_solde->pos = $formData["pos"];
+        $pos_solde->status = 2;
+        $pos_solde->credited_at = now();
+        $pos_solde->save();
+    }
 }
 
 ##======== CE HELPER PERMET DE VERIFIER SI LE USER DISPOSE D'UN COMPTE SUFFISANT OU PAS ==========## 

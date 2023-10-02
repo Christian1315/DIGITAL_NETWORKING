@@ -6,6 +6,7 @@ use App\Models\Card;
 use App\Models\CardClient;
 use App\Models\CardRecharge;
 use App\Models\CardType;
+use App\Models\Client;
 use Illuminate\Support\Facades\Validator;
 
 class CARD_RECHARGE_HELPER extends BASE_HELPER
@@ -90,19 +91,35 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
 
         ##___Verifions si ce **card_type** corresponds vraiment au **card_type** de la carte.
         if ($card->type != $formData["card_type"]) {
-            return self::sendError("Ce type de Carte ne corresponds pas à celui de la carte!", 404);
+            return self::sendError("Ce type de Carte ne corresponds pas à celui de la carte à recharger!", 404);
         }
 
         ##___Verifions si ce client existe
-        $client = CardClient::find($formData["client"]);
+        $client = Client::find($formData["client"]);
         if (!$client) {
             return self::sendError("Ce client n'existe pas", 404);
         }
-
+        // return $client;
         ##___Verifions si ce **client** corresponds vraiment au client lié à la carte.
         if ($cardClient != $formData["client"]) {
             return self::sendError("Ce client ne corresponds pas à celui qui detient la carte!", 404);
         }
+
+        // return $user->sold;
+        ###____VERIFIONS SI LE SOLDE DE L'AGENCE EST SUFFISANT
+        if (!Is_User_Account_Enough($user->id, $formData["amount"])) {
+            return self::sendError("Votre solde est insuffisant! Vous ne pouvez pas recharger cette carte", 505);
+        }
+
+        ##___DECREDITATION DU SOLDE DE L'AGENCE
+        $countData = [
+            "module_type" => 1,
+            "comments" => "Décreditation de solde pour recharger une carte!",
+            "amount" => $formData["amount"],
+            "pos" => null
+        ];
+
+        Decredite_User_Account($user->id, $countData);
 
         ##___....
         $recharge = CardRecharge::create($formData);

@@ -16,7 +16,20 @@ class CardController extends CARD_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin')->except("VerifyCard");
+        $this->middleware('CheckMasterOrAdmin')->only(["AddCard", "UpdateCard"]);
+        $this->middleware('CheckAgencyOrAdmin')->only(["CardPartialValidation"]);
+    }
+
+    function CardPartialValidation(Request $request, $card)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "POST") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR CARD_CLIENT_HELPER
+            return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        #ENREGISTREMENT DANS LA DB VIA **_PartialValidation** DE LA CLASS BASE_HELPER HERITEE PAR CARD_CLIENT_HELPER
+        return $this->_PartialValidation($request, $card);
     }
 
     function AddCard(Request $request)

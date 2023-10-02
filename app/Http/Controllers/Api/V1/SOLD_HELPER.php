@@ -91,16 +91,16 @@ class SOLD_HELPER extends BASE_HELPER
             $message,
         );
 
-        #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            Send_SMS(
-                $master_or_admin_of_this_agency->phone,
-                $message,
-                $token
-            );
-        }
+        // #=====ENVOIE D'SMS =======~####
+        // $sms_login =  Login_To_Frik_SMS();
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
+        //     Send_SMS(
+        //         $master_or_admin_of_this_agency->phone,
+        //         $message,
+        //         $token
+        //     );
+        // }
         return self::sendResponse($new_solde, "Solde initié de " . $formData["amount"] . " avec succès!!");
     }
 
@@ -149,15 +149,15 @@ class SOLD_HELPER extends BASE_HELPER
         );
 
         #=====ENVOIE D'SMS =======~####
-        $sms_login =  Login_To_Frik_SMS();
-        if ($sms_login['status']) {
-            $token =  $sms_login['data']['token'];
-            Send_SMS(
-                $user->phone,
-                $message,
-                $token
-            );
-        }
+        // $sms_login =  Login_To_Frik_SMS();
+        // if ($sms_login['status']) {
+        //     $token =  $sms_login['data']['token'];
+        //     Send_SMS(
+        //         $user->phone,
+        //         $message,
+        //         $token
+        //     );
+        // }
         return self::sendResponse($solde, "Solde validé avec succès!!");
     }
 
@@ -206,6 +206,8 @@ class SOLD_HELPER extends BASE_HELPER
         Decredite_User_Account($user->id, $formData);
 
         $message = "L'agence (ou le partenanire) " . $user->username . " vient de créditer votre Solde de " . $formData["amount"] . " sur DIGITAL NETWORK.";
+
+        #=====ENVOIE D'SMS =======~####
 
         #=====ENVOIE D'SMS =======~####
         $sms_login =  Login_To_Frik_SMS();

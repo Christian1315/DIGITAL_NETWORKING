@@ -117,6 +117,6 @@ class User extends Authenticatable
 
     function sold(): HasOne
     {
-        return $this->hasOne(Sold::class, "owner");
+        return $this->hasOne(Sold::class, "owner")->where(["status" => 2, "visible" => 1]);
     }
 }

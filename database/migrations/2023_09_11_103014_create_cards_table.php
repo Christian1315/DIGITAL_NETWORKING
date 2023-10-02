@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->foreignId("client")
                 ->nullable()
-                ->constrained("card_clients", "id")
+                ->constrained("clients", "id")
                 ->onDelete("CASCADE")
                 ->onUpdate("CASCADE");
 

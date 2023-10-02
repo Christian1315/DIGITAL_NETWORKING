@@ -26,7 +26,6 @@ use App\Http\Controllers\Api\V1\StoreTableController;
 use App\Http\Controllers\Api\V1\SupplyProductController;
 use App\Http\Controllers\Api\V1\UserSessionController;
 use App\Http\Controllers\Api\V1\CardController;
-use App\Http\Controllers\Api\V1\CardClientController;
 use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
@@ -34,7 +33,6 @@ use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
 use App\Models\CanalSubscriptionOption;
 use App\Models\CanalSubscriptionStatus;
-use App\Models\Sold;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -330,6 +328,7 @@ Route::prefix('v1')->group(function () {
         });
         // LES CARDS
         Route::controller(CardController::class)->group(function () {
+            Route::any('{card}/partial-validate', 'CardPartialValidation'); 
             Route::any('add', 'AddCard');
             Route::any('import', 'ImportCards');
             Route::any('all', 'Cards');

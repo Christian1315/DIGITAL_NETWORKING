@@ -10,7 +10,7 @@ class CardRechargeController extends CARD_RECHARGE_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin')->except("VerifyCard");
+        $this->middleware('CheckAgencyOrAdmin')->only(["AddRechargement","UpdateRechargement"]);
     }
 
     function AddRechargement(Request $request,$card)

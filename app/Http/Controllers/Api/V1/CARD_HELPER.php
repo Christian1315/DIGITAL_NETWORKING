@@ -6,6 +6,8 @@ use App\Models\Agency;
 use App\Models\Card;
 use App\Models\CardStatus;
 use App\Models\CardType;
+use App\Models\Client;
+use App\Models\Piece;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -105,6 +107,80 @@ class CARD_HELPER extends BASE_HELPER
     }
 
     ##_______
+
+    static function _PartialValidation($request, $card)
+    {
+        $formData = $request->all();
+        $user = request()->user();
+
+        ##___VALIDATION DU CLIENT
+        $validator = CLIENT_HELPER::Client_Validator($formData);
+
+        if ($validator->fails()) {
+            return self::sendError($validator->errors(), 404);
+        }
+
+        ##____
+        $card = Card::find($card);
+        if (!$card) {
+            return self::sendError("Cette carte n'existe pas!", 404);
+        }
+
+        ##__Vérifions si la carte a vraiment été affectée
+        if (!$user->is_admin) { ##S'il n'est pas un admin
+            if (!$card->affected) {
+                return self::sendError("Désolé! Cette carte n'a pas encore été affectée! Vous ne pouvez pas l'activer", 505);
+            }
+        }
+
+        ##__Vérifions si la carte a été activée partiellement
+        if ($card->status == 4) {
+            return self::sendError("Cette carte a déjà été activée partiellement!", 505);
+        }
+
+        ##__Vérifions si la carte a été activée complètement
+        if ($card->status == 5) {
+            return self::sendError("Cette carte a déjà été activée complètement par le Master!", 505);
+        }
+
+        ##___Vérifions si cette pièce existe
+        $piece = Piece::find($formData["type_piece"]);
+        if (!$piece) {
+            return self::sendError("Ce type de piece d'identité n'existe pas", 404);
+        }
+
+        ##__Verifions si la carte a été affectée au user au cas ou ce dernier est une Agence.
+        if (!$user->is_admin) {
+            ##s'il n'est pas un admin, il est une agence dans ce cas,
+            if (!$card->agency == $user->id) { ##on verifie si **agency** de la Card corresponds au **userId** du user
+                return self::sendError("Désolé! Cette carte ne vous a pas été affectée!", 505);
+            }
+        }
+
+        ##GESTION DES IMAGES
+        $piece_picture = $request->file('piece');
+        $piece_picture_name = $piece_picture->getClientOriginalName();
+        $request->file('piece')->move("pieces", $piece_picture_name);
+
+        //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA DB
+        $formData["piece"] = asset("pieces/" . $piece_picture_name);
+        $formData["owner"] = $user->id;
+
+
+        $client = Client::create($formData);
+
+        #### ACTUALISATION DE LA CARTE
+        $card->client = $client->id;
+        ##__
+
+        ##__ACTIVATION DE LA CARTE
+        $card->status = 4;
+
+        ###__
+        $card->save();
+        return self::sendResponse($card, 'Carte partiellement activée avec succès!! Attendez le master pour une activation complete');
+    }
+
 
     static function _createCard($formData)
     {
