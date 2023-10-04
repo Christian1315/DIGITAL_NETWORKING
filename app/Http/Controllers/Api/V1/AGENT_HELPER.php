@@ -121,12 +121,22 @@ class AGENT_HELPER extends BASE_HELPER
         }
         $Agent->save();
 
-        #~~===== ENVOIE D'SMS =======~####
-        Send_Email(
-            $formData['email'],
-            "Création de compte Agent",
-            "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-        );
+        #=====ENVOIE DE MAIL =======~####
+        // return $create_user;
+        try {
+            Send_Notification(
+                $create_user,
+                "Création de compte Agent",
+                "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        // Send_Email(
+        //     $formData['email'],
+        //     "Création de compte Agent",
+        //     "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        // );
         // $sms_login =  Login_To_Frik_SMS();
 
         // if ($sms_login['status']) {

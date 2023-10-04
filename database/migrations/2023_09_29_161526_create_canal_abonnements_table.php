@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('canal_abonnements', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->text("number");
             $table->foreignId("manager")
                 ->nullable()

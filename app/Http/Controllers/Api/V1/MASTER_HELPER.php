@@ -129,13 +129,22 @@ class MASTER_HELPER extends BASE_HELPER
         $Master['domaine_activite'] = $domaine_activite;
 
 
-        #=====ENVOIE D'SMS =======~####
+        #=====ENVOIE DE MAIL =======~####
+        try {
+            Send_Notification(
+                $user,
+                "Création de compte Master",
+                "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
-        Send_Email(
-            $formData['email'],
-            "Création de compte Master",
-            "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-        );
+        // Send_Email(
+        //     $formData['email'],
+        //     "Création de compte Master",
+        //     "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        // );
 
         // $sms_login =  Login_To_Frik_SMS();
 

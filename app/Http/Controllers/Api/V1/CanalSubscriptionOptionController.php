@@ -13,7 +13,7 @@ class CanalSubscriptionOptionController extends CANAL_SUBSCRIPTION_OPTION_HELPER
     }
 
     #GET ALL OPTION
-    function Option(Request $request)
+    function Options(Request $request)
     {
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "GET") == False) {
@@ -22,7 +22,7 @@ class CanalSubscriptionOptionController extends CANAL_SUBSCRIPTION_OPTION_HELPER
         };
 
         #RECUPERATION DE TOUTES LES OPTIONS
-        return $this->subscriptionOption();
+        return $this->subscriptionOptions();
     }
 
     #GET A OPTION 

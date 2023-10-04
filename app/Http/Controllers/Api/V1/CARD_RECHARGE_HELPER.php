@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Card;
-use App\Models\CardClient;
 use App\Models\CardRecharge;
 use App\Models\CardType;
 use App\Models\Client;
@@ -62,6 +61,7 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
     {
         $formData = $request->all();
         $user = request()->user();
+        $session = GetSession($user->id);
 
         ##___
         $card = Card::find($id);
@@ -144,13 +144,13 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
 
         ###____VERIFIONS SI LE SOLDE DE L'AGENCE EST SUFFISANT
         if (!Is_Pos_Account_Enough($my_pos->id, $formData["amount"])) {
-            return self::sendError("Votre solde est insuffisant! Vous ne pouvez pas recharger cette carte", 505);
+            return self::sendError("Le Solde de votre Pos est insuffisant! Vous ne pouvez pas recharger cette carte", 505);
         }
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         $countData = [
             "module_type" => 1,
-            "comments" => "Décreditation de solde pour recharger une carte!",
+            "comments" => "Décreditation de solde du Pos par " . $user->username . ", pour recharger une carte!",
             "amount" => $formData["amount"],
             "pos" => $my_pos->id
         ];
@@ -162,6 +162,7 @@ class CARD_RECHARGE_HELPER extends BASE_HELPER
         $recharge->owner = $user->id;
         $recharge->card = $id;
         $recharge->status = 4;
+        $recharge->session = $session->id;
         $recharge->save();
         return self::sendResponse($recharge, 'Rechargement initié avec succès!!');
     }

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('solds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->text("comments")->nullable();
             $table->integer("amount")->default(0);
             $table->text("reference")->nullable();

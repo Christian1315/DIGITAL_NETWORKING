@@ -114,12 +114,19 @@ class SOLD_HELPER extends BASE_HELPER
         if (!$agency) {
             return self::sendError("Cette agence n'existe pas!", 404);
         }
-        $master = Master::where(["user_id" => $user->id])->get();
-        $master = $master[0];
 
-        ####___SI LE CURRENT MASTER A UN PARENT
-        if ($master->parent) {
-            return self::sendError("Désolé! Seul le Master parent a le droit de valider un solde", 505);
+        ##S'IL N'EST PAS UN ADMIN
+        if (!$user->is_admin) {
+            $master = Master::where(["user_id" => $user->id])->get();
+            if ($master->count() == 0) {
+                return self::sendError("Le compte master auquel vous etes associés n'existe plus", 404);
+            }
+            $master = $master[0];
+
+            ####___SI LE CURRENT MASTER A UN PARENT
+            if ($master->parent) {
+                return self::sendError("Désolé! Seul le Master parent a le droit de valider un solde", 505);
+            }
         }
 
         ###___VERIFIONS D'ABORD SI CETTE AGENCE LUI APPARTIENT
@@ -139,7 +146,11 @@ class SOLD_HELPER extends BASE_HELPER
         $solde->status = 2;
         $solde->save();
 
-        $message = "Le Master " . $user->username . " vient de valider votre Solde sur DIGITAL NETWORK.";
+        if (!$user->is_admin) {
+            $message = "Le Master " . $user->username . " vient de valider votre Solde sur DIGITAL NETWORK.";
+        } else {
+            $message = "L'admin " . $user->username . " vient de valider votre Solde sur DIGITAL NETWORK.";
+        }
 
         #=====ENVOIE D'EMAIL =======~####
         Send_Email(
@@ -167,6 +178,15 @@ class SOLD_HELPER extends BASE_HELPER
         $user = request()->user();
         $formData = $request->all();
 
+        $user_sold = Sold::where(["owner" => $user->id, "visible" => 1])->get();
+        if ($user_sold->count() == 0) {
+            return self::sendError("Vous ne disposez pas de solde", 404);
+        }
+        $user_sold = $user_sold[0];
+        if ($user_sold->status == 1) {
+            return self::sendError("Votre solde n'est pas encore validé! Vous ne pouvez pas créditer le solde d'un pos!", 505);
+        }
+
         $user_agency = Agency::where(["user_id" => $user->id])->first();
         if (!$user_agency) {
             return self::sendError("L'agence auquelle vous etes liés, n'existe pas", 404);
@@ -188,7 +208,7 @@ class SOLD_HELPER extends BASE_HELPER
 
         $pos_solde = Sold::where(["pos" => $request["pos"], "visible" => 1])->get();
         if ($pos_solde->count() == 0) {
-            return self::sendError("Ce solde n'existe pas", 404);
+            return self::sendError("Ce solde de ce pos n'existe pas! Vous ne pouvez donc pas le créditer", 404);
         }
 
         $pos_solde = $pos_solde[0];
@@ -199,10 +219,11 @@ class SOLD_HELPER extends BASE_HELPER
 
         ###____VERIFIONS SI LE SOLDE DE L'AGENCE EST SUFFISANT
         if (!Is_User_Account_Enough($user->id, $formData["amount"])) {
-            return self::sendError("Votre solde est insuffisant! Vous ne pouvez pas créditer le compte de ce POS", 505);
+            return self::sendError("Votre solde est insuffisant! Vous ne pouvez pas créditer le compte de ce POS de " . $formData["amount"], 505);
         }
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
+
         Decredite_User_Account($user->id, $formData);
 
         ##___CREDITATION DU SOLDE DU POS

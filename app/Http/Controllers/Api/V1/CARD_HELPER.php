@@ -113,6 +113,7 @@ class CARD_HELPER extends BASE_HELPER
     {
         $formData = $request->all();
         $user = request()->user();
+        $session = GetSession($user->id);
 
         ##___VALIDATION DU CLIENT
         $validator = CLIENT_HELPER::Client_Validator($formData);
@@ -179,7 +180,7 @@ class CARD_HELPER extends BASE_HELPER
             }
         }
 
-        ###S'il n'a fait pas partis
+        ###S'il ne fait pas partis
         if (!$is_this_current_agent_among_all_agents_affected_to_this_agency_poss) {
             return self::sendError("Désolé! Vous ne faites pas partis des agents de l'un des POS associés à l'agence detenant cette carte", 505);
         }
@@ -211,6 +212,9 @@ class CARD_HELPER extends BASE_HELPER
         ##__ACTIVATION DE LA CARTE
         $card->status = 4;
 
+        ##__SESSSION
+        $card->session = $session->id;
+
         ###__
         $card->save();
         return self::sendResponse($card, 'Carte partiellement activée avec succès!! Attendez le master pour une activation complete');
@@ -236,9 +240,9 @@ class CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->orderBy("id", "desc")->get();
+            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement", "session"])->orderBy("id", "desc")->get();
         } else {
-            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+            $cards =  Card::with(["owner", "status", "type", "client", "agency", "rechargement", "session"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
         }
         return self::sendResponse($cards, 'Toute les Cartes récupérés avec succès!!');
     }
@@ -247,9 +251,9 @@ class CARD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->find($id);
+            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement", "session"])->find($id);
         } else {
-            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+            $card =  Card::with(["owner", "status", "type", "client", "agency", "rechargement", "session"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
         }
 
         if (!$card) {
@@ -301,7 +305,7 @@ class CARD_HELPER extends BASE_HELPER
             ##__S'IL VEUT ACTIVER LA CARTE
             if ($request->get("status") == 5) {
                 ##___Verifions si cette carte est déjà activée partiellement
-                if ($card->status!=5) {
+                if ($card->status != 5) {
                     if ($card->status != 4) {
                         return self::sendError("Cette carte n'est pas encore activée partiellement! Vous ne pouvez pas l'activer complètement!", 404);
                     }

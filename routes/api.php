@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\V1\AgentController;
 use App\Http\Controllers\Api\V1\AgentTypeController;
 use App\Http\Controllers\Api\V1\Authorization;
 use App\Http\Controllers\Api\V1\CanalFormulaController;
+use App\Http\Controllers\Api\V1\CanalSubscriptionController;
+use App\Http\Controllers\Api\V1\CanalSubscriptionOptionController;
+use App\Http\Controllers\Api\V1\CanalSubscriptionStatusController;
 use App\Http\Controllers\Api\V1\CardStatusController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\ProfilController;
@@ -308,7 +311,20 @@ Route::prefix('v1')->group(function () {
     });
 
 
+    ###========== CLIENT ROUTINGS ========###
+    Route::prefix("client")->group(function () {
+        Route::controller(ClientController::class)->group(function () {
+            Route::any('create', 'AddClient');
+            Route::any('all', 'Clients');
+            Route::any('{id}/retrieve', 'RetrieveClient');
+            Route::any('{id}/update', 'UpdateClient');
+            Route::any('{id}/delete', 'DeleteClient');
+        });
+    });
+
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
     ##~~~~~~~~ MODULE UBA ~~~~~~~~##
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
 
     ###========== CARD ROUTINGS ========###
     Route::prefix("card")->group(function () {
@@ -341,17 +357,6 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-    ###========== CLIENT ROUTINGS ========###
-    Route::prefix("client")->group(function () {
-        Route::controller(ClientController::class)->group(function () {
-            Route::any('create', 'AddClient');
-            Route::any('all', 'Clients');
-            Route::any('{id}/retrieve', 'RetrieveClient');
-            Route::any('{id}/update', 'UpdateClient');
-            Route::any('{id}/delete', 'DeleteClient');
-        });
-    });
-
     ###========== CARD RECHARGEMENT ROUTINGS ========###
     Route::prefix("rechargement")->group(function () {
         Route::controller(CardRechargeController::class)->group(function () {
@@ -374,12 +379,18 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-    ##~~~~~~~~ MODULE UBA ~~~~~~~~##
+
+
+
+
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+    ##~~~~~~~~ MODULE CANAL ~~~~~~~~##
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
 
     ###========== CARD ROUTINGS ========###
     Route::prefix("canal")->group(function () {
         // LES FORMULE
-        Route::prefix("formule")->group(function () {
+        Route::prefix("subscription/formule")->group(function () {
             Route::controller(CanalFormulaController::class)->group(function () {
                 Route::any('all', 'Formules');
                 Route::any('{id}/retrieve', 'RetrieveFormule');
@@ -387,18 +398,32 @@ Route::prefix('v1')->group(function () {
         });
 
         // LES OPTIONS
-        Route::prefix("option")->group(function () {
-            Route::controller(CanalSubscriptionOption::class)->group(function () {
-                Route::any('all', 'Option');
+        Route::prefix("subscription/option")->group(function () {
+            Route::controller(CanalSubscriptionOptionController::class)->group(function () {
+                Route::any('all', 'Options');
                 Route::any('{id}/retrieve', 'RetrieveOption');
             });
         });
 
         // LES STATUS
-        Route::prefix("status")->group(function () {
-            Route::controller(CanalSubscriptionStatus::class)->group(function () {
+        Route::prefix("subscription/status")->group(function () {
+            Route::controller(CanalSubscriptionStatusController::class)->group(function () {
                 Route::any('all', 'Status');
                 Route::any('{id}/retrieve', 'RetrieveStatus');
+            });
+        });
+
+        // GESTION DES SOUSCRIPTIONS
+        Route::prefix("subscription")->group(function () {
+            Route::controller(CanalSubscriptionController::class)->group(function () {
+                Route::any('search', '__SearchSubscription');
+                Route::any('initiate', 'InitiateSubscription');
+                Route::any('{id}/validate', 'ValidateSubscription');
+
+                Route::any('all', '_Subscriptions');
+                Route::any('{id}/retrieve', 'RetrieveSubscription');
+                Route::any('{id}/update', 'UpdateSubscription');
+                Route::any('{id}/delete', 'DeleteSubscription');
             });
         });
     });

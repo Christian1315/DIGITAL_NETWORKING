@@ -83,7 +83,6 @@ class AGENCY_HELPER extends BASE_HELPER
             return self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        $user = request()->user();
         $type = "AGY";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
@@ -181,19 +180,28 @@ class AGENCY_HELPER extends BASE_HELPER
         $agency->save();
         $agency['domaine_activite'] = $domaine_activite;
 
-
-        ### CREATION DU SOLDE DU USER
+        ### CREATION DU SOLDE DU USER(agence)
         $solde = new Sold();
         $solde->agency = $agency->id;
         $solde->owner = $user->id;
         $solde->save();
 
-        #=====ENVOIE D'SMS =======~####
-        Send_Email(
-            $formData['email'],
-            "Création de compte Agence",
-            "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-        );
+        #=====ENVOIE DE MAIL =======~####
+        try {
+            Send_Notification(
+                $user,
+                "Création de compte Agence",
+                "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        // Send_Email(
+        //     $formData['email'],
+        //     "Création de compte Agence",
+        //     "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        // );
 
         // $sms_login =  Login_To_Frik_SMS();
 

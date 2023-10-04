@@ -8,7 +8,7 @@ class CANAL_FORMULA_HELPER extends BASE_HELPER
 {
     static function allFormule()
     {
-        $formules =  CanalFormula::all();
+        $formules =  CanalFormula::orderBy("id", "desc")->get();
         return self::sendResponse($formules, 'Toutes les formules récupérées avec succès!!');
     }
 

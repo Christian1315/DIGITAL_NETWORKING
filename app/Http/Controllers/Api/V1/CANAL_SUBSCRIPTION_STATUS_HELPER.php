@@ -8,7 +8,7 @@ class CANAL_SUBSCRIPTION_STATUS_HELPER extends BASE_HELPER
 {
     static function allSubscriptionStatus()
     {
-        $status =  CanalSubscriptionStatus::all();
+        $status =  CanalSubscriptionStatus::orderBy("id", "desc")->get();
         return self::sendResponse($status, 'Tout les status récupérés avec succès!!');
     }
 

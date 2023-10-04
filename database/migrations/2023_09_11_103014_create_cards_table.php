@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("session")
+                ->nullable()
+                ->constrained('user_sessions', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
             $table->text("card_id");
             $table->text("card_num");
             $table->text("expire_date");

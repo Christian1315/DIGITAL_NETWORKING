@@ -12,6 +12,7 @@ class CardRechargeController extends CARD_RECHARGE_HELPER
         $this->middleware(['auth:api', 'scope:api-access']);
         $this->middleware('CheckAgent')->only(["InitiateRechargement"]);
         $this->middleware('CheckAgencyOrAdmin')->only(["AddRechargement", "UpdateRechargement"]);
+        $this->middleware('CheckSession')->only("InitiateRechargement");
     }
 
     function InitiateRechargement(Request $request, $card)

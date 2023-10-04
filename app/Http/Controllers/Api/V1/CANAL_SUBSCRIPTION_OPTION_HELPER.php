@@ -6,9 +6,9 @@ use App\Models\CanalSubscriptionOption;
 
 class CANAL_SUBSCRIPTION_OPTION_HELPER extends BASE_HELPER
 {
-    static function subscriptionOption()
+    static function subscriptionOptions()
     {
-        $options =  CanalSubscriptionOption::all();
+        $options =  CanalSubscriptionOption::orderBy("id", "desc")->get();
         return self::sendResponse($options, 'Toutes les options récupérées avec succès!!');
     }
 

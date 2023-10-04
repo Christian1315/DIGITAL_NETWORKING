@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\StoreProduit;
 use App\Models\UserSession;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -49,20 +48,26 @@ class USER_SESSION_HELPER extends BASE_HELPER
         if (CheckIfUserHasAnActiveSession($user->id)) {
             return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant d'initier une autre!", 201);
         }
-        $user_session_all = UserSession::where(["user" => $user->id, "active" => 1])->get();
-        #DESACTIVATION DE TOUTES LES PRECEDENTES SECTION DU USER
-        foreach ($user_session_all as $user_session) {
-            $user_session->active = 0;
-            $user_session->save();
+        // $user_session_all = UserSession::where(["user" => $user->id, "active" => 1])->get();
+        // #DESACTIVATION DE TOUTES LES PRECEDENTES SECTION DU USER
+        // foreach ($user_session_all as $user_session) {
+        //     $user_session->active = 0;
+        //     $user_session->save();
+        // }
+
+        ###___BLOCAGE DE L'INITIATION DE LA SESSION TANT QU'UNE AUTRE SESSION EST ACTIVE
+        $all_active_session = UserSession::where(["active" => 1])->get();
+        if ($all_active_session->count() != 0) {
+            return self::sendError("Une session est active! Veuillez patienter que cette dernière soit d'abord desactivée!", 201);
         }
+
+        ####_____
         $session = new UserSession();
         $session->user = $user->id;
         $session->ip = Str::uuid();
         $session->begin_date = now();
         $session->active = true;
         $session->save();
-
-        // $user_phone = $user->phone;
 
         #=====ENVOIE DE L'IP DE LA SESSION AU USER PAR SMS =======~####
         Send_Email(
@@ -138,6 +143,14 @@ class USER_SESSION_HELPER extends BASE_HELPER
             return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant de vous connecter à celle-ci!", 201);
         }
         ##
+
+        ###___BLOCAGE DE CONNEXION A LA SESSION TANT QU'UNE AUTRE SESSION EST ACTIVE
+        $all_active_session = UserSession::where(["active" => 1])->get();
+        if ($all_active_session->count() != 0) {
+            return self::sendError("Une session est active! Veuillez patienter que cette dernière soit d'abord desactivée!", 201);
+        }
+
+
         $user_session_ip = $request->session_ip;
         $user_session = UserSession::where(["user" => $userId, "ip" => $user_session_ip])->get();
         if (count($user_session) == 0) {

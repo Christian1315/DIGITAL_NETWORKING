@@ -47,4 +47,9 @@ class Card extends Model
     {
         return $this->hasMany(CardRecharge::class, "card");
     }
+
+    function session(): BelongsTo
+    {
+        return $this->belongsTo(UserSession::class, "session");
+    }
 }

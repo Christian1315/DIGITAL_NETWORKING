@@ -18,6 +18,7 @@ class CardController extends CARD_HELPER
         $this->middleware(['auth:api', 'scope:api-access']);
         $this->middleware('CheckMasterOrAdmin')->only(["AddCard", "UpdateCard"]);
         $this->middleware('CheckAgent')->only(["CardPartialValidation"]);
+        $this->middleware('CheckSession')->only("CardPartialValidation");
     }
 
     function CardPartialValidation(Request $request, $card)

@@ -14,7 +14,7 @@ class SoldController extends SOLD_HELPER
             "InitiateSold",
             "CreditateSoldForPos"
         ]);
-        $this->middleware("CheckMaster")->only([
+        $this->middleware("CheckMasterOrAdmin")->only([
             "ValidateSold",
         ]);
     }

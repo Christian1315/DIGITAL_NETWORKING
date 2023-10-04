@@ -9,8 +9,10 @@ use App\Models\Right;
 use App\Models\Sold;
 use App\Models\User;
 use App\Models\UserSession;
+use App\Notifications\SendNotification;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 function userCount()
 {
@@ -200,8 +202,8 @@ function Decredite_User_Account($userId, $formData)
     ##~~le nouveau solde pour l'agence
     $new_solde = new Sold();
     $new_solde->amount = $old_solde->amount - $formData["amount"]; ##decreditation du compte
-    $new_solde->module = $formData["module_type"] ? $old_solde->module_type : null;
-    $new_solde->comments = $formData["comments"] ? $old_solde->comments : null;
+    $new_solde->module = $old_solde->module;
+    $new_solde->comments = $formData["comments"];
     $new_solde->agency = $old_solde->agency;
     $new_solde->status = 2;
     $new_solde->owner = $userId;
@@ -267,6 +269,7 @@ function Is_User_Account_Enough($userId, $amount)
     }
     ###Il DISPOSE D'UN COMPTE
     $solde = $solde[0];
+
     if ($solde->amount >= $amount) {
         return true; #Son solde est suffisant!
     }
@@ -296,6 +299,15 @@ function Send_Email($email, $subject, $message)
         "message" => $message,
     ];
     Mail::to($email)->send(new SendEmail($data));
+}
+
+function Send_Notification($receiver, $subject, $message)
+{
+    $data = [
+        "subject" => $subject,
+        "message" => $message,
+    ];
+    Notification::send($receiver, new SendNotification($data));
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN AGENT DEPUIS LA TABLE **agents**  ==========## 
@@ -348,5 +360,9 @@ function CheckIfUserHasAnActiveSession($user_id)
 
 function GetSession($user_id)
 {
-    return UserSession::where(["user" => $user_id, "active" => 1])->get()[0];
+    $session = UserSession::where(["user" => $user_id, "active" => 1])->get();
+    if ($session->count() != 0) {
+        return $session[0];
+    }
+    return null;
 }

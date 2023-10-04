@@ -67,6 +67,8 @@ class POS_HELPER extends BASE_HELPER
         ### CREATION DU SOLDE DU POS
         $solde = new Sold();
         $solde->pos = $Pos->id;
+        $solde->status = 2;
+        $solde->credited_at = now();
         $solde->save();
         return self::sendResponse($Pos, 'Pos crée avec succès!!');
     }
@@ -124,7 +126,6 @@ class POS_HELPER extends BASE_HELPER
 
     static function _AffectToAgency($formData)
     {
-
         $pos = Pos::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['pos_id']);
         $agency = Agency::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['agency_id']);
 
@@ -139,9 +140,9 @@ class POS_HELPER extends BASE_HELPER
         if (!$agency) {
             return  self::sendError("Cette Agence n'existe pas!!", 404);
         }
-
+        // return $pos;
         $pos->agency_id = $formData["agency_id"];
-        $pos->affected = true;
+        $pos->affected = 1;
         $pos->save();
 
         return self::sendResponse([], "Affectation effectuée avec succès!!");
