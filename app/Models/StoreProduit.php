@@ -20,11 +20,18 @@ class StoreProduit extends Model
         "product_type"
     ];
 
-    function owner() : BelongsTo {
-        return $this->belongsTo(User::class,"owner");
+    function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "owner");
     }
 
-    function store() : BelongsTo {
-        return $this->belongsTo(Store::class,"store");
+    function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class, "store")->with("pos");
+    }
+
+    function session(): BelongsTo
+    {
+        return $this->belongsTo(UserSession::class, "session");
     }
 }

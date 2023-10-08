@@ -10,7 +10,8 @@ class StoreCategoryController extends CATEGORY_PRODUCT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckSession');
+        // $this->middleware('CheckSession');
+        $this->middleware('CheckMasterOrAdmin');
     }
 
     #GET ALL CATEGORIES

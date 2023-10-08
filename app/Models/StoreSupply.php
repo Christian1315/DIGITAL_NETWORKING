@@ -38,4 +38,9 @@ class StoreSupply extends Model
     {
         return $this->hasMany(SupplyProduct::class, "supply");
     }
+
+    function session(): BelongsTo
+    {
+        return $this->belongsTo(UserSession::class, "session");
+    }
 }

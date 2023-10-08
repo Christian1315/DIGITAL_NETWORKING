@@ -89,8 +89,6 @@ class STORE_HELPER extends BASE_HELPER
 
     static function _AffectToPos($formData)
     {
-
-        // return $formData;
         $store = Store::where(['owner' => request()->user()->id, 'id' => $formData['store_id'], "visible" => 1])->get();
         $pos = Pos::where(['owner' => request()->user()->id, 'id' => $formData['pos_id'], "visible" => 1])->get();
 

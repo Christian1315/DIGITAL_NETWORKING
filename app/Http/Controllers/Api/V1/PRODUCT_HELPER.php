@@ -22,7 +22,7 @@ class PRODUCT_HELPER extends BASE_HELPER
             'description' => ['required'],
             'category' => ['required', "integer"],
             'store' => ['required', "integer"],
-            'active' => ['required', "integer"],
+            'active' => ['required', "boolean"],
             'product_type' => ['required', "integer"],
         ];
     }
@@ -30,9 +30,17 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function product_messages(): array
     {
         return [
-            // 'name.required' => 'Le champ name est réquis!',
-            // 'active.unique' => 'Cette action existe déjà',
-            // 'description.required' => 'Le champ description est réquis!',
+            'name.required' => 'Le champ name est réquis!',
+            'description.required' => 'Le champ description est réquis!',
+            'category.required' => 'Le champ category est réquis!',
+            'store.required' => 'Le champ store est un entier!',
+            'product_type.required' => 'Le champ product_type est réquis!',
+            'active.required' => 'Le champ active est réquis!',
+
+            'active.boolean' => 'Le champ active est un boolean!',
+            'category.integer' => 'Le champ category est un entier!',
+            'store.integer' => 'Le champ store est un entier!',
+            'product_type.integer' => 'Le champ product_type est un entier!',
         ];
     }
 
@@ -77,15 +85,16 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function _createProduct($request)
     {
         $formData = $request->all();
+        $user = request()->user();
+
         $product_type = ProductType::where(['id' => $formData["product_type"]])->get();
 
-        $product_category = StoreCategory::where(['owner' => request()->user()->id, 'id' => $formData["category"]])->get();
+        $product_category = StoreCategory::where(['id' => $formData["category"]])->get();
         $store = Store::where(['id' => $formData["store"]])->get();
 
         if ($product_type->count() == 0) {
             return self::sendError("Ce type de produit n'existe pas!!", 404);
         }
-
 
         if ($product_category->count() == 0) {
             return self::sendError("Cette categorie de produit n'existe pas!!", 404);
@@ -107,8 +116,8 @@ class PRODUCT_HELPER extends BASE_HELPER
         $product = StoreProduit::create($formData); #ENREGISTREMENT DU PRODUIT DANS LA DB
         $product->img = $formData["img"];
 
-        $product->owner = request()->user()->id;
-        $session = GetSession(request()->user()->id);
+        $product->owner = $user->id;
+        $session = GetSession($user->id);
         $product->session = $session->id;
 
         $product->save();
@@ -117,15 +126,17 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function allProduct()
     {
-        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product =  StoreProduit::with(['owner', 'store'])->where(["owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $user = request()->user();
+        $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
+        $product =  StoreProduit::with(['owner', "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');
     }
 
     static function _retrieveProduct($id)
     {
-        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product = StoreProduit::with(['owner', "store"])->where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id])->get();
+        $user = request()->user();
+        $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
+        $product = StoreProduit::with(['owner', "store", "session"])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product->count() == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
@@ -134,9 +145,11 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function _updateProduct($request, $id)
     {
-        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
+        $user = request()->user();
+        $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
+
         $formData = $request->all();
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1, "session" => $session_id])->get();
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         };
@@ -161,8 +174,10 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function productDelete($id)
     {
-        $session_id = GetSession(request()->user()->id)->id; #L'ID DE LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "session" => $session_id, "visible" => 1])->get();
+        $user = request()->user();
+        $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
+
+        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
         if (count($product) == 0) {
             return self::sendError("Ce Produit n'existe pas!", 404);
         };
@@ -186,7 +201,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         }
 
         if ($supply->count() == 0) {
-            return self::sendError("Ce supply n'existe pas", 404);
+            return self::sendError("Ce approvisionnement n'existe pas", 404);
         }
 
         $product = $product[0]; #Retrieve du produit

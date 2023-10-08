@@ -43,11 +43,12 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
 
     static function _supply_a_product($formData)
     {
-        $supply = StoreSupply::where(["id" => $formData["supply"], "owner" => request()->user()->id, "visible" => 1])->get();
-        $product = StoreProduit::where(["id" => $formData["product"], "owner" => request()->user()->id, "visible" => 1])->get();
+        $user = request()->user();
+        $supply = StoreSupply::where(["id" => $formData["supply"], "owner" => $user->id, "visible" => 1])->get();
+        $product = StoreProduit::where(["id" => $formData["product"], "owner" => $user->id, "visible" => 1])->get();
 
         if ($supply->count() == 0) {
-            return self::sendError("Ce supply n'existe pas", 404);
+            return self::sendError("Ce approvisionnement n'existe pas", 404);
         }
         if ($product->count() == 0) {
             return self::sendError("Ce Produit n'existe pas", 404);
@@ -59,7 +60,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Ce produit a déjà été approvisionné", 505);
         } #dans le cas contraire, on passe outre
         $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
-        $session = GetSession(request()->user()->id);
+        $session = GetSession($user->id);
         $supply->session = $session->id;
         $supply->save();
 
@@ -84,7 +85,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             $stock->save();
         } #dans le cas contraire, on passe outre
 
-        return self::sendResponse($supply, 'Produit ajouté au Supply avec succès!!');
+        return self::sendResponse($supply, 'Produit approvisionné avec succès!!');
     }
 
     // static function allSupplyProducts()

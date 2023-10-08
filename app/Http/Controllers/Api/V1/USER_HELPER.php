@@ -257,7 +257,6 @@ class USER_HELPER extends BASE_HELPER
 
     static function userDelete($id)
     {
-
         $User = User::where(['id' => $id, 'visible' => 1, 'owner' => request()->user()->id])->get();
         if (count($User) == 0) {
             return self::sendError("Ce User n'existe pas!", 404);

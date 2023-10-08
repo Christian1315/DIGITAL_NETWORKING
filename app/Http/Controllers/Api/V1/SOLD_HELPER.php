@@ -229,7 +229,7 @@ class SOLD_HELPER extends BASE_HELPER
 
         $pos_solde = Sold::where(["pos" => $request["pos"], "visible" => 1])->get();
         if ($pos_solde->count() == 0) {
-            return self::sendError("Ce solde de ce pos n'existe pas! Vous ne pouvez donc pas le créditer", 404);
+            return self::sendError("Le solde de ce pos n'existe pas! Vous ne pouvez donc pas le créditer", 404);
         }
 
         $pos_solde = $pos_solde[0];

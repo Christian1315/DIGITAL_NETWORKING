@@ -10,6 +10,7 @@ class StoreProduitController extends PRODUCT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware('CheckAgent');
         $this->middleware('CheckSession');
     }
 
@@ -80,7 +81,6 @@ class StoreProduitController extends PRODUCT_HELPER
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
-
         #VALIDATION DES DATAs DEPUIS LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
         $validator = $this->Supply_Product_Validator($request->all());
 

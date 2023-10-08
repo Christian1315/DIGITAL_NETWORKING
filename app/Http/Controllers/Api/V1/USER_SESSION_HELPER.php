@@ -70,11 +70,20 @@ class USER_SESSION_HELPER extends BASE_HELPER
         $session->save();
 
         #=====ENVOIE DE L'IP DE LA SESSION AU USER PAR SMS =======~####
-        Send_Email(
-            $user->email,
-            "Votre session a été initiée!",
-            "Votre session a été inité avec succès. Voici son IP::" . $session->ip,
-        );
+        try {
+            Send_Notification(
+                $user,
+                "INITIATION DE SESSION SUR DIGITAL NETWORK",
+                "Votre session a été inité avec succès. Voici son IP::" . $session->ip,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        // Send_Email(
+        //     $user->email,
+        //     "Votre session a été initiée!",
+        //     "Votre session a été inité avec succès. Voici son IP::" . $session->ip,
+        // );
 
         // $sms_login =  Login_To_Frik_SMS();
 

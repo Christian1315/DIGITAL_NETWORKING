@@ -235,7 +235,7 @@ function CreditateSoldForPos($formData)
     $pos_solde->pos = $formData["pos"];
     $pos_solde->status = 2;
     $pos_solde->credited_at = now();
-    $pos_solde->session = $session->id;
+    // $pos_solde->session = $session->id;
     $pos_solde->save();
 }
 

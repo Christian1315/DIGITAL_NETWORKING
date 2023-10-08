@@ -10,6 +10,7 @@ class SupplyProductController extends SUPPLY_A_PRODUCT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware('CheckAgent');
         $this->middleware('CheckSession');
     }
 
@@ -29,7 +30,7 @@ class SupplyProductController extends SUPPLY_A_PRODUCT_HELPER
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR SUPPLY_A_PRODUCT_HELPER
             return $this->sendError($validator->errors(), 404);
         }
-
+        
         #ENREGISTREMENT DANS LA DB VIA **_supply_a_product** DE LA CLASS BASE_HELPER HERITEE PAR SUPPLY_A_PRODUCT_HELPER
         return $this->_supply_a_product($request->all());
     }

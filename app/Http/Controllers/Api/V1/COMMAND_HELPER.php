@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agent;
 use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
@@ -18,7 +19,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         return [
             'store' => ['required', 'integer'],
-            'table' => ['required', 'integer'],
+            // 'table' => ['required', 'integer'],
             'product' => ['required', 'integer'],
             'qty' => ['required', 'integer'],
             "amount" => ['required', 'integer']
@@ -46,17 +47,18 @@ class COMMAND_HELPER extends BASE_HELPER
 
     static function _createCommand($formData)
     {
-        $store = Store::where(["id" => $formData["store"], "owner" => request()->user()->id, "visible" => 1])->get();
-        $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
+        $user = request()->user();
+        $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
+        // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
         $product_stock = StoreStock::where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
 
         if ($store->count() == 0) {
             return self::sendError("Ce Store n'existe pas", 404);
         }
-        if ($table->count() == 0) {
-            return self::sendError("Cette Table n'existe pas", 404);
-        }
+        // if ($table->count() == 0) {
+        //     return self::sendError("Cette Table n'existe pas", 404);
+        // }
         if ($product_stock->count() == 0) {
             return self::sendError("Ce Produit n'existe pas dans le stock du store", 404);
         }
@@ -70,12 +72,31 @@ class COMMAND_HELPER extends BASE_HELPER
 
         #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
         if ($product_stock->quantity < $formData["qty"]) {
-            return self::sendError("Stock insuffisant!Dimuniez la quantité de votre commande", 505);
+            return self::sendError("Stock insuffisant dans le store! Dimuniez la quantité de votre commande", 505);
         }
+
+
+        $current_agent = Agent::where(["user_id" => $user->id])->get();
+        if ($current_agent->count() == 0) {
+            return self::sendError("Le compte agent auquel vous êtes associé.e n'existe plus", 404);
+        }
+
+
+        ###L'agent actuel
+        $current_agent = $current_agent[0];
+        $this_agent_pos = $current_agent->pos;
+        // $this_agent_pos_sold = $this_agent_pos->sold;
+        
+        ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
+
+        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        }
+        
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-        $command->owner = request()->user()->id;
-        $session = GetSession(request()->user()->id);
+        $command->owner = $user->id;
+        $session = GetSession($user->id);
         $command->session = $session->id;
         $command->save();
 
@@ -87,15 +108,24 @@ class COMMAND_HELPER extends BASE_HELPER
         #Recréeons une nouvelle ligne de ce produit dans la table des stocks
         $new_stock = new StoreStock();
         $new_stock->session = $session->id;
-        $new_stock->owner = request()->user()->id;
+        $new_stock->owner = $user->id;
         $new_stock->product = $formData["product"];
         $new_stock->store = $formData["store"];
-        $new_stock->quantity =$product_stock->quantity - $formData["qty"];
+        $new_stock->quantity = $product_stock->quantity - $formData["qty"];
 
         $new_stock->comments = $product_stock->comments;
         $new_stock->save();
 
-        return self::sendResponse($command, 'Commande crée avec succès!!');
+        ##___DECREDITATION DU SOLDE DE L'AGENCE
+        $countData = [
+            "module_type" => 1,
+            "comments" => "Décreditation de solde du Pos par " . $user->username . ", pour initier une souscription!",
+            "amount" => $formData["amount"],
+            "pos" => $this_agent_pos->id
+        ];
+        Decredite_Pos_Account($countData);
+
+        return self::sendResponse($command, 'Commande éffectuée avec succès!!');
     }
 
     static function allCommands()
