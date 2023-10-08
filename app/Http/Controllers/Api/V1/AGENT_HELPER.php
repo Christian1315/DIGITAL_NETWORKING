@@ -113,11 +113,11 @@ class AGENT_HELPER extends BASE_HELPER
 
         #SON ENREGISTREMENT EN TANT QU'UN AGENT
         $Agent = Agent::create($agentData); #ENREGISTREMENT DU Agent DANS LA DB
-        $Agent['owner'] = request()->user()->id;
+        $Agent['owner'] = $_user->id;
         if (Is_User_A_Master($_user->id)) { #Si c'est pas un master
-            $Agent['master_id'] = request()->user()->master->id; #L'id du master
+            $Agent['master_id'] = $_user->master->id; #L'id du master
         } else {
-            $Agent['admin'] = request()->user()->id;
+            $Agent['admin'] = $_user->id;
         }
         $Agent->save();
 
@@ -127,7 +127,7 @@ class AGENT_HELPER extends BASE_HELPER
             Send_Notification(
                 $create_user,
                 "Création de compte Agent",
-                "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                "Votre compte Agent a été crée avec succès sur DIGITAL NETWORKING. \n Voici ci-dessous vos identifiants de connexion: \n Username::" . $number . "; \n Password par defaut::" . $default_password,
             );
         } catch (\Throwable $th) {
             //throw $th;

@@ -68,7 +68,8 @@ class AGENCY_HELPER extends BASE_HELPER
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $piece_type = Piece::where('id', $formData['type_piece'])->get();
         $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
-        $agent_dad = Agent::where(['id' => $formData['agent_dad'], "owner" => $user->id])->get();
+
+        $agent_dad = Agent::where(["owner" => $user->id])->find($formData['agent_dad']);
 
 
         if (count($domaine_activite) == 0) {
@@ -79,7 +80,7 @@ class AGENCY_HELPER extends BASE_HELPER
             return self::sendError("Ce type de piece n'existe pas!!", 404);
         }
 
-        if (count($agent_dad) == 0) {
+        if (!$agent_dad) {
             return self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
@@ -112,13 +113,13 @@ class AGENCY_HELPER extends BASE_HELPER
             "profil_id" => 5, #UNE AGENCE
             "rang_id" => 2, #UN MODERATEUR
         ];
+
         $user = User::create($userData);
         $user->pass_default = $default_password;
         $user->owner = request()->user()->id;
         $user->save();
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
-
 
         $agencyData = [
             "number" => $formData['number'],
@@ -186,12 +187,17 @@ class AGENCY_HELPER extends BASE_HELPER
         $solde->owner = $user->id;
         $solde->save();
 
+        ####____AFFECTATION DE L'AGENT DAD A CETTE AGENCE
+        $agent_dad->agency_id = $agency->id;
+        $agent_dad->affected = 1;
+        $agent_dad->save();
+
         #=====ENVOIE DE MAIL =======~####
         try {
             Send_Notification(
                 $user,
                 "Création de compte Agence",
-                "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+                "Votre compte Agence a été crée avec succès sur DIGITAL NETWORKING. \t Voici ci-dessous vos identifiants de connexion: \t Username::" . $number . "; \t Password par defaut::" . $default_password,
             );
         } catch (\Throwable $th) {
             //throw $th;

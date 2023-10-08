@@ -10,6 +10,7 @@ class SoldController extends SOLD_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
+        $this->middleware("CheckSession")->only("InitiateSold");
         $this->middleware("CheckAgency")->only([
             "InitiateSold",
             "CreditateSoldForPos"

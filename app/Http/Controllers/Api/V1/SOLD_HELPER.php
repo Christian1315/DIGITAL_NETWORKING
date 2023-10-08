@@ -48,6 +48,8 @@ class SOLD_HELPER extends BASE_HELPER
         $user = request()->user();
         $formData = $request->all();
 
+        $session = GetSession($user->id);
+
         $module = Module::find($request["module_type"]);
         if (!$module) {
             return self::sendError("Ce module n'existe pas!", 404);
@@ -78,18 +80,28 @@ class SOLD_HELPER extends BASE_HELPER
         $new_solde->agency = $old_solde->agency;
         $new_solde->status = 1; ###STATUS INITIE
         $new_solde->credited_at = now();
+        $new_solde->session = $session->id;
         $new_solde->save();
 
         $master_or_admin_of_this_agency = User::find($user->owner);
 
         $message = "L'agence (ou le partenanire) " . $user->username . " vient d'initier son Solde de " . $formData["amount"] . " sur DIGITAL NETWORK. Veuillez vous connecter pour éffectuer la validation!";
 
-        #=====ENVOIE D'EMAIL =======~####
-        Send_Email(
-            $master_or_admin_of_this_agency->email,
-            "Solde Initié sur DIGITAL NETWORK",
-            $message,
-        );
+        #=====ENVOIE DE NOTIFICATION =======~####
+        try {
+            Send_Notification(
+                $master_or_admin_of_this_agency,
+                "SOLDE INITIE SUR DIGITAL NETWORK",
+                $message,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        // Send_Email(
+        //     $master_or_admin_of_this_agency->email,
+        //     "Solde Initié sur DIGITAL NETWORK",
+        //     $message,
+        // );
 
         // #=====ENVOIE D'SMS =======~####
         // $sms_login =  Login_To_Frik_SMS();
@@ -153,11 +165,20 @@ class SOLD_HELPER extends BASE_HELPER
         }
 
         #=====ENVOIE D'EMAIL =======~####
-        Send_Email(
-            $user->email,
-            "Solde validé sur DIGITAL NETWORK",
-            $message,
-        );
+        try {
+            Send_Notification(
+                $user,
+                "SOLDE VALIDE SUR DIGITAL NETWORK",
+                $message,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        // Send_Email(
+        //     $user->email,
+        //     "Solde validé sur DIGITAL NETWORK",
+        //     $message,
+        // );
 
         #=====ENVOIE D'SMS =======~####
         // $sms_login =  Login_To_Frik_SMS();
@@ -232,7 +253,6 @@ class SOLD_HELPER extends BASE_HELPER
         $message = "L'agence (ou le partenanire) " . $user->username . " vient de créditer votre Solde de " . $formData["amount"] . " sur DIGITAL NETWORK.";
 
         #=====ENVOIE D'SMS =======~####
-
         try {
             $sms_login =  Login_To_Frik_SMS();
             if ($sms_login['status']) {
@@ -266,12 +286,7 @@ class SOLD_HELPER extends BASE_HELPER
     static function allSoldes()
     {
         $user = request()->user();
-
-        if ($user->is_admin) {
-            $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager"])->latest()->get();
-        } else {
-            $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager"])->where(["owner" => $user->id, "visible" => 1])->latest()->get();
-        }
+        $Soldes = Sold::orderBy("id", "desc")->get();
         return self::sendResponse($Soldes, 'Soldes récupérés avec succès!!');
     }
 }

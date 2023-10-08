@@ -189,6 +189,7 @@ function Agent_Dad($agent_dad_id)
 ##======== CE HELPER PERMET DE DECREDITER LE SOLDE D'USER ==========## 
 function Decredite_User_Account($userId, $formData)
 {
+
     $solde = Sold::where(['owner' => $userId, 'visible' => 1])->get();
 
     #####______GESTION DU SOLDE DE L'AGENCE
@@ -213,6 +214,8 @@ function Decredite_User_Account($userId, $formData)
 
 function CreditateSoldForPos($formData)
 {
+    $user = request()->user();
+    $session = GetSession($user->id);
     #####______GESTION DU SOLDE DU POS
     $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
 
@@ -232,6 +235,7 @@ function CreditateSoldForPos($formData)
     $pos_solde->pos = $formData["pos"];
     $pos_solde->status = 2;
     $pos_solde->credited_at = now();
+    $pos_solde->session = $session->id;
     $pos_solde->save();
 }
 
