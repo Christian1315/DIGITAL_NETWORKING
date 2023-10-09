@@ -68,10 +68,8 @@ return new class extends Migration
                 ->onDelete("CASCADE");
 
             $table->integer("agent_dad");
-
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
-
             $table->timestamps();
         });
     }

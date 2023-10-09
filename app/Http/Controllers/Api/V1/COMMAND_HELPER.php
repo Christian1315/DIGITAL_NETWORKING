@@ -7,8 +7,6 @@ use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreStock;
-use App\Models\StoreTable;
-use App\Models\SupplyProduct;
 use Illuminate\Support\Facades\Validator;
 
 class COMMAND_HELPER extends BASE_HELPER
@@ -102,22 +100,18 @@ class COMMAND_HELPER extends BASE_HELPER
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
 
         $formData["amount"] = $formData["qty"] * $product->price;
+        // return $formData["product"];
+
         if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
             return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
         }
 
         $formData["session"] = $session->id;
-        $formData["user"] = $user->id;
-
+        $formData["owner"] = $user->id;
 
         // return $product_stock;
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-        $command->owner = $user->id;
-
-        $session = GetSession($user->id);
-        $command->session = $session->id;
-        $command->save();
 
         #changeons sa **visibilité** et son **update_at**
         $product_stock->visible = false;

@@ -72,7 +72,6 @@ class AGENT_HELPER extends BASE_HELPER
             "rang_id" => 2, #UN MODERATEUR
         ];
 
-
         ##VERIFIONS SI LE USER EXISTAIT DEJA
         $user = User::where("username", $number)->get();
 
@@ -155,21 +154,21 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function allAgents()
     {
-        $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id", "desc")->get();
+        $user = request()->user();
+        $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
     static function _retrieveAgent($id)
     {
-        $Agent_collec = Agent::with(['master', "owner", "pos", "stores"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if ($Agent_collec->count() == 0) {
+        $user = request()->user();
+        $agent = Agent::with(['master', "owner", "pos", "stores"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+        if (!$agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         }
-        $agent = $Agent_collec[0];
         $user = $agent->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
         $rang = $user->rang;
         $profil = $user->profil;
-
 
         #renvoie des droits du user 
         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
@@ -187,11 +186,12 @@ class AGENT_HELPER extends BASE_HELPER
     static function _updateAgent($request, $id)
     {
         $formData = $request->all();
-        $Agent = Agent::with(['master', "owner"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
-        if (count($Agent) == 0) {
+        $user = request()->user();
+
+        $Agent = Agent::with(['master', "owner"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        if (!$Agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
-        $Agent = Agent::with(['master', "owner"])->find($id);
 
         #####TRAITEMENT DES DATAS AVANT UPDATE ######
         if ($request->get("type_id")) {
@@ -201,34 +201,18 @@ class AGENT_HELPER extends BASE_HELPER
             }
         }
 
-        if ($request->get("phone")) {
-            $phone = User::where('phone', $formData['phone'])->get();
-
-            if (!count($phone) == 0) {
-                return self::sendError("Ce phone existe déjà!!", 404);
-            }
-        }
-
-        if ($request->get("email")) {
-            $email = User::where('email', $formData['email'])->get();
-
-            if (!count($email) == 0) {
-                return self::sendError("Ce email existe déjà!!", 404);
-            }
-        }
-
         $Agent->update($formData);
         return self::sendResponse($Agent, 'Ce Agent a été modifié avec succès!');
     }
 
     static function AgentDelete($id)
     {
-        $Agent = Agent::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
-        if (count($Agent) == 0) {
+        $user = request()->user();
+        $Agent = Agent::where(['owner' => $user->id, 'visible' => true])->find($id);
+        if (!$Agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         };
 
-        $Agent = Agent::find($id);
         $Agent->delete_at = now();
         $Agent->visible = false;
         $Agent->save();

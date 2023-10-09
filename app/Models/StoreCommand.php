@@ -15,7 +15,9 @@ class StoreCommand extends Model
         "product",
         "table",
         "qty",
-        "amount"
+        "amount",
+        "owner",
+        "session"
     ];
 
     function owner(): BelongsTo
@@ -30,7 +32,12 @@ class StoreCommand extends Model
 
     function product(): BelongsTo
     {
-        return $this->belongsTo(StoreProduit::class, "owner");
+        return $this->belongsTo(StoreProduit::class, "product");
+    }
+
+    function product_datas(): BelongsTo
+    {
+        return $this->belongsTo(StoreProduit::class, "product")->withDefault(["name","price"]);
     }
 
     function table(): BelongsTo

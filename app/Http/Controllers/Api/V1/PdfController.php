@@ -27,7 +27,7 @@ class PdfController extends BASE_HELPER
         $commands = StoreCommand::orderBy("id", "desc")->get();
         $formData["commands"] = $commands;
         // return $formData;
-        $pdf = PDF::loadView('facture', compact(["client", "reference", "frets"]));
+        $pdf = PDF::loadView('facture', compact(["client", "reference", "commands"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
         // return $users;
         // $pdf = PDF::loadView('pdf', compact('users'));

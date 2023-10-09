@@ -24,13 +24,6 @@ body{
     border-top:3px solid #1B8941;
 }
 
-.img{
-    border-radius: 20px 0px 20px 0px;
-    border-top:solid 10px #9F9A0F;
-    border-left:solid 10px #9F9A0F;
-    box-shadow: 10px 15px 15px 0px rgba(0,0,0,0.75);;
-}
-
 .title{
     color: #000;
     font-weight: bolder;

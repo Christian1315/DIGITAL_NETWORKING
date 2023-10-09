@@ -13,7 +13,7 @@ class ACTION_HELPER extends BASE_HELPER
     static function action_rules(): array
     {
         return [
-            'name' => ['required',Rule::unique("actions")],
+            'name' => ['required', Rule::unique("actions")],
             'description' => ['required'],
         ];
     }
@@ -44,26 +44,25 @@ class ACTION_HELPER extends BASE_HELPER
 
     static function allActions()
     {
-        $actions =  Action::with(['rights'])->orderBy('id','desc')->get();
+        $actions =  Action::with(['rights'])->orderBy('id', 'desc')->get();
         return self::sendResponse($actions, 'Tout les droits récupérés avec succès!!');
     }
 
     static function _retrieveAction($id)
     {
-        $action = Action::with(['rights'])->where('id', $id)->get();
-        if ($action->count() == 0) {
+        $action = Action::find($id);
+        if (!$action) {
             return self::sendError("Cette action n'existe pas!", 404);
         }
         return self::sendResponse($action, "Action récupérée avec succès:!!");
     }
 
-    static function _updateAction($formData,$id)
+    static function _updateAction($formData, $id)
     {
-        $action = Action::where('id',$id)->get();
-        if (count($action) == 0) {
+        $action = Action::find($id);
+        if (!$action) {
             return self::sendError("Cette action n'existe pas!", 404);
         };
-        $action = Action::find($id);
         $action->update($formData);
         $action['rights'] = $action->rights;
         return self::sendResponse($action, 'Cette action a été modifié avec succès!');
@@ -71,14 +70,11 @@ class ACTION_HELPER extends BASE_HELPER
 
     static function actionDelete($id)
     {
-        $action = Action::where('id',$id)->get();
-        if (count($action) == 0) {
+        $action = Action::find($id);
+        if (!$action) {
             return self::sendError("Cette action n'existe pas!", 404);
         };
-        $action = Action::find($id);
         $action->delete();
-        $action['users'] = $action->users;
-        $action['rights'] = $action->rights;
         return self::sendResponse($action, 'Cette action a été supprimée avec succès!');
     }
 }

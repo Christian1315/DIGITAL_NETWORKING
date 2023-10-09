@@ -14,10 +14,10 @@ class POS_HELPER extends BASE_HELPER
     static function pos_rules(): array
     {
         return [
-            "username" => ['required', Rule::unique("pos")],
+            "username" => ['required'],
             "country" => ['required'],
-            "phone" => ['required', Rule::unique("pos")],
-            "phone" => ['required', Rule::unique("pos")],
+            // "phone" => ['required', Rule::unique("pos")],
+            // "phone" => ['required', Rule::unique("pos")],
         ];
     }
 
@@ -79,7 +79,7 @@ class POS_HELPER extends BASE_HELPER
         if ($user->is_admin) {
             $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->latest()->get();
         } else {
-            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => request()->user()->id, 'visible' => 1])->latest()->get();
+            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => $user->id, 'visible' => 1])->latest()->get();
         }
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
@@ -90,19 +90,20 @@ class POS_HELPER extends BASE_HELPER
         if ($user->is_admin) {
             $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->find($id);
         } else {
-            $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
+            $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
         }
         if (!$pos) {
             return self::sendError("Ce Pos n'existe pas", 404);
         }
-
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
     }
 
     static function _updatePos($request, $id)
     {
         $formData = $request->all();
-        $Pos = Pos::where(['owner' => request()->user()->id, 'visible' => 1])->find($id);
+        $user = request()->user();
+
+        $Pos = Pos::where(['owner' => $user->id, 'visible' => 1])->find($id);
         if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };
@@ -113,7 +114,8 @@ class POS_HELPER extends BASE_HELPER
 
     static function posDelete($id)
     {
-        $Pos = Pos::where(['owner' => request()->user()->id, 'visible' => 1])->find($id);
+        $user = request()->user();
+        $Pos = Pos::where(['owner' => $user->id, 'visible' => 1])->find($id);
         if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };

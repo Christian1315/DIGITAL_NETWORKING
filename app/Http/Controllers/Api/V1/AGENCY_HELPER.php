@@ -239,12 +239,12 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _retrieveAgency($id)
     {
-        $agency = Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['id' => $id, 'owner' => request()->user()->id])->get();
-        if ($agency->count() == 0) {
+        $user = request()->user();
+        $agency = Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['owner' => $user->id])->find($id);
+        if (!$agency) {
             return self::sendResponse($agency, "Agences recupere avec succès!!");
         }
 
-        $agency = $agency[0];
         $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
         $rang = $user->rang;
         $profil = $user->profil;
@@ -271,9 +271,10 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function _updateAgency($request, $id)
     {
-        $AGENCY = Agency::with(['master', "owner", "agents"])->where(['id' => $id, "owner" => request()->id, "visible" => 1])->get();
-        if (count($AGENCY) == 0) {
-            return self::sendError("Ce AGENCY n'existe pas!", 404);
+        $user = request()->user();
+        $AGENCY = Agency::with(['master', "owner", "agents"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        if (!$AGENCY) {
+            return self::sendError("Cette agence n'existe pas!", 404);
         };
 
         $formData = $request->all();
@@ -307,22 +308,6 @@ class AGENCY_HELPER extends BASE_HELPER
 
             if (count($agent_dad) == 0) {
                 return self::sendError("Ce Agent n'existe pas!!", 404);
-            }
-        }
-
-        if ($request->get("phone")) {
-            $phone = User::where('phone', $formData['phone'])->get();
-
-            if (!count($phone) == 0) {
-                return self::sendError("Ce phone existe déjà!!", 404);
-            }
-        }
-
-        if ($request->get("email")) {
-            $email = User::where('email', $formData['email'])->get();
-
-            if (!count($email) == 0) {
-                return self::sendError("Ce email existe déjà!!", 404);
             }
         }
 
@@ -368,15 +353,15 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function AgencyDelete($id)
     {
-        $Agence = Agency::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => true])->get();
-        if (count($Agence) == 0) {
+        $user = request()->user();
+        $Agence = Agency::where(['owner' => $user->id, 'visible' => true])->find($id);
+        if (!$Agence) {
             return self::sendError("Cette Agence n'existe pas!", 404);
         };
 
-        $Agence = Agency::find($id);
         $Agence->delete_at = now();
         $Agence->visible = false;
         $Agence->save();
-        return self::sendResponse($Agence, 'Cette Agence a été supprimé avec succès!');
+        return self::sendResponse($Agence, 'Cette Agence a été supprimée avec succès!');
     }
 }

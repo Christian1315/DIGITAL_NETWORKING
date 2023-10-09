@@ -12,9 +12,9 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row" style="background-color: #9F9A0F;">
+        <div class="row" style="background-color: #2f80ec;">
             <div class="col-md-12">
-                <p class="text-light text-center mt-2"> <strong>FACTURE DE TRANSACTION SUR AGBANDE</strong></p>
+                <p class="text-light text-center mt-2"> <strong>FACTURE DE COMMANDE SUR DIGITAL NETWORK</strong></p>
             </div>
         </div>
         <br>
@@ -71,7 +71,7 @@
                         <tr>
                             <th scope="row">{{$loop->index + 1}}</th>
                             <td class="text-center">{{$command->id}}</td>
-                            <td class="text-center">{{$command->product->name}}</td>
+                            <td class="text-center">{{$command->product_datas->name}}</td>
                             <td class="text-center">{{$command->qty}}</td>
                             <td class="text-danger text-center">{{$command->amount}}</td>
                             <td class="text-center">{{$command->created_at}}</td>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <br><br>
-        <div class="row bottom-fixed" style="background-color: #9F9A0F;">
+        <div class="row bottom-fixed" style="background-color: #2f80ec;">
             <div class="col-md-12">
                 <p class="text-light text-center mt-2">© Copyright - <?php echo date("Y"); ?> - DIGITAL NETWORK</p>
             </div>
