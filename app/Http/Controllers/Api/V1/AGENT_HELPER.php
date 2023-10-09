@@ -49,6 +49,7 @@ class AGENT_HELPER extends BASE_HELPER
     {
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $user = request()->user();
+
         $type = "AGT";
 
         $number =  Add_Number($user, $type); ##Add_Number est un helper qui genère le **number** 
@@ -119,6 +120,16 @@ class AGENT_HELPER extends BASE_HELPER
             $Agent['admin'] = $_user->id;
         }
         $Agent->save();
+
+        ####AFFECTATION DE L'AGENT A CE USER AU CAS OU LE USER EST UNE AGENCE
+        $user = request()->user();
+        if (Is_User_An_Agency($user->id)) {
+            $agence = Agency::where(["user_id" => $user->id])->first();
+            $Agent->agency_id = $agence->id;
+            $Agent->affected = true;
+            $Agent->save();
+        };
+
 
         #=====ENVOIE DE MAIL =======~####
         // return $create_user;
