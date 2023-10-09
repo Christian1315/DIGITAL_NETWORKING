@@ -11,7 +11,7 @@ class AgentController extends AGENT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        // $this->middleware('CheckMasterOrAdmin')->except(["ConfirmPosAmount"]);
+        $this->middleware('CheckMasterOrAdmin')->only(["AffectToAgency"]);
         $this->middleware('CheckAgent')->only(["ConfirmPosAmount"]);
     }
 

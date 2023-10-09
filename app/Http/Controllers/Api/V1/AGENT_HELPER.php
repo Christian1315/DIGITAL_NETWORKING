@@ -258,11 +258,36 @@ class AGENT_HELPER extends BASE_HELPER
         // return $formData;
         $user = request()->user();
         $agent = Agent::where(['owner' => $user->id, "visible" => 1])->find($formData['agent_id']);
-        $pos = Pos::where(['owner' => $user->id, "visible" => 1])->find($formData['pos_id']);
 
         if (!$agent) {
             return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
+
+        if ($agent->pos_id) {
+            return self::sendError("Ce agent est déjà affecté à un pos", 505);
+        }
+
+        ####AFFECTATION DE L'AGENT AU POS CE USER AU CAS OU LE USER EST UNE AGENCE
+        if (Is_User_An_Agency($user->id)) {
+            $agence = Agency::where(["user_id" => $user->id])->first();
+            ##__tout les pos affectes à cette agence
+            $agence_pos_all = Pos::where(['agency_id' => $agence->id, "visible" => 1])->get();
+            // return $agence_pos_all;
+
+            ###___verifions si le POS a ete affecte vraiment à cette agence            $is_this_pos_belong_to_this_agency = false;
+            $is_this_pos_belong_to_this_agency = false;
+            foreach ($agence_pos_all as $agence_pos) {
+                if ($agence_pos->id == $formData['pos_id']) {
+                    $is_this_pos_belong_to_this_agency = true;
+                }
+            };
+
+            if ($is_this_pos_belong_to_this_agency) {
+                $pos = Pos::where(['agency_id' => $agence->id, "visible" => 1])->find($formData['pos_id']);
+            }
+        } else { ###Quand il n'est pas une agence
+            $pos = Pos::where(['owner' => $user->id, "visible" => 1])->find($formData['pos_id']);
+        };
 
         if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
