@@ -24,24 +24,28 @@ class PdfController extends BASE_HELPER
         // $users = User::all();
         $client = User::find(1);
         $reference = Custom_Timestamp();
-        $commands = StoreCommand::orderBy("id", "desc")->get();
-
+        $commands = StoreCommand::where(["owner" => 10])->orderBy("id", "desc")->get();
+        $command_amounts = [];
+        foreach ($commands as $command) {
+            array_push($command_amounts, $command->amount);
+        }
+        $total = array_sum($command_amounts);
+        // return $total;
         // return self::sendResponse($commands, "success");
-        // foreach ($commands as $command) {
-        //     # code...
-        //     return $command;
-        // }
+
 
         // $formData["commands"] = $commands;
         // return $commands;
-        $pdf = PDF::loadView('facture', compact(["client", "reference", "commands"]));
+        $pdf = PDF::loadView('facture', compact(["client", "reference", "commands","total"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
-        
+
         // return $users;
         // $pdf = PDF::loadView('pdf', compact('users'));
         // $pdf = PDF::loadView('pdf',$users)->stream();
 
         // return $pdf->download(Str::slug($data['nom']).'facture.pdf');
+
+        // return view("facture", compact(["commands", "client", "reference"]));
         return $pdf->stream();
     }
 }

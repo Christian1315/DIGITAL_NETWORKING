@@ -18,6 +18,19 @@ return new class extends Migration
                 ->constrained('user_sessions', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
+            $table->text("reference");
+            $table->foreignId('facturier')
+                ->nullable()
+                ->constrained('users', "id")
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+            $table->foreignId('client')
+                ->nullable()
+                ->constrained('users', "id")
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
+            $table->text("facture");
+            $table->boolean("paid")->default(false);
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
 

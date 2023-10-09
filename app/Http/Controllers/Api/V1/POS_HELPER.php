@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Agency;
 use App\Models\Pos;
 use App\Models\Sold;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -97,6 +98,25 @@ class POS_HELPER extends BASE_HELPER
         }
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
     }
+
+    function possAffected()
+    {
+        $possAffected = [];
+
+        $curent_user = request()->user();
+
+        $all_pos = Pos::all();
+        foreach ($all_pos as $pos) {
+            $agency = Agency::find($pos->agency_id);
+            $user_agency = User::find($agency->user_id);
+
+            if ($user_agency->id == $curent_user->id) {
+                array_push($possAffected, $pos);
+            }
+        }
+        return self::sendResponse($possAffected, "Liste de mes pos affectes");
+    }
+
 
     static function _updatePos($request, $id)
     {

@@ -10,7 +10,8 @@ class PosController extends POS_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin');
+        $this->middleware('CheckMasterOrAdmin')->except(["GetAllPosAffectedToMe"]);
+        $this->middleware('CheckAgency')->only(["GetAllPosAffectedToMe"]);
     }
 
     function AddPos(Request $request)
@@ -57,6 +58,18 @@ class PosController extends POS_HELPER
 
         #RECUPERATION DU Pos
         return $this->_retrievePos($id);
+    }
+
+    #GET A Pos affected to me
+    function GetAllPosAffectedToMe(Request $request)
+    {
+        #VERIFICATION DE LA METHOD
+        if ($this->methodValidation($request->method(), "GET") == False) {
+            #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR POS_HELPER
+            return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
+        };
+
+        return $this->possAffected();
     }
 
     #RECUPERER UN Pos

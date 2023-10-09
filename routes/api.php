@@ -185,6 +185,7 @@ Route::prefix('v1')->group(function () {
             Route::any('add', 'AddPos'); #AJOUT D'UN POS
             Route::any('all', 'Poss'); #GET ALL POS
             Route::any('{id}/retrieve', 'RetrievePos'); #RECUPERATION D'UN POS
+            Route::any('my-affected-pos', 'GetAllPosAffectedToMe'); #RECUPERATION DE TOUT LES POS QUI ME SONT AFFECTES
             Route::any('{id}/delete', 'DeletePos'); #SUPPRESSION D'UN POS
             Route::any('{id}/update', 'UpdatePos'); #MODIFICATION D'UN POS
             Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
@@ -286,6 +287,16 @@ Route::prefix('v1')->group(function () {
             // Route::any('all', '_AllSupply'); #GET ALL APPROVISIONNEMENT
             // Route::any('{id}/retrieve', 'RetrieveSupply'); #RECUPERATION D'UN APPROVISIONNEMENT
             // Route::any('{id}/delete', '_DeleteSupply'); #SUPPRESSION D'UN APPROVISIONNEMENT
+        });
+    });
+
+    Route::prefix('facture')->group(function () {
+        Route::controller(StoreFacturationController::class)->group(function () {
+            Route::any('all', '_Factures'); #RECUPERER TOUTES LES FACTURES
+            Route::any('{id}/create', 'Create'); #CREER UNE FACTURES
+            Route::any('/{id}/retrieve', '_Retrieve'); #RECUPERER TOUTES LES FACTURE
+            Route::any('/{id}/update', 'Update'); #MODIFIER UNE FACTURE
+            Route::any('/{id}/delete', 'Delete'); #SUPPRESSION D'UNE FACTURE
         });
     });
 

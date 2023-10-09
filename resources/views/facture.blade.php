@@ -61,6 +61,7 @@
                             <th scope="col">N°</th>
                             <th scope="col">Commande</th>
                             <th scope="col">Produit</th>
+                            <th scope="col">Prix</th>
                             <th scope="col">Quantité </th>
                             <th scope="col">Prix total</th>
                             <th scope="col">Date de la commande</th>
@@ -72,11 +73,18 @@
                             <th scope="row">{{$loop->index + 1}}</th>
                             <td class="text-center">{{$command->id}}</td>
                             <td class="text-center">{{$command->product_datas->name}}</td>
+                            <td class="text-center">{{$command->product_datas->price}}</td>
                             <td class="text-center">{{$command->qty}}</td>
                             <td class="text-danger text-center">{{$command->amount}}</td>
                             <td class="text-center">{{$command->created_at}}</td>
                         </tr>
                         @endforeach
+                        <tr>
+                            <th scope="row"></th>
+                            <td class="text-center" colspan="3" style="font-style: italic;">Total à payer :</td>
+                            <td class="text-center text-danger"> <strong style="background-color: #000;color:#fff;padding:5px;">{{$total}}</strong></td>
+                            <td class="text-danger text-center"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -84,7 +92,7 @@
 
         <div class="row">
             <div class="col-md-12 text-center">
-                <img src="https://res.cloudinary.com/duk6hzmju/image/upload/v1696441954/digital-logo_micxsx.jpg" alt="" srcset="">
+                <img src="https://res.cloudinary.com/duk6hzmju/image/upload/v1696441954/digital-logo_micxsx.jpg" width="50px" alt="" srcset="">
             </div>
         </div>
         <br><br>
