@@ -83,6 +83,8 @@ class POS_HELPER extends BASE_HELPER
         $all_pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->get();
         foreach ($all_pos as $pos) {
             $agency = Agency::find($pos->agency_id);
+            $user_agency = null;
+            
             if ($agency) {
                 $user_agency = User::find($agency->user_id);
             }

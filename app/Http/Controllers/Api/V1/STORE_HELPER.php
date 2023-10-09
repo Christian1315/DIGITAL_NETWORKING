@@ -56,6 +56,7 @@ class STORE_HELPER extends BASE_HELPER
         $all_store = Store::with(["owner", "agent", "agency", "pos", "supplies", "stocks"])->get();
         foreach ($all_store as $store) {
             $agency = Agency::find($store->agency_id);
+            $user_agency = null;
             if ($agency) {
                 $user_agency = User::find($agency->user_id);
             }
