@@ -74,13 +74,38 @@ class POS_HELPER extends BASE_HELPER
         return self::sendResponse($Pos, 'Pos crée avec succès!!');
     }
 
+    static function possAffected()
+    {
+        $possAffected = [];
+
+        $curent_user = request()->user();
+
+        $all_pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->get();
+        foreach ($all_pos as $pos) {
+            $agency = Agency::find($pos->agency_id);
+            $user_agency = User::find($agency->user_id);
+
+            if ($user_agency->id == $curent_user->id) {
+                array_push($possAffected, $pos);
+            }
+        }
+        return self::sendResponse($possAffected, "Liste de mes pos affectes");
+    }
+
     static function allPoss()
     {
         $user = request()->user();
+        if (Is_User_A_Master($user->id)) {
+            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => $user->id, 'visible' => 1])->latest()->get();
+        }
+
+        if (Is_User_An_Agency($user->id)) {
+            return self::possAffected();
+        }
+
         if ($user->is_admin) {
             $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->latest()->get();
         } else {
-            $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => $user->id, 'visible' => 1])->latest()->get();
         }
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
@@ -97,24 +122,6 @@ class POS_HELPER extends BASE_HELPER
             return self::sendError("Ce Pos n'existe pas", 404);
         }
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
-    }
-
-    function possAffected()
-    {
-        $possAffected = [];
-
-        $curent_user = request()->user();
-
-        $all_pos = Pos::all();
-        foreach ($all_pos as $pos) {
-            $agency = Agency::find($pos->agency_id);
-            $user_agency = User::find($agency->user_id);
-
-            if ($user_agency->id == $curent_user->id) {
-                array_push($possAffected, $pos);
-            }
-        }
-        return self::sendResponse($possAffected, "Liste de mes pos affectes");
     }
 
 
