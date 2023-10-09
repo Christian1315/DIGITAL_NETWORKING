@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardRechargeStatusController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
+use App\Http\Controllers\Api\V1\ModuleController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
 use App\Http\Controllers\Api\V1\StoreFacturationController;
@@ -390,7 +391,12 @@ Route::prefix('v1')->group(function () {
     });
 
 
-
+    Route::prefix("module")->group(function () {
+        Route::controller(ModuleController::class)->group(function () {
+            Route::any('all', 'Modules');
+            Route::any('{id}/retrieve', 'RetrieveModule');
+        });
+    });
 
 
     ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
