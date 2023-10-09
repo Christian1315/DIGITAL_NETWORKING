@@ -10,7 +10,7 @@ class StoreFacturationController extends FACTURE_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware("CheckIfUserIsAdminOrBiller");
+        $this->middleware("CheckAgency");
     }
 
     #RECUPERATION DE TOUT LES FACTURES

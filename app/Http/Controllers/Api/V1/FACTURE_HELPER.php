@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Facture;
-use App\Models\Frets;
+use App\Models\StoreCommand;
+use App\Models\StoreFacturation;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use PDF;
@@ -45,13 +45,6 @@ class FACTURE_HELPER extends BASE_HELPER
 
         ###___GESTION DES FACTURES
         $reference = Custom_Timestamp();
-        #~~recuperation des frets livré mais non facturés
-        $frets = Frets::where(["owner" => $clientId, "status" => 5, "affected" => 1, "factured" => 0])->get();
-
-        ##si aucun fret n'est livré
-        if ($frets->count() == 0) {
-            return self::sendError("Ce client ne dispose pas de fret disposé à être facturer", 505);
-        }
 
         $formData = [];
         $formData["reference"] = $reference;
@@ -59,67 +52,32 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = request()->user()->id;
         }
 
-        #~~COMMISION TOTALE
-        $commisons_array = [];
-        foreach ($frets as $fret) {
-            $transporteur = User::find($fret->transport->owner);
+        $reference = Custom_Timestamp();
+        $commands = StoreCommand::where(["owner" => $clientId])->orderBy("id", "desc")->get();
 
-            ##############============GESTION DES TRANSPORTEURS AYANT LIVRE CES FRETS============######
-            $commission = TRANSACTION_COMMISSION($fret->price);
-            ##_____
-
-            $pdf = PDF::loadView('facture-transport', compact(["transporteur", "reference", "fret", "commission"]));
-            $pdf->save(public_path("factures/transporteurs/" . $reference . ".pdf"));
-            ###____
-
-            $facturepdf_path = asset("factures/transporteurs/" . $reference . ".pdf");
-
-            ##mentionner que ce fret a été facturée déjà
-            $fret->factured = 1;
-            $fret->save();
-
-            ###CRETAION DE LA FACTURE DE CE TRANSPORTEUR
-
-            $formData["client"] = $transporteur->id;
-            $formData["facture"] = $facturepdf_path;
-            $facture = Facture::create($formData);
-
-            #######GESTION DE LA COMMISSION DE L'EXPEDITEUR
-            $fret_commission = TRANSACTION_COMMISSION($fret->price);
-            array_push($commisons_array, $fret_commission);
-
-            try {
-                Send_Notification(
-                    $transporteur,
-                    "FACTURATION DES TRANSACTIONS SUR ABGANDE EN TANT QUE TRANSPORTEUR",
-                    "Cher Transporteur, Vous venez juste d'etre facturé.e sur AGBANDE! \n Veuillez cliquer sur le lien ci-dessous pour la télécharger: " . $facturepdf_path
-                );
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
+        $command_amounts = [];
+        foreach ($commands as $command) {
+            array_push($command_amounts, $command->amount);
         }
+        $total = array_sum($command_amounts);
 
-        #######___________EXPEDITEURS
+        $pdf = PDF::loadView('facture', compact(["client", "reference", "commands", "total"]));
+        $pdf->save(public_path("factures/" . $reference . ".pdf"));
 
-        $commission_totale = array_sum($commisons_array);
-        ##_____
-
-        $pdf = PDF::loadView('facture-expeditor', compact(["client", "reference", "frets", "commission_totale"]));
-        $pdf->save(public_path("factures/expeditors/" . $reference . ".pdf"));
         ###____
 
-        $facturepdf_path = asset("factures/expeditors/" . $reference . ".pdf");
+        $facturepdf_path = asset("factures/" . $reference . ".pdf");
 
         $formData["client"] = $clientId;
         $formData["facture"] = $facturepdf_path;
-        $facture = Facture::create($formData);
+        $facture = StoreFacturation::create($formData);
 
         ####___ENVOIE DE MAIL AU CLIENT POUR LUI NOTIFIER LA FACTURE
         try {
             Send_Notification(
                 $client,
-                "FACTURATION DES TRANSACTIONS SUR ABGANDE EN TANT QU'EXPEDITEUR",
-                "Cher expéditeur, Vous venez juste d'etre facturé.e sur AGBANDE! \n Veuillez cliquer sur le lien ci-dessous pour la télécharger: " . $facturepdf_path
+                "FACTURATION DES COMMANDES SUR DIGITAL NETWORK",
+                "Cher Client, Vous venez juste d'etre facturé.e sur DIGITAL NETWORK! \n Veuillez cliquer sur le lien ci-dessous pour la télécharger: " . $facturepdf_path
             );
         } catch (\Throwable $th) {
             //throw $th;
@@ -130,7 +88,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function retrieveFacture($id)
     {
-        $facture = Facture::with(["client", "facturier"])->find($id);
+        $facture = StoreFacturation::with(["client", "facturier"])->find($id);
         if (!$facture) {
             return self::sendError("Cette facture n'est pas disponible", 404);
         }
@@ -139,7 +97,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function factures()
     {
-        $factures = Facture::with(["client", "facturier"])->orderBy("id", "desc")->get();
+        $factures = StoreFacturation::with(["client", "facturier"])->orderBy("id", "desc")->get();
         if ($factures->count() == 0) {
             return self::sendError("Aucune facture n'est disponible", 404);
         }
@@ -148,7 +106,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function updateFacture($request, $id)
     {
-        $facture = Facture::find($id);
+        $facture = StoreFacturation::find($id);
         if (!$facture) {
             return self::sendError('Cette facture n\'existe pas!', 404);
         };
@@ -163,7 +121,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function deleteFacture($id)
     {
-        $facture = Facture::find($id);
+        $facture = StoreFacturation::find($id);
         if (!$facture) {
             return self::sendError('Cette facture n\'existe pas!', 404);
         };

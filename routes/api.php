@@ -35,8 +35,7 @@ use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
-use App\Models\CanalSubscriptionOption;
-use App\Models\CanalSubscriptionStatus;
+use App\Http\Controllers\Api\V1\StoreFacturationController;
 use Illuminate\Support\Facades\Route;
 
 /*
