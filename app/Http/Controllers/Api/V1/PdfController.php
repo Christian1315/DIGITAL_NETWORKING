@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\StoreCommand;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -19,9 +20,17 @@ class PdfController extends BASE_HELPER
             'description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, molestiae. Sunt suscipit magnam in, iusto illum laboriosam provident, aliquam minus vitae ducimus dicta inventore doloribus earum omnis tempora beatae perspiciatis.',
         ];
 
-        $users = User::all();
+        // $users = User::all();
+        // $users = User::all();
+        $client = User::find(1);
+        $reference = Custom_Timestamp();
+        $commands = StoreCommand::orderBy("id", "desc")->get();
+        $formData["commands"] = $commands;
+        // return $formData;
+        $pdf = PDF::loadView('facture', compact(["client", "reference", "frets"]));
+        $pdf->save(public_path("factures/" . $reference . ".pdf"));
         // return $users;
-        $pdf = PDF::loadView('pdf', compact('users'));
+        // $pdf = PDF::loadView('pdf', compact('users'));
         // $pdf = PDF::loadView('pdf',$users)->stream();
 
         // return $pdf->download(Str::slug($data['nom']).'facture.pdf');

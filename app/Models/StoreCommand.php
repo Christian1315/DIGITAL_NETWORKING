@@ -18,19 +18,27 @@ class StoreCommand extends Model
         "amount"
     ];
 
-    function owner() : BelongsTo {
-        return $this->belongsTo(User::class,"owner");
+    function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "owner");
     }
 
-    function store() : BelongsTo {
-        return $this->belongsTo(Store::class,"store");
+    function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class, "store");
     }
 
-    function product() : BelongsTo {
-        return $this->belongsTo(StoreProduit::class,"owner");
+    function product(): BelongsTo
+    {
+        return $this->belongsTo(StoreProduit::class, "owner");
     }
 
-    function table() : BelongsTo {
-        return $this->belongsTo(StoreTable::class,"table");
+    function table(): BelongsTo
+    {
+        return $this->belongsTo(StoreTable::class, "table");
+    }
+    function session(): BelongsTo
+    {
+        return $this->belongsTo(UserSession::class, "session");
     }
 }
