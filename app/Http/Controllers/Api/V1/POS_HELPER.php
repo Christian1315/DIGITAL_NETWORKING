@@ -83,10 +83,14 @@ class POS_HELPER extends BASE_HELPER
         $all_pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->get();
         foreach ($all_pos as $pos) {
             $agency = Agency::find($pos->agency_id);
-            $user_agency = User::find($agency->user_id);
+            if ($agency) {
+                $user_agency = User::find($agency->user_id);
+            }
 
-            if ($user_agency->id == $curent_user->id) {
-                array_push($possAffected, $pos);
+            if ($user_agency) {
+                if ($user_agency->id == $curent_user->id) {
+                    array_push($possAffected, $pos);
+                }
             }
         }
         return self::sendResponse($possAffected, "Liste de mes pos affectes");
@@ -105,8 +109,8 @@ class POS_HELPER extends BASE_HELPER
 
         if ($user->is_admin) {
             $Pos =  Pos::with(["owner", "agents", "agencie", "stores", "sold"])->latest()->get();
-        } else {
         }
+
         return self::sendResponse($Pos, 'Tout les Pos récupérés avec succès!!');
     }
 

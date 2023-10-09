@@ -6,6 +6,7 @@ use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Pos;
 use App\Models\Store;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -47,9 +48,37 @@ class STORE_HELPER extends BASE_HELPER
         return self::sendResponse($store, 'Store crée avec succès!!');
     }
 
+    static function storeAffected()
+    {
+        $storeAffected = [];
+        $curent_user = request()->user();
+
+        $all_store = Store::with(["owner", "agent", "agency", "pos", "supplies", "stocks"])->get();
+        foreach ($all_store as $store) {
+            $agency = Agency::find($store->agency_id);
+            if ($agency) {
+                $user_agency = User::find($agency->user_id);
+            }
+
+            if ($user_agency) {
+                if ($user_agency->id == $curent_user->id) {
+                    array_push($storeAffected, $store);
+                }
+            }
+        }
+        return self::sendResponse($storeAffected, "Liste de mes stores affectes");
+    }
+
     static function allStores()
     {
-        $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => request()->user()->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $user = request()->user();
+        if (Is_User_A_Master($user->id)) {
+            $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        }
+
+        if (Is_User_An_Agency($user->id)) {
+            return self::storeAffected();
+        }
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
 

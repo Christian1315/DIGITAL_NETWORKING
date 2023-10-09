@@ -9,8 +9,8 @@ class StoreController extends STORE_HELPER
     #VERIFIONS SI LE USER EST AUTHENTIFIE
     public function __construct()
     {
-        $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
-        $this->middleware('CheckMasterOrAdmin');
+        $this->middleware(['auth:api', 'scope:api-access']);
+        $this->middleware('CheckMasterOrAdmin')->except(['Stores', "RetrieveStore"]);
     }
 
     #GET ALL STORES
@@ -115,7 +115,7 @@ class StoreController extends STORE_HELPER
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS AGENT_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
-        
+
         return $this->_AffectToAgency($request);
     }
 }
