@@ -123,7 +123,7 @@ class COMMAND_HELPER extends BASE_HELPER
         #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
         $new_stock = new StoreStock();
         $new_stock->session = $session->id;
-        $new_stock->owner = $user->id;
+        $new_stock->owner = $product_stock->owner;
         $new_stock->product = $formData["product"];
         $new_stock->store = $formData["store"];
         $new_stock->quantity = $product_stock->quantity - $formData["qty"];

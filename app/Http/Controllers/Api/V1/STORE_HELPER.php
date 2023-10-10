@@ -91,7 +91,7 @@ class STORE_HELPER extends BASE_HELPER
             $agent = Agent::where(["user_id" => $user->id])->get();
             if (count($agent) == 0) {
                 return self::sendError("L'agent auquel vous etes associé n'existe plus!", 505);
-            }
+            } 
             $agent = $agent[0];
             $stores = Store::where(["agent_id" => $agent->id])->get();
         }
