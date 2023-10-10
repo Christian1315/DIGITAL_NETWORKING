@@ -227,8 +227,9 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
 
+        // return $Agencys;
         foreach ($Agencys as $agency) {
             $agent_dad_id =  $agency->agent_dad;
             $agent_dad = Agent_Dad($agent_dad_id);
@@ -240,32 +241,31 @@ class AGENCY_HELPER extends BASE_HELPER
     static function _retrieveAgency($id)
     {
         $user = request()->user();
-        $agency = Agency::with(["master", "owner", "agents", "poss", "stores"])->where(['owner' => $user->id])->find($id);
+        $agency = Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(['owner' => $user->id])->find($id);
         if (!$agency) {
-            return self::sendResponse($agency, "Agences recupere avec succès!!");
+            return self::sendError("Agences recupere avec succès!!", 505);
         }
 
-        $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
-        $rang = $user->rang;
-        $profil = $user->profil;
+        // $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
+        // $rang = $user->rang;
+        // $profil = $user->profil;
 
-        $agent_dad_id =  $agency->agent_dad;
-        $agent_dad = Agent_Dad($agent_dad_id);
+        // $agent_dad_id =  $agency->agent_dad;
+        // $agent_dad = Agent_Dad($agent_dad_id);
 
-        $agency["agent_dad"] = $agent_dad;
+        // $agency["agent_dad"] = $agent_dad;
 
+        // #renvoie des droits du user 
+        // $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
 
-        #renvoie des droits du user 
-        $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
+        // if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
+        //     $agency['rights'] = User_Rights($rang->id, $profil->id);
+        // } else {
+        //     $agency['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
+        // }
 
-        if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
-            $agency['rights'] = User_Rights($rang->id, $profil->id);
-        } else {
-            $agency['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
-        }
-
-        $piece = Piece::find($agency->type_piece);
-        $agency['piece'] = $piece;
+        // $piece = Piece::find($agency->type_piece);
+        // $agency['piece'] = $piece;
         return self::sendResponse($agency, "Agence récupéré avec succès:!!");
     }
 

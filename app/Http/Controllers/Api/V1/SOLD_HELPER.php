@@ -286,7 +286,11 @@ class SOLD_HELPER extends BASE_HELPER
     static function allSoldes()
     {
         $user = request()->user();
-        $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->orderBy("id", "desc")->get();
+        if ($user->is_admin) {
+            $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->orderBy("id", "desc")->get();
+        } else {
+            $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->where(["active" => 1])->orderBy("id", "desc")->get();
+        }
         return self::sendResponse($Soldes, 'Soldes récupérés avec succès!!');
     }
 }

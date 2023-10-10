@@ -37,12 +37,12 @@ class Agency extends Model
     #ONE TO MANY RELATIONSHIP/INVERSE(UN MASTER PEUT CREER PLUSIEURS AGENCES)
     public function master(): BelongsTo
     {
-        return $this->belongsTo(Master::class,'master_id');
+        return $this->belongsTo(Master::class, 'master_id');
     }
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class,"owner");
+        return $this->belongsTo(User::class, "owner");
     }
 
 
@@ -58,12 +58,16 @@ class Agency extends Model
 
     public function poss(): HasMany
     {
-        return $this->hasMany(Pos::class,"agency_id");
+        return $this->hasMany(Pos::class, "agency_id");
     }
 
     public function stores(): HasMany
     {
-        return $this->hasMany(Store::class,"agency_id");
+        return $this->hasMany(Store::class, "agency_id");
     }
 
+    public function sold(): HasOne
+    {
+        return $this->hasOne(Sold::class, "agency")->where(["visible" => 1])->with(["status","module","owner","manager"]);
+    }
 }
