@@ -97,6 +97,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $this_agent_pos = $current_agent->pos;
         // $this_agent_pos_sold = $this_agent_pos->sold;
 
+        if (!$this_agent_pos) {
+            return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
+        }
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
 
         $formData["amount"] = $formData["qty"] * $product->price;
