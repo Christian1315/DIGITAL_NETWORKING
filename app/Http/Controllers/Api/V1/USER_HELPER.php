@@ -201,6 +201,24 @@ class USER_HELPER extends BASE_HELPER
         } else {
             $users = myUsers($user->id);
         }
+
+        if ($users) {
+            foreach ($users as $user) {
+                #renvoie des droits du user 
+                $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
+                // return $attached_rights;
+    
+                if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
+                    if (Is_User_AN_ADMIN($user->id)) { #s'il est un admin
+                        $user['rights'] = All_Rights();
+                    } else {
+                        $user['rights'] = User_Rights($user->rang['id'], $user->profil['id']);
+                    }
+                } else {
+                    $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
+                }
+            }
+        }
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
