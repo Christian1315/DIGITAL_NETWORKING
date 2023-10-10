@@ -58,7 +58,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
         ###___BLOCAGE DE L'INITIATION DE LA SESSION TANT QU'UNE AUTRE SESSION EST ACTIVE
         $all_active_session = UserSession::where(["active" => 1])->get();
         if ($all_active_session->count() != 0) {
-            return self::sendError("Une session est active! Veuillez patienter que cette dernière soit d'abord desactivée!", 201);
+            return self::sendError("Une session est active! Veuillez patienter que cette dernière soit d'abord desactivée!", 404);
         }
 
         ####_____

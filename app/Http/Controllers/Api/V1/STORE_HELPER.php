@@ -74,13 +74,17 @@ class STORE_HELPER extends BASE_HELPER
     {
         $user = request()->user();
 
-        $stores = null;
+        $stores = [];
         if (Is_User_A_Master($user->id)) {
             $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
 
         if (Is_User_An_Agency($user->id)) {
             return self::storeAffected();
+        }
+
+        if ($user->is_admin) {
+            $stores = Store::all();
         }
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
