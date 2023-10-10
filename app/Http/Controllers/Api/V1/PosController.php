@@ -10,7 +10,7 @@ class PosController extends POS_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin')->except(["GetAllPosAffectedToMe","Poss"]);
+        $this->middleware('CheckMasterOrAdmin')->except(["GetAllPosAffectedToMe","Poss","RetrievePos"]);
         $this->middleware('CheckAgency')->only(["GetAllPosAffectedToMe"]);
     }
 
