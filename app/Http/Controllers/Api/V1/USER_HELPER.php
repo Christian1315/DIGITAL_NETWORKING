@@ -194,7 +194,13 @@ class USER_HELPER extends BASE_HELPER
 
     static function getUsers()
     {
-        $users = myUsers(request()->user()->id);
+        $user = request()->user();
+        $users = [];
+        if ($user->is_admin) {
+            $users = User::orderBy("id", "desc")->get();
+        } else {
+            $users = myUsers($user->id);
+        }
         return self::sendResponse($users, 'Tous les utilisatreurs récupérés avec succès!!');
     }
 
