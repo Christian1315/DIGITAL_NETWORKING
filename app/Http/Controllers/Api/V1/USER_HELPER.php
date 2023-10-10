@@ -278,7 +278,12 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightAttach($formData)
     {
-        $user = User::where(['id' => $formData['user_id'], 'owner' => request()->user()->id])->get();
+        $current_user = request()->user();
+        if ($current_user->is_admin) {
+            $user = User::where(['id' => $formData['user_id']])->get();
+        } else {
+            $user = User::where(['id' => $formData['user_id'], 'owner' => $current_user->id])->get();
+        }
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
@@ -299,7 +304,12 @@ class USER_HELPER extends BASE_HELPER
 
     static function rightDesAttach($formData)
     {
-        $user = User::where(['id' => $formData['user_id'], 'owner' => request()->user()->id])->get();
+        $current_user = request()->user();
+        if ($current_user->is_admin) {
+            $user = User::where(['id' => $formData['user_id']])->get();
+        } else {
+            $user = User::where(['id' => $formData['user_id'], 'owner' => $current_user->id])->get();
+        }
         if (count($user) == 0) {
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         };
