@@ -197,7 +197,7 @@ class USER_HELPER extends BASE_HELPER
         $user = request()->user();
         $users = [];
         if ($user->is_admin) {
-            $users = User::orderBy("id", "desc")->get();
+            $users = User::with(["sessions", 'rang', 'profil'])->orderBy("id", "desc")->get();
         } else {
             $users = myUsers($user->id);
         }
@@ -230,9 +230,8 @@ class USER_HELPER extends BASE_HELPER
 
     static function retrieveUsers($id)
     {
-        $user = User::with(["sessions", "owner", 'rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1, 'owner' => request()->user()->id])->get();
+        $user = User::with(["sessions", "owner", 'rang', 'profil', "stores", "masters", "agents", "agencies", "poss"])->where(['id' => $id, 'visible' => 1])->get();
         if ($user->count() == 0) {
-
             return self::sendError("Ce utilisateur n'existe pas!", 404);
         }
         $user = $user[0];
