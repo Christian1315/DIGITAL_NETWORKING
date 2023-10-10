@@ -100,6 +100,16 @@ class User extends Authenticatable
         return $this->hasMany(Store::class, "owner");
     }
 
+    // function myAffectedStoresAsAgent(): HasMany
+    // {
+    //     return $this->hasMany(Store::class, "agent_id");
+    // }
+
+    // function myAffectedStoresAsAgency(): HasMany
+    // {
+    //     return $this->hasMany(Store::class, "agency_id");
+    // }
+
     function poss(): HasMany
     {
         return $this->hasMany(Pos::class, "owner");

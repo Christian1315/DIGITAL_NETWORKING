@@ -86,6 +86,15 @@ class STORE_HELPER extends BASE_HELPER
         if ($user->is_admin) {
             $stores = Store::all();
         }
+
+        if (Is_User_An_Agent($user->id)) {
+            $agent = Agent::where(["user_id" => $user->id])->get();
+            if (count($agent) == 0) {
+                return self::sendError("L'agent auquel vous etes associé n'existe plus!", 505);
+            }
+            $agent = $agent[0];
+            $stores = Store::where(["agent_id" => $agent->id])->get();
+        }
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
 
