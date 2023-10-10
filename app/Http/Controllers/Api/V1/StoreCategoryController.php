@@ -11,7 +11,7 @@ class StoreCategoryController extends CATEGORY_PRODUCT_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access']);
         // $this->middleware('CheckSession');
-        $this->middleware('CheckMasterOrAdmin');
+        $this->middleware('CheckMasterOrAdmin')->except(["ProductCategories", "RetrieveProductCategory"]);
     }
 
     #GET ALL CATEGORIES
