@@ -390,7 +390,6 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-
     Route::prefix("module")->group(function () {
         Route::controller(ModuleController::class)->group(function () {
             Route::any('all', 'Modules');
