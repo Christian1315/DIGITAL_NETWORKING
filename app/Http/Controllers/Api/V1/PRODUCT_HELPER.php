@@ -128,7 +128,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product =  StoreProduit::with(['owner', "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $product =  StoreProduit::with(['owner', "store", "session", "category"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');
     }
 
@@ -136,7 +136,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session"])->where(["id" => $id, "owner" => request()->user()->id])->get();
+        $product = StoreProduit::with(['owner', "store", "session", "category"])->where(["id" => $id, "owner" => request()->user()->id])->get();
         if ($product->count() == 0) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }

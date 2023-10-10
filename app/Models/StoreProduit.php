@@ -34,4 +34,9 @@ class StoreProduit extends Model
     {
         return $this->belongsTo(UserSession::class, "session");
     }
+
+    function category(): BelongsTo
+    {
+        return $this->belongsTo(StoreCategory::class, "category");
+    }
 }
