@@ -46,7 +46,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if (CheckIfUserHasAnActiveSession($user->id)) {
-            return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant d'initier une autre!", 201);
+            return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant d'initier une autre!", 505);
         }
         // $user_session_all = UserSession::where(["user" => $user->id, "active" => 1])->get();
         // #DESACTIVATION DE TOUTES LES PRECEDENTES SECTION DU USER

@@ -103,7 +103,6 @@ class COMMAND_HELPER extends BASE_HELPER
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
 
         $formData["amount"] = $formData["qty"] * $product->price;
-        // return $formData["product"];
 
         if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
             return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
