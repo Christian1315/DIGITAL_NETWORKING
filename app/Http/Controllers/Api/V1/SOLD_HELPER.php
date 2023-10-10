@@ -273,9 +273,9 @@ class SOLD_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $Solde = Sold::with(["owner", "module", "pos", "agency", "manager"])->find($id);
+            $Solde = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->find($id);
         } else {
-            $Solde = Sold::with(["owner", "module", "pos", "agency", "manager"])->where(["visible" => 1])->find($id);
+            $Solde = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->where(["visible" => 1])->find($id);
         }
         if (!$Solde) { #QUAND **$Solde** n'existe pas
             return self::sendError('Ce Solde n\'existe pas!', 404);
@@ -286,7 +286,7 @@ class SOLD_HELPER extends BASE_HELPER
     static function allSoldes()
     {
         $user = request()->user();
-        $Soldes = Sold::orderBy("id", "desc")->get();
+        $Soldes = Sold::with(["owner", "module", "pos", "agency", "manager", "status"])->orderBy("id", "desc")->get();
         return self::sendResponse($Soldes, 'Soldes récupérés avec succès!!');
     }
 }

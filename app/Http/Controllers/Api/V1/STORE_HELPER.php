@@ -73,6 +73,8 @@ class STORE_HELPER extends BASE_HELPER
     static function allStores()
     {
         $user = request()->user();
+
+        $stores = null;
         if (Is_User_A_Master($user->id)) {
             $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }

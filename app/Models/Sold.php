@@ -26,6 +26,11 @@ class Sold extends Model
         return $this->belongsTo(Module::class, "module");
     }
 
+    function status(): BelongsTo
+    {
+        return $this->belongsTo(SoldStatus::class, "status");
+    }
+
     function pos(): BelongsTo
     {
         return $this->belongsTo(Pos::class, "pos");
