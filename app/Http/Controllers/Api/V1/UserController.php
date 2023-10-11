@@ -9,7 +9,16 @@ class UserController extends USER_HELPER
     #VERIFIONS SI LE USER EST AUTHENTIFIE
     public function __construct()
     {
-        $this->middleware(['auth:api', 'scope:api-access'])->except(['Login', 'UpdatePassword']);
+        $this->middleware(['auth:api', 'scope:api-access'])->except(
+            [
+                'Login',
+                'UpdatePassword',
+                "DemandReinitializePassword",
+                "ReinitializePassword",
+                "Register",
+                "AccountActivation"
+            ]
+        );
     }
 
     #GET ALL USERS
@@ -177,5 +186,4 @@ class UserController extends USER_HELPER
         #RECUPERATION D'UN USER VIA SON **id**
         return $this->_reinitializePassword($request);
     }
-
 }

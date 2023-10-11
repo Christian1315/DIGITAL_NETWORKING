@@ -60,6 +60,8 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveUser');
             Route::any('{id}/update', 'UpdateUser');
             Route::any('{id}/password/update', 'UpdatePassword');
+            Route::any('password/demand_reinitialize', 'DemandReinitializePassword');
+            Route::any('password/reinitialize', 'ReinitializePassword');
             Route::any('{id}/delete', 'DeleteUser');
             Route::any('attach-user', 'AttachRightToUser'); #Attacher un droit au user 
             Route::any('desattach-user', 'DesAttachRightToUser'); #Attacher un droit au user 
@@ -211,8 +213,6 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveStore'); #RECUPERATION D'UN STORE
             Route::any('{id}/delete', 'DeleteStore'); #SUPPRESSION D'UN STORE
             Route::any('{id}/update', 'UpdateStore'); #MODIFICATION D'UN STORE
-            Route::any('password/demand_reinitialize', 'DemandReinitializePassword');
-            Route::any('password/reinitialize', 'ReinitializePassword');
             Route::any('affect-to-pos', 'AffectToPos'); #AFFECTER A UN POS
             Route::any('affect-to-agent', 'AffectToAgent'); #AFFECTER A UN AGENT
             Route::any('affect-to-agency', 'AffectToAgency'); #AFFECTER A UNE AGENCE
