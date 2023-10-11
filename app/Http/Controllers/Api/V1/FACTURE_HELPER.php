@@ -43,19 +43,18 @@ class FACTURE_HELPER extends BASE_HELPER
         }
 
         ###___GESTION DES FACTURES
+        $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
+
+        if (count($commands) == 0) {
+            return self::sendError("Vous ne disposez pas de commande à facturer", 404);
+        }
+
         $reference = Custom_Timestamp();
 
         $formData = [];
         $formData["reference"] = $reference;
         if (request()->user()) {
             $formData["facturier"] = request()->user()->id;
-        }
-
-        $reference = Custom_Timestamp();
-        $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
-
-        if (count($commands) == 0) {
-            return self::sendError("Vous ne disposez pas de commande à facturer", 404);
         }
 
         $command_amounts = [];
