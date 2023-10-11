@@ -28,7 +28,6 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function Facture_Validator($formDatas)
     {
-        #
         $rules = self::facture_rules();
         $messages = self::facture_messages();
 
@@ -53,7 +52,11 @@ class FACTURE_HELPER extends BASE_HELPER
         }
 
         $reference = Custom_Timestamp();
-        $commands = StoreCommand::where(["owner" => $clientId])->orderBy("id", "desc")->get();
+        $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
+
+        if (count($commands) == 0) {
+            return self::sendError("Vous ne disposez pas de commande à facturer", 404);
+        }
 
         $command_amounts = [];
         foreach ($commands as $command) {
@@ -71,6 +74,12 @@ class FACTURE_HELPER extends BASE_HELPER
         $formData["client"] = $clientId;
         $formData["facture"] = $facturepdf_path;
         $facture = StoreFacturation::create($formData);
+
+        ####_____NOTIFIER QUE LES COMMANDES ONT ETE FACTURES
+        foreach ($commands as $command) {
+            $command->factured = 1;
+            $command->save();
+        }
 
         ####___ENVOIE DE MAIL AU CLIENT POUR LUI NOTIFIER LA FACTURE
         try {

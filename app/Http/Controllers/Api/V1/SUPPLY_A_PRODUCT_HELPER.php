@@ -59,6 +59,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         // if (!$store_stock->count() == 0) {
         //     return self::sendError("Ce produit a déjà été approvisionné", 505);
         // } #dans le cas contraire, on passe outre
+        
         $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
         $session = GetSession($user->id);
         $supply->session = $session->id;

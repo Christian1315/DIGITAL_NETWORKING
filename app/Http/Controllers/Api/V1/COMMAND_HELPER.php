@@ -54,6 +54,9 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
         // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
+        if ($store->count() == 0) {
+            return self::sendError("Ce Store n'existe pas", 404);
+        }
 
         #ON VERIFIE L'EXISTENCE DU PRODUIT
         $product = StoreProduit::find($formData["product"]);
@@ -62,10 +65,6 @@ class COMMAND_HELPER extends BASE_HELPER
         }
         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
         $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
-
-        if ($store->count() == 0) {
-            return self::sendError("Ce Store n'existe pas", 404);
-        }
         // if ($table->count() == 0) {
         //     return self::sendError("Cette Table n'existe pas", 404);
         // }

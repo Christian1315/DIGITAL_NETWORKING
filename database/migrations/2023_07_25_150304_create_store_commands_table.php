@@ -45,6 +45,7 @@ return new class extends Migration
                 ->constrained('users', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
+            $table->boolean("factured")->default(false);
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
 
