@@ -353,4 +353,93 @@ class USER_HELPER extends BASE_HELPER
         }
         return self::sendResponse([], "User Dettaché du right avec succès!!");
     }
+
+    static function _demandReinitializePassword($request)
+    {
+        if (!$request->get("email")) {
+            return self::sendError("Le Champ email est réquis!", 404);
+        }
+        $email = $request->get("email");
+        $user = User::where(['email' => $email])->get();
+
+        if (count($user) == 0) {
+            return self::sendError("Ce compte n'existe pas!", 404);
+        };
+
+        #
+        $user = $user[0];
+        $pass_code = Get_passCode($user, "PASS");
+        $user->pass_code = $pass_code;
+        $user->pass_code_active = 1;
+        $user->save();
+
+        $message = "Demande de réinitialisation éffectuée avec succès! sur FRIK SMS! Voici vos informations de réinitialisation de password ::" . $pass_code;
+
+        #=====ENVOIE DE MAIL =======~####
+        try {
+            Send_Notification(
+                $user,
+                "DEMENDE DE REEINITIALISATION SUR DIGITAL NETWORKING",
+                $message,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        return self::sendResponse($user, "Demande de réinitialisation éffectuée avec succès! Veuillez vous connecter avec le code qui vous a été envoyé par phone et par mail");
+    }
+
+    static function _reinitializePassword($request)
+    {
+
+        $pass_code = $request->get("pass_code");
+
+        if (!$pass_code) {
+            return self::sendError("Ce Champ pass_code est réquis!", 404);
+        }
+
+        $new_password = $request->get("new_password");
+
+        if (!$new_password) {
+            return self::sendError("Ce Champ new_password est réquis!", 404);
+        }
+
+        $user = User::where(['pass_code' => $pass_code])->get();
+
+        if (count($user) == 0) {
+            return self::sendError("Ce code n'est pas correct!", 404);
+        };
+
+        $user = $user[0];
+        #Voyons si le passs_code envoyé par le user est actif
+
+        if ($user->pass_code_active == 0) {
+            return self::sendError("Ce Code a déjà été utilisé une fois! Veuillez faire une autre demande de réinitialisation", 404);
+        }
+
+        #UPDATE DU PASSWORD
+        $user->update(['password' => $new_password]);
+
+        #SIGNALONS QUE CE pass_code EST D2J0 UTILISE
+        $user->pass_code_active = 0;
+        $user->save();
+
+
+        #===== ENVOIE D'SMS =======~####
+
+        $message = "Réinitialisation de password éffectuée avec succès sur FRIK-SMS!";
+
+
+        #=====ENVOIE DE MAIL =======~####
+        try {
+            Send_Notification(
+                $user,
+                "REEINITIALISATION EFFECTUEE SUR DIGITAL NETWORKING",
+                $message,
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return self::sendResponse($user, "Réinitialisation éffectuée avec succès!");
+    }
 }

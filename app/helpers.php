@@ -26,6 +26,19 @@ function Custom_Timestamp()
     return $micro;
 }
 
+##Ce Helper permet de creér le passCode de réinitialisation de mot de passe
+function Get_passCode($user, $type)
+{
+    $created_date = $user->created_at;
+
+    $year = explode("-", $created_date)[0]; ##RECUPERATION DES TROIS PREMIERS LETTRES DU USERNAME
+    $an = substr($year, -2);
+    $timestamp = substr(Custom_Timestamp(), -3);
+
+    $passcode =  $timestamp . $type . $an . userCount();
+    return $passcode;
+}
+
 function Add_Number($user, $type)
 {
     $created_date = $user->created_at;

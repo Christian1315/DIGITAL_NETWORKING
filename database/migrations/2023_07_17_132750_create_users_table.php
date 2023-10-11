@@ -47,6 +47,9 @@ return new class extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
+            $table->string('pass_code')->nullable();
+            $table->string('pass_code_active')->default(true);
+
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
             $table->boolean("is_admin")->default(false);
