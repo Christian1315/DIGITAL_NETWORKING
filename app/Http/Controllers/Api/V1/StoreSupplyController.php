@@ -11,7 +11,7 @@ class StoreSupplyController extends SUPPLY_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
         $this->middleware('CheckAgent');
-        $this->middleware('CheckSession');
+        $this->middleware('CheckSession')->except(["_AllSupply", "RetrieveSupply"]);
     }
 
     // #GET ALL SUPPLY
@@ -55,7 +55,6 @@ class StoreSupplyController extends SUPPLY_HELPER
 
     function CreateSupply(Request $request)
     {
-
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR COMMAND_HELPER
