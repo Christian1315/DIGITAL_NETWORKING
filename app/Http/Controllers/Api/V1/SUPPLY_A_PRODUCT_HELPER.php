@@ -55,10 +55,10 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         }
 
         //Verifions si le produit a déjà été approvisionné dans ce store
-        $store_stock = SupplyProduct::where(["product" => $formData["product"], "supply" => $formData["supply"]])->get();
-        if (!$store_stock->count() == 0) {
-            return self::sendError("Ce produit a déjà été approvisionné", 505);
-        } #dans le cas contraire, on passe outre
+        // $store_stock = SupplyProduct::where(["product" => $formData["product"], "supply" => $formData["supply"]])->get();
+        // if (!$store_stock->count() == 0) {
+        //     return self::sendError("Ce produit a déjà été approvisionné", 505);
+        // } #dans le cas contraire, on passe outre
         $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
         $session = GetSession($user->id);
         $supply->session = $session->id;
@@ -80,10 +80,15 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         $stock->comments = "Ajout du produit (" . $product->name . ") au stock";
         //Verifions si le produit a déjà été ajouté au stock
         $store_stock = StoreStock::where(["product" => $product->id])->get();
-        if ($store_stock->count() == 0) {
-            #S'il n'a pa été ajouté au stock,on le fait
+        if ($store_stock->count() != 0) {
+            #S'il a été ajouté au stock, on incremente la quantité qu'il y a avait dedans
+            $store_stock = $store_stock[0];
+            $store_stock->quantity = $store_stock->quantity + $formData["quantity"];
+            $store_stock->save();
+        } else {
+            #dans le cas contraire, on enregistre ce nouveau stock
             $stock->save();
-        } #dans le cas contraire, on passe outre
+        }
 
         return self::sendResponse($supply, 'Produit approvisionné avec succès!!');
     }

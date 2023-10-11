@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Right;
 use App\Models\User;
+use App\Models\UserRight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -207,7 +208,7 @@ class USER_HELPER extends BASE_HELPER
                 #renvoie des droits du user 
                 $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
                 // return $attached_rights;
-    
+
                 if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
                     if (Is_User_AN_ADMIN($user->id)) { #s'il est un admin
                         $user['rights'] = All_Rights();
@@ -339,9 +340,17 @@ class USER_HELPER extends BASE_HELPER
         $user = User::find($formData['user_id']);
         $right = Right::find($formData['right_id']);
 
-        $right->user_id = null;
-        $right->save();
+        ###___retrait du droit qui lui a été affecté specifiquement
+        if ($right->user_id) {
+            $right->user_id = null;
+            $right->save();
+        }
 
+        ###___retrait du droit qui lui a été affecté par defaut
+        $user_right = UserRight::where(["user_id" => $formData['user_id'], "right_id" => $formData['user_id']])->get();
+        if (count($user_right) != 0) {
+            $user_right->delete();
+        }
         return self::sendResponse([], "User Dettaché du right avec succès!!");
     }
 }
