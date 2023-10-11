@@ -379,7 +379,7 @@ class USER_HELPER extends BASE_HELPER
         try {
             Send_Notification(
                 $user,
-                "DEMENDE DE REEINITIALISATION SUR DIGITAL NETWORKING",
+                "DEMANDE DE REEINITIALISATION SUR DIGITAL NETWORKING",
                 $message,
             );
         } catch (\Throwable $th) {
