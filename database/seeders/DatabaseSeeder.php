@@ -17,6 +17,280 @@ class DatabaseSeeder extends Seeder
 
         #======== CREATION DES ACTIONS PAR DEFAUT=========#
         $actions = [
+            #####new actions
+            [
+                'name' => "list_contact",
+                'description' => "Lister les contacts",
+                'visible' => true
+            ],
+            [
+                'name' => "add_contact",
+                'description' => "Ajouter un contact",
+                'visible' => true
+            ],
+            [
+                'name' => "update_contact",
+                'description' => "Mettre à jour un contact",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_contact",
+                'description' => "Supprimer un contact",
+                'visible' => true
+            ],
+            [
+                'name' => "view_contact",
+                'description' => "Détail d'un contact",
+                'visible' => true
+            ],
+            [
+                'name' => "list_contactGroup",
+                'description' => "Lister les groupe de cintact",
+                'visible' => true
+            ],
+            [
+                'name' => "add_contactGroup",
+                'description' => "Ajouter un groupe de cintact",
+                'visible' => true
+            ],
+            [
+                'name' => "update_contactGroup",
+                'description' => "Mettre à jour un groupe de cintact",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_contactGroup",
+                'description' => "Supprimer un groupe de cintact",
+                'visible' => true
+            ],
+            [
+                'name' => "view_contactGroup",
+                'description' => "Détail d'un groupe de contact",
+                'visible' => true
+            ],
+            [
+                'name' => "list_expeditor",
+                'description' => "Lister les expeditors",
+                'visible' => true
+            ],
+            [
+                'name' => "add_expeditor",
+                'description' => "Ajouter un expeditor",
+                'visible' => true
+            ],
+            [
+                'name' => "update_expeditor",
+                'description' => "Mettre à jour un expeditor",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_expeditor",
+                'description' => "Supprimer un expeditor",
+                'visible' => true
+            ],
+            [
+                'name' => "view_expeditor",
+                'description' => "Détail d'un expeditor",
+                'visible' => true
+            ],
+            [
+                'name' => "list_sms",
+                'description' => "Lister les sms",
+                'visible' => true
+            ],
+            [
+                'name' => "add_sms",
+                'description' => "Ajouter un sms",
+                'visible' => true
+            ],
+            [
+                'name' => "update_sms",
+                'description' => "Mettre à jour un sms",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_sms",
+                'description' => "Supprimer un sms",
+                'visible' => true
+            ],
+            [
+                'name' => "view_sms",
+                'description' => "Détail d'un sms",
+                'visible' => true
+            ],
+            [
+                'name' => "list_campaign",
+                'description' => "Lister les campagnes",
+                'visible' => true
+            ],
+            [
+                'name' => "add_campaign",
+                'description' => "Ajouter une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "update_campaign",
+                'description' => "Mettre à jour une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_campaign",
+                'description' => "Supprimer une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "stop_campaign",
+                'description' => "Stoper une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "initiate_campaign",
+                'description' => "Initier une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "view_campaign",
+                'description' => "Détail d'une campagne",
+                'visible' => true
+            ],
+            [
+                'name' => "list_user",
+                'description' => "Lister les users",
+                'visible' => true
+            ],
+            [
+                'name' => "update_user",
+                'description' => "Mettre à jour un user",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_user",
+                'description' => "Supprimer un user",
+                'visible' => true
+            ],
+            [
+                'name' => "view_user",
+                'description' => "Détail d'un user",
+                'visible' => true
+            ],
+            [
+                'name' => "list_right",
+                'description' => "Lister les rights",
+                'visible' => true
+            ],
+            [
+                'name' => "add_right",
+                'description' => "Ajouter un right",
+                'visible' => true
+            ],
+            [
+                'name' => "update_right",
+                'description' => "Mettre à jour un right",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_right",
+                'description' => "Supprimer un right",
+                'visible' => true
+            ],
+            [
+                'name' => "view_right",
+                'description' => "Détail d'un right",
+                'visible' => true
+            ],
+            [
+                'name' => "list_profil",
+                'description' => "Lister les profils",
+                'visible' => true
+            ],
+            [
+                'name' => "add_profil",
+                'description' => "Ajouter un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "update_profil",
+                'description' => "Mettre à jour un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_profil",
+                'description' => "Supprimer un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "view_profil",
+                'description' => "Détail d'un profil",
+                'visible' => true
+            ],
+            [
+                'name' => "list_rang",
+                'description' => "Lister les rangs",
+                'visible' => true
+            ],
+            [
+                'name' => "add_rang",
+                'description' => "Ajouter un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "update_rang",
+                'description' => "Mettre à jour un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_rang",
+                'description' => "Supprimer un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "view_rang",
+                'description' => "Détail d'un rang",
+                'visible' => true
+            ],
+            [
+                'name' => "list_action",
+                'description' => "Lister les action",
+                'visible' => true
+            ],
+            [
+                'name' => "add_action",
+                'description' => "Ajouter un action",
+                'visible' => true
+            ],
+            [
+                'name' => "update_action",
+                'description' => "Mettre à jour un action",
+                'visible' => true
+            ],
+            [
+                'name' => "delete_action",
+                'description' => "Supprimer un action",
+                'visible' => true
+            ],
+            [
+                'name' => "view_action",
+                'description' => "Détail d'une action",
+                'visible' => true
+            ],
+            [
+                'name' => "affect_right",
+                'description' => "Affecter un droit",
+                'visible' => true
+            ],
+
+            [
+                'name' => "desattach_right",
+                'description' => "Retirer un droit à un utilisateur",
+                'visible' => true
+            ],
+
+            [
+                'name' => "credit_sold",
+                'description' => "Crediter un compte",
+                'visible' => true
+            ],
+
             ####old actions
             [
                 'name' => 'add_user',
