@@ -1013,7 +1013,7 @@ class DatabaseSeeder extends Seeder
                 "rang" => \App\Models\Rang::find(1),
                 "profil" => \App\Models\Profil::find(2),
                 "description" => "Ajout d'utilisateur"
-            ],
+            ], 
             [
                 "action" => \App\Models\Action::find(1),
                 "rang" => \App\Models\Rang::find(2),
