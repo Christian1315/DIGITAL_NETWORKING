@@ -57,7 +57,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     #ONE TO ONE/REVERSE RELATIONSHIP(UN UTILISATEUR NE PEUT QU'AVOIR UN SEUL RANG)
     function rang(): BelongsTo
     {
