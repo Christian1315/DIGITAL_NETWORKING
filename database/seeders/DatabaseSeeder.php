@@ -697,11 +697,751 @@ class DatabaseSeeder extends Seeder
                 'description' => "Supprimer un action",
                 'visible' => true
             ],
+
+            // id=>137
             [
                 'name' => "affect_right",
                 'description' => "Affecter un droit",
                 'visible' => true
-            ]
+            ],
+
+
+            ####____NEW ACTIONS ADDED BY DONAN
+            [
+                "name" => "validate_sold",
+                "description" => "Valider la créditation de sold d'une agence",
+                "visible" => 1,
+            ],
+            [
+                "name" => "supply_product",
+                "description" => "Approvisonner un produit",
+                "visible" => 1,
+            ],
+            [
+                "name" => "affect_store_to_pos",
+                "description" => "Affecter un store à un POS",
+                "visible" => 1,
+            ],
+            [
+                "name" => "connect_to_pos",
+                "description" => "Se connecter à un pOS",
+                "visible" => 1,
+            ],
+            [
+                "name" => "generate_facture",
+                "description" => "Générer une facture",
+                "visible" => 1,
+            ],
+            [
+                "name" => "download_facture",
+                "description" => "Télecharger une facture",
+                "visible" => 1,
+            ],
+            [
+                "name" => "initiate_session",
+                "description" => "Initier une session",
+                "visible" => 1,
+            ],
+            [
+                "name" => "creditate_pos_sold",
+                "description" => "Crediter le solde d'un pos",
+                "visible" => 1,
+            ],
+            [
+                "name" => "initiate_sold",
+                "description" => "Initier un solde",
+                "visible" => 1,
+            ],
+            [
+                "name" => "affect_pos_to_agency",
+                "description" => "Affecter un pos à une agence",
+                "visible" => 1,
+            ],
+            [
+                "name" => "affect_right",
+                "description" => "Affecter un droit",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_action",
+                "description" => "Supprimer un action",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_action",
+                "description" => "Mettre à jour un action",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_action",
+                "description" => "Ajouter un action",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_action",
+                "description" => "Lister les action",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_rang",
+                "description" => "Supprimer un rang",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_rang",
+                "description" => "Mettre à jour un rang",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_rang",
+                "description" => "Ajouter un rang",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_rang",
+                "description" => "Lister les rangs",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_profil",
+                "description" => "Supprimer un profil",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_profil",
+                "description" => "Mettre à jour un profil",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_profil",
+                "description" => "Ajouter un profil",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_profil",
+                "description" => "Lister les profils",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_right",
+                "description" => "Supprimer un right",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_right",
+                "description" => "Mettre à jour un right",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_right",
+                "description" => "Ajouter un right",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_right",
+                "description" => "Lister les rights",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_user",
+                "description" => "Supprimer un user",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_user",
+                "description" => "Mettre à jour un user",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_user",
+                "description" => "Lister les users",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_store",
+                "description" => "Supprimer un store",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_store",
+                "description" => "Mettre à jour un store",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_store",
+                "description" => "Ajouter un store",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_store",
+                "description" => "Lister les stores",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_product_category",
+                "description" => "Supprimer un product_category",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_product_category",
+                "description" => "Mettre à jour un product_category",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_product_category",
+                "description" => "Ajouter un product_category",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_product_category",
+                "description" => "Lister les product_categories",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_order",
+                "description" => "Supprimer un order",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_order",
+                "description" => "Mettre à jour un order",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_order",
+                "description" => "Ajouter un order",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_order",
+                "description" => "Lister les orders",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_product",
+                "description" => "Supprimer un product",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_product",
+                "description" => "Mettre à jour un product",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_product",
+                "description" => "Ajouter un product",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_product",
+                "description" => "Lister les products",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_table",
+                "description" => "Supprimer une table",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_table",
+                "description" => "Mettre à jour une table",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_table",
+                "description" => "Ajouter une table",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_table",
+                "description" => "Lister les tables",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_pos",
+                "description" => "Supprimer un pos",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_pos",
+                "description" => "Mettre à jour un pos",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_pos",
+                "description" => "Ajouter un pos",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_pos",
+                "description" => "Lister les pos",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_agent",
+                "description" => "Supprimer un agent",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_agent",
+                "description" => "Mettre à jour un agent",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_agent",
+                "description" => "Ajouter un agent",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_agent",
+                "description" => "Lister les agents",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_agency",
+                "description" => "Supprimer un agency",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_agency",
+                "description" => "Mettre à jour un agency",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_agency",
+                "description" => "Ajouter un agency",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_agency",
+                "description" => "Lister les agencies",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_master",
+                "description" => "Supprimer un master",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_master",
+                "description" => "Mettre à jour un master",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_master",
+                "description" => "Ajouter un master",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_master",
+                "description" => "Lister les masters",
+                "visible" => 1,
+            ],
+            [
+                "name" => "validate_facture",
+                "description" => "Valider des factures",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_facture",
+                "description" => "Liste des factures",
+                "visible" => 1,
+            ],
+            [
+                "name" => "facture_new",
+                "description" => "Emettre des factures",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_cardload",
+                "description" => "Liste rechargement carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "authorize_commission_withdrawal",
+                "description" => "Autoriser reversement de commission",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_assurance",
+                "description" => "Liste assurance",
+                "visible" => 1,
+            ],
+            [
+                "name" => "approve_assurance",
+                "description" => "Approuver devis",
+                "visible" => 1,
+            ],
+            [
+                "name" => "process_assurance",
+                "description" => "Dévis assurance",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_assurance",
+                "description" => "Lister assurance",
+                "visible" => 1,
+            ],
+            [
+                "name" => "assurance_new",
+                "description" => "Ajouter assurance",
+                "visible" => 1,
+            ],
+            [
+                "name" => "view_statement",
+                "description" => "Voir relevé de compte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "set_deposit",
+                "description" => "Valider des dépôts",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_deposit",
+                "description" => "Ajouter des dépôts",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_deposit",
+                "description" => "Liste des dépôts",
+                "visible" => 1,
+            ],
+            [
+                "name" => "reset_user_pass",
+                "description" => "Réinitialiser mot de passe",
+                "visible" => 1,
+            ],
+            [
+                "name" => "see_balance",
+                "description" => "Voir solde",
+                "visible" => 1,
+            ],
+            [
+                "name" => "see_commission",
+                "description" => "Voir commission",
+                "visible" => 1,
+            ],
+            [
+                "name" => "set_deepsearch",
+                "description" => "Répondre recherches approfondies",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_deepsearch",
+                "description" => "Liste recherches approfondies",
+                "visible" => 1,
+            ],
+            [
+                "name" => "deepsearch",
+                "description" => "Recherche approfondie",
+                "visible" => 1,
+            ],
+            [
+                "name" => "card_validate_activation",
+                "description" => "Valider activation de carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "deliver_card",
+                "description" => "Délivrer une carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_user_right",
+                "description" => "Retirer droit à un utilisateur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_reactivation",
+                "description" => "Réactivation",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_reactivation",
+                "description" => "Lister les réactivations",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_renew",
+                "description" => "Liste des reabonnements",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_stock",
+                "description" => "Ajouter stock",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_migration",
+                "description" => "Faire des migrations",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_migration",
+                "description" => "Liste des miigration",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_materiel",
+                "description" => "Créditer un matériel",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_enroll",
+                "description" => "Liste des recrutements",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_enroll",
+                "description" => "Recrutement canal",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_update",
+                "description" => "Modification abonnement canal",
+                "visible" => 1,
+            ],
+            [
+                "name" => "end_operation",
+                "description" => "Finir une Opération",
+                "visible" => 1,
+            ],
+            [
+                "name" => "debit_accessoires",
+                "description" => "Débiter accessoires",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_parabole",
+                "description" => "Créditer parabole",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_accessoires",
+                "description" => "Créditer accessoires",
+                "visible" => 1,
+            ],
+            [
+                "name" => "migrate_decodeur",
+                "description" => "Migration de décodeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "sell_decodeur",
+                "description" => "Recrutement (vente de décodeur)",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_renew",
+                "description" => "Réabonnement",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_decodeur",
+                "description" => "Liste décodeurs (recrutement)",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_validate_migration",
+                "description" => "Valider les recrutements (vente de décodeur)",
+                "visible" => 1,
+            ],
+            [
+                "name" => "debit_decodeur",
+                "description" => "Débiter décodeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_validate_enroll",
+                "description" => "Valider les recrutements (vente de décodeur)",
+                "visible" => 1,
+            ],
+            [
+                "name" => "migrate_decodeur",
+                "description" => "Faire la migration de décodeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "sell_decodeur",
+                "description" => "Vendre décodeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_decodeur",
+                "description" => "Créditer le stock de décodeur pour un partenaire",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_decodeur",
+                "description" => "Ajouter décodeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_validate_renew",
+                "description" => "Valider réabonnement",
+                "visible" => 1,
+            ],
+            [
+                "name" => "canal_renew",
+                "description" => "Ajouter renouvellement",
+                "visible" => 1,
+            ],
+            [
+                "name" => "stats",
+                "description" => "Statistiques",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_card",
+                "description" => "Supprimer carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "debit_agency",
+                "description" => "Débiter une agence",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_card",
+                "description" => "Ajouter une carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_my_account",
+                "description" => "Créditer mon compte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_card",
+                "description" => "Ajouter des masters",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_master",
+                "description" => "Ajouter des masters",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_master",
+                "description" => "Lister des masters",
+                "visible" => 1,
+            ],
+            [
+                "name" => "validate_card_load",
+                "description" => "Valider rechargement de carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_rechargement",
+                "description" => "Lister les rechargements",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_agent",
+                "description" => "Ajouter agent commercial",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_agent",
+                "description" => "Lister des agents commerciaux",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_card",
+                "description" => "Ajouter une carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "credit_agency",
+                "description" => "Créditer une agence",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_agency",
+                "description" => "Ajouter une agence",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_card",
+                "description" => "Lister les cartes",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_pos",
+                "description" => "Voir la liste des points de vente",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_pos",
+                "description" => "Ajouter Point de Service, agence pour les distributeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_agency",
+                "description" => "Ajouter distributeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_card",
+                "description" => "Ajout de carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "recharge_card",
+                "description" => "recharge de compte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "admin_agency",
+                "description" => "Administration pour distributeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "activate_card",
+                "description" => "Activation de carte",
+                "visible" => 1,
+            ],
+            [
+                "name" => "admin",
+                "description" => "Administration",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_user_right",
+                "description" => "Ajout de droit",
+                "visible" => 1,
+            ],
+            [
+                "name" => "delete_agency",
+                "description" => "Supprimer distributeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "send_msg_to_distributor",
+                "description" => "Envoyer de message aux distributeur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "update_agency",
+                "description" => "Editer distribibuteur",
+                "visible" => 1,
+            ],
+            [
+                "name" => "list_agency",
+                "description" => "Liste des distributeurs",
+                "visible" => 1,
+            ],
+            [
+                "name" => "global_stats",
+                "description" => "Statistique globale de la plateforme => Nombre de distributeurs, cartes, agents commerciaux, etc.",
+                "visible" => 1,
+            ],
+            [
+                "name" => "add_user",
+                "description" => "Ajout d'utilisateur",
+                "visible" => 1,
+            ],
         ];
 
         foreach ($actions as $action) {
