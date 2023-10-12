@@ -17,763 +17,692 @@ class DatabaseSeeder extends Seeder
 
         #======== CREATION DES ACTIONS PAR DEFAUT=========#
         $actions = [
-            ####____NEW ACTIONS ADDED BY DONAN
+            ####old actions
             [
-                "name" => "validate_sold",
-                "description" => "Valider la créditation de sold d'une agence",
-                "visible" => 1,
+                'name' => 'add_user',
+                'description' => 'Ajout d\'utilisateur',
+                'visible' => true
             ],
             [
-                "name" => "supply_product",
-                "description" => "Approvisonner un produit",
-                "visible" => 1,
+                'name' => 'global_stats',
+                'description' => "Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.",
+                'visible' => true
             ],
             [
-                "name" => "affect_store_to_pos",
-                "description" => "Affecter un store à un POS",
-                "visible" => 1,
+                'name' => 'list_agency',
+                'description' => 'Liste des distributeurs',
+                'visible' => true
             ],
             [
-                "name" => "connect_to_pos",
-                "description" => "Se connecter à un pOS",
-                "visible" => 1,
+                'name' => 'update_agency',
+                'description' => 'Editer distribibuteur',
+                'visible' => true
             ],
             [
-                "name" => "generate_facture",
-                "description" => "Générer une facture",
-                "visible" => 1,
+                'name' => 'send_msg_to_distributor',
+                'description' => 'Envoyer de message aux distributeur',
+                'visible' => true
             ],
             [
-                "name" => "download_facture",
-                "description" => "Télecharger une facture",
-                "visible" => 1,
+                'name' => 'delete_agency',
+                'description' => 'Supprimer distributeur',
+                'visible' => true
             ],
             [
-                "name" => "initiate_session",
-                "description" => "Initier une session",
-                "visible" => 1,
+                'name' => 'add_user_right',
+                'description' => 'Ajout de droit',
+                'visible' => true
             ],
             [
-                "name" => "creditate_pos_sold",
-                "description" => "Crediter le solde d'un pos",
-                "visible" => 1,
+                'name' => 'admin',
+                'description' => 'Administration',
+                'visible' => true
             ],
             [
-                "name" => "initiate_sold",
-                "description" => "Initier un solde",
-                "visible" => 1,
+                'name' => 'activate_card',
+                'description' => 'Activation de carte',
+                'visible' => true
             ],
             [
-                "name" => "affect_pos_to_agency",
-                "description" => "Affecter un pos à une agence",
-                "visible" => 1,
+                'name' => 'admin_agency',
+                'description' => 'Administration pour distributeur',
+                'visible' => true
             ],
             [
-                "name" => "affect_right",
-                "description" => "Affecter un droit",
-                "visible" => 1,
+                'name' => 'recharge_card',
+                'description' => 'recharge de compte',
+                'visible' => true
             ],
             [
-                "name" => "delete_action",
-                "description" => "Supprimer un action",
-                "visible" => 1,
+                'name' => 'add_card',
+                'description' => 'Ajout de carte',
+                'visible' => true
             ],
             [
-                "name" => "update_action",
-                "description" => "Mettre à jour un action",
-                "visible" => 1,
+                'name' => 'add_agency',
+                'description' => 'Ajouter distributeur',
+                'visible' => true
             ],
             [
-                "name" => "add_action",
-                "description" => "Ajouter un action",
-                "visible" => 1,
+                'name' => 'add_pos',
+                'description' => 'Ajouter Point de Service, agence pour les distributeur',
+                'visible' => true
             ],
             [
-                "name" => "list_action",
-                "description" => "Lister les action",
-                "visible" => 1,
+                'name' => 'list_pos',
+                'description' => 'Voir la liste des points de vente',
+                'visible' => true
             ],
             [
-                "name" => "delete_rang",
-                "description" => "Supprimer un rang",
-                "visible" => 1,
+                'name' => 'list_card',
+                'description' => 'Lister les cartes',
+                'visible' => true
             ],
             [
-                "name" => "update_rang",
-                "description" => "Mettre à jour un rang",
-                "visible" => 1,
+                'name' => 'add_agency',
+                'description' => 'Ajouter une agence',
+                'visible' => true
             ],
             [
-                "name" => "add_rang",
-                "description" => "Ajouter un rang",
-                "visible" => 1,
+                'name' => 'credit_agency',
+                'description' => 'Créditer une agence',
+                'visible' => true
             ],
             [
-                "name" => "list_rang",
-                "description" => "Lister les rangs",
-                "visible" => 1,
+                'name' => 'add_card',
+                'description' => 'Ajouter une carte',
+                'visible' => true
             ],
             [
-                "name" => "delete_profil",
-                "description" => "Supprimer un profil",
-                "visible" => 1,
+                'name' => 'list_agent',
+                'description' => 'Lister des agents commerciaux',
+                'visible' => true
             ],
             [
-                "name" => "update_profil",
-                "description" => "Mettre à jour un profil",
-                "visible" => 1,
+                'name' => 'add_agent',
+                'description' => 'Ajouter agent commercial',
+                'visible' => true
             ],
             [
-                "name" => "add_profil",
-                "description" => "Ajouter un profil",
-                "visible" => 1,
+                'name' => 'list_rechargement',
+                'description' => 'Lister les rechargements',
+                'visible' => true
             ],
             [
-                "name" => "list_profil",
-                "description" => "Lister les profils",
-                "visible" => 1,
+                'name' => 'validate_card_load',
+                'description' => 'Valider rechargement de carte',
+                'visible' => true
             ],
             [
-                "name" => "delete_right",
-                "description" => "Supprimer un right",
-                "visible" => 1,
+                'name' => 'list_master',
+                'description' => 'Lister des masters',
+                'visible' => true
             ],
             [
-                "name" => "update_right",
-                "description" => "Mettre à jour un right",
-                "visible" => 1,
+                'name' => 'add_master',
+                'description' => 'Ajouter des masters',
+                'visible' => true
             ],
             [
-                "name" => "add_right",
-                "description" => "Ajouter un right",
-                "visible" => 1,
+                'name' => 'update_card',
+                'description' => 'Ajouter des masters',
+                'visible' => true
             ],
             [
-                "name" => "list_right",
-                "description" => "Lister les rights",
-                "visible" => 1,
+                'name' => 'credit_my_account',
+                'description' => 'Créditer mon compte',
+                'visible' => true
             ],
             [
-                "name" => "delete_user",
-                "description" => "Supprimer un user",
-                "visible" => 1,
+                'name' => 'add_card',
+                'description' => 'Ajouter une carte',
+                'visible' => true
             ],
             [
-                "name" => "update_user",
-                "description" => "Mettre à jour un user",
-                "visible" => 1,
+                'name' => 'debit_agency',
+                'description' => 'Débiter une agence',
+                'visible' => true
             ],
             [
-                "name" => "list_user",
-                "description" => "Lister les users",
-                "visible" => 1,
+                'name' => 'delete_card',
+                'description' => 'Supprimer carte',
+                'visible' => true
             ],
             [
-                "name" => "delete_store",
-                "description" => "Supprimer un store",
-                "visible" => 1,
+                'name' => 'stats',
+                'description' => 'Statistiques',
+                'visible' => true
             ],
             [
-                "name" => "update_store",
-                "description" => "Mettre à jour un store",
-                "visible" => 1,
+                'name' => 'canal_renew',
+                'description' => 'Ajouter renouvellement',
+                'visible' => true
             ],
             [
-                "name" => "add_store",
-                "description" => "Ajouter un store",
-                "visible" => 1,
+                'name' => 'canal_validate_renew',
+                'description' => 'Valider réabonnement',
+                'visible' => true
             ],
             [
-                "name" => "list_store",
-                "description" => "Lister les stores",
-                "visible" => 1,
+                'name' => 'add_decodeur',
+                'description' => 'Ajouter décodeur',
+                'visible' => true
             ],
             [
-                "name" => "delete_product_category",
-                "description" => "Supprimer un product_category",
-                "visible" => 1,
+                'name' => 'credit_decodeur',
+                'description' => 'Créditer le stock de décodeur pour un partenaire',
+                'visible' => true
             ],
             [
-                "name" => "update_product_category",
-                "description" => "Mettre à jour un product_category",
-                "visible" => 1,
+                'name' => 'sell_decodeur',
+                'description' => 'Vendre décodeur',
+                'visible' => true
             ],
             [
-                "name" => "add_product_category",
-                "description" => "Ajouter un product_category",
-                "visible" => 1,
+                'name' => 'migrate_decodeur',
+                'description' => 'Faire la migration de décodeur',
+                'visible' => true
             ],
             [
-                "name" => "list_product_category",
-                "description" => "Lister les product_categories",
-                "visible" => 1,
+                'name' => 'canal_validate_enroll',
+                'description' => 'Valider les recrutements (vente de décodeur)',
+                'visible' => true
             ],
             [
-                "name" => "delete_order",
-                "description" => "Supprimer un order",
-                "visible" => 1,
+                'name' => 'debit_decodeur',
+                'description' => 'Débiter décodeur',
+                'visible' => true
             ],
             [
-                "name" => "update_order",
-                "description" => "Mettre à jour un order",
-                "visible" => 1,
+                'name' => 'canal_validate_migration',
+                'description' => 'Valider les recrutements (vente de décodeur)',
+                'visible' => true
             ],
             [
-                "name" => "add_order",
-                "description" => "Ajouter un order",
-                "visible" => 1,
+                'name' => 'list_decodeur',
+                'description' => 'Liste décodeurs (recrutement)',
+                'visible' => true
             ],
             [
-                "name" => "list_order",
-                "description" => "Lister les orders",
-                "visible" => 1,
+                'name' => 'canal_renew',
+                'description' => 'Réabonnement',
+                'visible' => true
             ],
             [
-                "name" => "delete_product",
-                "description" => "Supprimer un product",
-                "visible" => 1,
+                'name' => 'sell_decodeur',
+                'description' => 'Recrutement (vente de décodeur)',
+                'visible' => true
             ],
             [
-                "name" => "update_product",
-                "description" => "Mettre à jour un product",
-                "visible" => 1,
+                'name' => 'migrate_decodeur',
+                'description' => 'Migration de décodeur',
+                'visible' => true
             ],
             [
-                "name" => "add_product",
-                "description" => "Ajouter un product",
-                "visible" => 1,
+                'name' => 'credit_accessoires',
+                'description' => 'Créditer accessoires',
+                'visible' => true
             ],
             [
-                "name" => "list_product",
-                "description" => "Lister les products",
-                "visible" => 1,
+                'name' => 'credit_parabole',
+                'description' => 'Créditer parabole',
+                'visible' => true
             ],
             [
-                "name" => "delete_table",
-                "description" => "Supprimer une table",
-                "visible" => 1,
+                'name' => 'debit_accessoires',
+                'description' => 'Débiter accessoires',
+                'visible' => true
             ],
             [
-                "name" => "update_table",
-                "description" => "Mettre à jour une table",
-                "visible" => 1,
+                'name' => 'end_operation',
+                'description' => 'Finir une Opération',
+                'visible' => true
             ],
             [
-                "name" => "add_table",
-                "description" => "Ajouter une table",
-                "visible" => 1,
+                'name' => 'canal_update',
+                'description' => 'Modification abonnement canal',
+                'visible' => true
             ],
             [
-                "name" => "list_table",
-                "description" => "Lister les tables",
-                "visible" => 1,
+                'name' => 'canal_enroll',
+                'description' => 'Recrutement canal',
+                'visible' => true
             ],
             [
-                "name" => "delete_pos",
-                "description" => "Supprimer un pos",
-                "visible" => 1,
+                'name' => 'list_enroll',
+                'description' => 'Liste des recrutements',
+                'visible' => true
             ],
             [
-                "name" => "update_pos",
-                "description" => "Mettre à jour un pos",
-                "visible" => 1,
+                'name' => 'credit_materiel',
+                'description' => 'Créditer un matériel',
+                'visible' => true
             ],
             [
-                "name" => "add_pos",
-                "description" => "Ajouter un pos",
-                "visible" => 1,
+                'name' => 'list_migration',
+                'description' => 'Liste des miigration',
+                'visible' => true
             ],
             [
-                "name" => "list_pos",
-                "description" => "Lister les pos",
-                "visible" => 1,
+                'name' => 'canal_migration',
+                'description' => 'Faire des migrations',
+                'visible' => true
             ],
             [
-                "name" => "delete_agent",
-                "description" => "Supprimer un agent",
-                "visible" => 1,
+                'name' => 'add_stock',
+                'description' => 'Ajouter stock',
+                'visible' => true
             ],
             [
-                "name" => "update_agent",
-                "description" => "Mettre à jour un agent",
-                "visible" => 1,
+                'name' => 'list_renew',
+                'description' => 'Liste des reabonnements',
+                'visible' => true
             ],
             [
-                "name" => "add_agent",
-                "description" => "Ajouter un agent",
-                "visible" => 1,
+                'name' => 'list_reactivation',
+                'description' => 'Lister les réactivations',
+                'visible' => true
             ],
             [
-                "name" => "list_agent",
-                "description" => "Lister les agents",
-                "visible" => 1,
+                'name' => 'canal_reactivation',
+                'description' => 'Réactivation',
+                'visible' => true
             ],
             [
-                "name" => "delete_agency",
-                "description" => "Supprimer un agency",
-                "visible" => 1,
+                'name' => 'delete_user_right',
+                'description' => 'Retirer droit à un utilisateur',
+                'visible' => true
             ],
             [
-                "name" => "update_agency",
-                "description" => "Mettre à jour un agency",
-                "visible" => 1,
+                'name' => 'deliver_card',
+                'description' => 'Délivrer une carte',
+                'visible' => true
             ],
             [
-                "name" => "add_agency",
-                "description" => "Ajouter un agency",
-                "visible" => 1,
+                'name' => 'card_validate_activation',
+                'description' => 'Valider activation de carte',
+                'visible' => true
             ],
             [
-                "name" => "list_agency",
-                "description" => "Lister les agencies",
-                "visible" => 1,
+                'name' => 'deepsearch',
+                'description' => 'Recherche approfondie',
+                'visible' => true
             ],
             [
-                "name" => "delete_master",
-                "description" => "Supprimer un master",
-                "visible" => 1,
+                'name' => 'list_deepsearch',
+                'description' => 'Liste recherches approfondies',
+                'visible' => true
             ],
             [
-                "name" => "update_master",
-                "description" => "Mettre à jour un master",
-                "visible" => 1,
+                'name' => 'set_deepsearch',
+                'description' => 'Répondre recherches approfondies',
+                'visible' => true
             ],
             [
-                "name" => "add_master",
-                "description" => "Ajouter un master",
-                "visible" => 1,
+                'name' => 'see_commission',
+                'description' => 'Voir commission',
+                'visible' => true
             ],
             [
-                "name" => "list_master",
-                "description" => "Lister les masters",
-                "visible" => 1,
+                'name' => 'see_balance',
+                'description' => 'Voir solde',
+                'visible' => true
             ],
             [
-                "name" => "validate_facture",
-                "description" => "Valider des factures",
-                "visible" => 1,
+                'name' => 'reset_user_pass',
+                'description' => 'Réinitialiser mot de passe',
+                'visible' => true
             ],
             [
-                "name" => "list_facture",
-                "description" => "Liste des factures",
-                "visible" => 1,
+                'name' => 'list_deposit',
+                'description' => 'Liste des dépôts',
+                'visible' => true
             ],
             [
-                "name" => "facture_new",
-                "description" => "Emettre des factures",
-                "visible" => 1,
+                'name' => 'add_deposit',
+                'description' => 'Ajouter des dépôts',
+                'visible' => true
             ],
             [
-                "name" => "list_cardload",
-                "description" => "Liste rechargement carte",
-                "visible" => 1,
+                'name' => 'set_deposit',
+                'description' => 'Valider des dépôts',
+                'visible' => true
             ],
             [
-                "name" => "authorize_commission_withdrawal",
-                "description" => "Autoriser reversement de commission",
-                "visible" => 1,
+                'name' => 'view_statement',
+                'description' => 'Voir relevé de compte',
+                'visible' => true
             ],
             [
-                "name" => "list_assurance",
-                "description" => "Liste assurance",
-                "visible" => 1,
+                'name' => 'assurance_new',
+                'description' => 'Ajouter assurance',
+                'visible' => true
             ],
             [
-                "name" => "approve_assurance",
-                "description" => "Approuver devis",
-                "visible" => 1,
+                'name' => 'list_assurance',
+                'description' => 'Lister assurance',
+                'visible' => true
             ],
             [
-                "name" => "process_assurance",
-                "description" => "Dévis assurance",
-                "visible" => 1,
+                'name' => 'process_assurance',
+                'description' => 'Dévis assurance',
+                'visible' => true
             ],
             [
-                "name" => "list_assurance",
-                "description" => "Lister assurance",
-                "visible" => 1,
+                'name' => 'approve_assurance',
+                'description' => 'Approuver devis',
+                'visible' => true
             ],
             [
-                "name" => "assurance_new",
-                "description" => "Ajouter assurance",
-                "visible" => 1,
+                'name' => 'list_assurance',
+                'description' => 'Liste assurance',
+                'visible' => true
             ],
             [
-                "name" => "view_statement",
-                "description" => "Voir relevé de compte",
-                "visible" => 1,
+                'name' => 'authorize_commission_withdrawal',
+                'description' => 'Autoriser reversement de commission',
+                'visible' => true
             ],
             [
-                "name" => "set_deposit",
-                "description" => "Valider des dépôts",
-                "visible" => 1,
+                'name' => 'list_cardload',
+                'description' => 'Liste rechargement carte',
+                'visible' => true
             ],
             [
-                "name" => "add_deposit",
-                "description" => "Ajouter des dépôts",
-                "visible" => 1,
+                'name' => 'facture_new',
+                'description' => 'Emettre des factures',
+                'visible' => true
             ],
             [
-                "name" => "list_deposit",
-                "description" => "Liste des dépôts",
-                "visible" => 1,
+                'name' => 'list_facture',
+                'description' => 'Liste des factures',
+                'visible' => true
             ],
             [
-                "name" => "reset_user_pass",
-                "description" => "Réinitialiser mot de passe",
-                "visible" => 1,
+                'name' => 'validate_facture',
+                'description' => 'Valider des factures',
+                'visible' => true
             ],
             [
-                "name" => "see_balance",
-                "description" => "Voir solde",
-                "visible" => 1,
+                'name' => "list_master",
+                'description' => "Lister les masters",
+                'visible' => true
             ],
             [
-                "name" => "see_commission",
-                "description" => "Voir commission",
-                "visible" => 1,
+                'name' => "add_master",
+                'description' => "Ajouter un master",
+                'visible' => true
             ],
             [
-                "name" => "set_deepsearch",
-                "description" => "Répondre recherches approfondies",
-                "visible" => 1,
+                'name' => "update_master",
+                'description' => "Mettre à jour un master",
+                'visible' => true
             ],
             [
-                "name" => "list_deepsearch",
-                "description" => "Liste recherches approfondies",
-                "visible" => 1,
+                'name' => "delete_master",
+                'description' => "Supprimer un master",
+                'visible' => true
             ],
             [
-                "name" => "deepsearch",
-                "description" => "Recherche approfondie",
-                "visible" => 1,
+                'name' => "list_agency",
+                'description' => "Lister les agencies",
+                'visible' => true
             ],
             [
-                "name" => "card_validate_activation",
-                "description" => "Valider activation de carte",
-                "visible" => 1,
+                'name' => "add_agency",
+                'description' => "Ajouter un agency",
+                'visible' => true
             ],
             [
-                "name" => "deliver_card",
-                "description" => "Délivrer une carte",
-                "visible" => 1,
+                'name' => "update_agency",
+                'description' => "Mettre à jour un agency",
+                'visible' => true
             ],
             [
-                "name" => "delete_user_right",
-                "description" => "Retirer droit à un utilisateur",
-                "visible" => 1,
+                'name' => "delete_agency",
+                'description' => "Supprimer un agency",
+                'visible' => true
             ],
             [
-                "name" => "canal_reactivation",
-                "description" => "Réactivation",
-                "visible" => 1,
+                'name' => "list_agent",
+                'description' => "Lister les agents",
+                'visible' => true
             ],
             [
-                "name" => "list_reactivation",
-                "description" => "Lister les réactivations",
-                "visible" => 1,
+                'name' => "add_agent",
+                'description' => "Ajouter un agent",
+                'visible' => true
             ],
             [
-                "name" => "list_renew",
-                "description" => "Liste des reabonnements",
-                "visible" => 1,
+                'name' => "update_agent",
+                'description' => "Mettre à jour un agent",
+                'visible' => true
             ],
             [
-                "name" => "add_stock",
-                "description" => "Ajouter stock",
-                "visible" => 1,
+                'name' => "delete_agent",
+                'description' => "Supprimer un agent",
+                'visible' => true
             ],
             [
-                "name" => "canal_migration",
-                "description" => "Faire des migrations",
-                "visible" => 1,
+                'name' => "list_pos",
+                'description' => "Lister les pos",
+                'visible' => true
             ],
             [
-                "name" => "list_migration",
-                "description" => "Liste des miigration",
-                "visible" => 1,
+                'name' => "add_pos",
+                'description' => "Ajouter un pos",
+                'visible' => true
             ],
             [
-                "name" => "credit_materiel",
-                "description" => "Créditer un matériel",
-                "visible" => 1,
+                'name' => "update_pos",
+                'description' => "Mettre à jour un pos",
+                'visible' => true
             ],
             [
-                "name" => "list_enroll",
-                "description" => "Liste des recrutements",
-                "visible" => 1,
+                'name' => "delete_pos",
+                'description' => "Supprimer un pos",
+                'visible' => true
             ],
             [
-                "name" => "canal_enroll",
-                "description" => "Recrutement canal",
-                "visible" => 1,
+                'name' => "list_table",
+                'description' => "Lister les tables",
+                'visible' => true
             ],
             [
-                "name" => "canal_update",
-                "description" => "Modification abonnement canal",
-                "visible" => 1,
+                'name' => "add_table",
+                'description' => "Ajouter une table",
+                'visible' => true
             ],
             [
-                "name" => "end_operation",
-                "description" => "Finir une Opération",
-                "visible" => 1,
+                'name' => "update_table",
+                'description' => "Mettre à jour une table",
+                'visible' => true
             ],
             [
-                "name" => "debit_accessoires",
-                "description" => "Débiter accessoires",
-                "visible" => 1,
+                'name' => "delete_table",
+                'description' => "Supprimer une table",
+                'visible' => true
             ],
             [
-                "name" => "credit_parabole",
-                "description" => "Créditer parabole",
-                "visible" => 1,
+                'name' => "list_product",
+                'description' => "Lister les products",
+                'visible' => true
             ],
             [
-                "name" => "credit_accessoires",
-                "description" => "Créditer accessoires",
-                "visible" => 1,
+                'name' => "add_product",
+                'description' => "Ajouter un product",
+                'visible' => true
             ],
             [
-                "name" => "migrate_decodeur",
-                "description" => "Migration de décodeur",
-                "visible" => 1,
+                'name' => "update_product",
+                'description' => "Mettre à jour un product",
+                'visible' => true
             ],
             [
-                "name" => "sell_decodeur",
-                "description" => "Recrutement (vente de décodeur)",
-                "visible" => 1,
+                'name' => "delete_product",
+                'description' => "Supprimer un product",
+                'visible' => true
             ],
             [
-                "name" => "canal_renew",
-                "description" => "Réabonnement",
-                "visible" => 1,
+                'name' => "list_order",
+                'description' => "Lister les orders",
+                'visible' => true
             ],
             [
-                "name" => "list_decodeur",
-                "description" => "Liste décodeurs (recrutement)",
-                "visible" => 1,
+                'name' => "add_order",
+                'description' => "Ajouter un order",
+                'visible' => true
             ],
             [
-                "name" => "canal_validate_migration",
-                "description" => "Valider les recrutements (vente de décodeur)",
-                "visible" => 1,
+                'name' => "update_order",
+                'description' => "Mettre à jour un order",
+                'visible' => true
             ],
             [
-                "name" => "debit_decodeur",
-                "description" => "Débiter décodeur",
-                "visible" => 1,
+                'name' => "delete_order",
+                'description' => "Supprimer un order",
+                'visible' => true
             ],
             [
-                "name" => "canal_validate_enroll",
-                "description" => "Valider les recrutements (vente de décodeur)",
-                "visible" => 1,
+                'name' => "list_product_category",
+                'description' => "Lister les product_categories",
+                'visible' => true
             ],
             [
-                "name" => "migrate_decodeur",
-                "description" => "Faire la migration de décodeur",
-                "visible" => 1,
+                'name' => "add_product_category",
+                'description' => "Ajouter un product_category",
+                'visible' => true
             ],
             [
-                "name" => "sell_decodeur",
-                "description" => "Vendre décodeur",
-                "visible" => 1,
+                'name' => "update_product_category",
+                'description' => "Mettre à jour un product_category",
+                'visible' => true
             ],
             [
-                "name" => "credit_decodeur",
-                "description" => "Créditer le stock de décodeur pour un partenaire",
-                "visible" => 1,
+                'name' => "delete_product_category",
+                'description' => "Supprimer un product_category",
+                'visible' => true
             ],
             [
-                "name" => "add_decodeur",
-                "description" => "Ajouter décodeur",
-                "visible" => 1,
+                'name' => "list_store",
+                'description' => "Lister les stores",
+                'visible' => true
             ],
             [
-                "name" => "canal_validate_renew",
-                "description" => "Valider réabonnement",
-                "visible" => 1,
+                'name' => "add_store",
+                'description' => "Ajouter un store",
+                'visible' => true
             ],
             [
-                "name" => "canal_renew",
-                "description" => "Ajouter renouvellement",
-                "visible" => 1,
+                'name' => "update_store",
+                'description' => "Mettre à jour un store",
+                'visible' => true
             ],
             [
-                "name" => "stats",
-                "description" => "Statistiques",
-                "visible" => 1,
+                'name' => "delete_store",
+                'description' => "Supprimer un store",
+                'visible' => true
             ],
             [
-                "name" => "delete_card",
-                "description" => "Supprimer carte",
-                "visible" => 1,
+                'name' => "list_user",
+                'description' => "Lister les users",
+                'visible' => true
             ],
             [
-                "name" => "debit_agency",
-                "description" => "Débiter une agence",
-                "visible" => 1,
+                'name' => "update_user",
+                'description' => "Mettre à jour un user",
+                'visible' => true
             ],
             [
-                "name" => "add_card",
-                "description" => "Ajouter une carte",
-                "visible" => 1,
+                'name' => "delete_user",
+                'description' => "Supprimer un user",
+                'visible' => true
             ],
             [
-                "name" => "credit_my_account",
-                "description" => "Créditer mon compte",
-                "visible" => 1,
+                'name' => "list_right",
+                'description' => "Lister les rights",
+                'visible' => true
             ],
             [
-                "name" => "update_card",
-                "description" => "Ajouter des masters",
-                "visible" => 1,
+                'name' => "add_right",
+                'description' => "Ajouter un right",
+                'visible' => true
             ],
             [
-                "name" => "add_master",
-                "description" => "Ajouter des masters",
-                "visible" => 1,
+                'name' => "update_right",
+                'description' => "Mettre à jour un right",
+                'visible' => true
             ],
             [
-                "name" => "list_master",
-                "description" => "Lister des masters",
-                "visible" => 1,
+                'name' => "delete_right",
+                'description' => "Supprimer un right",
+                'visible' => true
             ],
             [
-                "name" => "validate_card_load",
-                "description" => "Valider rechargement de carte",
-                "visible" => 1,
+                'name' => "list_profil",
+                'description' => "Lister les profils",
+                'visible' => true
             ],
             [
-                "name" => "list_rechargement",
-                "description" => "Lister les rechargements",
-                "visible" => 1,
+                'name' => "add_profil",
+                'description' => "Ajouter un profil",
+                'visible' => true
             ],
             [
-                "name" => "add_agent",
-                "description" => "Ajouter agent commercial",
-                "visible" => 1,
+                'name' => "update_profil",
+                'description' => "Mettre à jour un profil",
+                'visible' => true
             ],
             [
-                "name" => "list_agent",
-                "description" => "Lister des agents commerciaux",
-                "visible" => 1,
+                'name' => "delete_profil",
+                'description' => "Supprimer un profil",
+                'visible' => true
             ],
             [
-                "name" => "add_card",
-                "description" => "Ajouter une carte",
-                "visible" => 1,
+                'name' => "list_rang",
+                'description' => "Lister les rangs",
+                'visible' => true
             ],
             [
-                "name" => "credit_agency",
-                "description" => "Créditer une agence",
-                "visible" => 1,
+                'name' => "add_rang",
+                'description' => "Ajouter un rang",
+                'visible' => true
             ],
             [
-                "name" => "add_agency",
-                "description" => "Ajouter une agence",
-                "visible" => 1,
+                'name' => "update_rang",
+                'description' => "Mettre à jour un rang",
+                'visible' => true
             ],
             [
-                "name" => "list_card",
-                "description" => "Lister les cartes",
-                "visible" => 1,
+                'name' => "delete_rang",
+                'description' => "Supprimer un rang",
+                'visible' => true
             ],
             [
-                "name" => "list_pos",
-                "description" => "Voir la liste des points de vente",
-                "visible" => 1,
+                'name' => "list_action",
+                'description' => "Lister les action",
+                'visible' => true
             ],
             [
-                "name" => "add_pos",
-                "description" => "Ajouter Point de Service, agence pour les distributeur",
-                "visible" => 1,
+                'name' => "add_action",
+                'description' => "Ajouter un action",
+                'visible' => true
             ],
             [
-                "name" => "add_agency",
-                "description" => "Ajouter distributeur",
-                "visible" => 1,
+                'name' => "update_action",
+                'description' => "Mettre à jour un action",
+                'visible' => true
             ],
             [
-                "name" => "add_card",
-                "description" => "Ajout de carte",
-                "visible" => 1,
+                'name' => "delete_action",
+                'description' => "Supprimer un action",
+                'visible' => true
             ],
             [
-                "name" => "recharge_card",
-                "description" => "recharge de compte",
-                "visible" => 1,
-            ],
-            [
-                "name" => "admin_agency",
-                "description" => "Administration pour distributeur",
-                "visible" => 1,
-            ],
-            [
-                "name" => "activate_card",
-                "description" => "Activation de carte",
-                "visible" => 1,
-            ],
-            [
-                "name" => "admin",
-                "description" => "Administration",
-                "visible" => 1,
-            ],
-            [
-                "name" => "add_user_right",
-                "description" => "Ajout de droit",
-                "visible" => 1,
-            ],
-            [
-                "name" => "delete_agency",
-                "description" => "Supprimer distributeur",
-                "visible" => 1,
-            ],
-            [
-                "name" => "send_msg_to_distributor",
-                "description" => "Envoyer de message aux distributeur",
-                "visible" => 1,
-            ],
-            [
-                "name" => "update_agency",
-                "description" => "Editer distribibuteur",
-                "visible" => 1,
-            ],
-            [
-                "name" => "list_agency",
-                "description" => "Liste des distributeurs",
-                "visible" => 1,
-            ],
-            [
-                "name" => "global_stats",
-                "description" => "Statistique globale de la plateforme => Nombre de distributeurs, cartes, agents commerciaux, etc.",
-                "visible" => 1,
-            ],
-            [
-                "name" => "add_user",
-                "description" => "Ajout d'utilisateur",
-                "visible" => 1,
-            ],
-
-            [
-                "name" => "delete_supply",
-                "description" => "Supprimer un approvisionnement",
-                "visible" => 1,
-            ],
-            [
-                "name" => "update_supply",
-                "description" => "Modifier un approvisionnement",
-                "visible" => 1,
-            ],
-            [
-                "name" => "list_supply",
-                "description" => "Lister les approvisionnements",
-                "visible" => 1,
-            ],
-            [
-                "name" => "add_supply",
-                "description" => "Ajouter un approvisionnement",
-                "visible" => 1,
-            ],
+                'name' => "affect_right",
+                'description' => "Affecter un droit",
+                'visible' => true
+            ]
         ];
 
         foreach ($actions as $action) {
@@ -1007,765 +936,419 @@ class DatabaseSeeder extends Seeder
 
         #======== CREATION DES RIGHTS  PAR DEFAUT =========#
         $rights = [
-            ##### add_user
-            [
-                "action" => \App\Models\Action::find(1),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajout d'utilisateur"
-            ], 
-            [
-                "action" => \App\Models\Action::find(1),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajout d'utilisateur"
-            ],
-            [
-                "action" => \App\Models\Action::find(1),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Ajout d'utilisateur"
-            ],
-            [
-                "action" => \App\Models\Action::find(1),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajout d'utilisateur"
-            ],
-
-
-            ######## global_stats
-
-            [
-                "action" => \App\Models\Action::find(2),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc."
-            ],
-            [
-                "action" => \App\Models\Action::find(2),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc."
-            ],
-            [
-                "action" => \App\Models\Action::find(2),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc."
-            ],
-
-            ######## list_agency
-
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des distributeurs"
-            ],
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Liste des distributeurs"
-            ],
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des distributeurs"
-            ],
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste des distributeurs"
-            ],
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(7),
-                "description" => "Liste des distributeurs"
-            ],
-            [
-                "action" => \App\Models\Action::find(3),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste des distributeurs"
-            ],
-
-            ######## update_agency
-
-            [
-                "action" => \App\Models\Action::find(4),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Editer distribibuteur"
-            ],
-            [
-                "action" => \App\Models\Action::find(4),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Editer distribibuteur"
-            ],
-            [
-                "action" => \App\Models\Action::find(4),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Editer distribibuteur"
-            ],
-
-            ######## send_msg_to_distributor
-
-            [
-                "action" => \App\Models\Action::find(5),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Envoyer de message aux distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(5),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Envoyer de message aux distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(5),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Envoyer de message aux distributeur"
-            ],
-
-            ######## delete_agency
-
-            [
-                "action" => \App\Models\Action::find(6),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Supprimer distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(6),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Supprimer distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(6),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Supprimer distributeur"
-            ],
-
-            ######## add_user_right
-
-            [
-                "action" => \App\Models\Action::find(7),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajout de droit"
-            ],
-            [
-                "action" => \App\Models\Action::find(7),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Ajout de droit"
-            ],
-            [
-                "action" => \App\Models\Action::find(7),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajout de droit"
-            ],
-
-            ######## admin
-
-            [
-                "action" => \App\Models\Action::find(8),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Administration"
-            ],
-            [
-                "action" => \App\Models\Action::find(8),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Administration"
-            ],
-
-            ######## activate_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Activation de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Activation de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Activation de compte"
-            ],
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Activation de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Activation de compte"
-            ],
-
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Activation de carte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Activation de carte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Activer compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(9),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(7),
-                "description" => "Activer compte"
-            ],
-
-
-
-            ######## recharge_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(11),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "recharge de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(11),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "recharge de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(11),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "recharge de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(11),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "recharge de compte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(11),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "recharge de compte"
-            ],
-
-            ######## add_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(12),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(4),
-                "description" => "Ajout de carte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(12),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(4),
-                "description" => "Ajouter. compte carte prépayée"
-            ],
-
-            ######## add_agency
-
-            [
-                "action" => \App\Models\Action::find(13),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajouter distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(13),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Ajouter distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(13),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Ajouter distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(13),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(4),
-                "description" => "Ajouter distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(13),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(4),
-                "description" => "Ajouter distributeur"
-            ],
-
-            ######## add_pos
-
-            [
-                "action" => \App\Models\Action::find(14),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Ajouter Point de Service, agence pour les distributeur"
-            ],
-
-            ######## list_pos
-
-            [
-                "action" => \App\Models\Action::find(15),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Voir la liste des points de vente"
-            ],
-            [
-                "action" => \App\Models\Action::find(15),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des points de service"
-            ],
-            [
-                "action" => \App\Models\Action::find(15),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des points de service"
-            ],
-
-
-            ######## list_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des comptes (cartes)"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(2),
-                "description" => "Liste des comptes (cartes)"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(4),
-                "description" => "Liste des comptes (cartes)"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Liste des comptes (cartes)"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Liste des comptes (cartes)"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(16),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste des cartes"
-            ],
-
-
-            ######## add_agency
-
-            [
-                "action" => \App\Models\Action::find(17),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajouter distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(17),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajouter distributeur"
-            ],
-
-
-            ######## credit_agency
-
-            [
-                "action" => \App\Models\Action::find(18),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Créditer distributeur"
-            ],
-            [
-                "action" => \App\Models\Action::find(18),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Créditer distributeur"
-            ],
-
-
-            ######## add_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(19),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajout de carte"
-            ],
-
-            ######## list_agent
-
-            [
-                "action" => \App\Models\Action::find(20),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste des agents commerciaux"
-            ],
-
-            ######## add_agent
-
-            [
-                "action" => \App\Models\Action::find(21),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajouter agent commercial"
-            ],
-
-
-            ######## list_rechargement
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(22),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste les rechargements"
-            ],
-            [
-                "action" => \App\Models\Action::find(22),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Liste les rechargements"
-            ],
-            [
-                "action" => \App\Models\Action::find(22),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Liste les rechargements"
-            ],
-            [
-                "action" => \App\Models\Action::find(22),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Liste les rechargements"
-            ],
-
-            ######## validate_card_load
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(23),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Valider rechargement de carte"
-            ],
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(23),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Valider rechargement"
-            ],
-
-
-            ######## list_master
-
-            [
-                "action" => \App\Models\Action::find(24),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "List des masters"
-            ],
-
-            ######## add_master
-
-            [
-                "action" => \App\Models\Action::find(25),
-                "rang" => \App\Models\Rang::find(1),
-                "profil" => \App\Models\Profil::find(3),
-                "description" => "Ajout de master"
-            ],
-
-            ######## update_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(26),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Modifier compte"
-            ],
-
-
-            ######## credit_my_account
-
-            [
-                "action" => \App\Models\Action::find(27),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Créditer mon compte"
-            ],
-
-            ######## add_card
-
-            [
-                "action" => \App\Models\Action::find(28),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajout de cartes"
-            ],
-
-            ######## debit_agency
-
-            [
-                "action" => \App\Models\Action::find(29),
-                "rang" => \App\Models\Rang::find(3),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Débiter une agence"
-            ],
-            [
-                "action" => \App\Models\Action::find(29),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Débiter une agence"
-            ],
-
-
-
-            ######## delete_card
-
-            [
-                "module" => 1,
-                "action" => \App\Models\Action::find(30),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Supprimer carte"
-            ],
-
-            ######## stats
-
-            [
-                "action" => \App\Models\Action::find(31),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Statistiques"
-            ],
-
-            ######## canal_renew
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(32),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Ajouter renouvellement"
-            ],
-
-            ######## canal_validate_renew
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(33),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Valider réabonnement"
-            ],
-
-            ######## add_decodeur
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(34),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Ajouter décodeur"
-            ],
-
-            ######## credit_decodeur
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(35),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Créditer le stock de décodeur pour un partenaire"
-            ],
-
-            ######## sell_decodeur
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(36),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Vendre décodeur"
-            ],
-
-            ######## migrate_decodeur
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(37),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(5),
-                "description" => "Faire la migration de décodeur"
-            ],
-
-            ######## canal_validate_enroll
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(38),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Valider les recrutements (vente de décodeur)"
-            ],
-
-            ######## debit_decodeur
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(39),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Débiter décodeur"
-            ],
-
-            ######## canal_validate_migration
-
-            [
-                "module" => 2,
-                "action" => \App\Models\Action::find(40),
-                "rang" => \App\Models\Rang::find(2),
-                "profil" => \App\Models\Profil::find(6),
-                "description" => "Valider les recrutements (vente de décodeur)"
-            ],
-            ####### NB::::: JE ME SUIS ARRETER ICI AU DROIT 104 DE LA DB DE MR JOEL
-
-            ["action" => \App\Models\Action::find(137), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Affecter un droit"],
-            ["action" => \App\Models\Action::find(136), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un action"],
-            ["action" => \App\Models\Action::find(135), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un action"],
-            ["action" => \App\Models\Action::find(134), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un action"],
-            ["action" => \App\Models\Action::find(133), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les action"],
-            ["action" => \App\Models\Action::find(132), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un rang"],
-            ["action" => \App\Models\Action::find(131), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un rang"],
-            ["action" => \App\Models\Action::find(130), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un rang"],
-            ["action" => \App\Models\Action::find(129), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les rangs"],
-            ["action" => \App\Models\Action::find(128), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un profil"],
-            ["action" => \App\Models\Action::find(127), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un profil"],
-            ["action" => \App\Models\Action::find(126), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un profil"],
-            ["action" => \App\Models\Action::find(125), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les profils"],
-            ["action" => \App\Models\Action::find(124), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un right"],
-            ["action" => \App\Models\Action::find(123), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un right"],
-            ["action" => \App\Models\Action::find(122), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un right"],
-            ["action" => \App\Models\Action::find(121), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les rights"],
-            ["action" => \App\Models\Action::find(120), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un user"],
-            ["action" => \App\Models\Action::find(119), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un user"],
-            ["action" => \App\Models\Action::find(118), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les users"],
-            ["action" => \App\Models\Action::find(117), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un store"],
-            ["action" => \App\Models\Action::find(116), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un store"],
-            ["action" => \App\Models\Action::find(115), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un store"],
-            ["action" => \App\Models\Action::find(114), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les stores"],
-            ["action" => \App\Models\Action::find(113), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un product_category"],
-            ["action" => \App\Models\Action::find(112), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un product_category"],
-            ["action" => \App\Models\Action::find(111), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un product_category"],
-            ["action" => \App\Models\Action::find(110), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les product_categories"],
-            ["action" => \App\Models\Action::find(109), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un order"],
-            ["action" => \App\Models\Action::find(108), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un order"],
-            ["action" => \App\Models\Action::find(107), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un order"],
-            ["action" => \App\Models\Action::find(106), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les orders"],
-            ["action" => \App\Models\Action::find(105), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un product"],
-            ["action" => \App\Models\Action::find(104), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un product"],
-            ["action" => \App\Models\Action::find(103), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un product"],
-            ["action" => \App\Models\Action::find(102), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les products"],
-            ["action" => \App\Models\Action::find(101), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer une table"],
-            ["action" => \App\Models\Action::find(100), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour une table"],
-            ["action" => \App\Models\Action::find(99), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter une table"],
-            ["action" => \App\Models\Action::find(98), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les tables"],
-            ["action" => \App\Models\Action::find(97), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un pos"],
-            ["action" => \App\Models\Action::find(96), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un pos"],
-            ["action" => \App\Models\Action::find(95), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un pos"],
-            ["action" => \App\Models\Action::find(94), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les pos"],
-            ["action" => \App\Models\Action::find(93), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un agent"],
-            ["action" => \App\Models\Action::find(92), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un agent"],
-            ["action" => \App\Models\Action::find(91), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un agent"],
-            ["action" => \App\Models\Action::find(90), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les agents"],
-            ["action" => \App\Models\Action::find(89), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un agency"],
-            ["action" => \App\Models\Action::find(88), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un agency"],
-            ["action" => \App\Models\Action::find(87), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un agency"],
-            ["action" => \App\Models\Action::find(86), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les agencies"],
-            ["action" => \App\Models\Action::find(85), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Supprimer un master"],
-            ["action" => \App\Models\Action::find(84), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Mettre à jour un master"],
-            ["action" => \App\Models\Action::find(83), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Ajouter un master"],
-            ["action" => \App\Models\Action::find(82), "rang" => \App\Models\Rang::find(1), "profil" => \App\Models\Profil::find(9), "description" => "Lister les masters"]
+            ###____Droits d'un utilisaateur
+
+            ["action" => \App\Models\Action::find(27),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'une campagne    "],
+            ["action" => \App\Models\Action::find(26),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Initier une campagne    "],
+            ["action" => \App\Models\Action::find(25),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Stoper une campagne    "],
+            ["action" => \App\Models\Action::find(24),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Supprimer une campagne    "],
+            ["action" => \App\Models\Action::find(23),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Mettre à jour une campagne    "],
+            ["action" => \App\Models\Action::find(22),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Ajouter une campagne    "],
+            ["action" => \App\Models\Action::find(21),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Lister les campagnes    "],
+            ["action" => \App\Models\Action::find(20),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'un sms    "],
+            ["action" => \App\Models\Action::find(19),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Supprimer un sms    "],
+            ["action" => \App\Models\Action::find(18),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Mettre à jour un sms    "],
+            ["action" => \App\Models\Action::find(17),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Ajouter un sms    "],
+            ["action" => \App\Models\Action::find(16),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Lister les sms    "],
+            ["action" => \App\Models\Action::find(15),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'un expediteur    "],
+            ["action" => \App\Models\Action::find(14),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Supprimer un expediteur    "],
+            ["action" => \App\Models\Action::find(13),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Mettre à jour un expediteur    "],
+            ["action" => \App\Models\Action::find(12),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Ajouter un expediteur    "],
+            ["action" => \App\Models\Action::find(11),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Lister les expediteurs    "],
+            ["action" => \App\Models\Action::find(10),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'un groupe de contact    "],
+            ["action" => \App\Models\Action::find(9),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Supprimer un groupe de contact    "],
+            ["action" => \App\Models\Action::find(8),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Mettre à jour un groupe de contact    "],
+            ["action" => \App\Models\Action::find(7),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Ajouter un groupe de contact    "],
+            ["action" => \App\Models\Action::find(6),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Lister les groupe de contact    "],
+            ["action" => \App\Models\Action::find(5),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'un contact    "],
+            ["action" => \App\Models\Action::find(4),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Supprimer un contact    "],
+            ["action" => \App\Models\Action::find(3),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Mettre à jour un contact    "],
+            ["action" => \App\Models\Action::find(2),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Ajouter un contact    "],
+            ["action" => \App\Models\Action::find(1),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Lister les contacts "],
+            ["action" => \App\Models\Action::find(191),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Affecter un droit    "],
+            ["action" => \App\Models\Action::find(190),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un action    "],
+            ["action" => \App\Models\Action::find(189),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un action    "],
+            ["action" => \App\Models\Action::find(188),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un action    "],
+            ["action" => \App\Models\Action::find(187),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les action    "],
+            ["action" => \App\Models\Action::find(186),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un rang    "],
+            ["action" => \App\Models\Action::find(185),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un rang    "],
+            ["action" => \App\Models\Action::find(184),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un rang    "],
+            ["action" => \App\Models\Action::find(183),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rangs    "],
+            ["action" => \App\Models\Action::find(182),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un profil    "],
+            ["action" => \App\Models\Action::find(181),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un profil    "],
+            ["action" => \App\Models\Action::find(180),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un profil    "],
+            ["action" => \App\Models\Action::find(179),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les profils    "],
+            ["action" => \App\Models\Action::find(178),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un right    "],
+            ["action" => \App\Models\Action::find(177),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un right    "],
+            ["action" => \App\Models\Action::find(176),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un right    "],
+            ["action" => \App\Models\Action::find(175),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rights    "],
+            ["action" => \App\Models\Action::find(174),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un user    "],
+            ["action" => \App\Models\Action::find(173),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un user    "],
+            ["action" => \App\Models\Action::find(172),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les users    "],
+            ["action" => \App\Models\Action::find(171),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un store    "],
+            ["action" => \App\Models\Action::find(170),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un store    "],
+            ["action" => \App\Models\Action::find(169),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un store    "],
+            ["action" => \App\Models\Action::find(168),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les stores    "],
+            ["action" => \App\Models\Action::find(167),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un product_category    "],
+            ["action" => \App\Models\Action::find(166),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un product_category    "],
+            ["action" => \App\Models\Action::find(165),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un product_category    "],
+            ["action" => \App\Models\Action::find(164),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les product_categories    "],
+            ["action" => \App\Models\Action::find(163),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un order    "],
+            ["action" => \App\Models\Action::find(162),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un order    "],
+            ["action" => \App\Models\Action::find(161),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un order    "],
+            ["action" => \App\Models\Action::find(160),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les orders    "],
+            ["action" => \App\Models\Action::find(159),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un product    "],
+            ["action" => \App\Models\Action::find(158),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un product    "],
+            ["action" => \App\Models\Action::find(157),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un product    "],
+            ["action" => \App\Models\Action::find(156),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les products    "],
+            ["action" => \App\Models\Action::find(155),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer une table    "],
+            ["action" => \App\Models\Action::find(154),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour une table    "],
+            ["action" => \App\Models\Action::find(153),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une table    "],
+            ["action" => \App\Models\Action::find(152),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les tables    "],
+            ["action" => \App\Models\Action::find(151),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un pos    "],
+            ["action" => \App\Models\Action::find(150),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un pos    "],
+            ["action" => \App\Models\Action::find(149),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un pos    "],
+            ["action" => \App\Models\Action::find(148),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les pos    "],
+            ["action" => \App\Models\Action::find(147),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un agent    "],
+            ["action" => \App\Models\Action::find(146),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un agent    "],
+            ["action" => \App\Models\Action::find(145),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un agent    "],
+            ["action" => \App\Models\Action::find(144),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les agents    "],
+            ["action" => \App\Models\Action::find(143),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un agency    "],
+            ["action" => \App\Models\Action::find(142),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un agency    "],
+            ["action" => \App\Models\Action::find(141),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un agency    "],
+            ["action" => \App\Models\Action::find(140),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les agencies    "],
+            ["action" => \App\Models\Action::find(139),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un master    "],
+            ["action" => \App\Models\Action::find(138),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un master    "],
+            ["action" => \App\Models\Action::find(137),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un master    "],
+            ["action" => \App\Models\Action::find(136),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les masters    "],
+            ["action" => \App\Models\Action::find(135),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider des factures    "],
+            ["action" => \App\Models\Action::find(134),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des factures    "],
+            ["action" => \App\Models\Action::find(133),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Emettre des factures    "],
+            ["action" => \App\Models\Action::find(132),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste rechargement carte    "],
+            ["action" => \App\Models\Action::find(131),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Autoriser reversement de commission    "],
+            ["action" => \App\Models\Action::find(130),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste assurance    "],
+            ["action" => \App\Models\Action::find(129),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Approuver devis    "],
+            ["action" => \App\Models\Action::find(128),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Dévis assurance    "],
+            ["action" => \App\Models\Action::find(127),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister assurance    "],
+            ["action" => \App\Models\Action::find(126),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter assurance    "],
+            ["action" => \App\Models\Action::find(125),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir relevé de compte    "],
+            ["action" => \App\Models\Action::find(124),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider des dépôts    "],
+            ["action" => \App\Models\Action::find(123),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des dépôts    "],
+            ["action" => \App\Models\Action::find(122),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des dépôts    "],
+            ["action" => \App\Models\Action::find(121),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réinitialiser mot de passe    "],
+            ["action" => \App\Models\Action::find(120),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir solde    "],
+            ["action" => \App\Models\Action::find(119),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir commission    "],
+            ["action" => \App\Models\Action::find(118),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Répondre recherches approfondies    "],
+            ["action" => \App\Models\Action::find(117),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste recherches approfondies    "],
+            ["action" => \App\Models\Action::find(116),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recherche approfondie    "],
+            ["action" => \App\Models\Action::find(115),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider activation de carte    "],
+            ["action" => \App\Models\Action::find(114),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Délivrer une carte    "],
+            ["action" => \App\Models\Action::find(113),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Retirer droit à un utilisateur    "],
+            ["action" => \App\Models\Action::find(112),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réactivation    "],
+            ["action" => \App\Models\Action::find(111),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les réactivations    "],
+            ["action" => \App\Models\Action::find(110),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des reabonnements    "],
+            ["action" => \App\Models\Action::find(109),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter stock    "],
+            ["action" => \App\Models\Action::find(108),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Faire des migrations    "],
+            ["action" => \App\Models\Action::find(107),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des miigration    "],
+            ["action" => \App\Models\Action::find(106),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer un matériel    "],
+            ["action" => \App\Models\Action::find(105),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des recrutements    "],
+            ["action" => \App\Models\Action::find(104),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recrutement canal    "],
+            ["action" => \App\Models\Action::find(103),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Modification abonnement canal    "],
+            ["action" => \App\Models\Action::find(102),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Finir une Opération    "],
+            ["action" => \App\Models\Action::find(101),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter accessoires    "],
+            ["action" => \App\Models\Action::find(100),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer parabole    "],
+            ["action" => \App\Models\Action::find(99),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer accessoires    "],
+            ["action" => \App\Models\Action::find(98),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Migration de décodeur    "],
+            ["action" => \App\Models\Action::find(97),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recrutement (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(96),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réabonnement    "],
+            ["action" => \App\Models\Action::find(95),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste décodeurs (recrutement)    "],
+            ["action" => \App\Models\Action::find(94),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider les recrutements (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(93),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter décodeur    "],
+            ["action" => \App\Models\Action::find(92),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider les recrutements (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(91),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Faire la migration de décodeur    "],
+            ["action" => \App\Models\Action::find(90),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Vendre décodeur    "],
+            ["action" => \App\Models\Action::find(89),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer le stock de décodeur pour un partenaire    "],
+            ["action" => \App\Models\Action::find(88),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter décodeur    "],
+            ["action" => \App\Models\Action::find(87),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider réabonnement    "],
+            ["action" => \App\Models\Action::find(86),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter renouvellement    "],
+            ["action" => \App\Models\Action::find(85),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Statistiques    "],
+            ["action" => \App\Models\Action::find(84),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer carte    "],
+            ["action" => \App\Models\Action::find(83),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter une agence    "],
+            ["action" => \App\Models\Action::find(82),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une carte    "],
+            ["action" => \App\Models\Action::find(81),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer mon compte    "],
+            ["action" => \App\Models\Action::find(80),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des masters    "],
+            ["action" => \App\Models\Action::find(79),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des masters    "],
+            ["action" => \App\Models\Action::find(78),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister des masters    "],
+            ["action" => \App\Models\Action::find(77),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider rechargement de carte    "],
+            ["action" => \App\Models\Action::find(76),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rechargements    "],
+            ["action" => \App\Models\Action::find(75),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter agent commercial    "],
+            ["action" => \App\Models\Action::find(74),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister des agents commerciaux    "],
+            ["action" => \App\Models\Action::find(73),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une carte    "],
+            ["action" => \App\Models\Action::find(72),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer une agence    "],
+            ["action" => \App\Models\Action::find(71),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une agence    "],
+            ["action" => \App\Models\Action::find(70),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les cartes    "],
+            ["action" => \App\Models\Action::find(99),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir la liste des points de vente    "],
+            ["action" => \App\Models\Action::find(98),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter Point de Service, agence pour les distributeur    "],
+            ["action" => \App\Models\Action::find(97),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter distributeur    "],
+            ["action" => \App\Models\Action::find(96),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout de carte    "],
+            ["action" => \App\Models\Action::find(95),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: recharge de compte    "],
+            ["action" => \App\Models\Action::find(94),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Administration pour distributeur    "],
+            ["action" => \App\Models\Action::find(93),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Activation de carte    "],
+            ["action" => \App\Models\Action::find(92),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Administration    "],
+            ["action" => \App\Models\Action::find(91),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout de droit    "],
+            ["action" => \App\Models\Action::find(90),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer distributeur    "],
+            ["action" => \App\Models\Action::find(59),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Envoyer de message aux distributeur    "],
+            ["action" => \App\Models\Action::find(58),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Editer distribibuteur    "],
+            ["action" => \App\Models\Action::find(57),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des distributeurs    "],
+            ["action" => \App\Models\Action::find(56),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.    "],
+            ["action" => \App\Models\Action::find(55),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout d'utilisateur    "],
+            ["action" => \App\Models\Action::find(54),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Crediter un compte    "],
+            ["action" => \App\Models\Action::find(53),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Retirer un droit à un utilisateur    "],
+            ["action" => \App\Models\Action::find(52),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Affecter un droit    "],
+            ["action" => \App\Models\Action::find(51),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'une action    "],
+            ["action" => \App\Models\Action::find(50),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un action    "],
+            ["action" => \App\Models\Action::find(49),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un action    "],
+            ["action" => \App\Models\Action::find(48),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un action    "],
+            ["action" => \App\Models\Action::find(47),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les action    "],
+            ["action" => \App\Models\Action::find(46),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un rang    "],
+            ["action" => \App\Models\Action::find(45),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un rang    "],
+            ["action" => \App\Models\Action::find(44),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un rang    "],
+            ["action" => \App\Models\Action::find(43),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un rang    "],
+            ["action" => \App\Models\Action::find(42),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rangs    "],
+            ["action" => \App\Models\Action::find(41),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un profil    "],
+            ["action" => \App\Models\Action::find(40),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un profil    "],
+            ["action" => \App\Models\Action::find(39),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un profil    "],
+            ["action" => \App\Models\Action::find(38),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un profil    "],
+            ["action" => \App\Models\Action::find(37),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les profils    "],
+            ["action" => \App\Models\Action::find(36),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un right    "],
+            ["action" => \App\Models\Action::find(35),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un right    "],
+            ["action" => \App\Models\Action::find(34),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un right    "],
+            ["action" => \App\Models\Action::find(33),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un right    "],
+            ["action" => \App\Models\Action::find(32),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rights    "],
+            ["action" => \App\Models\Action::find(31),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un user    "],
+            ["action" => \App\Models\Action::find(30),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un user    "],
+            ["action" => \App\Models\Action::find(19),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un user    "],
+            ["action" => \App\Models\Action::find(18),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les users    "],
+            ["action" => \App\Models\Action::find(17),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'une campagne    "],
+            ["action" => \App\Models\Action::find(16),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Initier une campagne    "],
+            ["action" => \App\Models\Action::find(15),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Stoper une campagne    "],
+            ["action" => \App\Models\Action::find(14),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer une campagne    "],
+            ["action" => \App\Models\Action::find(13),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour une campagne    "],
+            ["action" => \App\Models\Action::find(12),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une campagne    "],
+            ["action" => \App\Models\Action::find(11),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les campagnes    "],
+            ["action" => \App\Models\Action::find(10),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un sms    "],
+            ["action" => \App\Models\Action::find(19),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un sms    "],
+            ["action" => \App\Models\Action::find(18),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un sms    "],
+            ["action" => \App\Models\Action::find(17),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un sms    "],
+            ["action" => \App\Models\Action::find(16),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les sms    "],
+            ["action" => \App\Models\Action::find(15),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un expeditor    "],
+            ["action" => \App\Models\Action::find(14),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un expeditor    "],
+            ["action" => \App\Models\Action::find(13),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un expeditor    "],
+            ["action" => \App\Models\Action::find(12),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un expeditor    "],
+            ["action" => \App\Models\Action::find(11),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les expeditors    "],
+            ["action" => \App\Models\Action::find(10),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un groupe de contact    "],
+            ["action" => \App\Models\Action::find(9),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(8),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(7),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(9),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les groupe de cintact    "],
+            ["action" => \App\Models\Action::find(5),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un contact    "],
+            ["action" => \App\Models\Action::find(4),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un contact    "],
+            ["action" => \App\Models\Action::find(3),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un contact    "],
+            ["action" => \App\Models\Action::find(1),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un contact    "],
+            ["action" => \App\Models\Action::find(1),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les contacts "],
+
+            ###____Droits d'un admin
+            ["action" => \App\Models\Action::find(191),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Affecter un droit    "],
+            ["action" => \App\Models\Action::find(190),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un action    "],
+            ["action" => \App\Models\Action::find(189),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un action    "],
+            ["action" => \App\Models\Action::find(188),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un action    "],
+            ["action" => \App\Models\Action::find(187),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les action    "],
+            ["action" => \App\Models\Action::find(186),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un rang    "],
+            ["action" => \App\Models\Action::find(185),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un rang    "],
+            ["action" => \App\Models\Action::find(184),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un rang    "],
+            ["action" => \App\Models\Action::find(183),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rangs    "],
+            ["action" => \App\Models\Action::find(182),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un profil    "],
+            ["action" => \App\Models\Action::find(181),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un profil    "],
+            ["action" => \App\Models\Action::find(180),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un profil    "],
+            ["action" => \App\Models\Action::find(179),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les profils    "],
+            ["action" => \App\Models\Action::find(178),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un right    "],
+            ["action" => \App\Models\Action::find(177),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un right    "],
+            ["action" => \App\Models\Action::find(176),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un right    "],
+            ["action" => \App\Models\Action::find(175),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rights    "],
+            ["action" => \App\Models\Action::find(174),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un user    "],
+            ["action" => \App\Models\Action::find(173),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un user    "],
+            ["action" => \App\Models\Action::find(172),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les users    "],
+            ["action" => \App\Models\Action::find(171),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un store    "],
+            ["action" => \App\Models\Action::find(170),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un store    "],
+            ["action" => \App\Models\Action::find(169),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un store    "],
+            ["action" => \App\Models\Action::find(168),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les stores    "],
+            ["action" => \App\Models\Action::find(167),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un product_category    "],
+            ["action" => \App\Models\Action::find(166),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un product_category    "],
+            ["action" => \App\Models\Action::find(165),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un product_category    "],
+            ["action" => \App\Models\Action::find(164),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les product_categories    "],
+            ["action" => \App\Models\Action::find(163),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un order    "],
+            ["action" => \App\Models\Action::find(162),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un order    "],
+            ["action" => \App\Models\Action::find(161),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un order    "],
+            ["action" => \App\Models\Action::find(160),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les orders    "],
+            ["action" => \App\Models\Action::find(159),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un product    "],
+            ["action" => \App\Models\Action::find(158),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un product    "],
+            ["action" => \App\Models\Action::find(157),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un product    "],
+            ["action" => \App\Models\Action::find(156),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les products    "],
+            ["action" => \App\Models\Action::find(155),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer une table    "],
+            ["action" => \App\Models\Action::find(154),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour une table    "],
+            ["action" => \App\Models\Action::find(153),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une table    "],
+            ["action" => \App\Models\Action::find(152),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les tables    "],
+            ["action" => \App\Models\Action::find(151),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un pos    "],
+            ["action" => \App\Models\Action::find(150),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un pos    "],
+            ["action" => \App\Models\Action::find(149),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un pos    "],
+            ["action" => \App\Models\Action::find(148),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les pos    "],
+            ["action" => \App\Models\Action::find(147),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un agent    "],
+            ["action" => \App\Models\Action::find(146),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un agent    "],
+            ["action" => \App\Models\Action::find(145),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un agent    "],
+            ["action" => \App\Models\Action::find(144),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les agents    "],
+            ["action" => \App\Models\Action::find(143),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un agency    "],
+            ["action" => \App\Models\Action::find(142),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un agency    "],
+            ["action" => \App\Models\Action::find(141),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un agency    "],
+            ["action" => \App\Models\Action::find(140),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les agencies    "],
+            ["action" => \App\Models\Action::find(139),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un master    "],
+            ["action" => \App\Models\Action::find(138),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un master    "],
+            ["action" => \App\Models\Action::find(137),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un master    "],
+            ["action" => \App\Models\Action::find(136),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les masters    "],
+            ["action" => \App\Models\Action::find(135),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider des factures    "],
+            ["action" => \App\Models\Action::find(134),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des factures    "],
+            ["action" => \App\Models\Action::find(133),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Emettre des factures    "],
+            ["action" => \App\Models\Action::find(132),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste rechargement carte    "],
+            ["action" => \App\Models\Action::find(131),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Autoriser reversement de commission    "],
+            ["action" => \App\Models\Action::find(130),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste assurance    "],
+            ["action" => \App\Models\Action::find(129),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Approuver devis    "],
+            ["action" => \App\Models\Action::find(128),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Dévis assurance    "],
+            ["action" => \App\Models\Action::find(127),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister assurance    "],
+            ["action" => \App\Models\Action::find(126),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter assurance    "],
+            ["action" => \App\Models\Action::find(125),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir relevé de compte    "],
+            ["action" => \App\Models\Action::find(124),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider des dépôts    "],
+            ["action" => \App\Models\Action::find(123),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des dépôts    "],
+            ["action" => \App\Models\Action::find(122),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des dépôts    "],
+            ["action" => \App\Models\Action::find(121),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réinitialiser mot de passe    "],
+            ["action" => \App\Models\Action::find(120),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir solde    "],
+            ["action" => \App\Models\Action::find(119),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir commission    "],
+            ["action" => \App\Models\Action::find(118),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Répondre recherches approfondies    "],
+            ["action" => \App\Models\Action::find(117),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste recherches approfondies    "],
+            ["action" => \App\Models\Action::find(116),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recherche approfondie    "],
+            ["action" => \App\Models\Action::find(115),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider activation de carte    "],
+            ["action" => \App\Models\Action::find(114),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Délivrer une carte    "],
+            ["action" => \App\Models\Action::find(113),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Retirer droit à un utilisateur    "],
+            ["action" => \App\Models\Action::find(112),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réactivation    "],
+            ["action" => \App\Models\Action::find(111),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les réactivations    "],
+            ["action" => \App\Models\Action::find(110),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des reabonnements    "],
+            ["action" => \App\Models\Action::find(109),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter stock    "],
+            ["action" => \App\Models\Action::find(108),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Faire des migrations    "],
+            ["action" => \App\Models\Action::find(107),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des miigration    "],
+            ["action" => \App\Models\Action::find(106),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer un matériel    "],
+            ["action" => \App\Models\Action::find(105),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des recrutements    "],
+            ["action" => \App\Models\Action::find(104),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recrutement canal    "],
+            ["action" => \App\Models\Action::find(103),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Modification abonnement canal    "],
+            ["action" => \App\Models\Action::find(102),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Finir une Opération    "],
+            ["action" => \App\Models\Action::find(101),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter accessoires    "],
+            ["action" => \App\Models\Action::find(100),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer parabole    "],
+            ["action" => \App\Models\Action::find(99),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer accessoires    "],
+            ["action" => \App\Models\Action::find(98),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Migration de décodeur    "],
+            ["action" => \App\Models\Action::find(97),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Recrutement (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(96),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Réabonnement    "],
+            ["action" => \App\Models\Action::find(95),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste décodeurs (recrutement)    "],
+            ["action" => \App\Models\Action::find(94),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider les recrutements (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(93),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter décodeur    "],
+            ["action" => \App\Models\Action::find(92),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider les recrutements (vente de décodeur)    "],
+            ["action" => \App\Models\Action::find(91),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Faire la migration de décodeur    "],
+            ["action" => \App\Models\Action::find(90),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Vendre décodeur    "],
+            ["action" => \App\Models\Action::find(89),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer le stock de décodeur pour un partenaire    "],
+            ["action" => \App\Models\Action::find(88),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter décodeur    "],
+            ["action" => \App\Models\Action::find(87),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider réabonnement    "],
+            ["action" => \App\Models\Action::find(86),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter renouvellement    "],
+            ["action" => \App\Models\Action::find(85),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Statistiques    "],
+            ["action" => \App\Models\Action::find(84),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer carte    "],
+            ["action" => \App\Models\Action::find(83),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Débiter une agence    "],
+            ["action" => \App\Models\Action::find(82),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une carte    "],
+            ["action" => \App\Models\Action::find(81),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer mon compte    "],
+            ["action" => \App\Models\Action::find(80),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des masters    "],
+            ["action" => \App\Models\Action::find(79),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter des masters    "],
+            ["action" => \App\Models\Action::find(78),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister des masters    "],
+            ["action" => \App\Models\Action::find(77),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Valider rechargement de carte    "],
+            ["action" => \App\Models\Action::find(76),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rechargements    "],
+            ["action" => \App\Models\Action::find(75),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter agent commercial    "],
+            ["action" => \App\Models\Action::find(74),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister des agents commerciaux    "],
+            ["action" => \App\Models\Action::find(73),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une carte    "],
+            ["action" => \App\Models\Action::find(72),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Créditer une agence    "],
+            ["action" => \App\Models\Action::find(71),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une agence    "],
+            ["action" => \App\Models\Action::find(70),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les cartes    "],
+            ["action" => \App\Models\Action::find(99),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Voir la liste des points de vente    "],
+            ["action" => \App\Models\Action::find(98),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter Point de Service, agence pour les distributeur    "],
+            ["action" => \App\Models\Action::find(97),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter distributeur    "],
+            ["action" => \App\Models\Action::find(96),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout de carte    "],
+            ["action" => \App\Models\Action::find(95),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: recharge de compte    "],
+            ["action" => \App\Models\Action::find(94),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Administration pour distributeur    "],
+            ["action" => \App\Models\Action::find(93),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Activation de carte    "],
+            ["action" => \App\Models\Action::find(92),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Administration    "],
+            ["action" => \App\Models\Action::find(91),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout de droit    "],
+            ["action" => \App\Models\Action::find(90),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer distributeur    "],
+            ["action" => \App\Models\Action::find(59),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Envoyer de message aux distributeur    "],
+            ["action" => \App\Models\Action::find(58),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Editer distribibuteur    "],
+            ["action" => \App\Models\Action::find(57),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Liste des distributeurs    "],
+            ["action" => \App\Models\Action::find(56),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.    "],
+            ["action" => \App\Models\Action::find(55),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajout d'utilisateur    "],
+            ["action" => \App\Models\Action::find(54),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Crediter un compte    "],
+            ["action" => \App\Models\Action::find(53),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Retirer un droit à un utilisateur    "],
+            ["action" => \App\Models\Action::find(52),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Affecter un droit    "],
+            ["action" => \App\Models\Action::find(51),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'une action    "],
+            ["action" => \App\Models\Action::find(50),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un action    "],
+            ["action" => \App\Models\Action::find(49),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un action    "],
+            ["action" => \App\Models\Action::find(48),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un action    "],
+            ["action" => \App\Models\Action::find(47),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les action    "],
+            ["action" => \App\Models\Action::find(46),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un rang    "],
+            ["action" => \App\Models\Action::find(45),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un rang    "],
+            ["action" => \App\Models\Action::find(44),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un rang    "],
+            ["action" => \App\Models\Action::find(43),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un rang    "],
+            ["action" => \App\Models\Action::find(42),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rangs    "],
+            ["action" => \App\Models\Action::find(41),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un profil    "],
+            ["action" => \App\Models\Action::find(40),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un profil    "],
+            ["action" => \App\Models\Action::find(39),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un profil    "],
+            ["action" => \App\Models\Action::find(38),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un profil    "],
+            ["action" => \App\Models\Action::find(37),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les profils    "],
+            ["action" => \App\Models\Action::find(36),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un right    "],
+            ["action" => \App\Models\Action::find(35),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un right    "],
+            ["action" => \App\Models\Action::find(34),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un right    "],
+            ["action" => \App\Models\Action::find(33),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un right    "],
+            ["action" => \App\Models\Action::find(32),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les rights    "],
+            ["action" => \App\Models\Action::find(31),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un user    "],
+            ["action" => \App\Models\Action::find(30),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un user    "],
+            ["action" => \App\Models\Action::find(19),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un user    "],
+            ["action" => \App\Models\Action::find(18),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les users    "],
+            ["action" => \App\Models\Action::find(17),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'une campagne    "],
+            ["action" => \App\Models\Action::find(16),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Initier une campagne    "],
+            ["action" => \App\Models\Action::find(15),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Stoper une campagne    "],
+            ["action" => \App\Models\Action::find(14),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer une campagne    "],
+            ["action" => \App\Models\Action::find(13),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour une campagne    "],
+            ["action" => \App\Models\Action::find(12),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter une campagne    "],
+            ["action" => \App\Models\Action::find(11),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les campagnes    "],
+            ["action" => \App\Models\Action::find(10),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un sms    "],
+            ["action" => \App\Models\Action::find(19),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un sms    "],
+            ["action" => \App\Models\Action::find(18),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un sms    "],
+            ["action" => \App\Models\Action::find(17),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un sms    "],
+            ["action" => \App\Models\Action::find(16),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les sms    "],
+            ["action" => \App\Models\Action::find(15),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un expeditor    "],
+            ["action" => \App\Models\Action::find(14),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un expeditor    "],
+            ["action" => \App\Models\Action::find(13),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un expeditor    "],
+            ["action" => \App\Models\Action::find(12),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un expeditor    "],
+            ["action" => \App\Models\Action::find(11),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les expeditors    "],
+            ["action" => \App\Models\Action::find(10),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un groupe de contact    "],
+            ["action" => \App\Models\Action::find(9),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(8),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(7),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un groupe de cintact    "],
+            ["action" => \App\Models\Action::find(9),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les groupe de cintact    "],
+            ["action" => \App\Models\Action::find(5),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Détail d'un contact    "],
+            ["action" => \App\Models\Action::find(4),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Supprimer un contact    "],
+            ["action" => \App\Models\Action::find(3),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Mettre à jour un contact    "],
+            ["action" => \App\Models\Action::find(1),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Ajouter un contact    "],
+            ["action" => \App\Models\Action::find(1),         "rang" => \App\Models\Rang::find(1),         "profil" => \App\Models\Profil::find(9),         "description" => "Droit: Lister les contacts "]
         ];
 
         foreach ($rights as $right) {
