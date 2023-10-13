@@ -168,10 +168,11 @@ class AGENT_HELPER extends BASE_HELPER
         $user = request()->user();
 
         if (Is_User_An_Agency($user->id)) {
-            $my_agents = [];
             $my_agency = Agency::where(["user_id" => $user->id, "visible" => 1])->get();
 
             if (count($my_agency) != 0) {
+                $my_agents = [];
+
                 $my_agency = $my_agency[0];
                 $my_agents = [];
 
@@ -184,7 +185,7 @@ class AGENT_HELPER extends BASE_HELPER
                 foreach ($all_my_poss as $all_my_pos) {
                     array_push($my_agents, $all_my_pos->agents);
                 }
-                return self::sendResponse($all_my_poss, 'Tout les Agents récupérés avec succès!!');
+                return self::sendResponse($my_agents, 'Tout les Agents récupérés avec succès!!');
             } else {
                 return self::sendError("L'agence associée à ce compte n'existe pas!", 404);
             }
