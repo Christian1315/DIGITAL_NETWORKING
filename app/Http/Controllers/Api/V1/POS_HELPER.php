@@ -84,7 +84,7 @@ class POS_HELPER extends BASE_HELPER
         foreach ($all_pos as $pos) {
             $agency = Agency::find($pos->agency_id);
             $user_agency = null;
-            
+
             if ($agency) {
                 $user_agency = User::find($agency->user_id);
             }
@@ -161,15 +161,16 @@ class POS_HELPER extends BASE_HELPER
 
     static function _AffectToAgency($formData)
     {
-        $pos = Pos::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['pos_id']);
-        $agency = Agency::where(['owner' => request()->user()->id, "visible" => 1])->find($formData['agency_id']);
-
-        if ($pos->affected) {
-            return  self::sendError("Ce Pos est déjà affecté à une agence!!", 404);
-        }
+        $user = request()->user();
+        $pos = Pos::where(['owner' => $user->id, "visible" => 1])->find($formData['pos_id']);
+        $agency = Agency::where(['owner' => $user->id, "visible" => 1])->find($formData['agency_id']);
 
         if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
+        }
+
+        if ($pos->affected) {
+            return  self::sendError("Ce Pos est déjà affecté à une agence!!", 404);
         }
 
         if (!$agency) {
