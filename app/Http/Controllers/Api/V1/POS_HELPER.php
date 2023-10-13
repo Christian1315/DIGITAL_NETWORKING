@@ -130,7 +130,6 @@ class POS_HELPER extends BASE_HELPER
         return self::sendResponse($pos, "Pos récupéré avec succès:!!");
     }
 
-
     static function _updatePos($request, $id)
     {
         $formData = $request->all();
