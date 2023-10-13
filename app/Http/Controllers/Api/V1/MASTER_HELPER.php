@@ -197,21 +197,21 @@ class MASTER_HELPER extends BASE_HELPER
             return self::sendError("Ce master ne vous appartient pas!", 404);
         };
 
-        if ($request->get("phone")) {
-            $phone = User::where('phone', $formData['phone'])->get();
+        // if ($request->get("phone")) {
+        //     $phone = User::where('phone', $formData['phone'])->get();
 
-            if (!count($phone) == 0) {
-                return self::sendError("Ce phone existe déjà!!", 404);
-            }
-        }
+        //     if (!count($phone) == 0) {
+        //         return self::sendError("Ce phone existe déjà!!", 404);
+        //     }
+        // }
 
-        if ($request->get("email")) {
-            $email = User::where('email', $formData['email'])->get();
+        // if ($request->get("email")) {
+        //     $email = User::where('email', $formData['email'])->get();
 
-            if (!count($email) == 0) {
-                return self::sendError("Ce email existe déjà!!", 404);
-            }
-        }
+        //     if (!count($email) == 0) {
+        //         return self::sendError("Ce email existe déjà!!", 404);
+        //     }
+        // }
 
         #####TRAITEMENT DES DATAS AVANT UPDATE ######
         if ($request->get("type_piece")) {
