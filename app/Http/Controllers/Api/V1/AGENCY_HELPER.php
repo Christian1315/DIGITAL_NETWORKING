@@ -104,7 +104,6 @@ class AGENCY_HELPER extends BASE_HELPER
             return self::sendError("Un compte existe déjà au nom de ce mail!!", 404);
         }
 
-
         $userData = [
             "username" => $number,
             "phone" => $formData['phone'],
@@ -227,9 +226,13 @@ class AGENCY_HELPER extends BASE_HELPER
 
     static function allAgencys()
     {
-        $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(['owner' => request()->user()->id, "visible" => 1])->get();
+        $user = request()->user();
+        if ($user->is_admin) {
+            $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(["visible" => 1])->get();
+        } else {
+            $Agencys =  Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(['owner' => $user->id, "visible" => 1])->get();
+        }
 
-        // return $Agencys;
         foreach ($Agencys as $agency) {
             $agent_dad_id =  $agency->agent_dad;
             $agent_dad = Agent_Dad($agent_dad_id);
