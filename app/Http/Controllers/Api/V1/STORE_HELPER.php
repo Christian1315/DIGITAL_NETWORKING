@@ -50,24 +50,46 @@ class STORE_HELPER extends BASE_HELPER
 
     static function storeAffected()
     {
-        $storeAffected = [];
+        // $storeAffected = [];
+        // $curent_user = request()->user();
+
+        // $all_store = Store::with(["owner", "agent", "agency", "pos", "supplies", "stocks"])->get();
+        // foreach ($all_store as $store) {
+        //     $agency = Agency::find($store->agency_id);
+        //     $user_agency = null;
+        //     if ($agency) {
+        //         $user_agency = User::find($agency->user_id);
+        //     }
+
+        //     if ($user_agency) {
+        //         if ($user_agency->id == $curent_user->id) {
+        //             array_push($storeAffected, $store);
+        //         }
+        //     }
+        // }
+
         $curent_user = request()->user();
 
-        $all_store = Store::with(["owner", "agent", "agency", "pos", "supplies", "stocks"])->get();
-        foreach ($all_store as $store) {
-            $agency = Agency::find($store->agency_id);
-            $user_agency = null;
-            if ($agency) {
-                $user_agency = User::find($agency->user_id);
-            }
+        $my_agency = Agency::where(["user_id" => $curent_user->id, "visible" => 1])->get();
+        $my_stores = [];
+        if (count($my_agency) != 0) {
 
-            if ($user_agency) {
-                if ($user_agency->id == $curent_user->id) {
-                    array_push($storeAffected, $store);
+            $my_agency = $my_agency[0];
+
+            ##___GET DES STORES EXISTANT DANS MES POS
+            $all_my_poss = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(["agency_id" => $my_agency->id])->get();
+            ###___je parcoure les pos et je les recupere
+            foreach ($all_my_poss as $all_my_pos) {
+                ###___je parcoure les stores des pos et je les recupere
+                foreach ($all_my_pos->stores as $posStore) {
+                    $pos_store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->find($posStore->id);
+                    if ($pos_store) {
+                        array_push($my_stores, $pos_store);
+                    }
                 }
             }
         }
-        return self::sendResponse($storeAffected, "Liste de mes stores affectes");
+        return self::sendResponse($my_stores, "Liste de mes stores affectes");
     }
 
     static function allStores()
