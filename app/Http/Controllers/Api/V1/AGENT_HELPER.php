@@ -176,7 +176,7 @@ class AGENT_HELPER extends BASE_HELPER
                 $my_agents = [];
 
                 ##___GET DU AGENT_DAD
-                $agent_dad = Agent::where(["agent_dad"])->first();
+                $agent_dad = Agent::find($my_agency->agent_dad);
                 array_push($my_agents, $agent_dad);
 
                 ##___GET DES AUTRES AGENTS EXISTANT DANS MES POS
