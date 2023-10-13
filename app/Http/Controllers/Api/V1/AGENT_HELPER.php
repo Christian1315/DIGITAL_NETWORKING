@@ -182,7 +182,7 @@ class AGENT_HELPER extends BASE_HELPER
                 ##___GET DES AUTRES AGENTS EXISTANT DANS MES POS
                 $all_my_poss = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(["agency_id" => $my_agency->id])->get();
                 foreach ($all_my_poss as $all_my_pos) {
-                    array_push($my_agents, $all_my_pos);
+                    array_push($my_agents, $all_my_pos->agents);
                 }
                 return self::sendResponse($all_my_poss, 'Tout les Agents récupérés avec succès!!');
             } else {
