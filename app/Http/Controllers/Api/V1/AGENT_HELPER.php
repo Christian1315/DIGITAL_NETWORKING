@@ -177,7 +177,7 @@ class AGENT_HELPER extends BASE_HELPER
                 $my_agents = [];
 
                 ##___GET DU AGENT_DAD
-                $agent_dad = Agent::find($my_agency->agent_dad);
+                $agent_dad = Agent::with(["master", "owner", "agency", "pos", "stores"])->find($my_agency->agent_dad);
                 array_push($my_agents, $agent_dad);
 
                 ##___GET DES AUTRES AGENTS EXISTANT DANS MES POS
@@ -186,7 +186,10 @@ class AGENT_HELPER extends BASE_HELPER
                 foreach ($all_my_poss as $all_my_pos) {
                     ###___je parcoure les agents des pos et je les recupere
                     foreach ($all_my_pos->agents as $posAgent) {
-                        array_push($my_agents, $posAgent);
+                        $pos_agent = Agent::with(["master", "owner", "agency", "pos", "stores"])->find($posAgent);
+                        if ($pos_agent) {
+                            array_push($my_agents, $pos_agent);
+                        }
                     }
                 }
                 return self::sendResponse($my_agents, 'Tout les Agents récupérés avec succès!!');
