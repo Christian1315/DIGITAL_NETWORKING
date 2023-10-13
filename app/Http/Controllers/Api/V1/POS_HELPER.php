@@ -120,10 +120,7 @@ class POS_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->find($id);
-        // if ($user->is_admin) {
-        // } else {
-        //     $pos = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
-        // }
+        
         if (!$pos) {
             return self::sendError("Ce Pos n'existe pas", 404);
         }

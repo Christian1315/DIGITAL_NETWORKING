@@ -165,46 +165,36 @@ class MASTER_HELPER extends BASE_HELPER
 
     static function allMasters()
     {
-        $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => request()->user()->id, 'visible' => 1])->orderBy("id", "desc")->get();
-
+        $user = request()->user();
+        if ($user->is_admin) {
+            $masters =  Master::with(["agents", "parent", "poss"])->where(['visible' => 1])->orderBy("id", "desc")->get();
+        } else {
+            $masters =  Master::with(["agents", "parent", "poss"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+        }
         return self::sendResponse($masters, 'Tout les masters récupérés avec succès!!');
     }
 
     static function _retrieveMaster($id)
     {
-        $Master = Master::with(["agents", "parent", "poss"])->where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if ($Master->count() == 0) {
-            return self::sendResponse($Master, "Master recupere avec succès!!");
+        $Master = Master::with(["agents", "parent", "poss", "piece"])->where(['visible' => 1])->find($id);
+        if (!$Master) {
+            return self::sendError("Master n'existe pas!!", 404);
         }
-
-        $master = $Master[0];
-        $user = $master->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
-        $rang = $user->rang;
-        $profil = $user->profil;
-
-        #renvoie des droits du user 
-        $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
-
-        if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
-            $master['rights'] = User_Rights($rang->id, $profil->id);
-        } else {
-            $master['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
-        }
-
-        $parent = request()->user();
-        $piece = Piece::find($Master[0]->type_piece);
-        $Master['parent'] = $parent;
-        $Master['piece'] = $piece;
-
-        return self::sendResponse($master, "Master récupéré avec succès:!!");
+        return self::sendResponse($Master, "Master récupéré avec succès:!!");
     }
 
     static function _updateMaster($request, $id)
     {
+        $user = request()->user();
         $formData = $request->all();
-        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if (count($Master) == 0) {
+
+        $Master = Master::where(['visible' => 1])->find($id);
+        if (!$Master) {
             return self::sendError("Ce Master n'existe pas!", 404);
+        };
+
+        if ($Master->owner != $user->id) {
+            return self::sendError("Ce master ne vous appartient pas!", 404);
         };
 
         if ($request->get("phone")) {
@@ -255,19 +245,22 @@ class MASTER_HELPER extends BASE_HELPER
             $formData["rccm_file"] = asset("pieces/" . $rccm_name);
         }
 
-        $Master = Master::find($id);
         $Master->update($formData);
         return self::sendResponse($Master, 'Ce Master a été modifié avec succès!');
     }
 
     static function masterDelete($id)
     {
-        $Master = Master::where(['id' => $id, 'owner' => request()->user()->id, 'visible' => 1])->get();
-        if (count($Master) == 0) {
+        $user = request()->user();
+        $Master = Master::where(['visible' => 1])->find($id);
+        if (!$Master) {
             return self::sendError("Ce Master n'existe pas!", 404);
         };
 
-        $Master = Master::find($id);
+        if ($Master->owner != $user->id) {
+            return self::sendError("Ce master ne vous appartient pas!", 404);
+        };
+
         $Master->delete_at = now();
         $Master->visible = false;
         $Master->save();

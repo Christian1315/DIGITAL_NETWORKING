@@ -91,7 +91,7 @@ class STORE_HELPER extends BASE_HELPER
             $agent = Agent::where(["user_id" => $user->id])->get();
             if (count($agent) == 0) {
                 return self::sendError("L'agent auquel vous etes associé n'existe plus!", 505);
-            } 
+            }
             $agent = $agent[0];
             $stores = Store::where(["agent_id" => $agent->id])->get();
         }
@@ -109,22 +109,34 @@ class STORE_HELPER extends BASE_HELPER
 
     static function _updateStore($formData, $id)
     {
-        $store = Store::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
-        if (count($store) == 0) {
+        $user = request()->user();
+
+        $store = Store::where(["visible" => 1])->find($id);
+        if (!$store) {
             return self::sendError("Ce Store n'existe pas!", 404);
         };
-        $store = Store::find($id);
+
+        if ($store->owner != $user->id) {
+            return self::sendError("Ce store ne vous appartient pas!", 404);
+        };
+
         $store->update($formData);
         return self::sendResponse($store, 'Ce Store a été modifié avec succès!');
     }
 
     static function storeDelete($id)
     {
-        $store = Store::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
-        if (count($store) == 0) {
+        $user = request()->user();
+
+        $store = Store::where(["visible" => 1])->find($id);
+        if (!$store) {
             return self::sendError("Ce Store n'existe pas!", 404);
         };
-        $store = Store::find($id);
+
+        if ($store->owner != $user->id) {
+            return self::sendError("Ce store ne vous appartient pas!", 404);
+        };
+
         $store->visible = 0;
         $store->delete_at = now();
 
@@ -134,18 +146,25 @@ class STORE_HELPER extends BASE_HELPER
 
     static function _AffectToPos($formData)
     {
-        $store = Store::where(['owner' => request()->user()->id, 'id' => $formData['store_id'], "visible" => 1])->get();
-        $pos = Pos::where(['owner' => request()->user()->id, 'id' => $formData['pos_id'], "visible" => 1])->get();
+        $user = request()->user();
 
-        if ($store->count() == 0) {
+        $store = Store::where(["visible" => 1])->find($formData['store_id']);
+        $pos = Pos::where(["visible" => 1])->find($formData['pos_id']);
+
+        if (!$store) {
             return  self::sendError("Ce Store n'existe pas!!", 404);
         }
-
-        if ($pos->count() == 0) {
+        if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
         }
 
-        $store = Store::find($formData["store_id"]);
+        if ($store->owner != $user->id) {
+            return self::sendError("Ce store ne vous appartient pas!", 404);
+        };
+        if ($pos->owner != $user->id) {
+            return self::sendError("Ce pos ne vous appartient pas!", 404);
+        };
+
         $store->pos_id = $formData["pos_id"];
         $store->affected = true;
         $store->save();
@@ -155,19 +174,25 @@ class STORE_HELPER extends BASE_HELPER
     static function _AffectToAgent($formData)
     {
 
-        // return $formData;
-        $store = Store::where(['owner' => request()->user()->id, 'id' => $formData['store_id'], "visible" => 1])->get();
-        $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
+        $user = request()->user();
 
-        if ($store->count() == 0) {
+        $store = Store::where(["visible" => 1])->find($formData['store_id']);
+        $agent = Agent::where(["visible" => 1])->find($formData['agent_id']);
+
+        if (!$store) {
             return  self::sendError("Ce Store n'existe pas!!", 404);
         }
-
-        if ($agent->count() == 0) {
+        if (!$agent) {
             return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        $store = Store::find($formData["store_id"]);
+        if ($store->owner != $user->id) {
+            return self::sendError("Ce store ne vous appartient pas!", 404);
+        };
+        if ($agent->owner != $user->id) {
+            return self::sendError("Ce agent ne vous appartient pas!", 404);
+        };
+
         $store->agent_id = $formData["agent_id"];
         $store->affected = true;
         $store->save();
@@ -177,18 +202,19 @@ class STORE_HELPER extends BASE_HELPER
     static function _AffectToAgency($formData)
     {
 
-        $store = Store::where(['owner' => request()->user()->id, 'id' => $formData['store_id'], "visible" => 1])->get();
-        $agency = Agency::where(['owner' => request()->user()->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
+        $user = request()->user();
 
-        if ($store->count() == 0) {
+        $store = Store::where(["visible" => 1])->find($formData['store_id']);
+        $agency = Agency::where(["visible" => 1])->find($formData['agency_id']);
+
+        if (!$store) {
             return  self::sendError("Ce Store n'existe pas!!", 404);
         }
 
-        if ($agency->count() == 0) {
-            return  self::sendError("Cette Agence n'existe pas!!", 404);
+        if (!$agency) {
+            return  self::sendError("Cette Agence ne vous appartient pas!!", 404);
         }
 
-        $store = Store::find($formData["store_id"]);
         $store->agency_id = $formData["agency_id"];
         $store->affected = true;
         $store->save();

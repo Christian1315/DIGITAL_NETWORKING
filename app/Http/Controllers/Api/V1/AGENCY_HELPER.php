@@ -244,40 +244,23 @@ class AGENCY_HELPER extends BASE_HELPER
     static function _retrieveAgency($id)
     {
         $user = request()->user();
-        $agency = Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->where(['owner' => $user->id])->find($id);
+        $agency = Agency::with(["master", "owner", "agents", "poss", "stores", "sold"])->find($id);
         if (!$agency) {
             return self::sendError("Agences recupere avec succès!!", 505);
         }
-
-        // $user = $agency->user; #RECUPERATION DU MASTER EN TANT QU'UN USER
-        // $rang = $user->rang;
-        // $profil = $user->profil;
-
-        // $agent_dad_id =  $agency->agent_dad;
-        // $agent_dad = Agent_Dad($agent_dad_id);
-
-        // $agency["agent_dad"] = $agent_dad;
-
-        // #renvoie des droits du user 
-        // $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
-
-        // if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
-        //     $agency['rights'] = User_Rights($rang->id, $profil->id);
-        // } else {
-        //     $agency['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
-        // }
-
-        // $piece = Piece::find($agency->type_piece);
-        // $agency['piece'] = $piece;
         return self::sendResponse($agency, "Agence récupéré avec succès:!!");
     }
 
     static function _updateAgency($request, $id)
     {
         $user = request()->user();
-        $AGENCY = Agency::with(['master', "owner", "agents"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        $AGENCY = Agency::with(['master', "owner", "agents"])->where(["visible" => 1])->find($id);
         if (!$AGENCY) {
             return self::sendError("Cette agence n'existe pas!", 404);
+        };
+
+        if ($AGENCY->owner != $user->id) {
+            return self::sendError("Cette agence ne vous appartient pas!", 404);
         };
 
         $formData = $request->all();
@@ -357,9 +340,13 @@ class AGENCY_HELPER extends BASE_HELPER
     static function AgencyDelete($id)
     {
         $user = request()->user();
-        $Agence = Agency::where(['owner' => $user->id, 'visible' => true])->find($id);
+        $Agence = Agency::where(['visible' => true])->find($id);
         if (!$Agence) {
             return self::sendError("Cette Agence n'existe pas!", 404);
+        };
+
+        if ($Agence->owner != $user->id) {
+            return self::sendError("Cette agence ne vous appartient pas!", 404);
         };
 
         $Agence->delete_at = now();

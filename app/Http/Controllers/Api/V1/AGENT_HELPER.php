@@ -207,7 +207,7 @@ class AGENT_HELPER extends BASE_HELPER
     static function _retrieveAgent($id)
     {
         $user = request()->user();
-        $agent = Agent::with(['master', "owner", "pos", "stores"])->where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $agent = Agent::with(['master', "owner", "pos", "stores"])->where(['visible' => 1])->find($id);
         if (!$agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
         }
@@ -233,9 +233,13 @@ class AGENT_HELPER extends BASE_HELPER
         $formData = $request->all();
         $user = request()->user();
 
-        $Agent = Agent::with(['master', "owner"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        $Agent = Agent::with(['master', "owner"])->where(["visible" => 1])->find($id);
         if (!$Agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
+        };
+
+        if ($Agent->owner != $user->id) {
+            return self::sendError("Cet agent ne vous appartient pas!", 404);
         };
 
         #####TRAITEMENT DES DATAS AVANT UPDATE ######
@@ -253,9 +257,13 @@ class AGENT_HELPER extends BASE_HELPER
     static function AgentDelete($id)
     {
         $user = request()->user();
-        $Agent = Agent::where(['owner' => $user->id, 'visible' => true])->find($id);
+        $Agent = Agent::where(['visible' => true])->find($id);
         if (!$Agent) {
             return self::sendError("Ce Agent n'existe pas!", 404);
+        };
+
+        if ($Agent->owner != $user->id) {
+            return self::sendError("Ce agent ne vous appartient pas!", 404);
         };
 
         $Agent->delete_at = now();
@@ -266,8 +274,9 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _AffectToAgency($formData)
     {
-        $agent = Agent::where(['owner' => request()->user()->id, 'id' => $formData['agent_id'], "visible" => 1])->get();
-        $agency = Agency::where(['owner' => request()->user()->id, 'id' => $formData['agency_id'], "visible" => 1])->get();
+        $user = request()->user();
+        $agent = Agent::where(['id' => $formData['agent_id'], "visible" => 1])->get();
+        $agency = Agency::where(['id' => $formData['agency_id'], "visible" => 1])->get();
 
         if ($agent->count() == 0) {
             return  self::sendError("Ce Agent n'existe pas!!", 404);
@@ -277,8 +286,16 @@ class AGENT_HELPER extends BASE_HELPER
             return  self::sendError("Cette Agence n'existe pas!!", 404);
         }
 
-        $agent = Agent::find($formData["agent_id"]);
-        // return $agent;
+        $agent = $agent[0];
+        $agency = $agency[0];
+
+        if ($agent->owner != $user->id) {
+            return self::sendError("Cet agent ne vous appartient pas!", 404);
+        };
+        if ($agency->owner != $user->id) {
+            return self::sendError("Cette agence ne vous appartient pas!", 404);
+        };
+
         $agent->agency_id = $formData["agency_id"];
         $agent->affected = true;
 
@@ -289,13 +306,16 @@ class AGENT_HELPER extends BASE_HELPER
 
     static function _AffectToPos($formData)
     {
-        // return $formData;
         $user = request()->user();
-        $agent = Agent::where(['owner' => $user->id, "visible" => 1])->find($formData['agent_id']);
+        $agent = Agent::where(["visible" => 1])->find($formData['agent_id']);
 
         if (!$agent) {
             return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
+
+        if ($agent->owner != $user->id) {
+            return self::sendError("Cet agent ne vous appartient pas!", 404);
+        };
 
         if ($agent->pos_id) {
             return self::sendError("Ce agent est déjà affecté à un pos", 505);
