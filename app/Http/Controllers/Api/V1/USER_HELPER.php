@@ -110,7 +110,7 @@ class USER_HELPER extends BASE_HELPER
                 $user = Auth::user();
                 // return $user->email;
                 $token = $user->createToken('MyToken', ['api-access'])->accessToken;
-                $user["sessions"] = $user->sessions;
+                $user["session_active"] = Do_I_HAVE_AN_ACTIVE_SESSION($user->id);
                 $user['rang'] = $user->rang;
                 $user['profil'] = $user->profil;
                 $user['rights'] = $user->rights;
@@ -154,7 +154,7 @@ class USER_HELPER extends BASE_HELPER
                     if (Auth::attempt($credentials)) { #SI LE USER EST AUTHENTIFIE
                         $user = Auth::user();
                         $token = $user->createToken('MyToken', ['api-access'])->accessToken;
-                        $user["sessions"] = $user->sessions;
+                        $user["session_active"] = Do_I_HAVE_AN_ACTIVE_SESSION($user->id);
                         $user['rang'] = $user->rang;
                         $user['profil'] = $user->profil;
                         $user['rights'] = $user->rights;

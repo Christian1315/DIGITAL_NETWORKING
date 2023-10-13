@@ -383,3 +383,13 @@ function GetSession($user_id)
     }
     return null;
 }
+
+
+function Do_I_HAVE_AN_ACTIVE_SESSION($user_id)
+{
+    $session = UserSession::where(["user" => $user_id, "active" => 1])->first();
+    if (!$session) {
+        return false;
+    }
+    return true;
+}

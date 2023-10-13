@@ -196,7 +196,7 @@ class AGENT_HELPER extends BASE_HELPER
             } else {
                 return self::sendError("L'agence associée à ce compte n'existe pas!", 404);
             }
-        } elseif ($user->admin) {
+        } elseif ($user->is_admin) {
             $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['visible' => 1])->orderBy("id", "desc")->get();
         } else {
             $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(["owner" => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();

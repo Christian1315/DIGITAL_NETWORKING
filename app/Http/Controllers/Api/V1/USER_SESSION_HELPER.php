@@ -121,22 +121,25 @@ class USER_SESSION_HELPER extends BASE_HELPER
 
     static function sessionDeconnexion($request)
     {
-        if (!$request->session_ip) {
-            return self::sendError("Le champ session_ip est réquis!", 404);
+        $user =  request()->user();
+        $session = GetSession($user->id);
+        if (!$session) {
+            return self::sendError("Session non active, ou inexistante", 404);
         }
-        $userId =  $request->user()->id;
-        $user_session = UserSession::where(["user" => $userId, "ip" => $request->session_ip])->get();
-        if (count($user_session) == 0) {
-            return self::sendError("Cette Session n'existe pas!", 404);
-        };
-        $user_session = $user_session[0];
+        // if (!$request->session_ip) {
+        //     return self::sendError("Le champ session_ip est réquis!", 404);
+        // }
+        // $user_session = UserSession::where(["user" => $user->id, "ip" => $request->session_ip])->get();
+        // if (count($user_session) == 0) {
+        //     return self::sendError("Cette Session n'existe pas!", 404);
+        // };
 
-        if (!$user_session->active) {
-            return self::sendError("Cette session est déjà deconnectée!", 505);
-        }
-        $user_session->active = 0;
-        $user_session->save();
-        return self::sendResponse($user_session, 'Déconnexion éffectuée avec succès!');
+        // if (!$session->active) {
+        //     return self::sendError("Cette session est déjà deconnectée!", 505);
+        // }
+        $session->active = 0;
+        $session->save();
+        return self::sendResponse($session, 'Déconnexion éffectuée avec succès!');
     }
 
     static function sessionLogin($request)
