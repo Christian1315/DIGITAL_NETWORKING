@@ -217,7 +217,7 @@ class SOLD_HELPER extends BASE_HELPER
         if (!$pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         }
-
+        
         if ($pos->agency_id != $user_agency->id) {
             return self::sendError("Ce pos ne vous appartient pas! Vous ne pouvez donc pas créditer son solde!", 404);
         }
