@@ -53,7 +53,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         // $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product_category =  StoreCategory::with(['owner'])->where(["owner" => $user->id, "visible" => 1],)->orderBy('id', 'desc')->get();
+        $product_category =  StoreCategory::with(['owner'])->where(["visible" => 1],)->orderBy('id', 'desc')->get();
         return self::sendResponse($product_category, 'Toute les categories de produits récupérés avec succès!!');
     }
 
@@ -61,7 +61,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         // $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product_category = StoreCategory::with(['owner'])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        $product_category = StoreCategory::with(['owner'])->where(["visible" => 1])->find($id);
         if (!$product_category) {
             return self::sendError("Cette categorie de produit n'existe pas!", 404);
         }
@@ -72,9 +72,13 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         // $session = GetSession($user->id); #LA SESSION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product_category = StoreCategory::where(["owner" => $user->id, "visible" => 1])->find($id);
+        $product_category = StoreCategory::where(["visible" => 1])->find($id);
         if (!$product_category) {
-            return self::sendError("Ce product_category n'existe pas!", 404);
+            return self::sendError("Cette categorie de produit n'existe pas!", 404);
+        };
+
+        if ($product_category->owner != $user->id) {
+            return self::sendError("Cette categorie de produit ne vous appartient pas!", 404);
         };
         $product_category->update($formData);
         return self::sendResponse($product_category, 'Cette Catégorie de produit a été modifié avec succès!');
@@ -84,10 +88,14 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         // $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product_category = StoreCategory::where(["owner" => $user->id, "visible" => 1])->find($id);
+        $product_category = StoreCategory::where(["visible" => 1])->find($id);
 
         if (!$product_category) {
             return self::sendError("Cette Catégorie de produit n'existe pas!", 404);
+        };
+
+        if ($product_category->owner != $user->id) {
+            return self::sendError("Cette categorie de produit ne vous appartient pas!", 404);
         };
 
         $product_category->visible = 0;
