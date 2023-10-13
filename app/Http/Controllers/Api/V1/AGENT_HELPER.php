@@ -163,7 +163,7 @@ class AGENT_HELPER extends BASE_HELPER
         return self::sendResponse($Agent, 'Agent crée avec succès!!');
     }
 
-    static function allAgents()
+    static function allAgents($inner_call = false)
     {
         $user = request()->user();
 
@@ -191,6 +191,10 @@ class AGENT_HELPER extends BASE_HELPER
                             array_push($my_agents, $pos_agent);
                         }
                     }
+                }
+
+                if ($inner_call) {
+                    return $my_agents;
                 }
                 return self::sendResponse($my_agents, 'Tout les Agents récupérés avec succès!!');
             } else {

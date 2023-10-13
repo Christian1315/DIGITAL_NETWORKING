@@ -55,7 +55,6 @@ class StoreProduitController extends PRODUCT_HELPER
 
     function CreateProduct(Request $request)
     {
-
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR PRODUCT_HELPER
