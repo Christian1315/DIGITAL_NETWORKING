@@ -166,7 +166,7 @@ class AGENT_HELPER extends BASE_HELPER
     static function allAgents()
     {
         $user = request()->user();
-        $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+        $Agents =  Agent::with(["master", "owner", "agency", "pos", "stores"])->where(['visible' => 1])->orderBy("id", "desc")->get();
         return self::sendResponse($Agents, 'Tout les Agents récupérés avec succès!!');
     }
 
