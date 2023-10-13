@@ -27,7 +27,7 @@ class UserSessionController extends USER_SESSION_HELPER
     function SessionLogout(Request $request)
     {
         #VERIFICATION DE LA METHOD
-        if ($this->methodValidation($request->method(), "POST") == False) {
+        if ($this->methodValidation($request->method(), "GET") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
