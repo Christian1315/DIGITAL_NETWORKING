@@ -127,8 +127,12 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function allProduct()
     {
         $user = request()->user();
+        if ($user->is_admin) {
+            $product =  StoreProduit::with(['owner', "store", "session", "category"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+        } else {
+            $product =  StoreProduit::with(['owner', "store", "session", "category"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        }
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product =  StoreProduit::with(['owner', "store", "session", "category"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');
     }
 
@@ -136,8 +140,8 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session", "category"])->where(["id" => $id, "owner" => request()->user()->id])->get();
-        if ($product->count() == 0) {
+        $product = StoreProduit::with(['owner', "store", "session", "category"])->find($id);
+        if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
         return self::sendResponse($product, "Produit récupéré avec succès:!!");
@@ -149,10 +153,14 @@ class PRODUCT_HELPER extends BASE_HELPER
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
 
         $formData = $request->all();
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
-        if (count($product) == 0) {
+        $product = StoreProduit::where(["visible" => 1])->find($id);
+        if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         };
+
+        if ($product->owner != $user->id) {
+            return self::sendError("Ce Product ne vous appartient pas!", 404);
+        }
 
         // return $request->file("img");
         if ($request->file("img")) {
@@ -164,8 +172,7 @@ class PRODUCT_HELPER extends BASE_HELPER
             //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE 
             $formData["img"] = asset("products/" . $img_name);
         }
-        // return $formData["img"];
-        $product = StoreProduit::find($id);
+
         $product->update($formData);
         $product->img = $formData["img"];
         $product->save();
@@ -177,11 +184,15 @@ class PRODUCT_HELPER extends BASE_HELPER
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
 
-        $product = StoreProduit::where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
-        if (count($product) == 0) {
+        $product = StoreProduit::where(["visible" => 1])->find($id);
+        if (!$product) {
             return self::sendError("Ce Produit n'existe pas!", 404);
         };
-        $product = StoreProduit::find($id);
+
+        if ($product->owner != $user->id) {
+            return self::sendError("Ce Product ne vous appartient pas!", 404);
+        }
+
         $product->visible = 0;
         $product->delete_at = now();
         $product->save();
@@ -190,21 +201,29 @@ class PRODUCT_HELPER extends BASE_HELPER
 
     static function supplyProduct($request)
     {
+
+        $user = request()->user();
         $product_id = $request->get("product_id");
         $supply_id = $request->get("supply_id");
 
-        $product = StoreProduit::where(["id" => $product_id, "owner" => request()->user()->id, "visible" => 1]);
-        $supply = StoreSupply::where(["id" => $supply_id, "owner" => request()->user()->id, "visible" => 1]);
+        $product = StoreProduit::where(["visible" => 1])->find($product_id);
+        $supply = StoreSupply::where(["visible" => 1])->find($supply_id);
 
-        if ($product->count() == 0) {
+        if (!$product) {
             return self::sendError("Ce produit n'existe pas", 404);
         }
 
-        if ($supply->count() == 0) {
+        if ($product->owner != $user->id) {
+            return self::sendError("Ce Product ne vous appartient pas!", 404);
+        }
+
+        if (!$supply) {
             return self::sendError("Ce approvisionnement n'existe pas", 404);
         }
 
-        $product = $product[0]; #Retrieve du produit
+        if ($product->owner != $user->id) {
+            return self::sendError("Ce approvisionnement ne vous appartient pas!", 404);
+        }
 
         if ($product->product_type = 2) { #Le produit n'est pas stockable
             return self::sendError("Ce produit n'est pas Stockable", 404);
