@@ -186,7 +186,7 @@ class AGENT_HELPER extends BASE_HELPER
                 foreach ($all_my_poss as $all_my_pos) {
                     ###___je parcoure les agents des pos et je les recupere
                     foreach ($all_my_pos->agents as $posAgent) {
-                        $pos_agent = Agent::with(["master", "owner", "agency", "pos", "stores"])->find($posAgent);
+                        $pos_agent = Agent::with(["master", "owner", "agency", "pos", "stores"])->find($posAgent->id);
                         if ($pos_agent) {
                             array_push($my_agents, $pos_agent);
                         }
