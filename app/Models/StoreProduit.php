@@ -40,7 +40,7 @@ class StoreProduit extends Model
         return $this->belongsTo(StoreCategory::class, "category");
     }
 
-    function type(): BelongsTo
+    function product_type(): BelongsTo
     {
         return $this->belongsTo(ProductType::class, "product_type");
     }
