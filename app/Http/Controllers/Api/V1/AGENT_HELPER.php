@@ -371,6 +371,13 @@ class AGENT_HELPER extends BASE_HELPER
             return self::sendError("Ce Pos n'existe pas!", 404);
         }
 
+        // if ($pos->owner != $user->id) {
+        //     return self::sendError("Ce pos ne vous appartient pas!", 404);
+        // };
+        // if ($pos->owner != $user->id) {
+        //     return self::sendError("Ce pos ne vous appartient pas!", 404);
+        // };
+
         $current_agent = Agent::where(["user_id" => $user->id])->get();
         $current_agent = $current_agent[0];
 
