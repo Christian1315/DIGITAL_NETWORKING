@@ -136,9 +136,13 @@ class POS_HELPER extends BASE_HELPER
         $formData = $request->all();
         $user = request()->user();
 
-        $Pos = Pos::where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $Pos = Pos::where(['visible' => 1])->find($id);
         if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
+        };
+
+        if ($Pos->owner != $user->id) {
+            return self::sendError("Ce Pos ne vous appartient pas!", 404);
         };
 
         $Pos->update($formData);
@@ -148,10 +152,14 @@ class POS_HELPER extends BASE_HELPER
     static function posDelete($id)
     {
         $user = request()->user();
-        $Pos = Pos::where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $Pos = Pos::where(['visible' => 1])->find($id);
         if (!$Pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         };
+
+        if ($Pos->owner != $user->id) {
+            return self::sendError("Ce pos ne vous appartient pas!", 404);
+        }
 
         $Pos->delete_at = now();
         $Pos->visible = 0;
@@ -162,11 +170,15 @@ class POS_HELPER extends BASE_HELPER
     static function _AffectToAgency($formData)
     {
         $user = request()->user();
-        $pos = Pos::where(['owner' => $user->id, "visible" => 1])->find($formData['pos_id']);
-        $agency = Agency::where(['owner' => $user->id, "visible" => 1])->find($formData['agency_id']);
+        $pos = Pos::where(["visible" => 1])->find($formData['pos_id']);
+        $agency = Agency::where(["visible" => 1])->find($formData['agency_id']);
 
         if (!$pos) {
             return  self::sendError("Ce Pos n'existe pas!!", 404);
+        }
+
+        if ($pos->owner != $user->id) {
+            return self::sendError("Ce pos ne vous appartient pas!", 404);
         }
 
         if ($pos->affected) {
@@ -175,6 +187,10 @@ class POS_HELPER extends BASE_HELPER
 
         if (!$agency) {
             return  self::sendError("Cette Agence n'existe pas!!", 404);
+        }
+
+        if ($agency->owner != $user->id) {
+            return self::sendError("Cette agence ne vous appartient pas!", 404);
         }
         // return $pos;
         $pos->agency_id = $formData["agency_id"];
