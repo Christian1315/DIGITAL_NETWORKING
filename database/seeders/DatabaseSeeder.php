@@ -1144,7 +1144,7 @@ class DatabaseSeeder extends Seeder
                 'username' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => '$2y$10$CI5P59ICr/HOihqlnYUrLeKwCajgMKd34HB66.JsJBrIOQY9fazrG', #admin
-                ##$2y$10$zudZOjzoVES/IgmL2mwk3.ZnSpZeH2lIDx8HvjXz4tftB2kDYbQO6 _____kevine14________~######PASSwORD DE KEVINE
+                ##$2y$10$zudZOjzoVES/IgmL2mwk3.ZnSpZeH2lIDx8HvjXz4tftB2kDYbQO6 _____kevine14________~######PASSwORD DE KEVINE. ___hountonpanchy75@gmail.com ______ mail kevine
                 ## lagraceparle98@gmail.com _______mail de abdias____
                 'pass_default' => 'admin', #admin
                 'is_admin' => true,

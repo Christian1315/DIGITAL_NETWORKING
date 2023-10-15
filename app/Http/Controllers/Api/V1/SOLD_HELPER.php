@@ -164,10 +164,11 @@ class SOLD_HELPER extends BASE_HELPER
             $message = "L'admin " . $user->username . " vient de valider votre Solde sur DIGITAL NETWORK.";
         }
 
+        $agency_user = User::find($agency->user_id);
         #=====ENVOIE D'EMAIL =======~####
         try {
             Send_Notification(
-                $agency,
+                $agency_user,
                 "SOLDE VALIDE SUR DIGITAL NETWORK",
                 $message,
             );
@@ -217,7 +218,7 @@ class SOLD_HELPER extends BASE_HELPER
         if (!$pos) {
             return self::sendError("Ce Pos n'existe pas!", 404);
         }
-        
+
         if ($pos->agency_id != $user_agency->id) {
             return self::sendError("Ce pos ne vous appartient pas! Vous ne pouvez donc pas créditer son solde!", 404);
         }
