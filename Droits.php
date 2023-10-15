@@ -2966,16 +2966,8 @@
             
         ],
         [
-            "id"=> 332,
             "module"=> 0,
-            "action"=> [
-                "id"=> 78,
-                "name"=> "list_master",
-                "description"=> "Lister des masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 78,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
