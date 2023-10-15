@@ -128,7 +128,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         if ($user->is_admin) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "type"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "type"])->orderBy('id', 'desc')->get();
         } else {
             $product =  StoreProduit::with(['owner', "store", "session", "category"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }

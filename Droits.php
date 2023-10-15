@@ -4,17 +4,8 @@
             "module"=> 0,
             "action"=> 27,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 6,
             "user_id"=> null,
-            "description"=> "Droit: Détail d'une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
             "id"=> 2,
