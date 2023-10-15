@@ -1,2234 +1,637 @@
 "data"=> [
         [
-            "id"=> 1,
             "module"=> 0,
             "action"=> 27,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
+            "description"=> "Droit: Détail d'une campagne    ",
         ],
         [
-            "id"=> 2,
             "module"=> 0,
-            "action"=> [
-                "id"=> 26,
-                "name"=> "initiate_campaign",
-                "description"=> "Initier une campagne",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 26,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Initier une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 3,
             "module"=> 0,
-            "action"=> [
-                "id"=> 25,
-                "name"=> "stop_campaign",
-                "description"=> "Stoper une campagne",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 26,
+            "rang"=> 2
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Stoper une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 4,
             "module"=> 0,
-            "action"=> [
-                "id"=> 24,
-                "name"=> "delete_campaign",
-                "description"=> "Supprimer une campagne",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 24,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Supprimer une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 5,
             "module"=> 0,
-            "action"=> [
-                "id"=> 23,
-                "name"=> "update_campaign",
-                "description"=> "Mettre à jour une campagne",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 23,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 6,
             "module"=> 0,
-            "action"=> [
-                "id"=> 22,
-                "name"=> "add_campaign",
-                "description"=> "Ajouter une campagne",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 22,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 7,
             "module"=> 0,
-            "action"=> [
-                "id"=> 21,
-                "name"=> "list_campaign",
-                "description"=> "Lister les campagnes",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 21,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Lister les campagnes    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 8,
             "module"=> 0,
-            "action"=> [
-                "id"=> 20,
-                "name"=> "view_sms",
-                "description"=> "Détail d'un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 20,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 9,
             "module"=> 0,
-            "action"=> [
-                "id"=> 19,
-                "name"=> "delete_sms",
-                "description"=> "Supprimer un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 19,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 10,
             "module"=> 0,
-            "action"=> [
-                "id"=> 18,
-                "name"=> "update_sms",
-                "description"=> "Mettre à jour un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 18,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 11,
             "module"=> 0,
-            "action"=> [
-                "id"=> 17,
-                "name"=> "add_sms",
-                "description"=> "Ajouter un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 17,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 12,
             "module"=> 0,
-            "action"=> [
-                "id"=> 16,
-                "name"=> "list_sms",
-                "description"=> "Lister les sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 16,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Lister les sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 13,
             "module"=> 0,
-            "action"=> [
-                "id"=> 15,
-                "name"=> "view_expeditor",
-                "description"=> "Détail d'un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 15,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un expediteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 14,
             "module"=> 0,
-            "action"=> [
-                "id"=> 14,
-                "name"=> "delete_expeditor",
-                "description"=> "Supprimer un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 14,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un expediteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 15,
             "module"=> 0,
-            "action"=> [
-                "id"=> 13,
-                "name"=> "update_expeditor",
-                "description"=> "Mettre à jour un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 13,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un expediteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 16,
             "module"=> 0,
-            "action"=> [
-                "id"=> 12,
-                "name"=> "add_expeditor",
-                "description"=> "Ajouter un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 12,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un expediteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 17,
             "module"=> 0,
-            "action"=> [
-                "id"=> 11,
-                "name"=> "list_expeditor",
-                "description"=> "Lister les expeditors",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 11,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Lister les expediteurs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 18,
             "module"=> 0,
-            "action"=> [
-                "id"=> 10,
-                "name"=> "view_contactGroup",
-                "description"=> "Détail d'un groupe de contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 10,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 19,
             "module"=> 0,
-            "action"=> [
-                "id"=> 9,
-                "name"=> "delete_contactGroup",
-                "description"=> "Supprimer un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 9,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 20,
             "module"=> 0,
-            "action"=> [
-                "id"=> 8,
-                "name"=> "update_contactGroup",
-                "description"=> "Mettre à jour un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 8,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 21,
             "module"=> 0,
-            "action"=> [
-                "id"=> 7,
-                "name"=> "add_contactGroup",
-                "description"=> "Ajouter un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 7,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 22,
             "module"=> 0,
-            "action"=> [
-                "id"=> 6,
-                "name"=> "list_contactGroup",
-                "description"=> "Lister les groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 6,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Lister les groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 23,
             "module"=> 0,
-            "action"=> [
-                "id"=> 5,
-                "name"=> "view_contact",
-                "description"=> "Détail d'un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 5,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 24,
             "module"=> 0,
-            "action"=> [
-                "id"=> 4,
-                "name"=> "delete_contact",
-                "description"=> "Supprimer un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 4,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 25,
             "module"=> 0,
-            "action"=> [
-                "id"=> 3,
-                "name"=> "update_contact",
-                "description"=> "Mettre à jour un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 3,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 26,
             "module"=> 0,
-            "action"=> [
-                "id"=> 2,
-                "name"=> "add_contact",
-                "description"=> "Ajouter un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 2,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 27,
             "module"=> 0,
-            "action"=> [
-                "id"=> 1,
-                "name"=> "list_contact",
-                "description"=> "Lister les contacts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 2,
-                "name"=> "moderator",
-                "description"=> "Le modérateur du compte",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 6,
-                "name"=> "Master",
-                "description"=> "Master distributeur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 1,
+            "rang"=> 2,
+            "profil"=> 6,
             "user_id"=> null,
             "description"=> "Droit: Lister les contacts ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 28,
             "module"=> 0,
-            "action"=> [
-                "id"=> 191,
-                "name"=> "affect_right",
-                "description"=> "Affecter un droit",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 191,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Affecter un droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 29,
             "module"=> 0,
-            "action"=> [
-                "id"=> 190,
-                "name"=> "delete_action",
-                "description"=> "Supprimer un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 190,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 30,
             "module"=> 0,
-            "action"=> [
-                "id"=> 189,
-                "name"=> "update_action",
-                "description"=> "Mettre à jour un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 189,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 31,
             "module"=> 0,
-            "action"=> [
-                "id"=> 188,
-                "name"=> "add_action",
-                "description"=> "Ajouter un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 188,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 32,
             "module"=> 0,
-            "action"=> [
-                "id"=> 187,
-                "name"=> "list_action",
-                "description"=> "Lister les action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 187,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 33,
             "module"=> 0,
-            "action"=> [
-                "id"=> 186,
-                "name"=> "delete_rang",
-                "description"=> "Supprimer un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 186,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 34,
             "module"=> 0,
-            "action"=> [
-                "id"=> 185,
-                "name"=> "update_rang",
-                "description"=> "Mettre à jour un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 185,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 35,
             "module"=> 0,
-            "action"=> [
-                "id"=> 184,
-                "name"=> "add_rang",
-                "description"=> "Ajouter un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 184,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 36,
             "module"=> 0,
-            "action"=> [
-                "id"=> 183,
-                "name"=> "list_rang",
-                "description"=> "Lister les rangs",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 183,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rangs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 37,
             "module"=> 0,
-            "action"=> [
-                "id"=> 182,
-                "name"=> "delete_profil",
-                "description"=> "Supprimer un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 182,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 38,
             "module"=> 0,
-            "action"=> [
-                "id"=> 181,
-                "name"=> "update_profil",
-                "description"=> "Mettre à jour un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 181,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 39,
             "module"=> 0,
-            "action"=> [
-                "id"=> 180,
-                "name"=> "add_profil",
-                "description"=> "Ajouter un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 180,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 40,
             "module"=> 0,
-            "action"=> [
-                "id"=> 179,
-                "name"=> "list_profil",
-                "description"=> "Lister les profils",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 179,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les profils    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 41,
             "module"=> 0,
-            "action"=> [
-                "id"=> 178,
-                "name"=> "delete_right",
-                "description"=> "Supprimer un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 178,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 42,
             "module"=> 0,
-            "action"=> [
-                "id"=> 177,
-                "name"=> "update_right",
-                "description"=> "Mettre à jour un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 177,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 43,
             "module"=> 0,
-            "action"=> [
-                "id"=> 176,
-                "name"=> "add_right",
-                "description"=> "Ajouter un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 176,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 44,
             "module"=> 0,
-            "action"=> [
-                "id"=> 175,
-                "name"=> "list_right",
-                "description"=> "Lister les rights",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 175,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rights    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
         ],
         [
-            "id"=> 45,
             "module"=> 0,
-            "action"=> [
-                "id"=> 174,
-                "name"=> "delete_user",
-                "description"=> "Supprimer un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 174,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 46,
             "module"=> 0,
-            "action"=> [
-                "id"=> 173,
-                "name"=> "update_user",
-                "description"=> "Mettre à jour un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 173,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 47,
             "module"=> 0,
-            "action"=> [
-                "id"=> 172,
-                "name"=> "list_user",
-                "description"=> "Lister les users",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 172,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les users    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 48,
             "module"=> 0,
-            "action"=> [
-                "id"=> 171,
-                "name"=> "delete_store",
-                "description"=> "Supprimer un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 171,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 49,
             "module"=> 0,
-            "action"=> [
-                "id"=> 170,
-                "name"=> "update_store",
-                "description"=> "Mettre à jour un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 170,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 50,
             "module"=> 0,
-            "action"=> [
-                "id"=> 169,
-                "name"=> "add_store",
-                "description"=> "Ajouter un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 169,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 51,
             "module"=> 0,
-            "action"=> [
-                "id"=> 168,
-                "name"=> "list_store",
-                "description"=> "Lister les stores",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 168,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les stores    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 52,
             "module"=> 0,
-            "action"=> [
-                "id"=> 167,
-                "name"=> "delete_product_category",
-                "description"=> "Supprimer un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 167,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 53,
             "module"=> 0,
-            "action"=> [
-                "id"=> 166,
-                "name"=> "update_product_category",
-                "description"=> "Mettre à jour un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 166,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 54,
             "module"=> 0,
-            "action"=> [
-                "id"=> 165,
-                "name"=> "add_product_category",
-                "description"=> "Ajouter un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 165,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 55,
             "module"=> 0,
-            "action"=> [
-                "id"=> 164,
-                "name"=> "list_product_category",
-                "description"=> "Lister les product_categories",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 164,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les product_categories    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 56,
             "module"=> 0,
-            "action"=> [
-                "id"=> 163,
-                "name"=> "delete_order",
-                "description"=> "Supprimer un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 163,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 57,
             "module"=> 0,
-            "action"=> [
-                "id"=> 162,
-                "name"=> "update_order",
-                "description"=> "Mettre à jour un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 162,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 58,
             "module"=> 0,
-            "action"=> [
-                "id"=> 161,
-                "name"=> "add_order",
-                "description"=> "Ajouter un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 161,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 59,
             "module"=> 0,
-            "action"=> [
-                "id"=> 160,
-                "name"=> "list_order",
-                "description"=> "Lister les orders",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 160,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les orders    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 60,
             "module"=> 0,
-            "action"=> [
-                "id"=> 159,
-                "name"=> "delete_product",
-                "description"=> "Supprimer un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 159,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 61,
             "module"=> 0,
-            "action"=> [
-                "id"=> 158,
-                "name"=> "update_product",
-                "description"=> "Mettre à jour un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 158,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 62,
             "module"=> 0,
-            "action"=> [
-                "id"=> 157,
-                "name"=> "add_product",
-                "description"=> "Ajouter un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 157,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 63,
             "module"=> 0,
-            "action"=> [
-                "id"=> 156,
-                "name"=> "list_product",
-                "description"=> "Lister les products",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 156,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les products    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 64,
             "module"=> 0,
-            "action"=> [
-                "id"=> 155,
-                "name"=> "delete_table",
-                "description"=> "Supprimer une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 155,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 65,
             "module"=> 0,
-            "action"=> [
-                "id"=> 154,
-                "name"=> "update_table",
-                "description"=> "Mettre à jour une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 154,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 66,
             "module"=> 0,
-            "action"=> [
-                "id"=> 153,
-                "name"=> "add_table",
-                "description"=> "Ajouter une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 153,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 67,
             "module"=> 0,
-            "action"=> [
-                "id"=> 152,
-                "name"=> "list_table",
-                "description"=> "Lister les tables",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 152,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les tables    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 68,
             "module"=> 0,
-            "action"=> [
-                "id"=> 151,
-                "name"=> "delete_pos",
-                "description"=> "Supprimer un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 151,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 69,
             "module"=> 0,
-            "action"=> [
-                "id"=> 150,
-                "name"=> "update_pos",
-                "description"=> "Mettre à jour un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 150,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 70,
             "module"=> 0,
-            "action"=> [
-                "id"=> 149,
-                "name"=> "add_pos",
-                "description"=> "Ajouter un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 149,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 71,
             "module"=> 0,
-            "action"=> [
-                "id"=> 148,
-                "name"=> "list_pos",
-                "description"=> "Lister les pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 148,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 72,
             "module"=> 0,
-            "action"=> [
-                "id"=> 147,
-                "name"=> "delete_agent",
-                "description"=> "Supprimer un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 147,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 73,
             "module"=> 0,
-            "action"=> [
-                "id"=> 146,
-                "name"=> "update_agent",
-                "description"=> "Mettre à jour un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 146,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 74,
             "module"=> 0,
-            "action"=> [
-                "id"=> 145,
-                "name"=> "add_agent",
-                "description"=> "Ajouter un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 145,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 75,
             "module"=> 0,
-            "action"=> [
-                "id"=> 144,
-                "name"=> "list_agent",
-                "description"=> "Lister les agents",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 144,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les agents    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
-            "id"=> 76,
             "module"=> 0,
             "action"=> [
                 "id"=> 143,
@@ -2238,24 +641,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 77,
@@ -2268,24 +658,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 78,
@@ -2298,24 +675,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 79,
@@ -2328,24 +692,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les agencies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 80,
@@ -2358,24 +709,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 81,
@@ -2388,24 +726,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 82,
@@ -2418,24 +743,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 83,
@@ -2448,24 +760,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 84,
@@ -2478,24 +777,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 85,
@@ -2508,24 +794,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 86,
@@ -2538,24 +811,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Emettre des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 87,
@@ -2568,24 +828,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste rechargement carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 88,
@@ -2598,24 +845,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Autoriser reversement de commission    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 89,
@@ -2628,24 +862,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 90,
@@ -2658,24 +879,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Approuver devis    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 91,
@@ -2688,24 +896,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Dévis assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 92,
@@ -2718,24 +913,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 93,
@@ -2748,24 +930,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 94,
@@ -2778,24 +947,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir relevé de compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 95,
@@ -2808,24 +964,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 96,
@@ -2838,24 +981,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 97,
@@ -2868,24 +998,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 98,
@@ -2898,24 +1015,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réinitialiser mot de passe    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 99,
@@ -2928,24 +1032,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir solde    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 100,
@@ -2958,24 +1049,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir commission    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 101,
@@ -2988,24 +1066,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Répondre recherches approfondies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 102,
@@ -3018,24 +1083,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste recherches approfondies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 103,
@@ -3048,24 +1100,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recherche approfondie    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 104,
@@ -3078,24 +1117,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider activation de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 105,
@@ -3108,24 +1134,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Délivrer une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 106,
@@ -3138,24 +1151,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Retirer droit à un utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 107,
@@ -3168,24 +1168,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réactivation    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 108,
@@ -3198,24 +1185,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les réactivations    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 109,
@@ -3228,24 +1202,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des reabonnements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 110,
@@ -3258,24 +1219,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter stock    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 111,
@@ -3288,24 +1236,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Faire des migrations    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 112,
@@ -3318,24 +1253,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des miigration    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 113,
@@ -3348,24 +1270,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer un matériel    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 114,
@@ -3378,24 +1287,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des recrutements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 115,
@@ -3408,24 +1304,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recrutement canal    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 116,
@@ -3438,24 +1321,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Modification abonnement canal    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 117,
@@ -3468,24 +1338,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Finir une Opération    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 118,
@@ -3498,24 +1355,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter accessoires    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 119,
@@ -3528,24 +1372,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer parabole    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 120,
@@ -3558,24 +1389,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer accessoires    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 121,
@@ -3588,24 +1406,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Migration de décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 122,
@@ -3618,24 +1423,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recrutement (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 123,
@@ -3648,24 +1440,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réabonnement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 124,
@@ -3678,24 +1457,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste décodeurs (recrutement)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 125,
@@ -3708,24 +1474,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider les recrutements (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 126,
@@ -3738,24 +1491,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 127,
@@ -3768,24 +1508,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider les recrutements (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 128,
@@ -3798,24 +1525,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Faire la migration de décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 129,
@@ -3828,24 +1542,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Vendre décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 130,
@@ -3858,24 +1559,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer le stock de décodeur pour un partenaire    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 131,
@@ -3888,24 +1576,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 132,
@@ -3918,24 +1593,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider réabonnement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 133,
@@ -3948,24 +1610,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter renouvellement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 134,
@@ -3978,24 +1627,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Statistiques    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 135,
@@ -4008,24 +1644,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 136,
@@ -4038,24 +1661,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 137,
@@ -4068,24 +1678,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 138,
@@ -4098,24 +1695,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer mon compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 139,
@@ -4128,24 +1712,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 140,
@@ -4158,24 +1729,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 141,
@@ -4188,24 +1746,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 142,
@@ -4218,24 +1763,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider rechargement de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 143,
@@ -4248,24 +1780,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rechargements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 144,
@@ -4278,24 +1797,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter agent commercial    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 145,
@@ -4308,24 +1814,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister des agents commerciaux    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 146,
@@ -4338,24 +1831,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 147,
@@ -4368,24 +1848,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 148,
@@ -4398,24 +1865,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 149,
@@ -4428,24 +1882,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les cartes    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 150,
@@ -4458,24 +1899,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir la liste des points de vente    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 151,
@@ -4488,24 +1916,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter Point de Service, agence pour les distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 152,
@@ -4518,24 +1933,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 153,
@@ -4548,24 +1950,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 154,
@@ -4578,24 +1967,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: recharge de compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 155,
@@ -4608,24 +1984,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Administration pour distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 156,
@@ -4638,24 +2001,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Activation de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 157,
@@ -4668,24 +2018,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Administration    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 158,
@@ -4698,24 +2035,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout de droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 159,
@@ -4728,24 +2052,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 160,
@@ -4758,24 +2069,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Envoyer de message aux distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 161,
@@ -4788,24 +2086,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Editer distribibuteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 162,
@@ -4818,24 +2103,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des distributeurs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 163,
@@ -4848,24 +2120,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 164,
@@ -4878,24 +2137,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout d'utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 165,
@@ -4908,24 +2154,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Crediter un compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 166,
@@ -4938,24 +2171,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Retirer un droit à un utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 167,
@@ -4968,24 +2188,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Affecter un droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 168,
@@ -4998,24 +2205,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'une action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 169,
@@ -5028,24 +2222,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 170,
@@ -5058,24 +2239,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 171,
@@ -5088,24 +2256,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 172,
@@ -5118,24 +2273,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 173,
@@ -5148,24 +2290,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 174,
@@ -5178,24 +2307,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 175,
@@ -5208,24 +2324,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 176,
@@ -5238,24 +2341,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 177,
@@ -5268,24 +2358,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rangs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 178,
@@ -5298,24 +2375,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 179,
@@ -5328,24 +2392,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 180,
@@ -5358,24 +2409,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 181,
@@ -5388,24 +2426,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 182,
@@ -5418,24 +2443,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les profils    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 183,
@@ -5448,24 +2460,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 184,
@@ -5478,24 +2477,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 185,
@@ -5508,24 +2494,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 186,
@@ -5538,24 +2511,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 187,
@@ -5568,24 +2528,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rights    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 188,
@@ -5598,24 +2545,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 189,
@@ -5628,24 +2562,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 190,
@@ -5658,24 +2579,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 191,
@@ -5688,24 +2596,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les users    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 192,
@@ -5718,24 +2613,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 193,
@@ -5748,24 +2630,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Initier une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 194,
@@ -5778,24 +2647,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Stoper une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 195,
@@ -5808,24 +2664,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 196,
@@ -5838,24 +2681,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 197,
@@ -5868,24 +2698,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 198,
@@ -5898,24 +2715,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les campagnes    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 199,
@@ -5928,24 +2732,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 200,
@@ -5958,24 +2749,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 201,
@@ -5988,24 +2766,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 202,
@@ -6018,24 +2783,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 203,
@@ -6048,24 +2800,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 204,
@@ -6078,24 +2817,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 205,
@@ -6108,24 +2834,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 206,
@@ -6138,24 +2851,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 207,
@@ -6168,24 +2868,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 208,
@@ -6198,24 +2885,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les expeditors    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 209,
@@ -6228,24 +2902,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 210,
@@ -6258,24 +2919,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 211,
@@ -6288,24 +2936,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 212,
@@ -6318,24 +2953,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 213,
@@ -6348,24 +2970,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 214,
@@ -6378,24 +2987,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 215,
@@ -6408,24 +3004,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 216,
@@ -6438,24 +3021,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 217,
@@ -6468,24 +3038,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 218,
@@ -6498,24 +3055,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les contacts ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 219,
@@ -6528,24 +3072,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Affecter un droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 220,
@@ -6558,24 +3089,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 221,
@@ -6588,24 +3106,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 222,
@@ -6618,24 +3123,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 223,
@@ -6648,24 +3140,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 224,
@@ -6678,24 +3157,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 225,
@@ -6708,24 +3174,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 226,
@@ -6738,24 +3191,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 227,
@@ -6768,24 +3208,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rangs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 228,
@@ -6798,24 +3225,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 229,
@@ -6828,24 +3242,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 230,
@@ -6858,24 +3259,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 231,
@@ -6888,24 +3276,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les profils    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 232,
@@ -6918,24 +3293,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 233,
@@ -6948,24 +3310,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 234,
@@ -6978,24 +3327,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 235,
@@ -7008,24 +3344,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rights    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 236,
@@ -7038,924 +3361,311 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 237,
             "module"=> 0,
-            "action"=> [
-                "id"=> 173,
-                "name"=> "update_user",
-                "description"=> "Mettre à jour un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 173,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 238,
             "module"=> 0,
-            "action"=> [
-                "id"=> 172,
-                "name"=> "list_user",
-                "description"=> "Lister les users",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 172,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les users    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 239,
             "module"=> 0,
-            "action"=> [
-                "id"=> 171,
-                "name"=> "delete_store",
-                "description"=> "Supprimer un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 171,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 240,
             "module"=> 0,
-            "action"=> [
-                "id"=> 170,
-                "name"=> "update_store",
-                "description"=> "Mettre à jour un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 170,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 241,
             "module"=> 0,
-            "action"=> [
-                "id"=> 169,
-                "name"=> "add_store",
-                "description"=> "Ajouter un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 169,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un store    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 242,
             "module"=> 0,
-            "action"=> [
-                "id"=> 168,
-                "name"=> "list_store",
-                "description"=> "Lister les stores",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 168,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les stores    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 243,
             "module"=> 0,
-            "action"=> [
-                "id"=> 167,
-                "name"=> "delete_product_category",
-                "description"=> "Supprimer un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 167,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 244,
             "module"=> 0,
-            "action"=> [
-                "id"=> 166,
-                "name"=> "update_product_category",
-                "description"=> "Mettre à jour un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 166,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 245,
             "module"=> 0,
-            "action"=> [
-                "id"=> 165,
-                "name"=> "add_product_category",
-                "description"=> "Ajouter un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 165,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un product_category    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 246,
             "module"=> 0,
-            "action"=> [
-                "id"=> 164,
-                "name"=> "list_product_category",
-                "description"=> "Lister les product_categories",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 164,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les product_categories    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 247,
             "module"=> 0,
-            "action"=> [
-                "id"=> 163,
-                "name"=> "delete_order",
-                "description"=> "Supprimer un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 163,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 248,
             "module"=> 0,
-            "action"=> [
-                "id"=> 162,
-                "name"=> "update_order",
-                "description"=> "Mettre à jour un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 162,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 249,
             "module"=> 0,
-            "action"=> [
-                "id"=> 161,
-                "name"=> "add_order",
-                "description"=> "Ajouter un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 161,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un order    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 250,
             "module"=> 0,
-            "action"=> [
-                "id"=> 160,
-                "name"=> "list_order",
-                "description"=> "Lister les orders",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 160,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les orders    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 251,
             "module"=> 0,
-            "action"=> [
-                "id"=> 159,
-                "name"=> "delete_product",
-                "description"=> "Supprimer un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 159,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 252,
             "module"=> 0,
-            "action"=> [
-                "id"=> 158,
-                "name"=> "update_product",
-                "description"=> "Mettre à jour un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 158,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 253,
             "module"=> 0,
-            "action"=> [
-                "id"=> 157,
-                "name"=> "add_product",
-                "description"=> "Ajouter un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 157,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un product    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 254,
             "module"=> 0,
-            "action"=> [
-                "id"=> 156,
-                "name"=> "list_product",
-                "description"=> "Lister les products",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 156,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les products    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 255,
             "module"=> 0,
-            "action"=> [
-                "id"=> 155,
-                "name"=> "delete_table",
-                "description"=> "Supprimer une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 155,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 256,
             "module"=> 0,
-            "action"=> [
-                "id"=> 154,
-                "name"=> "update_table",
-                "description"=> "Mettre à jour une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 154,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 257,
             "module"=> 0,
-            "action"=> [
-                "id"=> 153,
-                "name"=> "add_table",
-                "description"=> "Ajouter une table",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 153,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une table    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 258,
             "module"=> 0,
-            "action"=> [
-                "id"=> 152,
-                "name"=> "list_table",
-                "description"=> "Lister les tables",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 152,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les tables    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 259,
             "module"=> 0,
-            "action"=> [
-                "id"=> 151,
-                "name"=> "delete_pos",
-                "description"=> "Supprimer un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 151,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 260,
             "module"=> 0,
-            "action"=> [
-                "id"=> 150,
-                "name"=> "update_pos",
-                "description"=> "Mettre à jour un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 150,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 261,
             "module"=> 0,
-            "action"=> [
-                "id"=> 149,
-                "name"=> "add_pos",
-                "description"=> "Ajouter un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 149,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 262,
             "module"=> 0,
-            "action"=> [
-                "id"=> 148,
-                "name"=> "list_pos",
-                "description"=> "Lister les pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 148,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les pos    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 263,
             "module"=> 0,
-            "action"=> [
-                "id"=> 147,
-                "name"=> "delete_agent",
-                "description"=> "Supprimer un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 147,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 264,
             "module"=> 0,
-            "action"=> [
-                "id"=> 146,
-                "name"=> "update_agent",
-                "description"=> "Mettre à jour un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 146,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 265,
             "module"=> 0,
-            "action"=> [
-                "id"=> 145,
-                "name"=> "add_agent",
-                "description"=> "Ajouter un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 145,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un agent    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 266,
             "module"=> 0,
-            "action"=> [
-                "id"=> 144,
-                "name"=> "list_agent",
-                "description"=> "Lister les agents",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 144,
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les agents    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 267,
@@ -7968,24 +3678,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 268,
@@ -7998,24 +3695,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 269,
@@ -8028,24 +3712,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un agency    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 270,
@@ -8058,24 +3729,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les agencies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 271,
@@ -8088,24 +3746,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 272,
@@ -8118,24 +3763,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 273,
@@ -8148,24 +3780,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un master    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 274,
@@ -8178,24 +3797,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 275,
@@ -8208,24 +3814,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 276,
@@ -8238,24 +3831,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 277,
@@ -8268,24 +3848,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Emettre des factures    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 278,
@@ -8298,24 +3865,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste rechargement carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 279,
@@ -8328,24 +3882,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Autoriser reversement de commission    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 280,
@@ -8358,24 +3899,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 281,
@@ -8388,24 +3916,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Approuver devis    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 282,
@@ -8418,24 +3933,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Dévis assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 283,
@@ -8448,24 +3950,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 284,
@@ -8478,24 +3967,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter assurance    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 285,
@@ -8508,24 +3984,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir relevé de compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 286,
@@ -8538,24 +4001,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 287,
@@ -8568,24 +4018,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 288,
@@ -8598,24 +4035,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des dépôts    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 289,
@@ -8628,24 +4052,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réinitialiser mot de passe    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 290,
@@ -8658,24 +4069,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir solde    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 291,
@@ -8688,24 +4086,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir commission    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 292,
@@ -8718,24 +4103,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Répondre recherches approfondies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 293,
@@ -8748,24 +4120,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste recherches approfondies    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 294,
@@ -8778,24 +4137,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recherche approfondie    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 295,
@@ -8808,24 +4154,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider activation de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 296,
@@ -8838,24 +4171,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Délivrer une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 297,
@@ -8868,24 +4188,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Retirer droit à un utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 298,
@@ -8898,24 +4205,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réactivation    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 299,
@@ -8928,24 +4222,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les réactivations    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 300,
@@ -8958,24 +4239,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des reabonnements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 301,
@@ -8988,24 +4256,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter stock    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 302,
@@ -9018,24 +4273,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Faire des migrations    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 303,
@@ -9048,24 +4290,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des miigration    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 304,
@@ -9078,24 +4307,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer un matériel    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 305,
@@ -9108,24 +4324,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des recrutements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 306,
@@ -9138,24 +4341,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recrutement canal    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 307,
@@ -9168,24 +4358,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Modification abonnement canal    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 308,
@@ -9198,24 +4375,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Finir une Opération    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 309,
@@ -9228,24 +4392,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter accessoires    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 310,
@@ -9258,24 +4409,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer parabole    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 311,
@@ -9288,24 +4426,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer accessoires    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 312,
@@ -9318,24 +4443,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Migration de décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 313,
@@ -9348,24 +4460,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Recrutement (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 314,
@@ -9378,24 +4477,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Réabonnement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 315,
@@ -9408,24 +4494,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste décodeurs (recrutement)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 316,
@@ -9438,24 +4511,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider les recrutements (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 317,
@@ -9468,24 +4528,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 318,
@@ -9498,24 +4545,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider les recrutements (vente de décodeur)    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 319,
@@ -9528,24 +4562,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Faire la migration de décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 320,
@@ -9558,24 +4579,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Vendre décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 321,
@@ -9588,24 +4596,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer le stock de décodeur pour un partenaire    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 322,
@@ -9618,24 +4613,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter décodeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 323,
@@ -9648,24 +4630,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider réabonnement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 324,
@@ -9678,24 +4647,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter renouvellement    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 325,
@@ -9708,24 +4664,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Statistiques    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 326,
@@ -9738,24 +4681,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 327,
@@ -9768,24 +4698,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Débiter une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 328,
@@ -9798,24 +4715,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 329,
@@ -9828,24 +4732,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer mon compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 330,
@@ -9858,24 +4749,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 331,
@@ -9888,24 +4766,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 332,
@@ -9918,24 +4783,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister des masters    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 333,
@@ -9948,24 +4800,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Valider rechargement de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 334,
@@ -9978,24 +4817,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rechargements    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 335,
@@ -10008,24 +4834,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter agent commercial    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 336,
@@ -10038,24 +4851,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister des agents commerciaux    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 337,
@@ -10068,24 +4868,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 338,
@@ -10098,24 +4885,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Créditer une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 339,
@@ -10128,24 +4902,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une agence    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 340,
@@ -10158,24 +4919,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les cartes    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 341,
@@ -10188,24 +4936,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Voir la liste des points de vente    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 342,
@@ -10218,24 +4953,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter Point de Service, agence pour les distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 343,
@@ -10248,24 +4970,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 344,
@@ -10278,24 +4987,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 345,
@@ -10308,24 +5004,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: recharge de compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 346,
@@ -10338,24 +5021,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Administration pour distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 347,
@@ -10368,24 +5038,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Activation de carte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 348,
@@ -10398,24 +5055,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Administration    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 349,
@@ -10428,24 +5072,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout de droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 350,
@@ -10458,24 +5089,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 351,
@@ -10488,24 +5106,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Envoyer de message aux distributeur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 352,
@@ -10518,24 +5123,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Editer distribibuteur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 353,
@@ -10548,24 +5140,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Liste des distributeurs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 354,
@@ -10578,24 +5157,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 355,
@@ -10608,24 +5174,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajout d'utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 356,
@@ -10638,24 +5191,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Crediter un compte    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 357,
@@ -10668,24 +5208,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Retirer un droit à un utilisateur    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 358,
@@ -10698,24 +5225,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Affecter un droit    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 359,
@@ -10728,24 +5242,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'une action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 360,
@@ -10758,24 +5259,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 361,
@@ -10788,24 +5276,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 362,
@@ -10818,24 +5293,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 363,
@@ -10848,24 +5310,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les action    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 364,
@@ -10878,24 +5327,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 365,
@@ -10908,24 +5344,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 366,
@@ -10938,24 +5361,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 367,
@@ -10968,24 +5378,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un rang    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 368,
@@ -10998,24 +5395,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rangs    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 369,
@@ -11028,24 +5412,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 370,
@@ -11058,24 +5429,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 371,
@@ -11088,24 +5446,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 372,
@@ -11118,24 +5463,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un profil    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 373,
@@ -11148,24 +5480,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les profils    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 374,
@@ -11178,24 +5497,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 375,
@@ -11208,24 +5514,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 376,
@@ -11238,24 +5531,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 377,
@@ -11268,24 +5548,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un right    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 378,
@@ -11298,24 +5565,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les rights    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 379,
@@ -11328,24 +5582,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 380,
@@ -11358,24 +5599,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 381,
@@ -11388,24 +5616,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un user    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 382,
@@ -11418,24 +5633,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les users    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 383,
@@ -11448,24 +5650,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 384,
@@ -11478,24 +5667,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Initier une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 385,
@@ -11508,24 +5684,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Stoper une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 386,
@@ -11538,24 +5701,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 387,
@@ -11568,24 +5718,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 388,
@@ -11598,24 +5735,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter une campagne    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 389,
@@ -11628,24 +5752,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les campagnes    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 390,
@@ -11658,24 +5769,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 391,
@@ -11688,24 +5786,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 392,
@@ -11718,24 +5803,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 393,
@@ -11748,24 +5820,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 394,
@@ -11778,24 +5837,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les sms    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 395,
@@ -11808,24 +5854,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 396,
@@ -11838,24 +5871,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 397,
@@ -11868,24 +5888,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 398,
@@ -11898,24 +5905,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un expeditor    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 399,
@@ -11928,24 +5922,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les expeditors    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 400,
@@ -11958,24 +5939,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un groupe de contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 401,
@@ -11988,24 +5956,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 402,
@@ -12018,24 +5973,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 403,
@@ -12048,24 +5990,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 404,
@@ -12078,24 +6007,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les groupe de cintact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 405,
@@ -12108,24 +6024,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Détail d'un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 406,
@@ -12138,24 +6041,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Supprimer un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 407,
@@ -12168,24 +6058,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Mettre à jour un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 408,
@@ -12198,24 +6075,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Ajouter un contact    ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 409,
@@ -12228,24 +6092,11 @@
                 "created_at"=> "2023-10-12T19:18:27.000000Z",
                 "updated_at"=> "2023-10-12T19:18:27.000000Z"
             ],
-            "rang"=> [
-                "id"=> 1,
-                "name"=> "admin",
-                "description"=> "L'administrateur général du networking",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
-            "profil"=> [
-                "id"=> 9,
-                "name"=> "Admin",
-                "description"=> "L'administrateur",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "rang"=> 1,
+            "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Lister les contacts ",
-            "created_at"=> "2023-10-12T19:18:28.000000Z",
-            "updated_at"=> "2023-10-12T19:18:28.000000Z"
+            
         ],
         [
             "id"=> 410,
@@ -12370,14 +6221,7 @@
         [
             "id"=> 414,
             "module"=> 0,
-            "action"=> [
-                "id"=> 145,
-                "name"=> "add_agent",
-                "description"=> "Ajouter un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 145,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12400,14 +6244,7 @@
         [
             "id"=> 415,
             "module"=> 0,
-            "action"=> [
-                "id"=> 144,
-                "name"=> "list_agent",
-                "description"=> "Lister les agents",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 144,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12430,14 +6267,7 @@
         [
             "id"=> 417,
             "module"=> 0,
-            "action"=> [
-                "id"=> 146,
-                "name"=> "update_agent",
-                "description"=> "Mettre à jour un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 146,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12460,14 +6290,7 @@
         [
             "id"=> 418,
             "module"=> 0,
-            "action"=> [
-                "id"=> 147,
-                "name"=> "delete_agent",
-                "description"=> "Supprimer un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 147,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12490,14 +6313,7 @@
         [
             "id"=> 419,
             "module"=> 0,
-            "action"=> [
-                "id"=> 149,
-                "name"=> "add_pos",
-                "description"=> "Ajouter un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 149,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12520,14 +6336,7 @@
         [
             "id"=> 420,
             "module"=> 0,
-            "action"=> [
-                "id"=> 150,
-                "name"=> "update_pos",
-                "description"=> "Mettre à jour un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 150,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12550,14 +6359,7 @@
         [
             "id"=> 421,
             "module"=> 0,
-            "action"=> [
-                "id"=> 151,
-                "name"=> "delete_pos",
-                "description"=> "Supprimer un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 151,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12580,14 +6382,7 @@
         [
             "id"=> 422,
             "module"=> 0,
-            "action"=> [
-                "id"=> 169,
-                "name"=> "add_store",
-                "description"=> "Ajouter un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 169,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12610,14 +6405,7 @@
         [
             "id"=> 423,
             "module"=> 0,
-            "action"=> [
-                "id"=> 168,
-                "name"=> "list_store",
-                "description"=> "Lister les stores",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 168,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12640,14 +6428,7 @@
         [
             "id"=> 424,
             "module"=> 0,
-            "action"=> [
-                "id"=> 170,
-                "name"=> "update_store",
-                "description"=> "Mettre à jour un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 170,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12670,14 +6451,7 @@
         [
             "id"=> 425,
             "module"=> 0,
-            "action"=> [
-                "id"=> 171,
-                "name"=> "delete_store",
-                "description"=> "Supprimer un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 171,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12700,14 +6474,7 @@
         [
             "id"=> 426,
             "module"=> 0,
-            "action"=> [
-                "id"=> 148,
-                "name"=> "list_pos",
-                "description"=> "Lister les pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 148,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12730,14 +6497,7 @@
         [
             "id"=> 427,
             "module"=> 0,
-            "action"=> [
-                "id"=> 165,
-                "name"=> "add_product_category",
-                "description"=> "Ajouter un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 165,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12760,14 +6520,7 @@
         [
             "id"=> 428,
             "module"=> 0,
-            "action"=> [
-                "id"=> 166,
-                "name"=> "update_product_category",
-                "description"=> "Mettre à jour un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 166,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12790,14 +6543,7 @@
         [
             "id"=> 429,
             "module"=> 0,
-            "action"=> [
-                "id"=> 164,
-                "name"=> "list_product_category",
-                "description"=> "Lister les product_categories",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 164,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12820,14 +6566,7 @@
         [
             "id"=> 430,
             "module"=> 0,
-            "action"=> [
-                "id"=> 167,
-                "name"=> "delete_product_category",
-                "description"=> "Supprimer un product_category",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 167,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12850,14 +6589,7 @@
         [
             "id"=> 432,
             "module"=> 0,
-            "action"=> [
-                "id"=> 144,
-                "name"=> "list_agent",
-                "description"=> "Lister les agents",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 144,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12880,14 +6612,7 @@
         [
             "id"=> 433,
             "module"=> 0,
-            "action"=> [
-                "id"=> 146,
-                "name"=> "update_agent",
-                "description"=> "Mettre à jour un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 146,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12910,14 +6635,7 @@
         [
             "id"=> 434,
             "module"=> 0,
-            "action"=> [
-                "id"=> 147,
-                "name"=> "delete_agent",
-                "description"=> "Supprimer un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 147,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12940,14 +6658,7 @@
         [
             "id"=> 435,
             "module"=> 0,
-            "action"=> [
-                "id"=> 145,
-                "name"=> "add_agent",
-                "description"=> "Ajouter un agent",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 145,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -12970,14 +6681,7 @@
         [
             "id"=> 436,
             "module"=> 0,
-            "action"=> [
-                "id"=> 148,
-                "name"=> "list_pos",
-                "description"=> "Lister les pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 148,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13000,14 +6704,7 @@
         [
             "id"=> 437,
             "module"=> 0,
-            "action"=> [
-                "id"=> 168,
-                "name"=> "list_store",
-                "description"=> "Lister les stores",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 168,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13030,14 +6727,7 @@
         [
             "id"=> 438,
             "module"=> 0,
-            "action"=> [
-                "id"=> 157,
-                "name"=> "add_product",
-                "description"=> "Ajouter un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 157,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13060,14 +6750,7 @@
         [
             "id"=> 439,
             "module"=> 0,
-            "action"=> [
-                "id"=> 156,
-                "name"=> "list_product",
-                "description"=> "Lister les products",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 156,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13090,14 +6773,7 @@
         [
             "id"=> 440,
             "module"=> 0,
-            "action"=> [
-                "id"=> 158,
-                "name"=> "update_product",
-                "description"=> "Mettre à jour un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 158,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13120,14 +6796,7 @@
         [
             "id"=> 441,
             "module"=> 0,
-            "action"=> [
-                "id"=> 159,
-                "name"=> "delete_product",
-                "description"=> "Supprimer un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 159,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13150,14 +6819,7 @@
         [
             "id"=> 442,
             "module"=> 0,
-            "action"=> [
-                "id"=> 164,
-                "name"=> "list_product_category",
-                "description"=> "Lister les product_categories",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 164,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13180,14 +6842,7 @@
         [
             "id"=> 443,
             "module"=> 0,
-            "action"=> [
-                "id"=> 168,
-                "name"=> "list_store",
-                "description"=> "Lister les stores",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 168,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13210,14 +6865,7 @@
         [
             "id"=> 444,
             "module"=> 0,
-            "action"=> [
-                "id"=> 161,
-                "name"=> "add_order",
-                "description"=> "Ajouter un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 161,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13240,14 +6888,7 @@
         [
             "id"=> 445,
             "module"=> 0,
-            "action"=> [
-                "id"=> 160,
-                "name"=> "list_order",
-                "description"=> "Lister les orders",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 160,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13270,14 +6911,7 @@
         [
             "id"=> 446,
             "module"=> 0,
-            "action"=> [
-                "id"=> 162,
-                "name"=> "update_order",
-                "description"=> "Mettre à jour un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 162,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13300,14 +6934,7 @@
         [
             "id"=> 447,
             "module"=> 0,
-            "action"=> [
-                "id"=> 163,
-                "name"=> "delete_order",
-                "description"=> "Supprimer un order",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 163,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13630,14 +7257,7 @@
         [
             "id"=> 459,
             "module"=> 0,
-            "action"=> [
-                "id"=> 156,
-                "name"=> "list_product",
-                "description"=> "Lister les products",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 156,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13660,14 +7280,7 @@
         [
             "id"=> 460,
             "module"=> 0,
-            "action"=> [
-                "id"=> 164,
-                "name"=> "list_product_category",
-                "description"=> "Lister les product_categories",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 164,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13690,14 +7303,7 @@
         [
             "id"=> 461,
             "module"=> 0,
-            "action"=> [
-                "id"=> 158,
-                "name"=> "update_product",
-                "description"=> "Mettre à jour un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 158,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -13720,14 +7326,7 @@
         [
             "id"=> 462,
             "module"=> 0,
-            "action"=> [
-                "id"=> 159,
-                "name"=> "delete_product",
-                "description"=> "Supprimer un product",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 159,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
