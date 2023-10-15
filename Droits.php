@@ -3638,7 +3638,6 @@
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Ajouter une agence",
-            
         ],
         [
             "module"=> 0,
@@ -4089,5 +4088,83 @@
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Affecter un store à un agent",
-        ]
+        ],
+
+
+
+        
+
+
+        {
+            "module": 0,
+            "action": 196,
+            "rang": 2,
+            "profil": 6,
+            "user_id": null,
+            "description": "Affecter un store à un pos",
+        },
+        {
+            "module": 0,
+            "action": 195,
+            "rang": 2,
+            "profil": 6,
+            "user_id": null,
+            "description": "Affecter un agent à un pos",
+        },
+        {
+            "module": 0,
+            "action": 210,
+            "rang":2,
+            "profil": 5,
+            "user_id": null,
+            "description": "Affecter un store à un agent",
+        },
+        {
+            "module": 0,
+            "action": 209,
+            "rang": 2,
+            "profil": 7,
+            "user_id": null,
+            "description": "Approvisionner un produit",
+        },
+        {
+            "module": 0,
+            "action": 192,
+            "rang": 2,
+            "profil": 5,
+            "user_id": null,
+            "description": "Faire la demande de creditation de son solde",
+        },
+        {
+            "module": 0,
+            "action": 198,
+            "rang": 2,
+            "profil": 6,
+            "user_id": null,
+            "description": "Valider le solde d'un pos",
+        },
+        {
+            "module": 0,
+            "action": 134,
+            "rang": 2,
+            "profil": 7,
+            "user_id": null,
+            "description": "Lister les factures",
+        },
+        {
+            "module": 0,
+            "action": 57,
+            "rang": 2,
+            "profil": 5,
+            "user_id": null,
+            "description": "Lister les agences",
+        },
+        {
+            "module": 0,
+            "action": 211,
+            "rang": 2,
+            "profil": 7,
+            "user_id": null,
+            "description": "Lister les utilisateurs ayant des factures",
+        }
     ],
