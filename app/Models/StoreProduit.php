@@ -17,7 +17,8 @@ class StoreProduit extends Model
         "category",
         "store",
         "active",
-        "product_type"
+        "product_type",
+        "img"
     ];
 
     function owner(): BelongsTo
