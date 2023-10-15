@@ -36,7 +36,7 @@ class StoreSupply extends Model
 
     function supply_products(): HasMany
     {
-        return $this->hasMany(SupplyProduct::class, "supply");
+        return $this->hasMany(SupplyProduct::class, "supply")->with(["product"]);
     }
 
     function session(): BelongsTo
