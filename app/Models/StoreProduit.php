@@ -45,4 +45,9 @@ class StoreProduit extends Model
     {
         return $this->belongsTo(ProductType::class, "product_type");
     }
+
+    function product_stock(): BelongsTo
+    {
+        return $this->belongsTo(StoreStock::class, "product");
+    }
 }

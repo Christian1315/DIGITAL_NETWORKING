@@ -2063,16 +2063,8 @@
             
         ],
         [
-            "id"=> 235,
             "module"=> 0,
-            "action"=> [
-                "id"=> 175,
-                "name"=> "list_right",
-                "description"=> "Lister les rights",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 175,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2080,16 +2072,8 @@
             
         ],
         [
-            "id"=> 236,
             "module"=> 0,
-            "action"=> [
-                "id"=> 174,
-                "name"=> "delete_user",
-                "description"=> "Supprimer un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 174,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2097,7 +2081,6 @@
             
         ],
         [
-            "id"=> 237,
             "module"=> 0,
             "action"=> 173,
             "rang"=> 1,
@@ -2267,7 +2250,6 @@
             
         ],
         [
-            "id"=> 254,
             "module"=> 0,
             "action"=> 156,
             "rang"=> 1,
@@ -2277,7 +2259,6 @@
             
         ],
         [
-            "id"=> 255,
             "module"=> 0,
             "action"=> 155,
             "rang"=> 1,
@@ -2287,7 +2268,6 @@
             
         ],
         [
-            "id"=> 256,
             "module"=> 0,
             "action"=> 154,
             "rang"=> 1,
@@ -2297,7 +2277,6 @@
             
         ],
         [
-            "id"=> 257,
             "module"=> 0,
             "action"=> 153,
             "rang"=> 1,
@@ -2307,7 +2286,6 @@
             
         ],
         [
-            "id"=> 258,
             "module"=> 0,
             "action"=> 152,
             "rang"=> 1,
@@ -2317,7 +2295,6 @@
             
         ],
         [
-            "id"=> 259,
             "module"=> 0,
             "action"=> 151,
             "rang"=> 1,
@@ -2327,7 +2304,6 @@
             
         ],
         [
-            "id"=> 260,
             "module"=> 0,
             "action"=> 150,
             "rang"=> 1,
@@ -2337,7 +2313,6 @@
             
         ],
         [
-            "id"=> 261,
             "module"=> 0,
             "action"=> 149,
             "rang"=> 1,
@@ -2347,7 +2322,6 @@
             
         ],
         [
-            "id"=> 262,
             "module"=> 0,
             "action"=> 148,
             "rang"=> 1,
@@ -2357,7 +2331,6 @@
             
         ],
         [
-            "id"=> 263,
             "module"=> 0,
             "action"=> 147,
             "rang"=> 1,
@@ -2367,7 +2340,6 @@
             
         ],
         [
-            "id"=> 264,
             "module"=> 0,
             "action"=> 146,
             "rang"=> 1,
@@ -2377,7 +2349,6 @@
             
         ],
         [
-            "id"=> 265,
             "module"=> 0,
             "action"=> 145,
             "rang"=> 1,
@@ -2387,7 +2358,6 @@
             
         ],
         [
-            "id"=> 266,
             "module"=> 0,
             "action"=> 144,
             "rang"=> 1,
@@ -2397,7 +2367,6 @@
             
         ],
         [
-            "id"=> 267,
             "module"=> 0,
             "action"=> 143,
             "rang"=> 1,
@@ -2407,7 +2376,6 @@
             
         ],
         [
-            "id"=> 268,
             "module"=> 0,
             "action"=> 142,
             "rang"=> 1,
@@ -2417,7 +2385,6 @@
             
         ],
         [
-            "id"=> 269,
             "module"=> 0,
             "action"=> 141,
             "rang"=> 1,
@@ -2427,7 +2394,6 @@
             
         ],
         [
-            "id"=> 270,
             "module"=> 0,
             "action"=> 140,
             "rang"=> 1,
@@ -2437,7 +2403,6 @@
             
         ],
         [
-            "id"=> 271,
             "module"=> 0,
             "action"=> 139,
             "rang"=> 1,
@@ -2447,7 +2412,6 @@
             
         ],
         [
-            "id"=> 272,
             "module"=> 0,
             "action"=> 138,
             "rang"=> 1,
@@ -2457,7 +2421,6 @@
             
         ],
         [
-            "id"=> 273,
             "module"=> 0,
             "action"=> 137,
             "rang"=> 1,
@@ -2467,7 +2430,6 @@
             
         ],
         [
-            "id"=> 274,
             "module"=> 0,
             "action"=> 136,
             "rang"=> 1,
@@ -2477,7 +2439,6 @@
             
         ],
         [
-            "id"=> 275,
             "module"=> 0,
             "action"=> 135,
             "rang"=> 1,
@@ -2487,7 +2448,6 @@
             
         ],
         [
-            "id"=> 276,
             "module"=> 0,
             "action"=> 134,
             "rang"=> 1,
@@ -2497,7 +2457,6 @@
             
         ],
         [
-            "id"=> 277,
             "module"=> 0,
             "action"=> 133,
             "rang"=> 1,
@@ -2507,7 +2466,6 @@
             
         ],
         [
-            "id"=> 278,
             "module"=> 0,
             "action"=> 132,
             "rang"=> 1,
@@ -2517,7 +2475,6 @@
             
         ],
         [
-            "id"=> 279,
             "module"=> 0,
             "action"=> 131,
             "rang"=> 1,
@@ -2527,7 +2484,6 @@
             
         ],
         [
-            "id"=> 280,
             "module"=> 0,
             "action"=> 130,
             "rang"=> 1,
@@ -2537,7 +2493,6 @@
             
         ],
         [
-            "id"=> 281,
             "module"=> 0,
             "action"=> 129,
             "rang"=> 1,
@@ -2547,7 +2502,6 @@
             
         ],
         [
-            "id"=> 282,
             "module"=> 0,
             "action"=> 128,
             "rang"=> 1,
@@ -2557,7 +2511,6 @@
             
         ],
         [
-            "id"=> 283,
             "module"=> 0,
             "action"=> 127,
             "rang"=> 1,
@@ -2567,7 +2520,6 @@
             
         ],
         [
-            "id"=> 284,
             "module"=> 0,
             "action"=> 126,
             "rang"=> 1,
@@ -2577,7 +2529,6 @@
             
         ],
         [
-            "id"=> 285,
             "module"=> 0,
             "action"=> 125,
             "rang"=> 1,
@@ -2587,7 +2538,6 @@
             
         ],
         [
-            "id"=> 286,
             "module"=> 0,
             "action"=> 124,
             "rang"=> 1,
@@ -2597,7 +2547,6 @@
             
         ],
         [
-            "id"=> 287,
             "module"=> 0,
             "action"=> 123,
             "rang"=> 1,
@@ -2607,7 +2556,6 @@
             
         ],
         [
-            "id"=> 288,
             "module"=> 0,
             "action"=> [
                 "id"=> 122,
@@ -2624,16 +2572,8 @@
             
         ],
         [
-            "id"=> 289,
             "module"=> 0,
-            "action"=> [
-                "id"=> 121,
-                "name"=> "reset_user_pass",
-                "description"=> "Réinitialiser mot de passe",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 121,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2641,16 +2581,8 @@
             
         ],
         [
-            "id"=> 290,
             "module"=> 0,
-            "action"=> [
-                "id"=> 120,
-                "name"=> "see_balance",
-                "description"=> "Voir solde",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 120,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2658,16 +2590,8 @@
             
         ],
         [
-            "id"=> 291,
             "module"=> 0,
-            "action"=> [
-                "id"=> 119,
-                "name"=> "see_commission",
-                "description"=> "Voir commission",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 119,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
