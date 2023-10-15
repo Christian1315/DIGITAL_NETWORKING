@@ -77,7 +77,6 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         $supply->save();
 
         #MARQUONS QUE CE PRODUIT A ETE AFFECTE A UN APPROVISIONNEMENT(supply)
-        $product = $product[0];
         $product->supplied = true;
         $product->save();
 

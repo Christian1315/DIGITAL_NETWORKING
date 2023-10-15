@@ -715,16 +715,8 @@
             
         ],
         [
-            "id"=> 85,
             "module"=> 0,
-            "action"=> [
-                "id"=> 134,
-                "name"=> "list_facture",
-                "description"=> "Liste des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 134,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -732,16 +724,8 @@
             
         ],
         [
-            "id"=> 86,
             "module"=> 0,
-            "action"=> [
-                "id"=> 133,
-                "name"=> "facture_new",
-                "description"=> "Emettre des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 133,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -749,16 +733,8 @@
             
         ],
         [
-            "id"=> 87,
             "module"=> 0,
-            "action"=> [
-                "id"=> 132,
-                "name"=> "list_cardload",
-                "description"=> "Liste rechargement carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 132,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -766,16 +742,8 @@
             
         ],
         [
-            "id"=> 88,
             "module"=> 0,
-            "action"=> [
-                "id"=> 131,
-                "name"=> "authorize_commission_withdrawal",
-                "description"=> "Autoriser reversement de commission",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 131,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -783,16 +751,8 @@
             
         ],
         [
-            "id"=> 89,
             "module"=> 0,
-            "action"=> [
-                "id"=> 130,
-                "name"=> "list_assurance",
-                "description"=> "Liste assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 130,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -800,16 +760,8 @@
             
         ],
         [
-            "id"=> 90,
             "module"=> 0,
-            "action"=> [
-                "id"=> 129,
-                "name"=> "approve_assurance",
-                "description"=> "Approuver devis",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 129,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -817,16 +769,8 @@
             
         ],
         [
-            "id"=> 91,
             "module"=> 0,
-            "action"=> [
-                "id"=> 128,
-                "name"=> "process_assurance",
-                "description"=> "Dévis assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 128,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -834,16 +778,8 @@
             
         ],
         [
-            "id"=> 92,
             "module"=> 0,
-            "action"=> [
-                "id"=> 127,
-                "name"=> "list_assurance",
-                "description"=> "Lister assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 127,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -851,16 +787,8 @@
             
         ],
         [
-            "id"=> 93,
             "module"=> 0,
-            "action"=> [
-                "id"=> 126,
-                "name"=> "assurance_new",
-                "description"=> "Ajouter assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 126,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -868,16 +796,8 @@
             
         ],
         [
-            "id"=> 94,
             "module"=> 0,
-            "action"=> [
-                "id"=> 125,
-                "name"=> "view_statement",
-                "description"=> "Voir relevé de compte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 125,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -885,16 +805,8 @@
             
         ],
         [
-            "id"=> 95,
             "module"=> 0,
-            "action"=> [
-                "id"=> 124,
-                "name"=> "set_deposit",
-                "description"=> "Valider des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 124,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -902,16 +814,8 @@
             
         ],
         [
-            "id"=> 96,
             "module"=> 0,
-            "action"=> [
-                "id"=> 123,
-                "name"=> "add_deposit",
-                "description"=> "Ajouter des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 123,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -919,16 +823,8 @@
             
         ],
         [
-            "id"=> 97,
             "module"=> 0,
-            "action"=> [
-                "id"=> 122,
-                "name"=> "list_deposit",
-                "description"=> "Liste des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 122,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -936,16 +832,8 @@
             
         ],
         [
-            "id"=> 98,
             "module"=> 0,
-            "action"=> [
-                "id"=> 121,
-                "name"=> "reset_user_pass",
-                "description"=> "Réinitialiser mot de passe",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 121,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -953,16 +841,8 @@
             
         ],
         [
-            "id"=> 99,
             "module"=> 0,
-            "action"=> [
-                "id"=> 120,
-                "name"=> "see_balance",
-                "description"=> "Voir solde",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 120,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -970,16 +850,8 @@
             
         ],
         [
-            "id"=> 100,
             "module"=> 0,
-            "action"=> [
-                "id"=> 119,
-                "name"=> "see_commission",
-                "description"=> "Voir commission",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 119,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -987,16 +859,8 @@
             
         ],
         [
-            "id"=> 101,
             "module"=> 0,
-            "action"=> [
-                "id"=> 118,
-                "name"=> "set_deepsearch",
-                "description"=> "Répondre recherches approfondies",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 118,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1004,16 +868,8 @@
             
         ],
         [
-            "id"=> 102,
             "module"=> 0,
-            "action"=> [
-                "id"=> 117,
-                "name"=> "list_deepsearch",
-                "description"=> "Liste recherches approfondies",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 117,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1021,16 +877,8 @@
             
         ],
         [
-            "id"=> 103,
             "module"=> 0,
-            "action"=> [
-                "id"=> 116,
-                "name"=> "deepsearch",
-                "description"=> "Recherche approfondie",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 116,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1038,16 +886,8 @@
             
         ],
         [
-            "id"=> 104,
             "module"=> 0,
-            "action"=> [
-                "id"=> 115,
-                "name"=> "card_validate_activation",
-                "description"=> "Valider activation de carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 115,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1055,16 +895,8 @@
             
         ],
         [
-            "id"=> 105,
             "module"=> 0,
-            "action"=> [
-                "id"=> 114,
-                "name"=> "deliver_card",
-                "description"=> "Délivrer une carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 114,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1072,16 +904,8 @@
             
         ],
         [
-            "id"=> 106,
             "module"=> 0,
-            "action"=> [
-                "id"=> 113,
-                "name"=> "delete_user_right",
-                "description"=> "Retirer droit à un utilisateur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 113,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1089,16 +913,8 @@
             
         ],
         [
-            "id"=> 107,
             "module"=> 0,
-            "action"=> [
-                "id"=> 112,
-                "name"=> "canal_reactivation",
-                "description"=> "Réactivation",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 112,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1106,16 +922,8 @@
             
         ],
         [
-            "id"=> 108,
             "module"=> 0,
-            "action"=> [
-                "id"=> 111,
-                "name"=> "list_reactivation",
-                "description"=> "Lister les réactivations",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 111,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1123,16 +931,8 @@
             
         ],
         [
-            "id"=> 109,
             "module"=> 0,
-            "action"=> [
-                "id"=> 110,
-                "name"=> "list_renew",
-                "description"=> "Liste des reabonnements",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 110,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1140,16 +940,8 @@
             
         ],
         [
-            "id"=> 110,
             "module"=> 0,
-            "action"=> [
-                "id"=> 109,
-                "name"=> "add_stock",
-                "description"=> "Ajouter stock",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 109,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1157,16 +949,8 @@
             
         ],
         [
-            "id"=> 111,
             "module"=> 0,
-            "action"=> [
-                "id"=> 108,
-                "name"=> "canal_migration",
-                "description"=> "Faire des migrations",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 108,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1174,16 +958,8 @@
             
         ],
         [
-            "id"=> 112,
             "module"=> 0,
-            "action"=> [
-                "id"=> 107,
-                "name"=> "list_migration",
-                "description"=> "Liste des miigration",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 107,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1191,16 +967,8 @@
             
         ],
         [
-            "id"=> 113,
             "module"=> 0,
-            "action"=> [
-                "id"=> 106,
-                "name"=> "credit_materiel",
-                "description"=> "Créditer un matériel",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 106
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1208,16 +976,8 @@
             
         ],
         [
-            "id"=> 114,
             "module"=> 0,
-            "action"=> [
-                "id"=> 105,
-                "name"=> "list_enroll",
-                "description"=> "Liste des recrutements",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 105,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1225,16 +985,8 @@
             
         ],
         [
-            "id"=> 115,
             "module"=> 0,
-            "action"=> [
-                "id"=> 104,
-                "name"=> "canal_enroll",
-                "description"=> "Recrutement canal",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 104,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1242,16 +994,8 @@
             
         ],
         [
-            "id"=> 116,
             "module"=> 0,
-            "action"=> [
-                "id"=> 103,
-                "name"=> "canal_update",
-                "description"=> "Modification abonnement canal",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 103,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1259,16 +1003,8 @@
             
         ],
         [
-            "id"=> 117,
             "module"=> 0,
-            "action"=> [
-                "id"=> 102,
-                "name"=> "end_operation",
-                "description"=> "Finir une Opération",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 102,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1276,16 +1012,8 @@
             
         ],
         [
-            "id"=> 118,
             "module"=> 0,
-            "action"=> [
-                "id"=> 101,
-                "name"=> "debit_accessoires",
-                "description"=> "Débiter accessoires",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 101,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1293,16 +1021,8 @@
             
         ],
         [
-            "id"=> 119,
             "module"=> 0,
-            "action"=> [
-                "id"=> 100,
-                "name"=> "credit_parabole",
-                "description"=> "Créditer parabole",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 100,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1310,16 +1030,8 @@
             
         ],
         [
-            "id"=> 120,
             "module"=> 0,
-            "action"=> [
-                "id"=> 99,
-                "name"=> "credit_accessoires",
-                "description"=> "Créditer accessoires",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 99,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1327,16 +1039,8 @@
             
         ],
         [
-            "id"=> 121,
             "module"=> 0,
-            "action"=> [
-                "id"=> 98,
-                "name"=> "migrate_decodeur",
-                "description"=> "Migration de décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 98,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1344,16 +1048,8 @@
             
         ],
         [
-            "id"=> 122,
             "module"=> 0,
-            "action"=> [
-                "id"=> 97,
-                "name"=> "sell_decodeur",
-                "description"=> "Recrutement (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 97,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1361,16 +1057,8 @@
             
         ],
         [
-            "id"=> 123,
             "module"=> 0,
-            "action"=> [
-                "id"=> 96,
-                "name"=> "canal_renew",
-                "description"=> "Réabonnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 96,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1378,16 +1066,8 @@
             
         ],
         [
-            "id"=> 124,
             "module"=> 0,
-            "action"=> [
-                "id"=> 95,
-                "name"=> "list_decodeur",
-                "description"=> "Liste décodeurs (recrutement)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 95,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1395,16 +1075,8 @@
             
         ],
         [
-            "id"=> 125,
             "module"=> 0,
-            "action"=> [
-                "id"=> 94,
-                "name"=> "canal_validate_migration",
-                "description"=> "Valider les recrutements (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 94,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1412,16 +1084,8 @@
             
         ],
         [
-            "id"=> 126,
             "module"=> 0,
-            "action"=> [
-                "id"=> 93,
-                "name"=> "debit_decodeur",
-                "description"=> "Débiter décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 93,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1429,16 +1093,8 @@
             
         ],
         [
-            "id"=> 127,
             "module"=> 0,
-            "action"=> [
-                "id"=> 92,
-                "name"=> "canal_validate_enroll",
-                "description"=> "Valider les recrutements (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 92,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1446,16 +1102,8 @@
             
         ],
         [
-            "id"=> 128,
             "module"=> 0,
-            "action"=> [
-                "id"=> 91,
-                "name"=> "migrate_decodeur",
-                "description"=> "Faire la migration de décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 91,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1463,16 +1111,8 @@
             
         ],
         [
-            "id"=> 129,
             "module"=> 0,
-            "action"=> [
-                "id"=> 90,
-                "name"=> "sell_decodeur",
-                "description"=> "Vendre décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 90,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1480,16 +1120,8 @@
             
         ],
         [
-            "id"=> 130,
             "module"=> 0,
-            "action"=> [
-                "id"=> 89,
-                "name"=> "credit_decodeur",
-                "description"=> "Créditer le stock de décodeur pour un partenaire",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 89,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1497,16 +1129,8 @@
             
         ],
         [
-            "id"=> 131,
             "module"=> 0,
-            "action"=> [
-                "id"=> 88,
-                "name"=> "add_decodeur",
-                "description"=> "Ajouter décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 88,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1514,16 +1138,8 @@
             
         ],
         [
-            "id"=> 132,
             "module"=> 0,
-            "action"=> [
-                "id"=> 87,
-                "name"=> "canal_validate_renew",
-                "description"=> "Valider réabonnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 87,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1531,16 +1147,8 @@
             
         ],
         [
-            "id"=> 133,
             "module"=> 0,
-            "action"=> [
-                "id"=> 86,
-                "name"=> "canal_renew",
-                "description"=> "Ajouter renouvellement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 86,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1548,16 +1156,8 @@
             
         ],
         [
-            "id"=> 134,
             "module"=> 0,
-            "action"=> [
-                "id"=> 85,
-                "name"=> "stats",
-                "description"=> "Statistiques",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 85,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1565,16 +1165,8 @@
             
         ],
         [
-            "id"=> 135,
             "module"=> 0,
-            "action"=> [
-                "id"=> 84,
-                "name"=> "delete_card",
-                "description"=> "Supprimer carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 84,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1582,16 +1174,8 @@
             
         ],
         [
-            "id"=> 136,
             "module"=> 0,
-            "action"=> [
-                "id"=> 83,
-                "name"=> "debit_agency",
-                "description"=> "Débiter une agence",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 83,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1599,16 +1183,8 @@
             
         ],
         [
-            "id"=> 137,
             "module"=> 0,
-            "action"=> [
-                "id"=> 82,
-                "name"=> "add_card",
-                "description"=> "Ajouter une carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 82,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1616,16 +1192,8 @@
             
         ],
         [
-            "id"=> 138,
             "module"=> 0,
-            "action"=> [
-                "id"=> 81,
-                "name"=> "credit_my_account",
-                "description"=> "Créditer mon compte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 81,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1633,16 +1201,8 @@
             
         ],
         [
-            "id"=> 139,
             "module"=> 0,
-            "action"=> [
-                "id"=> 80,
-                "name"=> "update_card",
-                "description"=> "Ajouter des masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 80,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1650,16 +1210,8 @@
             
         ],
         [
-            "id"=> 140,
             "module"=> 0,
-            "action"=> [
-                "id"=> 79,
-                "name"=> "add_master",
-                "description"=> "Ajouter des masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 79,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1667,16 +1219,8 @@
             
         ],
         [
-            "id"=> 141,
             "module"=> 0,
-            "action"=> [
-                "id"=> 78,
-                "name"=> "list_master",
-                "description"=> "Lister des masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 78,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1684,16 +1228,8 @@
             
         ],
         [
-            "id"=> 142,
             "module"=> 0,
-            "action"=> [
-                "id"=> 77,
-                "name"=> "validate_card_load",
-                "description"=> "Valider rechargement de carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 77,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1701,16 +1237,8 @@
             
         ],
         [
-            "id"=> 143,
             "module"=> 0,
-            "action"=> [
-                "id"=> 76,
-                "name"=> "list_rechargement",
-                "description"=> "Lister les rechargements",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 76,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1718,16 +1246,8 @@
             
         ],
         [
-            "id"=> 144,
             "module"=> 0,
-            "action"=> [
-                "id"=> 75,
-                "name"=> "add_agent",
-                "description"=> "Ajouter agent commercial",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 75,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1735,16 +1255,8 @@
             
         ],
         [
-            "id"=> 145,
             "module"=> 0,
-            "action"=> [
-                "id"=> 74,
-                "name"=> "list_agent",
-                "description"=> "Lister des agents commerciaux",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 74,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1752,16 +1264,8 @@
             
         ],
         [
-            "id"=> 146,
             "module"=> 0,
-            "action"=> [
-                "id"=> 73,
-                "name"=> "add_card",
-                "description"=> "Ajouter une carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 73,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1769,16 +1273,8 @@
             
         ],
         [
-            "id"=> 147,
             "module"=> 0,
-            "action"=> [
-                "id"=> 72,
-                "name"=> "credit_agency",
-                "description"=> "Créditer une agence",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 72,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1786,16 +1282,8 @@
             
         ],
         [
-            "id"=> 148,
             "module"=> 0,
-            "action"=> [
-                "id"=> 71,
-                "name"=> "add_agency",
-                "description"=> "Ajouter une agence",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 71,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1803,16 +1291,8 @@
             
         ],
         [
-            "id"=> 149,
             "module"=> 0,
-            "action"=> [
-                "id"=> 70,
-                "name"=> "list_card",
-                "description"=> "Lister les cartes",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 70,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1820,16 +1300,8 @@
             
         ],
         [
-            "id"=> 150,
             "module"=> 0,
-            "action"=> [
-                "id"=> 99,
-                "name"=> "credit_accessoires",
-                "description"=> "Créditer accessoires",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 99,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1837,16 +1309,8 @@
             
         ],
         [
-            "id"=> 151,
             "module"=> 0,
-            "action"=> [
-                "id"=> 98,
-                "name"=> "migrate_decodeur",
-                "description"=> "Migration de décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 98,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1854,16 +1318,8 @@
             
         ],
         [
-            "id"=> 152,
             "module"=> 0,
-            "action"=> [
-                "id"=> 97,
-                "name"=> "sell_decodeur",
-                "description"=> "Recrutement (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 97,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1871,16 +1327,8 @@
             
         ],
         [
-            "id"=> 153,
             "module"=> 0,
-            "action"=> [
-                "id"=> 96,
-                "name"=> "canal_renew",
-                "description"=> "Réabonnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 96,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1888,16 +1336,8 @@
             
         ],
         [
-            "id"=> 154,
             "module"=> 0,
-            "action"=> [
-                "id"=> 95,
-                "name"=> "list_decodeur",
-                "description"=> "Liste décodeurs (recrutement)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 95,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1905,16 +1345,8 @@
             
         ],
         [
-            "id"=> 155,
             "module"=> 0,
-            "action"=> [
-                "id"=> 94,
-                "name"=> "canal_validate_migration",
-                "description"=> "Valider les recrutements (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 94,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1922,16 +1354,8 @@
             
         ],
         [
-            "id"=> 156,
             "module"=> 0,
-            "action"=> [
-                "id"=> 93,
-                "name"=> "debit_decodeur",
-                "description"=> "Débiter décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 93,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1939,16 +1363,8 @@
             
         ],
         [
-            "id"=> 157,
             "module"=> 0,
-            "action"=> [
-                "id"=> 92,
-                "name"=> "canal_validate_enroll",
-                "description"=> "Valider les recrutements (vente de décodeur)",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 92,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1956,16 +1372,8 @@
             
         ],
         [
-            "id"=> 158,
             "module"=> 0,
-            "action"=> [
-                "id"=> 91,
-                "name"=> "migrate_decodeur",
-                "description"=> "Faire la migration de décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 91,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1973,16 +1381,8 @@
             
         ],
         [
-            "id"=> 159,
             "module"=> 0,
-            "action"=> [
-                "id"=> 90,
-                "name"=> "sell_decodeur",
-                "description"=> "Vendre décodeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 90,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -1990,16 +1390,8 @@
             
         ],
         [
-            "id"=> 160,
             "module"=> 0,
-            "action"=> [
-                "id"=> 59,
-                "name"=> "send_msg_to_distributor",
-                "description"=> "Envoyer de message aux distributeur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 59,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2007,16 +1399,8 @@
             
         ],
         [
-            "id"=> 161,
             "module"=> 0,
-            "action"=> [
-                "id"=> 58,
-                "name"=> "update_agency",
-                "description"=> "Editer distribibuteur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 58,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2024,16 +1408,8 @@
             
         ],
         [
-            "id"=> 162,
             "module"=> 0,
-            "action"=> [
-                "id"=> 57,
-                "name"=> "list_agency",
-                "description"=> "Liste des distributeurs",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 57,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2041,16 +1417,8 @@
             
         ],
         [
-            "id"=> 163,
             "module"=> 0,
-            "action"=> [
-                "id"=> 56,
-                "name"=> "global_stats",
-                "description"=> "Statistique globale de la plateforme : Nombre de distributeurs, cartes, agents commerciaux, etc.",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 56,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2058,16 +1426,8 @@
             
         ],
         [
-            "id"=> 164,
             "module"=> 0,
-            "action"=> [
-                "id"=> 55,
-                "name"=> "add_user",
-                "description"=> "Ajout d'utilisateur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 55,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2075,16 +1435,8 @@
             
         ],
         [
-            "id"=> 165,
             "module"=> 0,
-            "action"=> [
-                "id"=> 54,
-                "name"=> "credit_sold",
-                "description"=> "Crediter un compte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 54,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2092,16 +1444,8 @@
             
         ],
         [
-            "id"=> 166,
             "module"=> 0,
-            "action"=> [
-                "id"=> 53,
-                "name"=> "desattach_right",
-                "description"=> "Retirer un droit à un utilisateur",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 53,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2109,16 +1453,8 @@
             
         ],
         [
-            "id"=> 167,
             "module"=> 0,
-            "action"=> [
-                "id"=> 52,
-                "name"=> "affect_right",
-                "description"=> "Affecter un droit",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 52,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2126,16 +1462,8 @@
             
         ],
         [
-            "id"=> 168,
             "module"=> 0,
-            "action"=> [
-                "id"=> 51,
-                "name"=> "view_action",
-                "description"=> "Détail d'une action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 51,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2143,16 +1471,8 @@
             
         ],
         [
-            "id"=> 169,
             "module"=> 0,
-            "action"=> [
-                "id"=> 50,
-                "name"=> "delete_action",
-                "description"=> "Supprimer un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 50,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2160,16 +1480,8 @@
             
         ],
         [
-            "id"=> 170,
             "module"=> 0,
-            "action"=> [
-                "id"=> 49,
-                "name"=> "update_action",
-                "description"=> "Mettre à jour un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 49,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2177,16 +1489,8 @@
             
         ],
         [
-            "id"=> 171,
             "module"=> 0,
-            "action"=> [
-                "id"=> 48,
-                "name"=> "add_action",
-                "description"=> "Ajouter un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 48,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2194,16 +1498,8 @@
             
         ],
         [
-            "id"=> 172,
             "module"=> 0,
-            "action"=> [
-                "id"=> 47,
-                "name"=> "list_action",
-                "description"=> "Lister les action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 47,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2211,16 +1507,8 @@
             
         ],
         [
-            "id"=> 173,
             "module"=> 0,
-            "action"=> [
-                "id"=> 46,
-                "name"=> "view_rang",
-                "description"=> "Détail d'un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 46,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2228,16 +1516,8 @@
             
         ],
         [
-            "id"=> 174,
             "module"=> 0,
-            "action"=> [
-                "id"=> 45,
-                "name"=> "delete_rang",
-                "description"=> "Supprimer un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 45,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2245,16 +1525,8 @@
             
         ],
         [
-            "id"=> 175,
             "module"=> 0,
-            "action"=> [
-                "id"=> 44,
-                "name"=> "update_rang",
-                "description"=> "Mettre à jour un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 44,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2262,16 +1534,8 @@
             
         ],
         [
-            "id"=> 176,
             "module"=> 0,
-            "action"=> [
-                "id"=> 43,
-                "name"=> "add_rang",
-                "description"=> "Ajouter un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 43,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2279,16 +1543,8 @@
             
         ],
         [
-            "id"=> 177,
             "module"=> 0,
-            "action"=> [
-                "id"=> 42,
-                "name"=> "list_rang",
-                "description"=> "Lister les rangs",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 42,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2296,16 +1552,8 @@
             
         ],
         [
-            "id"=> 178,
             "module"=> 0,
-            "action"=> [
-                "id"=> 41,
-                "name"=> "view_profil",
-                "description"=> "Détail d'un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 41,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2313,16 +1561,8 @@
             
         ],
         [
-            "id"=> 179,
             "module"=> 0,
-            "action"=> [
-                "id"=> 40,
-                "name"=> "delete_profil",
-                "description"=> "Supprimer un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 40,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2330,16 +1570,8 @@
             
         ],
         [
-            "id"=> 180,
             "module"=> 0,
-            "action"=> [
-                "id"=> 39,
-                "name"=> "update_profil",
-                "description"=> "Mettre à jour un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 39,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2347,16 +1579,8 @@
             
         ],
         [
-            "id"=> 181,
             "module"=> 0,
-            "action"=> [
-                "id"=> 38,
-                "name"=> "add_profil",
-                "description"=> "Ajouter un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 38,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2364,16 +1588,8 @@
             
         ],
         [
-            "id"=> 182,
             "module"=> 0,
-            "action"=> [
-                "id"=> 37,
-                "name"=> "list_profil",
-                "description"=> "Lister les profils",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 37,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2381,16 +1597,8 @@
             
         ],
         [
-            "id"=> 183,
             "module"=> 0,
-            "action"=> [
-                "id"=> 36,
-                "name"=> "view_right",
-                "description"=> "Détail d'un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 36,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2398,16 +1606,8 @@
             
         ],
         [
-            "id"=> 184,
             "module"=> 0,
-            "action"=> [
-                "id"=> 35,
-                "name"=> "delete_right",
-                "description"=> "Supprimer un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 35,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2415,16 +1615,8 @@
             
         ],
         [
-            "id"=> 185,
             "module"=> 0,
-            "action"=> [
-                "id"=> 34,
-                "name"=> "update_right",
-                "description"=> "Mettre à jour un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 34,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2432,16 +1624,8 @@
             
         ],
         [
-            "id"=> 186,
             "module"=> 0,
-            "action"=> [
-                "id"=> 33,
-                "name"=> "add_right",
-                "description"=> "Ajouter un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 33,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2449,16 +1633,8 @@
             
         ],
         [
-            "id"=> 187,
             "module"=> 0,
-            "action"=> [
-                "id"=> 32,
-                "name"=> "list_right",
-                "description"=> "Lister les rights",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 32,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2466,16 +1642,8 @@
             
         ],
         [
-            "id"=> 188,
             "module"=> 0,
-            "action"=> [
-                "id"=> 31,
-                "name"=> "view_user",
-                "description"=> "Détail d'un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 31,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2483,16 +1651,8 @@
             
         ],
         [
-            "id"=> 189,
             "module"=> 0,
-            "action"=> [
-                "id"=> 30,
-                "name"=> "delete_user",
-                "description"=> "Supprimer un user",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 30,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2500,16 +1660,8 @@
             
         ],
         [
-            "id"=> 190,
             "module"=> 0,
-            "action"=> [
-                "id"=> 19,
-                "name"=> "delete_sms",
-                "description"=> "Supprimer un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 19,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2517,33 +1669,16 @@
             
         ],
         [
-            "id"=> 191,
             "module"=> 0,
-            "action"=> [
-                "id"=> 18,
-                "name"=> "update_sms",
-                "description"=> "Mettre à jour un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 18,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
-            "description"=> "Droit: Lister les users    ",
-            
+            "description"=> "Droit: Lister les users",
         ],
         [
-            "id"=> 192,
             "module"=> 0,
-            "action"=> [
-                "id"=> 17,
-                "name"=> "add_sms",
-                "description"=> "Ajouter un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 17,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2551,16 +1686,8 @@
             
         ],
         [
-            "id"=> 193,
             "module"=> 0,
-            "action"=> [
-                "id"=> 16,
-                "name"=> "list_sms",
-                "description"=> "Lister les sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 16,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2568,33 +1695,16 @@
             
         ],
         [
-            "id"=> 194,
             "module"=> 0,
-            "action"=> [
-                "id"=> 15,
-                "name"=> "view_expeditor",
-                "description"=> "Détail d'un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 15,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
             "description"=> "Droit: Stoper une campagne    ",
-            
         ],
         [
-            "id"=> 195,
             "module"=> 0,
-            "action"=> [
-                "id"=> 14,
-                "name"=> "delete_expeditor",
-                "description"=> "Supprimer un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 14,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2602,16 +1712,8 @@
             
         ],
         [
-            "id"=> 196,
             "module"=> 0,
-            "action"=> [
-                "id"=> 13,
-                "name"=> "update_expeditor",
-                "description"=> "Mettre à jour un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 13,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2619,16 +1721,8 @@
             
         ],
         [
-            "id"=> 197,
             "module"=> 0,
-            "action"=> [
-                "id"=> 12,
-                "name"=> "add_expeditor",
-                "description"=> "Ajouter un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 12,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2636,16 +1730,8 @@
             
         ],
         [
-            "id"=> 198,
             "module"=> 0,
-            "action"=> [
-                "id"=> 11,
-                "name"=> "list_expeditor",
-                "description"=> "Lister les expeditors",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 11,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2653,16 +1739,8 @@
             
         ],
         [
-            "id"=> 199,
             "module"=> 0,
-            "action"=> [
-                "id"=> 10,
-                "name"=> "view_contactGroup",
-                "description"=> "Détail d'un groupe de contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 10,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2670,16 +1748,8 @@
             
         ],
         [
-            "id"=> 200,
             "module"=> 0,
-            "action"=> [
-                "id"=> 19,
-                "name"=> "delete_sms",
-                "description"=> "Supprimer un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 19,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2687,16 +1757,8 @@
             
         ],
         [
-            "id"=> 201,
             "module"=> 0,
-            "action"=> [
-                "id"=> 18,
-                "name"=> "update_sms",
-                "description"=> "Mettre à jour un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 18,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2704,16 +1766,8 @@
             
         ],
         [
-            "id"=> 202,
             "module"=> 0,
-            "action"=> [
-                "id"=> 17,
-                "name"=> "add_sms",
-                "description"=> "Ajouter un sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 17,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2721,16 +1775,8 @@
             
         ],
         [
-            "id"=> 203,
             "module"=> 0,
-            "action"=> [
-                "id"=> 16,
-                "name"=> "list_sms",
-                "description"=> "Lister les sms",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 16,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2738,16 +1784,8 @@
             
         ],
         [
-            "id"=> 204,
             "module"=> 0,
-            "action"=> [
-                "id"=> 15,
-                "name"=> "view_expeditor",
-                "description"=> "Détail d'un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 15,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2755,16 +1793,8 @@
             
         ],
         [
-            "id"=> 205,
             "module"=> 0,
-            "action"=> [
-                "id"=> 14,
-                "name"=> "delete_expeditor",
-                "description"=> "Supprimer un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 14,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2772,16 +1802,8 @@
             
         ],
         [
-            "id"=> 206,
             "module"=> 0,
-            "action"=> [
-                "id"=> 13,
-                "name"=> "update_expeditor",
-                "description"=> "Mettre à jour un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 13,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2789,16 +1811,8 @@
             
         ],
         [
-            "id"=> 207,
             "module"=> 0,
-            "action"=> [
-                "id"=> 12,
-                "name"=> "add_expeditor",
-                "description"=> "Ajouter un expeditor",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 12,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2806,16 +1820,8 @@
             
         ],
         [
-            "id"=> 208,
             "module"=> 0,
-            "action"=> [
-                "id"=> 11,
-                "name"=> "list_expeditor",
-                "description"=> "Lister les expeditors",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 11,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2823,16 +1829,8 @@
             
         ],
         [
-            "id"=> 209,
             "module"=> 0,
-            "action"=> [
-                "id"=> 10,
-                "name"=> "view_contactGroup",
-                "description"=> "Détail d'un groupe de contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 10,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2840,16 +1838,8 @@
             
         ],
         [
-            "id"=> 210,
             "module"=> 0,
-            "action"=> [
-                "id"=> 9,
-                "name"=> "delete_contactGroup",
-                "description"=> "Supprimer un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 9,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2857,16 +1847,8 @@
             
         ],
         [
-            "id"=> 211,
             "module"=> 0,
-            "action"=> [
-                "id"=> 8,
-                "name"=> "update_contactGroup",
-                "description"=> "Mettre à jour un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 8,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2874,16 +1856,8 @@
             
         ],
         [
-            "id"=> 212,
             "module"=> 0,
-            "action"=> [
-                "id"=> 7,
-                "name"=> "add_contactGroup",
-                "description"=> "Ajouter un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 7,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2891,16 +1865,8 @@
             
         ],
         [
-            "id"=> 213,
             "module"=> 0,
-            "action"=> [
-                "id"=> 9,
-                "name"=> "delete_contactGroup",
-                "description"=> "Supprimer un groupe de cintact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 9,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2908,16 +1874,8 @@
             
         ],
         [
-            "id"=> 214,
             "module"=> 0,
-            "action"=> [
-                "id"=> 5,
-                "name"=> "view_contact",
-                "description"=> "Détail d'un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 5,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2925,16 +1883,8 @@
             
         ],
         [
-            "id"=> 215,
             "module"=> 0,
-            "action"=> [
-                "id"=> 4,
-                "name"=> "delete_contact",
-                "description"=> "Supprimer un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 4,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2942,16 +1892,8 @@
             
         ],
         [
-            "id"=> 216,
             "module"=> 0,
-            "action"=> [
-                "id"=> 3,
-                "name"=> "update_contact",
-                "description"=> "Mettre à jour un contact",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 3,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2959,16 +1901,8 @@
             
         ],
         [
-            "id"=> 217,
             "module"=> 0,
-            "action"=> [
-                "id"=> 1,
-                "name"=> "list_contact",
-                "description"=> "Lister les contacts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 1,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2976,16 +1910,8 @@
             
         ],
         [
-            "id"=> 218,
             "module"=> 0,
-            "action"=> [
-                "id"=> 1,
-                "name"=> "list_contact",
-                "description"=> "Lister les contacts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 1,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2993,16 +1919,8 @@
             
         ],
         [
-            "id"=> 219,
             "module"=> 0,
-            "action"=> [
-                "id"=> 191,
-                "name"=> "affect_right",
-                "description"=> "Affecter un droit",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 191,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3010,16 +1928,8 @@
             
         ],
         [
-            "id"=> 220,
             "module"=> 0,
-            "action"=> [
-                "id"=> 190,
-                "name"=> "delete_action",
-                "description"=> "Supprimer un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 190,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3027,16 +1937,8 @@
             
         ],
         [
-            "id"=> 221,
             "module"=> 0,
-            "action"=> [
-                "id"=> 189,
-                "name"=> "update_action",
-                "description"=> "Mettre à jour un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 189,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3044,16 +1946,8 @@
             
         ],
         [
-            "id"=> 222,
             "module"=> 0,
-            "action"=> [
-                "id"=> 188,
-                "name"=> "add_action",
-                "description"=> "Ajouter un action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 188,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3061,16 +1955,8 @@
             
         ],
         [
-            "id"=> 223,
             "module"=> 0,
-            "action"=> [
-                "id"=> 187,
-                "name"=> "list_action",
-                "description"=> "Lister les action",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 187,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3078,16 +1964,8 @@
             
         ],
         [
-            "id"=> 224,
             "module"=> 0,
-            "action"=> [
-                "id"=> 186,
-                "name"=> "delete_rang",
-                "description"=> "Supprimer un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 186,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3095,16 +1973,8 @@
             
         ],
         [
-            "id"=> 225,
             "module"=> 0,
-            "action"=> [
-                "id"=> 185,
-                "name"=> "update_rang",
-                "description"=> "Mettre à jour un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 185,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3112,16 +1982,8 @@
             
         ],
         [
-            "id"=> 226,
             "module"=> 0,
-            "action"=> [
-                "id"=> 184,
-                "name"=> "add_rang",
-                "description"=> "Ajouter un rang",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 184,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3129,16 +1991,8 @@
             
         ],
         [
-            "id"=> 227,
             "module"=> 0,
-            "action"=> [
-                "id"=> 183,
-                "name"=> "list_rang",
-                "description"=> "Lister les rangs",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 183,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3146,16 +2000,8 @@
             
         ],
         [
-            "id"=> 228,
             "module"=> 0,
-            "action"=> [
-                "id"=> 182,
-                "name"=> "delete_profil",
-                "description"=> "Supprimer un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 182,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3163,16 +2009,8 @@
             
         ],
         [
-            "id"=> 229,
             "module"=> 0,
-            "action"=> [
-                "id"=> 181,
-                "name"=> "update_profil",
-                "description"=> "Mettre à jour un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 181,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3180,16 +2018,8 @@
             
         ],
         [
-            "id"=> 230,
             "module"=> 0,
-            "action"=> [
-                "id"=> 180,
-                "name"=> "add_profil",
-                "description"=> "Ajouter un profil",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 180,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3197,16 +2027,8 @@
             
         ],
         [
-            "id"=> 231,
             "module"=> 0,
-            "action"=> [
-                "id"=> 179,
-                "name"=> "list_profil",
-                "description"=> "Lister les profils",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 179,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3214,16 +2036,8 @@
             
         ],
         [
-            "id"=> 232,
             "module"=> 0,
-            "action"=> [
-                "id"=> 178,
-                "name"=> "delete_right",
-                "description"=> "Supprimer un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 178,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3231,16 +2045,8 @@
             
         ],
         [
-            "id"=> 233,
             "module"=> 0,
-            "action"=> [
-                "id"=> 177,
-                "name"=> "update_right",
-                "description"=> "Mettre à jour un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 177,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3248,16 +2054,8 @@
             
         ],
         [
-            "id"=> 234,
             "module"=> 0,
-            "action"=> [
-                "id"=> 176,
-                "name"=> "add_right",
-                "description"=> "Ajouter un right",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 176,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3691,14 +2489,7 @@
         [
             "id"=> 276,
             "module"=> 0,
-            "action"=> [
-                "id"=> 134,
-                "name"=> "list_facture",
-                "description"=> "Liste des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 134,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3708,14 +2499,7 @@
         [
             "id"=> 277,
             "module"=> 0,
-            "action"=> [
-                "id"=> 133,
-                "name"=> "facture_new",
-                "description"=> "Emettre des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 133,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3725,14 +2509,7 @@
         [
             "id"=> 278,
             "module"=> 0,
-            "action"=> [
-                "id"=> 132,
-                "name"=> "list_cardload",
-                "description"=> "Liste rechargement carte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 132,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3742,14 +2519,7 @@
         [
             "id"=> 279,
             "module"=> 0,
-            "action"=> [
-                "id"=> 131,
-                "name"=> "authorize_commission_withdrawal",
-                "description"=> "Autoriser reversement de commission",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 131,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3759,14 +2529,7 @@
         [
             "id"=> 280,
             "module"=> 0,
-            "action"=> [
-                "id"=> 130,
-                "name"=> "list_assurance",
-                "description"=> "Liste assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 130,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3776,14 +2539,7 @@
         [
             "id"=> 281,
             "module"=> 0,
-            "action"=> [
-                "id"=> 129,
-                "name"=> "approve_assurance",
-                "description"=> "Approuver devis",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 129,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3793,14 +2549,7 @@
         [
             "id"=> 282,
             "module"=> 0,
-            "action"=> [
-                "id"=> 128,
-                "name"=> "process_assurance",
-                "description"=> "Dévis assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 128,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3810,14 +2559,7 @@
         [
             "id"=> 283,
             "module"=> 0,
-            "action"=> [
-                "id"=> 127,
-                "name"=> "list_assurance",
-                "description"=> "Lister assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 127,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3827,14 +2569,7 @@
         [
             "id"=> 284,
             "module"=> 0,
-            "action"=> [
-                "id"=> 126,
-                "name"=> "assurance_new",
-                "description"=> "Ajouter assurance",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 126,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3844,14 +2579,7 @@
         [
             "id"=> 285,
             "module"=> 0,
-            "action"=> [
-                "id"=> 125,
-                "name"=> "view_statement",
-                "description"=> "Voir relevé de compte",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 125,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3861,14 +2589,7 @@
         [
             "id"=> 286,
             "module"=> 0,
-            "action"=> [
-                "id"=> 124,
-                "name"=> "set_deposit",
-                "description"=> "Valider des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 124,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3878,14 +2599,7 @@
         [
             "id"=> 287,
             "module"=> 0,
-            "action"=> [
-                "id"=> 123,
-                "name"=> "add_deposit",
-                "description"=> "Ajouter des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 123,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
