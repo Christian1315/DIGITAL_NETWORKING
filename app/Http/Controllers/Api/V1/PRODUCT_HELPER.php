@@ -174,8 +174,8 @@ class PRODUCT_HELPER extends BASE_HELPER
         }
 
         $product->update($formData);
-        $product->img = $formData["img"];
-        $product->save();
+        // $product->img = $formData["img"];
+        // $product->save();
         return self::sendResponse($product, 'Ce Produit a été modifié avec succès!');
     }
 
