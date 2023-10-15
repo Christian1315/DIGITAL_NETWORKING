@@ -622,7 +622,6 @@
             
         ],
         [
-            "id"=> 75,
             "module"=> 0,
             "action"=> 144,
             "rang"=> 1,
@@ -659,7 +658,6 @@
             
         ],
         [
-            "id"=> 79,
             "module"=> 0,
             "action"=> 140,
             "rang"=> 1,
@@ -705,7 +703,6 @@
             
         ],
         [
-            "id"=> 84,
             "module"=> 0,
             "action"=> 135,
             "rang"=> 1,
@@ -2090,7 +2087,6 @@
             
         ],
         [
-            "id"=> 238,
             "module"=> 0,
             "action"=> 172,
             "rang"=> 1,
@@ -2100,7 +2096,6 @@
             
         ],
         [
-            "id"=> 239,
             "module"=> 0,
             "action"=> 171,
             "rang"=> 1,
@@ -2110,7 +2105,6 @@
             
         ],
         [
-            "id"=> 240,
             "module"=> 0,
             "action"=> 170,
             "rang"=> 1,
@@ -2120,7 +2114,6 @@
             
         ],
         [
-            "id"=> 241,
             "module"=> 0,
             "action"=> 169,
             "rang"=> 1,
@@ -2130,7 +2123,6 @@
             
         ],
         [
-            "id"=> 242,
             "module"=> 0,
             "action"=> 168,
             "rang"=> 1,
@@ -2140,7 +2132,6 @@
             
         ],
         [
-            "id"=> 243,
             "module"=> 0,
             "action"=> 167,
             "rang"=> 1,
@@ -2150,7 +2141,6 @@
             
         ],
         [
-            "id"=> 244,
             "module"=> 0,
             "action"=> 166,
             "rang"=> 1,
@@ -2160,7 +2150,6 @@
             
         ],
         [
-            "id"=> 245,
             "module"=> 0,
             "action"=> 165,
             "rang"=> 1,
@@ -2170,7 +2159,6 @@
             
         ],
         [
-            "id"=> 246,
             "module"=> 0,
             "action"=> 164,
             "rang"=> 1,
@@ -2180,7 +2168,6 @@
             
         ],
         [
-            "id"=> 247,
             "module"=> 0,
             "action"=> 163,
             "rang"=> 1,
@@ -2190,7 +2177,6 @@
             
         ],
         [
-            "id"=> 248,
             "module"=> 0,
             "action"=> 162,
             "rang"=> 1,
@@ -2200,7 +2186,6 @@
             
         ],
         [
-            "id"=> 249,
             "module"=> 0,
             "action"=> 161,
             "rang"=> 1,
@@ -2210,7 +2195,6 @@
             
         ],
         [
-            "id"=> 250,
             "module"=> 0,
             "action"=> 160,
             "rang"=> 1,
@@ -2220,7 +2204,6 @@
             
         ],
         [
-            "id"=> 251,
             "module"=> 0,
             "action"=> 159,
             "rang"=> 1,
@@ -2230,7 +2213,6 @@
             
         ],
         [
-            "id"=> 252,
             "module"=> 0,
             "action"=> 158,
             "rang"=> 1,
@@ -2240,7 +2222,6 @@
             
         ],
         [
-            "id"=> 253,
             "module"=> 0,
             "action"=> 157,
             "rang"=> 1,
@@ -2557,14 +2538,7 @@
         ],
         [
             "module"=> 0,
-            "action"=> [
-                "id"=> 122,
-                "name"=> "list_deposit",
-                "description"=> "Liste des dépôts",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 122,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -2672,14 +2646,7 @@
         ],
         [
             "module"=> 0,
-            "action"=> [
-                "id"=> 110,
-                "name"=> "list_renew",
-                "description"=> "Liste des reabonnements",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 110,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3875,559 +3842,252 @@
             "description"=> "Lister les stores",
         ],
         [
-            "id"=> 438,
             "module"=> 0,
             "action"=> 157,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Ajouter un produit",
-            "created_at"=> "2023-10-12T19:56:11.000000Z",
-            "updated_at"=> "2023-10-12T19:56:11.000000Z"
         ],
         [
-            "id"=> 439,
             "module"=> 0,
             "action"=> 156,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Lister les produits",
-            "created_at"=> "2023-10-12T19:56:27.000000Z",
-            "updated_at"=> "2023-10-12T19:56:27.000000Z"
         ],
         [
-            "id"=> 440,
             "module"=> 0,
             "action"=> 158,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Modifier un produit",
-            "created_at"=> "2023-10-12T19:56:52.000000Z",
-            "updated_at"=> "2023-10-12T19:56:52.000000Z"
         ],
         [
-            "id"=> 441,
             "module"=> 0,
             "action"=> 159,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Supprimer un produit",
-            "created_at"=> "2023-10-12T19:57:09.000000Z",
-            "updated_at"=> "2023-10-12T19:57:09.000000Z"
         ],
         [
-            "id"=> 442,
             "module"=> 0,
             "action"=> 164,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Lister les categories de produit",
-            "created_at"=> "2023-10-12T19:57:39.000000Z",
-            "updated_at"=> "2023-10-12T19:57:39.000000Z"
         ],
         [
-            "id"=> 443,
             "module"=> 0,
             "action"=> 168,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Lister les stores",
-            "created_at"=> "2023-10-12T19:58:25.000000Z",
-            "updated_at"=> "2023-10-12T19:58:25.000000Z"
         ],
         [
-            "id"=> 444,
             "module"=> 0,
             "action"=> 161,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Ajouter une commande",
-            "created_at"=> "2023-10-12T19:59:02.000000Z",
-            "updated_at"=> "2023-10-12T19:59:02.000000Z"
         ],
         [
-            "id"=> 445,
             "module"=> 0,
             "action"=> 160,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Lister les commandes",
-            "created_at"=> "2023-10-12T19:59:25.000000Z",
-            "updated_at"=> "2023-10-12T19:59:25.000000Z"
         ],
         [
-            "id"=> 446,
             "module"=> 0,
             "action"=> 162,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Modifier une commande",
-            "created_at"=> "2023-10-12T20:00:25.000000Z",
-            "updated_at"=> "2023-10-12T20:00:25.000000Z"
         ],
         [
-            "id"=> 447,
             "module"=> 0,
             "action"=> 163,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Supprimer une commande",
-            "created_at"=> "2023-10-12T20:00:52.000000Z",
-            "updated_at"=> "2023-10-12T20:00:52.000000Z"
         ],
         [
-            "id"=> 448,
             "module"=> 0,
-            "action"=> [
-                "id"=> 193,
-                "name"=> "initiate_session",
-                "description"=> "Initier une session",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:02.000000Z",
-                "updated_at"=> "2023-10-12T20:08:02.000000Z"
-            ],
+            "action"=> 193,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Initier une session",
-            "created_at"=> "2023-10-12T20:10:23.000000Z",
-            "updated_at"=> "2023-10-12T20:10:23.000000Z"
         ],
         [
-            "id"=> 450,
             "module"=> 0,
-            "action"=> [
-                "id"=> 193,
-                "name"=> "initiate_session",
-                "description"=> "Initier une session",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:02.000000Z",
-                "updated_at"=> "2023-10-12T20:08:02.000000Z"
-            ],
+            "action"=> 193,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Initier une session",
-            "created_at"=> "2023-10-12T20:11:12.000000Z",
-            "updated_at"=> "2023-10-12T20:11:12.000000Z"
         ],
         [
-            "id"=> 451,
             "module"=> 0,
-            "action"=> [
-                "id"=> 193,
-                "name"=> "initiate_session",
-                "description"=> "Initier une session",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:02.000000Z",
-                "updated_at"=> "2023-10-12T20:08:02.000000Z"
-            ],
+            "action"=> 193,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Initier une session",
-            "created_at"=> "2023-10-12T20:11:45.000000Z",
-            "updated_at"=> "2023-10-12T20:11:45.000000Z"
         ],
         [
-            "id"=> 452,
             "module"=> 0,
-            "action"=> [
-                "id"=> 198,
-                "name"=> "validate_sold",
-                "description"=> "Valider la créditation de sold d'une agence",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:09:40.000000Z",
-                "updated_at"=> "2023-10-12T20:09:40.000000Z"
-            ],
+            "action"=> 198,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Valider la créditation de sold d'une agence",
-            "created_at"=> "2023-10-12T20:12:08.000000Z",
-            "updated_at"=> "2023-10-12T20:12:08.000000Z"
+            
         ],
         [
-            "id"=> 453,
             "module"=> 0,
-            "action"=> [
-                "id"=> 194,
-                "name"=> "creditate_pos_sold",
-                "description"=> "Crediter le solde d'un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:13.000000Z",
-                "updated_at"=> "2023-10-12T20:08:13.000000Z"
-            ],
+            "action"=> 194,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Crediter le solde d'un pos",
-            "created_at"=> "2023-10-12T20:12:23.000000Z",
-            "updated_at"=> "2023-10-12T20:12:23.000000Z"
         ],
         [
-            "id"=> 454,
             "module"=> 0,
-            "action"=> [
-                "id"=> 205,
-                "name"=> "add_supply",
-                "description"=> "Ajouter un approvisionnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:16:40.000000Z",
-                "updated_at"=> "2023-10-12T20:16:40.000000Z"
-            ],
+            "action"=> 205,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Ajouter un approvisionnement",
-            "created_at"=> "2023-10-12T20:17:52.000000Z",
-            "updated_at"=> "2023-10-12T20:17:52.000000Z"
         ],
         [
-            "id"=> 455,
             "module"=> 0,
-            "action"=> [
-                "id"=> 206,
-                "name"=> "list_supply",
-                "description"=> "Lister les approvisionnements",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:16:49.000000Z",
-                "updated_at"=> "2023-10-12T20:16:49.000000Z"
-            ],
+            "action"=> 206,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Lister les approvisionnements",
-            "created_at"=> "2023-10-12T20:18:07.000000Z",
-            "updated_at"=> "2023-10-12T20:18:07.000000Z"
         ],
         [
-            "id"=> 456,
             "module"=> 0,
-            "action"=> [
-                "id"=> 207,
-                "name"=> "update_supply",
-                "description"=> "Modifier un approvisionnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:17:00.000000Z",
-                "updated_at"=> "2023-10-12T20:17:00.000000Z"
-            ],
+            "action"=> 207,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Modifier un approvisionnement",
-            "created_at"=> "2023-10-12T20:18:24.000000Z",
-            "updated_at"=> "2023-10-12T20:18:24.000000Z"
         ],
         [
-            "id"=> 457,
             "module"=> 0,
-            "action"=> [
-                "id"=> 203,
-                "name"=> "generate_facture",
-                "description"=> "Generer une facture",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:16:23.000000Z",
-                "updated_at"=> "2023-10-12T20:16:23.000000Z"
-            ],
+            "action"=> 203,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Generer une facture",
-            "created_at"=> "2023-10-12T20:18:47.000000Z",
-            "updated_at"=> "2023-10-12T20:18:47.000000Z"
         ],
         [
-            "id"=> 458,
             "module"=> 0,
-            "action"=> [
-                "id"=> 204,
-                "name"=> "download_facture",
-                "description"=> "Télecharger une facture",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:16:30.000000Z",
-                "updated_at"=> "2023-10-12T20:16:30.000000Z"
-            ],
+            "action"=> 204,
             "rang"=> 2,
-            "profil"=> [
-                "id"=> 7,
-                "name"=> "Agent",
-                "description"=> "Agent commercial",
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "profil"=> 7,
             "user_id"=> null,
             "description"=> "Télecharger une facture",
-            "created_at"=> "2023-10-12T20:19:01.000000Z",
-            "updated_at"=> "2023-10-12T20:19:01.000000Z"
         ],
         [
-            "id"=> 459,
             "module"=> 0,
             "action"=> 156,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Lister les produits",
-            "created_at"=> "2023-10-12T20:20:50.000000Z",
-            "updated_at"=> "2023-10-12T20:20:50.000000Z"
         ],
         [
-            "id"=> 460,
             "module"=> 0,
             "action"=> 164,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Lister les categories de produit",
-            "created_at"=> "2023-10-12T20:21:40.000000Z",
-            "updated_at"=> "2023-10-12T20:21:40.000000Z"
         ],
         [
-            "id"=> 461,
             "module"=> 0,
             "action"=> 158,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Modifier la categorie d'un produit",
-            "created_at"=> "2023-10-12T20:21:58.000000Z",
-            "updated_at"=> "2023-10-12T20:21:58.000000Z"
         ],
         [
-            "id"=> 462,
             "module"=> 0,
             "action"=> 159,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Supprimer un produit",
-            "created_at"=> "2023-10-12T20:22:25.000000Z",
-            "updated_at"=> "2023-10-12T20:22:25.000000Z"
         ],
         [
-            "id"=> 463,
             "module"=> 0,
-            "action"=> [
-                "id"=> 209,
-                "name"=> "supply_product",
-                "description"=> "Approvisonner un produit",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:17:34.000000Z",
-                "updated_at"=> "2023-10-12T20:17:34.000000Z"
-            ],
+            "action"=> 209,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Approvisonner un produit",
-            "created_at"=> "2023-10-12T20:22:41.000000Z",
-            "updated_at"=> "2023-10-12T20:22:41.000000Z"
         ],
         [
-            "id"=> 464,
             "module"=> 0,
-            "action"=> [
-                "id"=> 205,
-                "name"=> "add_supply",
-                "description"=> "Ajouter un approvisionnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:16:40.000000Z",
-                "updated_at"=> "2023-10-12T20:16:40.000000Z"
-            ],
+            "action"=> 205,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Ajouter un approvisionnement",
-            "created_at"=> "2023-10-12T20:23:00.000000Z",
-            "updated_at"=> "2023-10-12T20:23:00.000000Z"
         ],
         [
-            "id"=> 465,
             "module"=> 0,
-            "action"=> [
-                "id"=> 208,
-                "name"=> "delete_supply",
-                "description"=> "Supprimer un approvisionnement",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:17:13.000000Z",
-                "updated_at"=> "2023-10-12T20:17:13.000000Z"
-            ],
+            "action"=> 208,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Supprimer un approvisionnement",
-            "created_at"=> "2023-10-12T20:23:16.000000Z",
-            "updated_at"=> "2023-10-12T20:23:16.000000Z"
         ],
         [
-            "id"=> 466,
             "module"=> 0,
-            "action"=> [
-                "id"=> 197,
-                "name"=> "affect_pos_to_agency",
-                "description"=> "Affecter un pos à une agence",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:51.000000Z",
-                "updated_at"=> "2023-10-12T20:08:51.000000Z"
-            ],
+            "action"=> 197,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Affecter un pos à une agence",
-            "created_at"=> "2023-10-13T07:34:21.000000Z",
-            "updated_at"=> "2023-10-13T07:34:21.000000Z"
         ],
         [
-            "id"=> 467,
             "module"=> 0,
-            "action"=> [
-                "id"=> 196,
-                "name"=> "affect_store_to_pos",
-                "description"=> "Affecter un store à un POS",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:32.000000Z",
-                "updated_at"=> "2023-10-12T20:08:32.000000Z"
-            ],
+            "action"=> 196,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Affecter un store à un pos",
-            "created_at"=> "2023-10-13T07:34:56.000000Z",
-            "updated_at"=> "2023-10-13T07:34:56.000000Z"
         ],
         [
-            "id"=> 468,
             "module"=> 0,
-            "action"=> [
-                "id"=> 195,
-                "name"=> "affect_agent_to_pos",
-                "description"=> "Affecter un agent à un pos",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T20:08:24.000000Z",
-                "updated_at"=> "2023-10-12T20:08:24.000000Z"
-            ],
+            "action"=> 195,
             "rang"=> 2,
             "profil"=> 6,
             "user_id"=> null,
             "description"=> "Affecter un agent à un pos",
-            "created_at"=> "2023-10-13T07:35:30.000000Z",
-            "updated_at"=> "2023-10-13T07:35:30.000000Z"
         ],
         [
-            "id"=> 469,
             "module"=> 0,
-            "action"=> [
-                "id"=> 210,
-                "name"=> "affect_agent_to_store",
-                "description"=> "Affecter un agent à un store",
-                "visible"=> 1,
-                "created_at"=> "2023-10-13T17:47:20.000000Z",
-                "updated_at"=> "2023-10-13T18:04:41.000000Z"
-            ],
+            "action"=> 201,
             "rang"=> 2,
             "profil"=> 5,
             "user_id"=> null,
             "description"=> "Affecter un store à un agent",
-            "created_at"=> "2023-10-13T18:00:46.000000Z",
-            "updated_at"=> "2023-10-13T18:00:46.000000Z"
         ]
     ],

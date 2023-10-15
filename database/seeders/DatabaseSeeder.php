@@ -1303,6 +1303,7 @@ class DatabaseSeeder extends Seeder
 
         #======== CREATION DES RIGHTS  PAR DEFAUT =========#
         $rights = [
+            
             ###____Droits d'un utilisaateur
             ["action" => \App\Models\Action::find(27),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Détail d'une campagne    "],
             ["action" => \App\Models\Action::find(26),         "rang" => \App\Models\Rang::find(2),         "profil" => \App\Models\Profil::find(6),         "description" => "Droit: Initier une campagne    "],
