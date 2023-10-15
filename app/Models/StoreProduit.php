@@ -44,4 +44,9 @@ class StoreProduit extends Model
     {
         return $this->belongsTo(ProductType::class, "product_type");
     }
+
+    function type(): BelongsTo
+    {
+        return $this->belongsTo(ProductType::class, "product_type");
+    }
 }
