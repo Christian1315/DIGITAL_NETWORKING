@@ -44,7 +44,7 @@ class ACTION_HELPER extends BASE_HELPER
 
     static function allActions()
     {
-        $actions =  Action::with(['rights'])->orderBy('id', 'desc')->get();
+        $actions =  Action::with(['rights'])->get();
         return self::sendResponse($actions, 'Tout les droits récupérés avec succès!!');
     }
 

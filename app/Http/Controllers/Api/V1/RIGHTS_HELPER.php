@@ -72,7 +72,7 @@ class RIGHTS_HELPER extends BASE_HELPER
 
     static function allRights()
     {
-        $rights =  Right::with(['action', 'profil', 'rang'])->orderBy('id', 'desc')->get();
+        $rights =  Right::with(['action', 'profil', 'rang'])->get();
         return self::sendResponse($rights, 'Tout les droits récupérés avec succès!!');
     }
 
