@@ -167,7 +167,7 @@ class SOLD_HELPER extends BASE_HELPER
         #=====ENVOIE D'EMAIL =======~####
         try {
             Send_Notification(
-                $user,
+                $agency,
                 "SOLDE VALIDE SUR DIGITAL NETWORK",
                 $message,
             );
