@@ -633,14 +633,7 @@
         ],
         [
             "module"=> 0,
-            "action"=> [
-                "id"=> 143,
-                "name"=> "delete_agency",
-                "description"=> "Supprimer un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 143,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -648,7 +641,6 @@
             
         ],
         [
-            "id"=> 77,
             "module"=> 0,
             "action"=> [
                 "id"=> 142,
@@ -3670,14 +3662,7 @@
         [
             "id"=> 267,
             "module"=> 0,
-            "action"=> [
-                "id"=> 143,
-                "name"=> "delete_agency",
-                "description"=> "Supprimer un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 143,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -6191,14 +6176,7 @@
         [
             "id"=> 413,
             "module"=> 0,
-            "action"=> [
-                "id"=> 143,
-                "name"=> "delete_agency",
-                "description"=> "Supprimer un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 143,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",

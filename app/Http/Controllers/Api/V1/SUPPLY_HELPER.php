@@ -17,7 +17,7 @@ class SUPPLY_HELPER extends BASE_HELPER
         return [
             'comments' => ['required', Rule::unique("store_supplies")],
             'store' => ['required', 'integer'],
-            'pos' => ['required', 'integer'],
+            // 'pos' => ['required', 'integer'],
             'status' => ['required', 'integer'],
         ];
     }
@@ -43,15 +43,19 @@ class SUPPLY_HELPER extends BASE_HELPER
     static function _createSupply($formData)
     {
         $user = request()->user();
-        $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
-        $pos = Pos::where(["id" => $formData["pos"], "visible" => 1])->get();
+        $store = Store::where(["visible" => 1])->find($formData["store"]);
 
-        if ($store->count() == 0) {
+        if (!$store) {
             return self::sendError("Ce store n'existe pas", 404);
         }
-        if ($pos->count() == 0) {
-            return self::sendError("Ce Pos n'existe pas", 404);
+        ####___recuperation du pos auquel le store est associé
+        $store_pos = Pos::where(["visible" => 1])->find($store->pos_id);
+
+        if (!$store_pos) {
+            return self::sendError("Ce Pos de ce Store n'existe pas", 404);
         }
+        $formData["pos"] =  $store_pos->id;
+        
         $supply = StoreSupply::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
         $supply->owner = $user->id;
         $session = GetSession($user->id);
