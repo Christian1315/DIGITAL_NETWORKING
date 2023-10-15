@@ -642,14 +642,7 @@
         ],
         [
             "module"=> 0,
-            "action"=> [
-                "id"=> 142,
-                "name"=> "update_agency",
-                "description"=> "Mettre à jour un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 142,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -657,16 +650,8 @@
             
         ],
         [
-            "id"=> 78,
             "module"=> 0,
-            "action"=> [
-                "id"=> 141,
-                "name"=> "add_agency",
-                "description"=> "Ajouter un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 141,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -676,14 +661,7 @@
         [
             "id"=> 79,
             "module"=> 0,
-            "action"=> [
-                "id"=> 140,
-                "name"=> "list_agency",
-                "description"=> "Lister les agencies",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 140,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -691,16 +669,8 @@
             
         ],
         [
-            "id"=> 80,
             "module"=> 0,
-            "action"=> [
-                "id"=> 139,
-                "name"=> "delete_master",
-                "description"=> "Supprimer un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 139,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -708,16 +678,8 @@
             
         ],
         [
-            "id"=> 81,
             "module"=> 0,
-            "action"=> [
-                "id"=> 138,
-                "name"=> "update_master",
-                "description"=> "Mettre à jour un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 138,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -725,16 +687,8 @@
             
         ],
         [
-            "id"=> 82,
             "module"=> 0,
-            "action"=> [
-                "id"=> 137,
-                "name"=> "add_master",
-                "description"=> "Ajouter un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 137,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -742,16 +696,8 @@
             
         ],
         [
-            "id"=> 83,
             "module"=> 0,
-            "action"=> [
-                "id"=> 136,
-                "name"=> "list_master",
-                "description"=> "Lister les masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 136,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -761,14 +707,7 @@
         [
             "id"=> 84,
             "module"=> 0,
-            "action"=> [
-                "id"=> 135,
-                "name"=> "validate_facture",
-                "description"=> "Valider des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 135,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3672,14 +3611,7 @@
         [
             "id"=> 268,
             "module"=> 0,
-            "action"=> [
-                "id"=> 142,
-                "name"=> "update_agency",
-                "description"=> "Mettre à jour un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 142,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3689,14 +3621,7 @@
         [
             "id"=> 269,
             "module"=> 0,
-            "action"=> [
-                "id"=> 141,
-                "name"=> "add_agency",
-                "description"=> "Ajouter un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 141,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3706,14 +3631,7 @@
         [
             "id"=> 270,
             "module"=> 0,
-            "action"=> [
-                "id"=> 140,
-                "name"=> "list_agency",
-                "description"=> "Lister les agencies",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 140,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3723,14 +3641,7 @@
         [
             "id"=> 271,
             "module"=> 0,
-            "action"=> [
-                "id"=> 139,
-                "name"=> "delete_master",
-                "description"=> "Supprimer un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 139,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3740,14 +3651,7 @@
         [
             "id"=> 272,
             "module"=> 0,
-            "action"=> [
-                "id"=> 138,
-                "name"=> "update_master",
-                "description"=> "Mettre à jour un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 138,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3757,14 +3661,7 @@
         [
             "id"=> 273,
             "module"=> 0,
-            "action"=> [
-                "id"=> 137,
-                "name"=> "add_master",
-                "description"=> "Ajouter un master",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 137,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3774,14 +3671,7 @@
         [
             "id"=> 274,
             "module"=> 0,
-            "action"=> [
-                "id"=> 136,
-                "name"=> "list_master",
-                "description"=> "Lister les masters",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 136,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -3791,14 +3681,7 @@
         [
             "id"=> 275,
             "module"=> 0,
-            "action"=> [
-                "id"=> 135,
-                "name"=> "validate_facture",
-                "description"=> "Valider des factures",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 135,
             "rang"=> 1,
             "profil"=> 9,
             "user_id"=> null,
@@ -6086,14 +5969,7 @@
         [
             "id"=> 410,
             "module"=> 0,
-            "action"=> [
-                "id"=> 141,
-                "name"=> "add_agency",
-                "description"=> "Ajouter un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 141,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -6116,14 +5992,7 @@
         [
             "id"=> 411,
             "module"=> 0,
-            "action"=> [
-                "id"=> 140,
-                "name"=> "list_agency",
-                "description"=> "Lister les agencies",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 140,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
@@ -6146,14 +6015,7 @@
         [
             "id"=> 412,
             "module"=> 0,
-            "action"=> [
-                "id"=> 142,
-                "name"=> "update_agency",
-                "description"=> "Mettre à jour un agency",
-                "visible"=> 1,
-                "created_at"=> "2023-10-12T19:18:27.000000Z",
-                "updated_at"=> "2023-10-12T19:18:27.000000Z"
-            ],
+            "action"=> 142,
             "rang"=> [
                 "id"=> 2,
                 "name"=> "moderator",
