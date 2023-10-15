@@ -48,6 +48,6 @@ class StoreProduit extends Model
 
     function product_stock(): BelongsTo
     {
-        return $this->belongsTo(StoreStock::class, "product");
+        return $this->belongsTo(StoreStock::class, "product")->where(["visible" => 1]);
     }
 }
