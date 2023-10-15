@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class StoreProduit extends Model
 {
@@ -46,8 +47,8 @@ class StoreProduit extends Model
         return $this->belongsTo(ProductType::class, "product_type");
     }
 
-    function product_stock(): BelongsTo
+    function product_stock(): HasOne
     {
-        return $this->belongsTo(StoreStock::class, "product");
+        return $this->hasOne(StoreStock::class, "product");
     }
 }
