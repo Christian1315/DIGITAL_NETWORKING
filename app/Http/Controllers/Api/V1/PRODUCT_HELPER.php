@@ -130,7 +130,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         if ($user->is_admin) {
             $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->orderBy('id', 'desc')->get();
         } else {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
         }
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
         return self::sendResponse($product, 'Tout les produits récupérés avec succès!!');

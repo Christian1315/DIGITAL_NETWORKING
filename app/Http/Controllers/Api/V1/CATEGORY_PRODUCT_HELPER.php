@@ -51,9 +51,13 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
 
     static function allProductCategory()
     {
-        $user = request()->user();
         // $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $product_category =  StoreCategory::with(['owner'])->where(["owner" => $user->id, "visible" => 1],)->orderBy('id', 'desc')->get();
+        $user = request()->user();
+        if ($user->is_admin) {
+            $product_category =  StoreCategory::with(['owner'])->where(["visible" => 1],)->orderBy('id', 'desc')->get();
+        } else {
+            $product_category =  StoreCategory::with(['owner'])->where(["owner" => $user->id, "visible" => 1],)->orderBy('id', 'desc')->get();
+        }
         return self::sendResponse($product_category, 'Toute les categories de produits récupérés avec succès!!');
     }
 
