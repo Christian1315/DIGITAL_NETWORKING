@@ -343,6 +343,14 @@ function AGENCY($user_id)
     return $agency;
 }
 
+##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN MASTER DEPUIS LA TABLE **masters**  ==========## 
+
+function MASTER($user_id)
+{
+    $MASTER = Master::find($user_id);
+    return $MASTER;
+}
+
 ##======== CE HELPER PERMET DE RECUPERER LES USERS CREES PAR UN USER  ==========## 
 
 function myUsers($user_id)

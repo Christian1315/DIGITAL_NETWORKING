@@ -123,6 +123,8 @@ class USER_HELPER extends BASE_HELPER
 
                 $user["AGENT"]  = AGENT(request()->user()->id);
                 $user["AGENCY"]  = AGENCY(request()->user()->id);
+                $user["MASTER"]  = MASTER(request()->user()->id);
+
 
                 #renvoie des droits du user 
                 $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
@@ -167,6 +169,7 @@ class USER_HELPER extends BASE_HELPER
 
                         $user["AGENT"]  = AGENT(request()->user()->id);
                         $user["AGENCY"]  = AGENCY(request()->user()->id);
+                        $user["MASTER"]  = MASTER(request()->user()->id);
 
                         #renvoie des droits du user 
                         $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
