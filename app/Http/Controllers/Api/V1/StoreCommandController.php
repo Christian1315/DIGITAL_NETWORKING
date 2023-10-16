@@ -71,7 +71,7 @@ class StoreCommandController extends COMMAND_HELPER
         }
 
         #ENREGISTREMENT DANS LA DB VIA **_createCommand** DE LA CLASS BASE_HELPER HERITEE PAR COMMAND_HELPER
-        return $this->_createCommand($request->all());
+        return $this->_createCommand($request);
     }
 
 

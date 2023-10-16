@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Client;
 use App\Models\Piece;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -86,12 +87,24 @@ class CLIENT_HELPER extends BASE_HELPER
     static function allClients()
     {
         $user = request()->user();
-        if ($user->is_admin) {
-            $client =  Client::with(["owner", "type_piece"])->orderBy("id", "desc")->get();
-        } else {
-            $client =  Client::with(["owner", "type_piece"])->where(['owner' => $user->id, 'visible' => 1])->orderBy("id", "desc")->get();
+        $clients = [];
+
+        if (Is_User_An_Agent($user->id)) {
+            ####___le proprietaire(admin ou master) de l'agent
+            $his_owner = User::find($user->owner);
+            if ($his_owner->is_admin) { ####___si c'est un admin
+                $clients = [];
+            }
+
+            if (Is_User_A_Master($his_owner->id)) { ###___si c'est un master
+                $clients =  Client::with(["owner", "type_piece"])->where(['owner' => $his_owner->id, 'visible' => 1])->orderBy("id", "desc")->get();
+            }
         }
-        return self::sendResponse($client, 'Tout les clients récupérés avec succès!!');
+
+        if ($user->is_admin) {
+            $clients =  Client::with(["owner", "type_piece"])->orderBy("id", "desc")->get();
+        }
+        return self::sendResponse($clients, 'Tout les clients récupérés avec succès!!');
     }
 
     static function _retrieveClient($id)

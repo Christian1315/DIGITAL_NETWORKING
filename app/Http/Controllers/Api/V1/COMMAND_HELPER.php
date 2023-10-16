@@ -19,6 +19,8 @@ class COMMAND_HELPER extends BASE_HELPER
             // 'table' => ['required', 'integer'],
             'product' => ['required', 'integer'],
             'qty' => ['required', 'integer'],
+            'client' => ['required'],
+
             // "amount" => ['required', 'integer']
             // "rate"=> ['required']
         ];
@@ -30,10 +32,7 @@ class COMMAND_HELPER extends BASE_HELPER
             // 'store.required' => 'Le champ store est réquis!',
             'product.required' => 'Le champ product est réquis!',
             'qty.required' => 'Le champ qty est réquis!',
-
-            'store.integer' => 'Le champ store est un entier!',
-            'product.integer' => 'Le champ product est un entier!',
-            'qty.integer' => 'Le champ qty est un entier!',
+            'client.integer' => 'Le client est réquis!',
         ];
     }
 
@@ -46,10 +45,12 @@ class COMMAND_HELPER extends BASE_HELPER
         return $validator;
     }
 
-    static function _createCommand($formData)
+    static function _createCommand($request)
     {
         $user = request()->user();
+        $formData = $request->all();
         $session = GetSession($user->id);
+
 
         // $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
         // // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
@@ -57,6 +58,8 @@ class COMMAND_HELPER extends BASE_HELPER
         //     return self::sendError("Ce Store n'existe pas", 404);
         // }
 
+        $client = $formData["client"];
+        
         // $products = [
         //     [
         //         "type" => 1,
