@@ -30,21 +30,21 @@ class CLIENT_HELPER extends BASE_HELPER
         return [
             'firstname.required' => 'Le firstname est réquis!',
             'lastname.required' => 'Le lastname est réquis!',
-            'phone.required' => 'Votre numéro de téléphone est réquis',
-            'phone.unique' => 'Ce phone existe déjà!',
-            'phone.numeric' => 'Votre numéro de téléphone doit être numéric',
-            'email.required' => 'Le mail est réquis!',
-            'email.email' => 'Le mail n\'est pas valide!',
-            'email.unique' => 'Ce mail existe déjà!',
+            // 'phone.required' => 'Votre numéro de téléphone est réquis',
+            // 'phone.unique' => 'Ce phone existe déjà!',
+            // 'phone.numeric' => 'Votre numéro de téléphone doit être numéric',
+            // 'email.required' => 'Le mail est réquis!',
+            // 'email.email' => 'Le mail n\'est pas valide!',
+            // 'email.unique' => 'Ce mail existe déjà!',
 
-            'sexe.required' => 'Le sexe est réquis!',
-            'birthday.required' => 'La date de naissance est réquise!',
-            'birthday.date' => 'La date de naissance doit avoir un format date',
-            'adress.required' => 'L\'adresse du client est réquise!',
-            'piece.required' => 'La pièce d\'identité est réquise!',
-            'piece.file' => 'La pièce d\'identité doit être un fichier!',
-            'type_piece.required' => 'Le type de la pièce d\'identité est réquise!',
-            'type_piece.integer' => 'Le type de la pièce d\'identité doit être un entier!',
+            // 'sexe.required' => 'Le sexe est réquis!',
+            // 'birthday.required' => 'La date de naissance est réquise!',
+            // 'birthday.date' => 'La date de naissance doit avoir un format date',
+            // 'adress.required' => 'L\'adresse du client est réquise!',
+            // 'piece.required' => 'La pièce d\'identité est réquise!',
+            // 'piece.file' => 'La pièce d\'identité doit être un fichier!',
+            // 'type_piece.required' => 'Le type de la pièce d\'identité est réquise!',
+            // 'type_piece.integer' => 'Le type de la pièce d\'identité doit être un entier!',
         ];
     }
 
@@ -63,19 +63,19 @@ class CLIENT_HELPER extends BASE_HELPER
         $user = request()->user();
 
         ##___Verifions si cette pièce existe
-        $piece = Piece::find($formData["type_piece"]);
-        if (!$piece) {
-            return self::sendError("Ce type de piece d'identité n'existe pas", 404);
-        }
+        // $piece = Piece::find($formData["type_piece"]);
+        // if (!$piece) {
+        //     return self::sendError("Ce type de piece d'identité n'existe pas", 404);
+        // }
 
         ##GESTION DES IMAGES
-        $piece_picture = $request->file('piece');
-        $piece_picture_name = $piece_picture->getClientOriginalName();
-        $request->file('piece')->move("pieces", $piece_picture_name);
+        // $piece_picture = $request->file('piece');
+        // $piece_picture_name = $piece_picture->getClientOriginalName();
+        // $request->file('piece')->move("pieces", $piece_picture_name);
 
         //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA DB
-        $formData["piece"] = asset("pieces/" . $piece_picture_name);
-        $formData["owner"] = $user->id;
+        // $formData["piece"] = asset("pieces/" . $piece_picture_name);
+        // $formData["owner"] = $user->id;
 
         ##___ENREGISTREMENT DU CLIENT
         $client = Client::create($formData);
@@ -113,26 +113,30 @@ class CLIENT_HELPER extends BASE_HELPER
         $user = request()->user();
         $formData = $request->all();
 
-        $client =  Client::where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $client =  Client::where(['visible' => 1])->find($id);
         if (!$client) {
             return self::sendError("Ce Client n'existe pas!", 404);
         }
 
-        if ($request->get("type_piece")) {
-            ##___Verifions si cette pièce existe
-            $piece = Piece::find($formData["type_piece"]);
-            if (!$piece) {
-                return self::sendError("Ce type de piece d'identité n'existe pas", 404);
-            }
+        if ($client->owner != $user->id) {
+            return self::sendError("Ce Client ne vous appartient pas!", 404);
         }
 
+        // if ($request->get("type_piece")) {
+        //     ##___Verifions si cette pièce existe
+        //     $piece = Piece::find($formData["type_piece"]);
+        //     if (!$piece) {
+        //         return self::sendError("Ce type de piece d'identité n'existe pas", 404);
+        //     }
+        // }
+
         ##GESTION DES IMAGES
-        if ($request->file("piece")) {
-            $piece_picture = $request->file('piece_picture');
-            $piece_picture_name = $piece_picture->getClientOriginalName();
-            $request->file('piece_picture')->move("pieces", $piece_picture_name);
-            $formData["piece_picture"] = asset("pieces/" . $piece_picture_name);
-        }
+        // if ($request->file("piece")) {
+        //     $piece_picture = $request->file('piece_picture');
+        //     $piece_picture_name = $piece_picture->getClientOriginalName();
+        //     $request->file('piece_picture')->move("pieces", $piece_picture_name);
+        //     $formData["piece_picture"] = asset("pieces/" . $piece_picture_name);
+        // }
 
         ##___
         $client->update($formData);
@@ -142,12 +146,15 @@ class CLIENT_HELPER extends BASE_HELPER
     static function clientDelete($id)
     {
         $user = request()->user();
-        $client =  Client::where(['owner' => $user->id, 'visible' => 1])->find($id);
+        $client =  Client::where(['visible' => 1])->find($id);
 
         if (!$client) {
             return self::sendError("Ce Client n'existe pas!", 404);
         }
 
+        if ($client->owner != $user->id) {
+            return self::sendError("Ce Client ne vous appartient pas!", 404);
+        }
         ##__
         $client->visible = false;
         $client->save();
