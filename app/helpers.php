@@ -332,7 +332,7 @@ function Send_Notification($receiver, $subject, $message)
 function AGENT($user_id)
 {
     $agent = Agent::with(["pos", "stores", "agency"])->where("user_id", $user_id)->get();
-    return $agent;
+    return $agent[0];
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UNE AGENCY DEPUIS LA TABLE **agencies**  ==========## 
@@ -340,14 +340,14 @@ function AGENT($user_id)
 function AGENCY($user_id)
 {
     $agency = Agency::with(["poss", "stores", "agents"])->where("user_id", $user_id)->get();
-    return $agency;
+    return $agency[0];
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN MASTER DEPUIS LA TABLE **masters**  ==========## 
 
 function MASTER($user_id)
 {
-    $MASTER = Master::find($user_id);
+    $MASTER = Master::where("user_id", $user_id)->get();
     return $MASTER;
 }
 
