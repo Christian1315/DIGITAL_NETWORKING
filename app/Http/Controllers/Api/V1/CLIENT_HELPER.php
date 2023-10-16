@@ -15,13 +15,13 @@ class CLIENT_HELPER extends BASE_HELPER
         return [
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'phone' => ['required', "numeric", Rule::unique("clients")],
-            'email' => ['required', "email", Rule::unique("clients")],
-            'piece' => ['required', "file"],
-            'type_piece' => ['required', "integer"],
-            'adresse' => ['required'],
-            'birthday' => ['required', 'date'],
-            'sexe' => ['required'],
+            // 'phone' => ['required', "numeric", Rule::unique("clients")],
+            // 'email' => ['required', "email", Rule::unique("clients")],
+            // 'piece' => ['required', "file"],
+            // 'type_piece' => ['required', "integer"],
+            // 'adresse' => ['required'],
+            // 'birthday' => ['required', 'date'],
+            // 'sexe' => ['required'],
         ];
     }
 
