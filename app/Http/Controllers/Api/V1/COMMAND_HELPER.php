@@ -162,7 +162,7 @@ class COMMAND_HELPER extends BASE_HELPER
         $command->save();
 
         foreach ($products as $product) {
-            // $product = StoreProduit::find($product->id);
+            $product = StoreProduit::find($product["id"]);
 
             #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
