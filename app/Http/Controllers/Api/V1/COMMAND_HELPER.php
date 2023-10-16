@@ -104,34 +104,35 @@ class COMMAND_HELPER extends BASE_HELPER
 
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
-            // dd($product);
-            // return  $product;
             $product = StoreProduit::find($product["id"]);
             if (!$product) {
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
             }
 
-            #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
-            // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
-            $product_stock = StoreStock::with(["product", "store"])->where(["product" => $product->id, "visible" => 1])->get();
+            if ($product->product_type == 1) { #####____produit stockable
 
-            // if ($table->count() == 0) {
-            //     return self::sendError("Cette Table n'existe pas", 404);
-            // }
-            if ($product_stock->count() == 0) {
-                return self::sendError("Le Produit d'ID " . $product->id . " n'existe pas dans le stock du store", 404);
-            }
+                #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
+                // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
+                $product_stock = StoreStock::with(["product", "store"])->where(["product" => $product["id"], "visible" => 1])->get();
 
-            $product_stock = $product_stock[0];
+                // if ($table->count() == 0) {
+                //     return self::sendError("Cette Table n'existe pas", 404);
+                // }
+                if ($product_stock->count() == 0) {
+                    return self::sendError("Le Produit d'ID " . $product["id"] . " n'existe pas dans le stock du store", 404);
+                }
 
-            #Verifions la quantité du produit
-            if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
-                return self::sendError("Ce produit d'ID " . $product->id . " est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
-            }
+                $product_stock = $product_stock[0];
 
-            #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
-            if ($product_stock->quantity < $product->qty) {
-                return self::sendError("Stock insuffisant dans le store pour ce produit d'ID " . $product->id . "! Dimuniez la quantité de votre commande", 505);
+                #Verifions la quantité du produit
+                if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
+                    return self::sendError("Ce produit d'ID " . $product->id . " est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
+                }
+
+                #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
+                if ($product_stock->quantity < $product->qty) {
+                    return self::sendError("Stock insuffisant dans le store pour ce produit d'ID " . $product->id . "! Dimuniez la quantité de votre commande", 505);
+                }
             }
 
             ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
@@ -171,16 +172,19 @@ class COMMAND_HELPER extends BASE_HELPER
             $productCommand->qty = $product->qty;
             $productCommand->save();
 
-            #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
-            $new_stock = new StoreStock();
-            $new_stock->session = $session->id;
-            $new_stock->owner = $product_stock->owner;
-            $new_stock->product = $product->id;
-            // $new_stock->store = $formData["store"];
-            $new_stock->quantity = $product_stock->quantity - $formData["qty"];
+            if ($product->product_type == 1) { ####_______quand le produit est stockble
 
-            $new_stock->comments = $product_stock->comments;
-            $new_stock->save();
+                #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
+                $new_stock = new StoreStock();
+                $new_stock->session = $session->id;
+                $new_stock->owner = $product_stock->owner;
+                $new_stock->product = $product->id;
+                // $new_stock->store = $formData["store"];
+                $new_stock->quantity = $product_stock->quantity - $formData["qty"];
+
+                $new_stock->comments = $product_stock->comments;
+                $new_stock->save();
+            }
         }
 
 
