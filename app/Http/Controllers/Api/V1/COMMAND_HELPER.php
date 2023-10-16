@@ -104,8 +104,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
-            dd($product);
-            // return $product["id"];
+            // dd($product);
+            return $product;
             $product = StoreProduit::find($product["id"]);
             if (!$product) {
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
