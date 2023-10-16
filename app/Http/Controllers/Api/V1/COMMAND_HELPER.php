@@ -102,11 +102,11 @@ class COMMAND_HELPER extends BASE_HELPER
         $total_command_amount = [];
         $total_command_qty = [];
 
-        return $products;
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
-            $product = StoreProduit::find($product->id);
-            return $product;
+            dd($product);
+            // return $product["id"];
+            $product = StoreProduit::find($product["id"]);
             if (!$product) {
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
             }
