@@ -63,10 +63,10 @@ class COMMAND_HELPER extends BASE_HELPER
         $lastname = isset($client_datas[0]);
         $firstname = isset($client_datas[1]);
 
-        $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
-        if (count($client) == 0) {
-            return self::sendError("Ce Client n'existe pas!", 404);
-        }
+        // $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
+        // if (count($client) == 0) {
+        //     return self::sendError("Ce Client n'existe pas!", 404);
+        // }
 
         $products = $formData["products"];
 
@@ -102,7 +102,7 @@ class COMMAND_HELPER extends BASE_HELPER
         $total_command_amount = [];
         $total_command_qty = [];
 
-
+        return $products;
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
             $product = StoreProduit::find($product->id);
