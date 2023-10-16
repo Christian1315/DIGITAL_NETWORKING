@@ -348,7 +348,7 @@ function AGENCY($user_id)
 function MASTER($user_id)
 {
     $MASTER = Master::where("user_id", $user_id)->get();
-    return $MASTER;
+    return $MASTER[0];
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES USERS CREES PAR UN USER  ==========## 
