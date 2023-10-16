@@ -331,24 +331,24 @@ function Send_Notification($receiver, $subject, $message)
 
 function AGENT($user_id)
 {
-    $agent = Agent::with(["pos", "stores", "agency"])->where("user_id", $user_id)->get();
-    return $agent[0];
+    $agent = Agent::with(["pos", "stores", "agency"])->where("user_id", $user_id)->first();
+    return $agent;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UNE AGENCY DEPUIS LA TABLE **agencies**  ==========## 
 
 function AGENCY($user_id)
 {
-    $agency = Agency::with(["poss", "stores", "agents"])->where("user_id", $user_id)->get();
-    return $agency[0];
+    $agency = Agency::with(["poss", "stores", "agents"])->where("user_id", $user_id)->first();
+    return $agency;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES INFORMATIONS D'UN MASTER DEPUIS LA TABLE **masters**  ==========## 
 
 function MASTER($user_id)
 {
-    $MASTER = Master::where("user_id", $user_id)->get();
-    return $MASTER[0];
+    $MASTER = Master::where("user_id", $user_id)->first();
+    return $MASTER;
 }
 
 ##======== CE HELPER PERMET DE RECUPERER LES USERS CREES PAR UN USER  ==========## 
