@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Client;
+use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreFacturation;
+use App\Models\StoreProduit;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use PDF;
@@ -35,19 +38,33 @@ class FACTURE_HELPER extends BASE_HELPER
         return $validator;
     }
 
-    static function createFacture($clientId)
+    static function createFacture($commandId)
     {
-        $client = User::find($clientId);
+        // $client = User::find($clientId);
+        // if (!$client) {
+        //     return self::sendError("Ce client n'existe pas!", 404);
+        // }
+
+        $command = StoreCommand::find($commandId);
+        $client = Client::find($command->client);
+        if (!$command) {
+            return self::sendError("Cette commande n'existe pas!", 404);
+        }
+
         if (!$client) {
-            return self::sendError("Ce client n'existe pas!", 404);
+            return self::sendError("Le client associé à cette commande n'existe pas!", 404);
+        }
+
+        if ($command->factured) {
+            return self::sendError("Cette commande a déjà été facturée!", 505);
         }
 
         ###___GESTION DES FACTURES
-        $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
+        // $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
 
-        if (count($commands) == 0) {
-            return self::sendError("Vous ne disposez pas de commande à facturer", 404);
-        }
+        // if (count($commands) == 0) {
+        //     return self::sendError("Vous ne disposez pas de commande à facturer", 404);
+        // }
 
         $reference = Custom_Timestamp();
 
@@ -57,13 +74,14 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = request()->user()->id;
         }
 
-        $command_amounts = [];
-        foreach ($commands as $command) {
-            array_push($command_amounts, $command->amount);
-        }
-        $total = array_sum($command_amounts);
+        $products = ProductCommand::where(["command" => $commandId])->get();
+        $command_amount = $command->amount;
+        // foreach ($commands as $command) {
+        //     array_push($command_amounts, $command->amount);
+        // }
+        $total = $command_amount;
 
-        $pdf = PDF::loadView('facture', compact(["client", "reference", "commands", "total"]));
+        $pdf = PDF::loadView('facture', compact(["client", "reference", "products", "total"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
 
         ###____

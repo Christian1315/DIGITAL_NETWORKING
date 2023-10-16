@@ -35,7 +35,6 @@
                                 <div class="">
                                     <strong>Nom :</strong>{{$client->firstname}} <br>
                                     <strong>Prénom :</strong>{{$client->lastname}} <br>
-                                    <strong>Téléphone :</strong>{{$client->phone}}
                                 </div>
                             </td>
                             <td>
@@ -72,7 +71,30 @@
                         <tr>
                             <th scope="row">{{$loop->index + 1}}</th>
                             <td class="text-center">{{$command->id}}</td>
-                            <td class="text-center">{{$command->product_datas->name}}</td>
+                            <td class="text-center">
+                                <table class="table table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Prix</th>
+                                            <th scope="col">Date de la commande</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($products as $product)
+                                        <tr>
+                                            <td>
+                                                {{$product->name}}
+                                            </td>
+                                            <td>
+                                                {{$product->price}}
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </td>
                             <td class="text-center">{{$command->product_datas->price}}</td>
                             <td class="text-center">{{$command->qty}}</td>
                             <td class="text-danger text-center">{{$command->amount}}</td>

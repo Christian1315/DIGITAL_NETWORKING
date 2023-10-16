@@ -69,7 +69,7 @@ class COMMAND_HELPER extends BASE_HELPER
             ####____creons le client
             $client = new Client();
             $client->firstname = $firstname;
-            $client->firstname = $firstname;
+            $client->lastname = $lastname;
 
             if (Is_User_An_Agent($user->id)) {
                 ####___le proprietaire(admin ou master) de l'agent
