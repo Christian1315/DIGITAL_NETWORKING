@@ -18,8 +18,7 @@ class COMMAND_HELPER extends BASE_HELPER
         return [
             // 'store' => ['required', 'integer'],
             // 'table' => ['required', 'integer'],
-            'products' => ['required', 'integer'],
-            'qty' => ['required', 'integer'],
+            'products' => ['required'],
             'client' => ['required'],
 
             // "amount" => ['required', 'integer']
@@ -32,7 +31,7 @@ class COMMAND_HELPER extends BASE_HELPER
         return [
             // 'store.required' => 'Le champ store est réquis!',
             'product.required' => 'Le champ products est réquis!',
-            'qty.required' => 'Le champ qty est réquis!',
+            // 'qty.required' => 'Le champ qty est réquis!',
             'client.integer' => 'Le client est réquis!',
         ];
     }
@@ -95,6 +94,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         ####_____TRAITEMENT DES PRODUITS
         $total_command_amount = [];
+        $total_command_qty = [];
+
 
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
@@ -133,6 +134,7 @@ class COMMAND_HELPER extends BASE_HELPER
             array_push($total_command_amount, $this_product_command_amount);
         }
 
+        $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
 
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
