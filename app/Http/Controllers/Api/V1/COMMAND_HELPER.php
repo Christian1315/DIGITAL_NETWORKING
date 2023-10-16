@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agent;
+use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreStock;
@@ -17,7 +18,7 @@ class COMMAND_HELPER extends BASE_HELPER
         return [
             // 'store' => ['required', 'integer'],
             // 'table' => ['required', 'integer'],
-            'product' => ['required', 'integer'],
+            'products' => ['required', 'integer'],
             'qty' => ['required', 'integer'],
             'client' => ['required'],
 
@@ -30,7 +31,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         return [
             // 'store.required' => 'Le champ store est réquis!',
-            'product.required' => 'Le champ product est réquis!',
+            'product.required' => 'Le champ products est réquis!',
             'qty.required' => 'Le champ qty est réquis!',
             'client.integer' => 'Le client est réquis!',
         ];
@@ -51,7 +52,6 @@ class COMMAND_HELPER extends BASE_HELPER
         $formData = $request->all();
         $session = GetSession($user->id);
 
-
         // $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
         // // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
         // if ($store->count() == 0) {
@@ -59,47 +59,22 @@ class COMMAND_HELPER extends BASE_HELPER
         // }
 
         $client = $formData["client"];
-        
+        $client_datas = explode(" ", $formData["client"]);
+        $lastname = $client_datas[0];
+        $firstname = $client_datas[1];
+
+        $products = $formData["products"];
+
         // $products = [
         //     [
-        //         "type" => 1,
-        //         "weight" => 3000,
-        //         "length" => 100,
+        //         "id" => 1,
+        //         "qty" => 3000,
         //     ],
-        //     [
-        //         "type" => 2,
-        //         "weight" => 5000,
-        //         "length" => 200,
-        //     ]
+        //      [
+        //         "id" => 2,
+        //         "qty" => 2000,
+        //     ],
         // ];
-
-        #ON VERIFIE L'EXISTENCE DU PRODUIT
-        $product = StoreProduit::find($formData["product"]);
-        if (!$product) {
-            return self::sendError("Ce product n'existe pas!", 404);
-        }
-        #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
-        // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
-        $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "visible" => 1])->get();
-
-        // if ($table->count() == 0) {
-        //     return self::sendError("Cette Table n'existe pas", 404);
-        // }
-        if ($product_stock->count() == 0) {
-            return self::sendError("Ce Produit n'existe pas dans le stock du store", 404);
-        }
-
-        $product_stock = $product_stock[0];
-
-        #Verifions la quantité du produit
-        if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
-            return self::sendError("Ce produit est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
-        }
-
-        #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
-        if ($product_stock->quantity < $formData["qty"]) {
-            return self::sendError("Stock insuffisant dans le store! Dimuniez la quantité de votre commande", 505);
-        }
 
 
         $current_agent = Agent::where(["user_id" => $user->id])->get();
@@ -116,9 +91,51 @@ class COMMAND_HELPER extends BASE_HELPER
         if (!$this_agent_pos) {
             return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
         }
-        ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
 
-        $formData["amount"] = $formData["qty"] * $product->price;
+
+        ####_____TRAITEMENT DES PRODUITS
+        $total_command_amount = [];
+
+        foreach ($products as $product) {
+            #ON VERIFIE L'EXISTENCE DES PRODUITS
+            $product = StoreProduit::find($product->id);
+            if (!$product) {
+                return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
+            }
+
+            #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
+            // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
+            $product_stock = StoreStock::with(["product", "store"])->where(["product" => $product->id, "visible" => 1])->get();
+
+            // if ($table->count() == 0) {
+            //     return self::sendError("Cette Table n'existe pas", 404);
+            // }
+            if ($product_stock->count() == 0) {
+                return self::sendError("Le Produit d'ID " . $product->id . " n'existe pas dans le stock du store", 404);
+            }
+
+            $product_stock = $product_stock[0];
+
+            #Verifions la quantité du produit
+            if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
+                return self::sendError("Ce produit d'ID " . $product->id . " est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
+            }
+
+            #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
+            if ($product_stock->quantity < $product->qty) {
+                return self::sendError("Stock insuffisant dans le store pour ce produit d'ID " . $product->id . "! Dimuniez la quantité de votre commande", 505);
+            }
+
+            ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
+            $this_product_command_amount = $product->qty * $product->price;
+
+            ###___
+            array_push($total_command_amount, $this_product_command_amount);
+        }
+
+
+        ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
+        $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
 
         if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
             return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
@@ -130,22 +147,33 @@ class COMMAND_HELPER extends BASE_HELPER
         // return $product_stock;
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
+        $command->firstname = $firstname;
+        $command->lastname = $lastname;
+        $command->save();
 
-        #changeons sa **visibilité** et son **update_at**
-        $product_stock->visible = false;
-        $product_stock->update_at = now();
-        $product_stock->save();
+        foreach ($products as $product) {
+            // $product = StoreProduit::find($product->id);
 
-        #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
-        $new_stock = new StoreStock();
-        $new_stock->session = $session->id;
-        $new_stock->owner = $product_stock->owner;
-        $new_stock->product = $formData["product"];
-        // $new_stock->store = $formData["store"];
-        $new_stock->quantity = $product_stock->quantity - $formData["qty"];
+            #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
+            ###___
+            $productCommand = new ProductCommand();
+            $productCommand->product = $product->id;
+            $productCommand->command = $command->id;
+            $productCommand->qty = $product->qty;
+            $productCommand->save();
 
-        $new_stock->comments = $product_stock->comments;
-        $new_stock->save();
+            #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
+            $new_stock = new StoreStock();
+            $new_stock->session = $session->id;
+            $new_stock->owner = $product_stock->owner;
+            $new_stock->product = $product->id;
+            // $new_stock->store = $formData["store"];
+            $new_stock->quantity = $product_stock->quantity - $formData["qty"];
+
+            $new_stock->comments = $product_stock->comments;
+            $new_stock->save();
+        }
+
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         $countData = [
