@@ -129,6 +129,8 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
 
+        $product = [];
+
         if (Is_User_An_Agent($user->id)) {
             ####___le proprietaire(admin ou master) de l'agent
             $his_owner = User::find($user->owner);
@@ -143,6 +145,10 @@ class PRODUCT_HELPER extends BASE_HELPER
 
         if ($user->is_admin) {
             $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->orderBy('id', 'desc')->get();
+        }
+
+        if (Is_User_A_Master($user->id)) {
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->where("owner", $user->id)->orderBy('id', 'desc')->get();
         }
 
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
