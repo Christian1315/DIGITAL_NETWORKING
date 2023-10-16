@@ -169,7 +169,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $productCommand = new ProductCommand();
             $productCommand->product = $product["id"];
             $productCommand->command = $command->id;
-            $productCommand->qty = $product->qty;
+            $productCommand->qty = $product["qty"];
             $productCommand->save();
 
             if ($product->product_type == 1) { ####_______quand le produit est stockble
@@ -180,7 +180,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 $new_stock->owner = $product_stock->owner;
                 $new_stock->product = $product->id;
                 // $new_stock->store = $formData["store"];
-                $new_stock->quantity = $product_stock->quantity - $formData["qty"];
+                $new_stock->quantity = $product_stock->quantity - $product["qty"];
 
                 $new_stock->comments = $product_stock->comments;
                 $new_stock->save();
