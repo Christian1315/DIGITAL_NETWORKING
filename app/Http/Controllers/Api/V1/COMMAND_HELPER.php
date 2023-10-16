@@ -167,7 +167,7 @@ class COMMAND_HELPER extends BASE_HELPER
             #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
             $productCommand = new ProductCommand();
-            $productCommand->product = $product->id;
+            $productCommand->product = $product["id"];
             $productCommand->command = $command->id;
             $productCommand->qty = $product->qty;
             $productCommand->save();
@@ -186,7 +186,6 @@ class COMMAND_HELPER extends BASE_HELPER
                 $new_stock->save();
             }
         }
-
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         $countData = [
