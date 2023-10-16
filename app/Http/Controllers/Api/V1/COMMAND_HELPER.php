@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agent;
+use App\Models\Client;
 use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
@@ -59,8 +60,13 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $client = $formData["client"];
         $client_datas = explode(" ", $formData["client"]);
-        $lastname = $client_datas[0];
-        $firstname = $client_datas[1];
+        $lastname = isset($client_datas[0]);
+        $firstname = isset($client_datas[1]);
+
+        $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
+        if (count($client) == 0) {
+            return self::sendError("Ce Client n'existe pas!", 404);
+        }
 
         $products = $formData["products"];
 
@@ -99,8 +105,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
-            return $product;
             $product = StoreProduit::find($product->id);
+            return $product;
             if (!$product) {
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
             }
