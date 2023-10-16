@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agent;
-use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreStock;
@@ -57,6 +56,19 @@ class COMMAND_HELPER extends BASE_HELPER
         // if ($store->count() == 0) {
         //     return self::sendError("Ce Store n'existe pas", 404);
         // }
+
+        // $products = [
+        //     [
+        //         "type" => 1,
+        //         "weight" => 3000,
+        //         "length" => 100,
+        //     ],
+        //     [
+        //         "type" => 2,
+        //         "weight" => 5000,
+        //         "length" => 200,
+        //     ]
+        // ];
 
         #ON VERIFIE L'EXISTENCE DU PRODUIT
         $product = StoreProduit::find($formData["product"]);

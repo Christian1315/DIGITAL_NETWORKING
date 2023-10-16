@@ -78,6 +78,7 @@ class CLIENT_HELPER extends BASE_HELPER
         // $formData["owner"] = $user->id;
 
         ##___ENREGISTREMENT DU CLIENT
+        $formData["owner"] = $user->id;
         $client = Client::create($formData);
         return self::sendResponse($client, 'Client ajouté avec succès!!');
     }
