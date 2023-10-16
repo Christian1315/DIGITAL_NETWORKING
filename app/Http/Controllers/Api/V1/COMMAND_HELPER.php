@@ -8,6 +8,7 @@ use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreStock;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class COMMAND_HELPER extends BASE_HELPER
@@ -63,10 +64,23 @@ class COMMAND_HELPER extends BASE_HELPER
         $lastname = isset($client_datas[0]);
         $firstname = isset($client_datas[1]);
 
-        // $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
-        // if (count($client) == 0) {
-        //     return self::sendError("Ce Client n'existe pas!", 404);
-        // }
+        $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
+        if (count($client) == 0) {
+            ####____creons le client
+            $client = new Client();
+            $client->firstname = $firstname;
+            $client->firstname = $firstname;
+
+            if (Is_User_An_Agent($user->id)) {
+                ####___le proprietaire(admin ou master) de l'agent
+                $his_owner = User::find($user->owner);
+
+                if (Is_User_A_Master($his_owner->id)) { ###___si c'est un master
+                    $client->owner = $his_owner->id;
+                }
+            }
+            $client->save();
+        }
 
         $products = $formData["products"];
 
