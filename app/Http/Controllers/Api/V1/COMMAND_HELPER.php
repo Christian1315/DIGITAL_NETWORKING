@@ -16,7 +16,7 @@ class COMMAND_HELPER extends BASE_HELPER
     static function command_rules(): array
     {
         return [
-            'store' => ['required', 'integer'],
+            // 'store' => ['required', 'integer'],
             // 'table' => ['required', 'integer'],
             'product' => ['required', 'integer'],
             'qty' => ['required', 'integer'],
@@ -28,7 +28,7 @@ class COMMAND_HELPER extends BASE_HELPER
     static function command_messages(): array
     {
         return [
-            'store.required' => 'Le champ store est réquis!',
+            // 'store.required' => 'Le champ store est réquis!',
             'product.required' => 'Le champ product est réquis!',
             'qty.required' => 'Le champ qty est réquis!',
 
@@ -52,11 +52,11 @@ class COMMAND_HELPER extends BASE_HELPER
         $user = request()->user();
         $session = GetSession($user->id);
 
-        $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
-        // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
-        if ($store->count() == 0) {
-            return self::sendError("Ce Store n'existe pas", 404);
-        }
+        // $store = Store::where(["id" => $formData["store"], "visible" => 1])->get();
+        // // $table = StoreTable::where(["id" => $formData["table"], "owner" => request()->user()->id, "visible" => 1])->get();
+        // if ($store->count() == 0) {
+        //     return self::sendError("Ce Store n'existe pas", 404);
+        // }
 
         #ON VERIFIE L'EXISTENCE DU PRODUIT
         $product = StoreProduit::find($formData["product"]);
@@ -64,7 +64,9 @@ class COMMAND_HELPER extends BASE_HELPER
             return self::sendError("Ce product n'existe pas!", 404);
         }
         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
-        $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
+        // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
+        $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "visible" => 1])->get();
+
         // if ($table->count() == 0) {
         //     return self::sendError("Cette Table n'existe pas", 404);
         // }
@@ -124,7 +126,7 @@ class COMMAND_HELPER extends BASE_HELPER
         $new_stock->session = $session->id;
         $new_stock->owner = $product_stock->owner;
         $new_stock->product = $formData["product"];
-        $new_stock->store = $formData["store"];
+        // $new_stock->store = $formData["store"];
         $new_stock->quantity = $product_stock->quantity - $formData["qty"];
 
         $new_stock->comments = $product_stock->comments;
