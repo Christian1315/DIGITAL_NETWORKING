@@ -193,7 +193,6 @@ class COMMAND_HELPER extends BASE_HELPER
             $command->lastname = $lastname;
         }
         $command->save();
-        return "gogo";
 
         foreach ($products as $product) {
             $_product = StoreProduit::find($product["id"]);
@@ -221,6 +220,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 $new_stock->save();
             }
         }
+        return "gogo";
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         $countData = [
