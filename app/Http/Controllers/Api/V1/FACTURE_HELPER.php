@@ -74,12 +74,12 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = request()->user()->id;
         }
 
-        $products = ProductCommand::where(["command" => $commandId])->get();
-        $command_amount = $command->amount;
+        $command = StoreCommand::where(["id" => $commandId])->get();
         // foreach ($commands as $command) {
         //     array_push($command_amounts, $command->amount);
         // }
-        $total = $command_amount;
+        $products = $command->products;
+        $total = $command->amount;
 
         $pdf = PDF::loadView('facture', compact(["client", "reference", "products", "total"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
@@ -88,15 +88,13 @@ class FACTURE_HELPER extends BASE_HELPER
 
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
 
-        $formData["client"] = $clientId;
+        $formData["client"] = $command->client;
         $formData["facture"] = $facturepdf_path;
         $facture = StoreFacturation::create($formData);
 
-        ####_____NOTIFIER QUE LES COMMANDES ONT ETE FACTURES
-        foreach ($commands as $command) {
-            $command->factured = 1;
-            $command->save();
-        }
+        ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES
+        $command->factured = 1;
+        $command->save();
 
         ####___ENVOIE DE MAIL AU CLIENT POUR LUI NOTIFIER LA FACTURE
         try {

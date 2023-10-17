@@ -57,19 +57,16 @@
                 <table class="table table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">N°</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Commande</th>
                             <th scope="col">Produit</th>
-                            <th scope="col">Prix</th>
                             <th scope="col">Quantité </th>
                             <th scope="col">Prix total</th>
                             <th scope="col">Date de la commande</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($commands as $command)
                         <tr>
-                            <th scope="row">{{$loop->index + 1}}</th>
                             <td class="text-center">{{$command->id}}</td>
                             <td class="text-center">
                                 <table class="table table table-striped">
@@ -78,29 +75,33 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Prix</th>
-                                            <th scope="col">Date de la commande</th>
+                                            <th scope="col">Qty</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($products as $product)
                                         <tr>
                                             <td>
-                                                {{$product->name}}
+                                                {{$product->id}}
                                             </td>
                                             <td>
-                                                {{$product->price}}
+                                                <strong style="font-style: italic;">{{$product->name}}</strong>
+                                            </td>
+                                            <td class="text-danger">
+                                                <strong style="font-style: italic;">{{$product->price}}</strong>
+                                            </td>
+                                            <td>
+                                                {{$product->qty}}
                                             </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </td>
-                            <td class="text-center">{{$command->product_datas->price}}</td>
                             <td class="text-center">{{$command->qty}}</td>
                             <td class="text-danger text-center">{{$command->amount}}</td>
                             <td class="text-center">{{$command->created_at}}</td>
                         </tr>
-                        @endforeach
                         <tr>
                             <th scope="row"></th>
                             <td class="text-center" colspan="3" style="font-style: italic;">Total à payer :</td>
