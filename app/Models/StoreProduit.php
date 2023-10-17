@@ -49,6 +49,11 @@ class StoreProduit extends Model
 
     function product_stock(): HasOne
     {
-        return $this->hasOne(StoreStock::class, "product")->where(["visible"=>1]);
+        return $this->hasOne(StoreStock::class, "product")->where(["visible" => 1]);
+    }
+
+    function commands(): BelongsTo
+    {
+        return $this->belongsTo(StoreCommand::class,);
     }
 }
