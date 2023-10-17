@@ -81,7 +81,7 @@ class FACTURE_HELPER extends BASE_HELPER
         $products = $command->products;
         $total = $command->amount;
 
-        $pdf = PDF::loadView('facture', compact(["client", "reference", "products", "total"]));
+        $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
 
         ###____
