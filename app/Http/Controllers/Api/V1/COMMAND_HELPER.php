@@ -150,11 +150,11 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
-            $this_product_command_amount = $product->qty * $product->price;
+            $this_product_command_amount = $product["qty"] * $product->price;
 
             ###___
             array_push($total_command_amount, $this_product_command_amount);
-            array_push($total_command_qty, $product->qty);
+            array_push($total_command_qty, $product["qty"]);
         }
 
         $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
