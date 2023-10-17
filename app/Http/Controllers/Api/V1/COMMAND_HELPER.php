@@ -78,12 +78,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $client = $formData["client"];
         $client_datas = explode(" ", $formData["client"]);
-        // $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
-        // $firstname = isset($client_datas[1]) ? $client_datas[1] : "";
-
-        $lastname = "GOGO";
-        $firstname = "Christian";
-
+        $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
+        $firstname = isset($client_datas[1]) ? $client_datas[1] : "";
 
         $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->first();
         if (!$client) {
@@ -182,20 +178,17 @@ class COMMAND_HELPER extends BASE_HELPER
         // $formData["store"] = null;
 
         ####_____VERIFIONS S'IL DISPOSE D'UNE COMMANDE OUVERTE(non facturée)
-        $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
+        $previous_command = StoreCommand::where(["owner" => $user->id, "factured" => 0])->first();
 
-        if ($previous_command) {
-            $command = $previous_command;
-            $command->firstname = $firstname;
-            $command->lastname = $lastname;
-            $command->amount = $previous_command->amount + $formData["amount"];
-            $command->save();
-        } else {
-            #Passons à la validation de la commande
-            $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-            $command->firstname = $firstname;
-            $command->lastname = $lastname;
-        }
+        // if ($previous_command) {
+        //     # code...
+        // }else {
+        //     # code...
+        // }
+        #Passons à la validation de la commande
+        $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
+        $command->firstname = $firstname;
+        $command->lastname = $lastname;
         $command->save();
 
         foreach ($products as $product) {
