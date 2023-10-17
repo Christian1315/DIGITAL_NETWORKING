@@ -78,8 +78,12 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $client = $formData["client"];
         $client_datas = explode(" ", $formData["client"]);
-        $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
-        $firstname = isset($client_datas[1]) ? $client_datas[1] : "";
+        // $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
+        // $firstname = isset($client_datas[1]) ? $client_datas[1] : "";
+
+        $lastname = "GOGO";
+        $firstname = "Christian";
+
 
         $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->first();
         if (!$client) {
