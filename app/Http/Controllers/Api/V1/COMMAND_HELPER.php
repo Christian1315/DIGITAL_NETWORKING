@@ -184,6 +184,8 @@ class COMMAND_HELPER extends BASE_HELPER
             $command = $previous_command;
             $command->firstname = $firstname;
             $command->lastname = $lastname;
+            $command->amount = $previous_command->amount + $formData["amount"];
+            $command->save();
         } else {
             #Passons à la validation de la commande
             $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
