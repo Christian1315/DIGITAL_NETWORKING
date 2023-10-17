@@ -101,6 +101,18 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $products = $formData["products"];
 
+        // $products = [
+        //     [
+        //         "id" => 1,
+        //         "qty" => 3000,
+        //     ],
+        //      [
+        //         "id" => 2,
+        //         "qty" => 2000,
+        //     ],
+        // ];
+
+
         $current_agent = Agent::where(["user_id" => $user->id])->get();
         if ($current_agent->count() == 0) {
             return self::sendError("Le compte agent auquel vous êtes associé.e n'existe plus", 404);
@@ -112,9 +124,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $this_agent_pos = $current_agent->pos;
         // $this_agent_pos_sold = $this_agent_pos->sold;
 
-        if (!$this_agent_pos) {
-            return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
-        }
+        // if (!$this_agent_pos) {
+        //     return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
+        // }
 
 
         ####_____TRAITEMENT DES PRODUITS
@@ -169,22 +181,15 @@ class COMMAND_HELPER extends BASE_HELPER
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
         // return $formData["amount"];
 
-        // if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
-        //     return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
-        // }
+        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        }
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
         // $formData["store"] = null;
 
-        ####_____VERIFIONS S'IL DISPOSE D'UNE COMMANDE OUVERTE(non facturée)
-        $previous_command = StoreCommand::where(["owner" => $user->id, "factured" => 0])->first();
 
-        // if ($previous_command) {
-        //     # code...
-        // }else {
-        //     # code...
-        // }
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
         $command->firstname = $firstname;
@@ -196,7 +201,6 @@ class COMMAND_HELPER extends BASE_HELPER
 
             #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
-
             $productCommand = new ProductCommand();
             $productCommand->product_id = $product["id"];
             $productCommand->command_id = $command->id;
