@@ -128,7 +128,6 @@ class COMMAND_HELPER extends BASE_HELPER
         //     return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
         // }
 
-
         ####_____TRAITEMENT DES PRODUITS
         $total_command_amount = [];
         $total_command_qty = [];
@@ -181,21 +180,31 @@ class COMMAND_HELPER extends BASE_HELPER
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
         // return $formData["amount"];
 
-        // if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
-        //     return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
-        // }
+        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        }
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
         // $formData["store"] = null;
 
-
-        #Passons à la validation de la commande
-        $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-        $command->firstname = $firstname;
-        $command->lastname = $lastname;
+        $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
+        if ($previous_command) {
+            $command = $previous_command;
+            $command->firstname = $firstname;
+            $command->lastname = $lastname;
+            $command->amount = $previous_command->amount + $formData["amount"];
+            $command->save();
+        } else {
+            #Passons à la validation de la commande
+            $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
+            $command->firstname = $firstname;
+            $command->lastname = $lastname;
+        }
         $command->save();
 
+
+        ####_____ça marche jusque ici
         foreach ($products as $product) {
             $_product = StoreProduit::find($product["id"]);
 
