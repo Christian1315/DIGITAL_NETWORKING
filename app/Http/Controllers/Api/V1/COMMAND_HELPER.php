@@ -118,8 +118,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         foreach ($products as $product) {
             #ON VERIFIE L'EXISTENCE DES PRODUITS
-            $product = StoreProduit::find($product["id"]);
-            if (!$product) {
+            $_product = StoreProduit::find($product["id"]);
+            if (!$_product) {
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
             }
 
@@ -150,14 +150,14 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
-            $this_product_command_amount = $product["qty"] * $product->price;
+            $this_product_command_amount = intval($product["qty"]) * $_product->price;
 
             ###___
             array_push($total_command_amount, $this_product_command_amount);
-            array_push($total_command_qty, $product->qty);
+            array_push($total_command_qty, intval($product["qty"]));
         }
 
-        $command_qty = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
+        $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
         $formData["client"] = $client->id;
 
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
@@ -176,18 +176,17 @@ class COMMAND_HELPER extends BASE_HELPER
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
         $command->firstname = $firstname;
         $command->lastname = $lastname;
-        $command->qty = $command_qty;
         $command->save();
 
         foreach ($products as $product) {
-            $product = StoreProduit::find($product["id"]);
+            $_product = StoreProduit::find($product["id"]);
 
             #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
             $productCommand = new ProductCommand();
             $productCommand->product = $product["id"];
             $productCommand->command = $command->id;
-            $productCommand->qty = $product["qty"];
+            $productCommand->qty = intval($product["qty"]);
             $productCommand->save();
 
             if ($product->product_type == 1) { ####_______quand le produit est stockble
@@ -198,7 +197,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 $new_stock->owner = $product_stock->owner;
                 $new_stock->product = $product->id;
                 // $new_stock->store = $formData["store"];
-                $new_stock->quantity = $product_stock->quantity - $product["qty"];
+                $new_stock->quantity = $product_stock->quantity - intval($product["qty"]);
 
                 $new_stock->comments = $product_stock->comments;
                 $new_stock->save();
