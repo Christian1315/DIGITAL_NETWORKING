@@ -32,10 +32,10 @@ class StoreCommand extends Model
         return $this->belongsTo(Store::class, "store");
     }
 
-    function products(): HasMany
-    {
-        return $this->hasMany(ProductCommand::class, "command")->with(["product"]);
-    }
+    // function products(): HasMany
+    // {
+    //     return $this->hasMany(ProductCommand::class, "command")->with(["product"]);
+    // }
 
     function product_datas(): BelongsTo
     {
@@ -51,8 +51,8 @@ class StoreCommand extends Model
         return $this->belongsTo(UserSession::class, "session");
     }
 
-    // function products(): BelongsTo
-    // {
-    //     return $this->belongsTo(StoreProduit::class, "commands_products", "product_id", "command_id");
-    // }
+    function products(): HasMany
+    {
+        return $this->hasMany(StoreProduit::class, "commands_products", "product_id", "command_id");
+    }
 }
