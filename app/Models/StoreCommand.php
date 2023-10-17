@@ -34,7 +34,7 @@ class StoreCommand extends Model
 
     function products(): HasMany
     {
-        return $this->hasMany(ProductCommand::class, "product");
+        return $this->hasMany(ProductCommand::class,);
     }
 
     function product_datas(): BelongsTo
