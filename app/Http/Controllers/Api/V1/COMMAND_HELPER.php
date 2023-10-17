@@ -233,7 +233,7 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $command_products = [];
         if ($user->is_admin) {
-            $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
             foreach ($commands as $command) {
                 $products_attached_to_this_commands = ProductCommand::where(["command" => $command->id])->get();
                 foreach ($products_attached_to_this_commands as $products_attached_to_this_command) {
@@ -242,7 +242,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 }
             }
         } else {
-            $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
             foreach ($commands as $command) {
                 $products_attached_to_this_commands = ProductCommand::where(["command" => $command->id])->get();
                 foreach ($products_attached_to_this_commands as $products_attached_to_this_command) {
