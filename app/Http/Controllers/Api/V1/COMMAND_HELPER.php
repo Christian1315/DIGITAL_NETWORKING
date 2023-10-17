@@ -99,6 +99,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $client->save();
         }
 
+        return "gogo";
         $products = $formData["products"];
 
         $current_agent = Agent::where(["user_id" => $user->id])->get();

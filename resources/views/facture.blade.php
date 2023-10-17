@@ -21,7 +21,6 @@
         <div class="row mt-3">
             <div class="col-md-12">
                 <h1 class="text-center">Reference : <strong style="background-color: #000;padding:10px;color:#fff"> {{$reference}} </strong> </h1>
-                <br>
                 <table class="table table table-striped">
                     <thead>
                         <tr>
@@ -49,8 +48,6 @@
                 </table>
             </div>
         </div>
-
-        <br><br><br>
         <div class="row">
             <div class="col-12">
                 <h1 class="" style="font-style: italic;text-align:center">Détail de la Facture</h1>
