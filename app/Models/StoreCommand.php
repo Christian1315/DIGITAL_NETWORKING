@@ -33,7 +33,7 @@ class StoreCommand extends Model
 
     function products(): BelongsTo
     {
-        return $this->belongsTo(ProductCommand::class, "product");
+        return $this->belongsTo(ProductCommand::class, "command");
     }
 
     function product_datas(): BelongsTo
