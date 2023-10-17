@@ -93,12 +93,14 @@
                                             <td>
                                                 {{ PRODUCT_QTY($command->id,$product->id)}}
                                             </td>
+                                            <td>
+                                                {{ PRODUCT_PRICE_X_QTY($product->price,PRODUCT_QTY($command->id,$product->id))}}
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </td>
-                            <!-- <td class="text-center">{{$command->qty}}</td> -->
                             <td class="text-danger text-center">{{$command->amount}}</td>
                             <td class="text-center">{{$command->created_at}}</td>
                         </tr>

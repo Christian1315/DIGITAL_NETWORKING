@@ -58,6 +58,10 @@ function PRODUCT_QTY($commanId, $produtId)
     return $product->qty;
 }
 
+function PRODUCT_PRICE_X_QTY($price, $qty)
+{
+    return $price * $qty;
+}
 
 function Is_THIS_ADMIN_PPJJOEL()
 { #
