@@ -194,8 +194,8 @@ class COMMAND_HELPER extends BASE_HELPER
             #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
             $productCommand = new ProductCommand();
-            $productCommand->product = $product["id"];
-            $productCommand->command = $command->id;
+            $productCommand->product_id = $product["id"];
+            $productCommand->command_id = $command->id;
             $productCommand->qty = intval($product["qty"]);
             $productCommand->save();
 
