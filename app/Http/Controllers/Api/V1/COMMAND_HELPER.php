@@ -161,11 +161,11 @@ class COMMAND_HELPER extends BASE_HELPER
 
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
-        return $formData["amount"];
+        // return $formData["amount"];
 
-        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
-            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
-        }
+        // if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+        //     return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        // }
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
