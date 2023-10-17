@@ -144,20 +144,20 @@ class COMMAND_HELPER extends BASE_HELPER
                 }
 
                 #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
-                if ($product_stock->quantity < $product->qty) {
+                if ($product_stock->quantity < $product["qty"]) {
                     return self::sendError("Stock insuffisant dans le store pour ce produit d'ID " . $product->id . "! Dimuniez la quantité de votre commande", 505);
                 }
             }
 
             ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
-            $this_product_command_amount = $product["id"] * $product->price;
+            $this_product_command_amount = $product["qty"] * $product->price;
 
             ###___
             array_push($total_command_amount, $this_product_command_amount);
             array_push($total_command_qty, $product->qty);
         }
 
-        $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
+        $command_qty = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
         $formData["client"] = $client->id;
 
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
@@ -176,6 +176,7 @@ class COMMAND_HELPER extends BASE_HELPER
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
         $command->firstname = $firstname;
         $command->lastname = $lastname;
+        $command->qty = $command_qty;
         $command->save();
 
         foreach ($products as $product) {
