@@ -57,11 +57,11 @@
                 <table class="table table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">N° Commande</th>
-                            <th scope="col">Produit</th>
-                            <th scope="col">Quantité </th>
-                            <th scope="col">Prix total</th>
-                            <th scope="col">Date de la commande</th>
+                            <th scope="col" class="text-center">N° Commande</th>
+                            <th scope="col" class="text-center">Produit</th>
+                            <!-- <th scope="col">Quantité </th> -->
+                            <th scope="col" class="text-center">Prix total</th>
+                            <th scope="col" class="text-center">Date de la commande</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,6 +75,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Prix</th>
                                             <th scope="col">Qty</th>
+                                            <th scope="col">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,7 +98,7 @@
                                     </tbody>
                                 </table>
                             </td>
-                            <td class="text-center">{{$command->qty}}</td>
+                            <!-- <td class="text-center">{{$command->qty}}</td> -->
                             <td class="text-danger text-center">{{$command->amount}}</td>
                             <td class="text-center">{{$command->created_at}}</td>
                         </tr>
