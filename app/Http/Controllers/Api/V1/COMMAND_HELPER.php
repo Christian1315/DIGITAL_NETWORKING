@@ -232,9 +232,25 @@ class COMMAND_HELPER extends BASE_HELPER
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
 
         if ($user->is_admin) {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $products_of_each_command = [];
+            foreach ($commands as $command) {
+                $command_product = ProductCommand::find($command->id);
+                $products = StoreProduit::find($command_product->product_id);
+                array_push($products_of_this_command, $products);
+            }
+
+            $commands["products"] = $products_of_each_command;
         } else {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $products_of_each_command = [];
+            foreach ($commands as $command) {
+                $command_product = ProductCommand::find($command->id);
+                $products = StoreProduit::find($command_product->product_id);
+                array_push($products_of_this_command, $products);
+            }
+
+            $commands["products"] = $products_of_each_command;
         }
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
