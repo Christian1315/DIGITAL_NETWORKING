@@ -235,10 +235,10 @@ class COMMAND_HELPER extends BASE_HELPER
             $commands =  StoreCommand::with(['owner', "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
             $products_of_each_command = [];
             foreach ($commands as $command) {
-                $commands_products = ProductCommand::where(["id" => $command->id])->get();
+                $commands_products = ProductCommand::where(["command_id" => $command->id])->get();
 
                 foreach ($commands_products as $commands_product) {
-                    $product = StoreProduit::where(["id" => $commands_product->product_id])->get();
+                    $product = StoreProduit::find($commands_product->product_id);
                     array_push($products_of_this_command, $product);
                 }
             }
@@ -248,14 +248,13 @@ class COMMAND_HELPER extends BASE_HELPER
             $commands =  StoreCommand::with(['owner', "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
             $products_of_each_command = [];
             foreach ($commands as $command) {
-                $commands_products = ProductCommand::where(["id" => $command->id])->get();
+                $commands_products = ProductCommand::where(["command_id" => $command->id])->get();
 
                 foreach ($commands_products as $commands_product) {
-                    $product = StoreProduit::where(["id" => $commands_product->product_id])->get();
+                    $product = StoreProduit::find($commands_product->product_id);
                     array_push($products_of_this_command, $product);
                 }
             }
-
             $commands["products"] = $products_of_each_command;
         }
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
