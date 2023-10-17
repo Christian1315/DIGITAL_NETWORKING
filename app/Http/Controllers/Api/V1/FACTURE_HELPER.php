@@ -74,7 +74,7 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = request()->user()->id;
         }
 
-        $command = StoreCommand::where(["id" => $commandId])->get();
+        $command = StoreCommand::find($commandId);
         // foreach ($commands as $command) {
         //     array_push($command_amounts, $command->amount);
         // }
