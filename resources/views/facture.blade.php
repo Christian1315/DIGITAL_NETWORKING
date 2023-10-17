@@ -57,8 +57,7 @@
                 <table class="table table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Commande</th>
+                            <th scope="col">N° Commande</th>
                             <th scope="col">Produit</th>
                             <th scope="col">Quantité </th>
                             <th scope="col">Prix total</th>
@@ -91,7 +90,7 @@
                                                 <strong style="font-style: italic;">{{$product->price}}</strong>
                                             </td>
                                             <td>
-                                                {{$product->qty}}
+                                                {{ PRODUCT_QTY($command->id,$product->id)}}
                                             </td>
                                         </tr>
                                         @endforeach
@@ -104,8 +103,8 @@
                         </tr>
                         <tr>
                             <th scope="row"></th>
-                            <td class="text-center" colspan="3" style="font-style: italic;">Total à payer :</td>
-                            <td class="text-center text-danger"> <strong style="background-color: #000;color:#fff;padding:5px;">{{$total}}</strong></td>
+                            <td class="text-center" colspan="3" style="font-style: italic;">Total à payer : <strong style="background-color: #000;color:#fff;padding:5px;">{{$total}}</strong></td>
+                            <td class="text-center text-danger"> </td>
                             <td class="text-danger text-center"></td>
                         </tr>
                     </tbody>

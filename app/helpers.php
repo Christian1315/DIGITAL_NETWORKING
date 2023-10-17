@@ -5,6 +5,7 @@ use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Master;
 use App\Models\Pos;
+use App\Models\ProductCommand;
 use App\Models\Right;
 use App\Models\Sold;
 use App\Models\User;
@@ -48,6 +49,13 @@ function Add_Number($user, $type)
 
     $number = "DGT" . $type . $an . userCount();
     return $number;
+}
+
+####____quantite d'un produit en commande
+function PRODUCT_QTY($commanId, $produtId)
+{
+    $product = ProductCommand::where(["product_id" => $produtId, "command_id" => $commanId])->first();
+    return $product->qty;
 }
 
 function Is_THIS_ADMIN_PPJJOEL()
