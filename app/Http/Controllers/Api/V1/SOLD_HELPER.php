@@ -80,7 +80,7 @@ class SOLD_HELPER extends BASE_HELPER
         $new_solde->agency = $old_solde->agency;
         $new_solde->status = 1; ###STATUS INITIE
         $new_solde->credited_at = now();
-        $new_solde->session = $session->id;
+        // $new_solde->session = $session->id;
         $new_solde->save();
 
         $master_or_admin_of_this_agency = User::find($user->owner);
