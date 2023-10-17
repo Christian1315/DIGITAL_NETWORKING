@@ -123,7 +123,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 return self::sendError("Le product d'ID " . $product->id . " n'existe pas!", 404);
             }
 
-            if ($product->product_type == 1) { #####____produit stockable
+            if ($_product->product_type == 1) { #####____produit stockable
 
                 #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
                 // $product_stock = StoreStock::with(["product", "store"])->where(["product" => $formData["product"], "store" => $formData["store"], "visible" => 1])->get();
@@ -189,7 +189,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $productCommand->qty = intval($product["qty"]);
             $productCommand->save();
 
-            if ($product->product_type == 1) { ####_______quand le produit est stockble
+            if ($_product->product_type == 1) { ####_______quand le produit est stockble
 
                 #Decreditons l'ancienne ligne & Recréeons une nouvelle ligne de ce produit dans la table des stocks
                 $new_stock = new StoreStock();
