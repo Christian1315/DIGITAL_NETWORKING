@@ -220,7 +220,6 @@ class COMMAND_HELPER extends BASE_HELPER
                 $new_stock->save();
             }
         }
-        return "gogo";
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
         $countData = [
