@@ -124,9 +124,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $this_agent_pos = $current_agent->pos;
         // $this_agent_pos_sold = $this_agent_pos->sold;
 
-        // if (!$this_agent_pos) {
-        //     return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
-        // }
+        if (!$this_agent_pos) {
+            return self::sendError("Vous n'etes pas affecté à un POS! Vous ne pouvez pas passer une commande", 505);
+        }
 
 
         ####_____TRAITEMENT DES PRODUITS
@@ -181,9 +181,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
         // return $formData["amount"];
 
-        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
-            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
-        }
+        // if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+        //     return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        // }
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
