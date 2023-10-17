@@ -88,7 +88,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
 
-        $formData["client"] = $command->client;
+        // $formData["client"] = $command->client;
         $formData["facture"] = $facturepdf_path;
         $facture = StoreFacturation::create($formData);
 
