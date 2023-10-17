@@ -60,6 +60,22 @@ class COMMAND_HELPER extends BASE_HELPER
         //     return self::sendError("Ce Store n'existe pas", 404);
         // }
 
+        ####____verifions si cet agent a été affecté à un store
+
+        if (Is_User_An_Agent($user->id)) {
+            $agent = Agent::where(["user_id" => $user->id])->get();
+            if (count($agent) != 0) {
+                $agent = $agent[0];
+                $store = Store::where(["agent_id" => $agent->id])->get();
+                if (count($store) != 0) {
+                    $store = $store[0];
+                    $formData["store"] = $store->id;
+                } else {
+                    return self::sendError("Vous n'avez pas été affecté à un store! Impossible d'effectuer cette opération", 505);
+                }
+            }
+        }
+
         $client = $formData["client"];
         $client_datas = explode(" ", $formData["client"]);
         $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
@@ -171,16 +187,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
-        $formData["store"] = null;
+        // $formData["store"] = null;
 
-
-        if (Is_User_An_Agent($user->id)) {
-            $agent = Agent::where(["user_id" => $user->id])->first();
-            $store = Store::where(["agent_id" => $agent->id])->first();
-            if ($store) {
-                $formData["store"] = $store->id;
-            }
-        }
 
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
@@ -243,7 +251,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "products", "store", "session","products"])->where(["visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "products", "store", "session", "products"])->where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
