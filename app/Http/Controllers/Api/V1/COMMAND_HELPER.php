@@ -176,7 +176,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         if (Is_User_An_Agent($user->id)) {
             $agent = Agent::where(["user_id" => $user->id])->first();
-            $formData["store"] = Store::where(["agent_id" => $agent->id])->first();
+            $store = Store::where(["agent_id" => $agent->id])->first();
+            $formData["store"] = $store->id;
         }
         // return $product_stock;
         #Passons à la validation de la commande
