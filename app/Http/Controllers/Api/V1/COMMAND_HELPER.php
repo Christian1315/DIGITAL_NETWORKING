@@ -239,7 +239,10 @@ class COMMAND_HELPER extends BASE_HELPER
 
                 foreach ($commands_products as $commands_product) {
                     $product = StoreProduit::find($commands_product->product_id);
-                    array_push($products_of_this_command, $product);
+                    if ($product) {
+                        array_push($products_of_this_command, $product);
+                    }
+                    // array_push($products_of_this_command, $product);
                 }
             }
 
@@ -252,7 +255,9 @@ class COMMAND_HELPER extends BASE_HELPER
 
                 foreach ($commands_products as $commands_product) {
                     $product = StoreProduit::find($commands_product->product_id);
-                    array_push($products_of_this_command, $product);
+                    if ($product) {
+                        array_push($products_of_this_command, $product);
+                    }
                 }
             }
             $commands["products"] = $products_of_each_command;
