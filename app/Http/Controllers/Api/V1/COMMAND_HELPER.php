@@ -230,7 +230,12 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $commands =  StoreCommand::with(['owner', "store", "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+
+        if ($user->is_admin) {
+            $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+        } else {
+            $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        }
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
 
@@ -238,7 +243,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "store", "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "products", "store", "session"])->where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
@@ -249,11 +254,15 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::where(["owner" => $user->id, "visible" => 1])->find($id);
+        $command = StoreCommand::where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette Commande n'existe pas!", 404);
         };
-        $command = StoreCommand::find($id);
+
+        if ($command->owner != $user->id) {
+            return self::sendError("Cette Commande ne vous appartient pas!", 404);
+        };
+
         $command->update($formData);
         return self::sendResponse($command, 'Cette Commande a été modifiée avec succès!');
     }
@@ -262,9 +271,13 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::where(["owner" => $user->id, "visible" => 1])->find($id);
+        $command = StoreCommand::where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette Commande n'existe pas!", 404);
+        };
+
+        if ($command->owner != $user->id) {
+            return self::sendError("Cette Commande ne vous appartient pas!", 404);
         };
 
         $command->visible = 0;
