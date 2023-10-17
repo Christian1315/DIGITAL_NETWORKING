@@ -51,8 +51,8 @@ class StoreCommand extends Model
         return $this->belongsTo(UserSession::class, "session");
     }
 
-    function products(): BelongsTo
+    function products(): HasMany
     {
-        return $this->belongsTo(StoreProduit::class, "commands_products", "product_id", "command_id");
+        return $this->hasMany(StoreProduit::class, "commands_products", "product_id", "command_id");
     }
 }
