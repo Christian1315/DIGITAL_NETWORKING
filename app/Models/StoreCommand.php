@@ -31,14 +31,14 @@ class StoreCommand extends Model
         return $this->belongsTo(Store::class, "store");
     }
 
-    function product(): BelongsTo
+    function products(): BelongsTo
     {
-        return $this->belongsTo(StoreProduit::class, "product");
+        return $this->belongsTo(ProductCommand::class, "product");
     }
 
     function product_datas(): BelongsTo
     {
-        return $this->belongsTo(StoreProduit::class, "product")->withDefault(["name","price"]);
+        return $this->belongsTo(StoreProduit::class, "product")->withDefault(["name", "price"]);
     }
 
     function table(): BelongsTo

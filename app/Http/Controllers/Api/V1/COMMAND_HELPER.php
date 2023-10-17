@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Agent;
 use App\Models\Client;
 use App\Models\ProductCommand;
+use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
 use App\Models\StoreStock;
@@ -170,7 +171,13 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
+        $formData["store"] = null;
 
+
+        if (Is_User_An_Agent($user->id)) {
+            $agent = Agent::where(["user_id" => $user->id])->first();
+            $formData["store"] = Store::where(["agent_id" => $agent->id])->first();
+        }
         // return $product_stock;
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
@@ -220,7 +227,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $commands =  StoreCommand::with(['owner', "store", "product", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+        $commands =  StoreCommand::with(['owner', "store", "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
 
@@ -228,7 +235,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "store", "product", "session"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "store", "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
