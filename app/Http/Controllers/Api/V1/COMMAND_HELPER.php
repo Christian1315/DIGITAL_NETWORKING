@@ -231,11 +231,27 @@ class COMMAND_HELPER extends BASE_HELPER
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
 
+        $command_products = [];
         if ($user->is_admin) {
             $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            foreach ($commands as $command) {
+                $products_attached_to_this_commands = ProductCommand::where(["command" => $command->id])->get();
+                foreach ($products_attached_to_this_commands as $products_attached_to_this_command) {
+                    $product = StoreProduit::find($products_attached_to_this_command->product);
+                    array_push($command_products, $product);
+                }
+            }
         } else {
             $commands =  StoreCommand::with(['owner', "products", "store", "session"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            foreach ($commands as $command) {
+                $products_attached_to_this_commands = ProductCommand::where(["command" => $command->id])->get();
+                foreach ($products_attached_to_this_commands as $products_attached_to_this_command) {
+                    $product = StoreProduit::find($products_attached_to_this_command->product);
+                    array_push($command_products, $product);
+                }
+            }
         }
+        $commands["products"] = $command_products;
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
 
