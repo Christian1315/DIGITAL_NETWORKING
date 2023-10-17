@@ -62,10 +62,10 @@ class COMMAND_HELPER extends BASE_HELPER
         $client = $formData["client"];
         $client_datas = explode(" ", $formData["client"]);
         $lastname = isset($client_datas[0]) ? $client_datas[0] : "";
-        $firstname = isset($client_datas[1]) ? $client_datas[0] : "";
+        $firstname = isset($client_datas[1]) ? $client_datas[1] : "";
 
-        $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->get();
-        if (count($client) == 0) {
+        $client = Client::where(["lastname" => $lastname, "firstname" => $firstname])->first();
+        if (!$client) {
             ####____creons le client
             $client = new Client();
             $client->firstname = $firstname;
@@ -158,6 +158,7 @@ class COMMAND_HELPER extends BASE_HELPER
         }
 
         $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
+        $formData["client"] = $client->id;
 
         ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
