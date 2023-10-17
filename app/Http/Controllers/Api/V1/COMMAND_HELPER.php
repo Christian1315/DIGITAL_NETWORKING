@@ -150,7 +150,7 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
-            $this_product_command_amount = $product["qty"] * $product->price;
+            $this_product_command_amount = $product["qty"] * $product["price"];
 
             ###___
             array_push($total_command_amount, $this_product_command_amount);
@@ -158,10 +158,10 @@ class COMMAND_HELPER extends BASE_HELPER
         }
 
         $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
-
-        ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
+        $formData["client"] = $client->id;
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
 
+        ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
         if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
             return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
         }

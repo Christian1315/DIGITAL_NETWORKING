@@ -17,7 +17,8 @@ class StoreCommand extends Model
         "qty",
         "amount",
         "owner",
-        "session"
+        "session",
+        "client"
     ];
 
     function owner(): BelongsTo

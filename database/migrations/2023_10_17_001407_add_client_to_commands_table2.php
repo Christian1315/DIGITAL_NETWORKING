@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('store_commands', function (Blueprint $table) {
-            //
+            $table->foreignId("client")
+                ->nullable()
+                ->constrained('clients', 'id')
+                ->onUpdate("CASCADE")
+                ->onDelete("CASCADE");
         });
     }
 
