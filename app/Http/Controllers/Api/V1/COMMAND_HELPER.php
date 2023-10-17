@@ -181,7 +181,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 $formData["store"] = $store->id;
             }
         }
-        // return $product_stock;
+
         #Passons à la validation de la commande
         $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
         $command->firstname = $firstname;
