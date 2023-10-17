@@ -46,10 +46,10 @@ class FACTURE_HELPER extends BASE_HELPER
         // }
 
         $command = StoreCommand::find($commandId);
-        $client = Client::find($command->client);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
+        $client = Client::find($command->client);
 
         if (!$client) {
             return self::sendError("Le client associé à cette commande n'existe pas!", 404);
@@ -74,7 +74,7 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = request()->user()->id;
         }
 
-        $command = StoreCommand::find($commandId);
+        // $command = StoreCommand::find($commandId);
         // foreach ($commands as $command) {
         //     array_push($command_amounts, $command->amount);
         // }
