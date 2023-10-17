@@ -178,7 +178,7 @@ class COMMAND_HELPER extends BASE_HELPER
         // $formData["store"] = null;
 
         ####_____VERIFIONS S'IL DISPOSE D'UNE COMMANDE OUVERTE(non facturée)
-        $previous_command = StoreCommand::where(["owner" => $user->id, "client" => $client->id, "factured" => 0])->first();
+        $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
 
         if ($previous_command) {
             $command = $previous_command;
