@@ -270,23 +270,25 @@ function Decredite_Pos_Account($formData)
 
     $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
 
-    ##~~l'ancien solde DU POS
-    $pos_old_solde = $pos_solde[0];
-    $pos_old_solde->visible = 0;
-    $pos_old_solde->pos = $formData["pos"];
-    $pos_old_solde->status = null;
-    $pos_old_solde->decredited_at = now();
-    $pos_old_solde->save();
-
-    ##~~le nouveau solde DU POS
-    $pos_solde = new Sold();
-    $pos_solde->amount = $pos_old_solde->amount - $formData["amount"]; ##decreditation du compte
-    $pos_solde->module = $formData["module_type"];
-    $pos_solde->comments = $formData["comments"];
-    $pos_solde->pos = $formData["pos"];
-    $pos_solde->status = 2;
-    $pos_solde->credited_at = now();
-    $pos_solde->save();
+    if (count($pos_solde)!=0) {
+        ##~~l'ancien solde DU POS
+        $pos_old_solde = $pos_solde[0];
+        $pos_old_solde->visible = 0;
+        $pos_old_solde->pos = $formData["pos"];
+        $pos_old_solde->status = null;
+        $pos_old_solde->decredited_at = now();
+        $pos_old_solde->save();
+    
+        ##~~le nouveau solde DU POS
+        $pos_solde = new Sold();
+        $pos_solde->amount = $pos_old_solde->amount - $formData["amount"]; ##decreditation du compte
+        $pos_solde->module = $formData["module_type"];
+        $pos_solde->comments = $formData["comments"];
+        $pos_solde->pos = $formData["pos"];
+        $pos_solde->status = 2;
+        $pos_solde->credited_at = now();
+        $pos_solde->save();
+    }
 }
 
 ##======== CE HELPER PERMET DE VERIFIER SI LE USER DISPOSE D'UN COMPTE SUFFISANT OU PAS ==========## 
