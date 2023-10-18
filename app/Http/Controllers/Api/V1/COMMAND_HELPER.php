@@ -165,7 +165,6 @@ class COMMAND_HELPER extends BASE_HELPER
                 }
             }
 
-            ####VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
             $this_product_command_amount = intval($product["qty"]) * $_product->price;
 
             ###___
@@ -204,16 +203,16 @@ class COMMAND_HELPER extends BASE_HELPER
         $command->save();
 
 
-        ####_____ça marche jusque ici
+        #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
         foreach ($products as $product) {
             $_product = StoreProduit::find($product["id"]);
 
-            #####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
             ###___
             $productCommand = new ProductCommand();
             $productCommand->product_id = $product["id"];
             $productCommand->command_id = $command->id;
             $productCommand->qty = intval($product["qty"]);
+            $productCommand->total_amount = intval($product["qty"]) * $_product->price;
             $productCommand->save();
 
             if ($_product->product_type == 1) { ####_______quand le produit est stockble
