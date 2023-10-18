@@ -149,19 +149,19 @@ class COMMAND_HELPER extends BASE_HELPER
                 //     return self::sendError("Cette Table n'existe pas", 404);
                 // }
                 if ($product_stock->count() == 0) {
-                    return self::sendError("Le Produit d'ID " . $product["id"] . " n'existe pas dans le stock du store", 404);
+                    return self::sendError("Le Produit <<" . $_product->name . ">> n'existe pas dans le stock du store", 404);
                 }
 
                 $product_stock = $product_stock[0];
 
                 #Verifions la quantité du produit
                 if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
-                    return self::sendError("Ce produit d'ID " . $product->id . " est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
+                    return self::sendError("Le produit <<" . $_product->name . ">> est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
                 }
 
                 #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
                 if ($product_stock->quantity < $product["qty"]) {
-                    return self::sendError("Stock insuffisant dans le store pour ce produit d'ID " . $product->id . "! Dimuniez la quantité de votre commande", 505);
+                    return self::sendError("Stock insuffisant dans le store pour ce produit <<" . $_product->name . ">> ! Dimuniez la quantité de votre commande", 505);
                 }
             }
 
@@ -180,9 +180,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
         // return $formData["amount"];
 
-        if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
-            return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
-        }
+        // if (!Is_Pos_Account_Enough($this_agent_pos->id, $formData["amount"])) {
+        //     return self::sendError("Désolé! Votre Pos ne dispose pas de solde suffisant pour éffectuer cette opération!", 505);
+        // }
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
@@ -232,13 +232,13 @@ class COMMAND_HELPER extends BASE_HELPER
         }
 
         ##___DECREDITATION DU SOLDE DE L'AGENCE
-        $countData = [
-            "module_type" => 1,
-            "comments" => "Décreditation de solde du Pos par " . $user->username . ", pour initier une souscription!",
-            "amount" => $formData["amount"],
-            "pos" => $this_agent_pos->id
-        ];
-        Decredite_Pos_Account($countData);
+        // $countData = [
+        //     "module_type" => 1,
+        //     "comments" => "Décreditation de solde du Pos par " . $user->username . ", pour initier une souscription!",
+        //     "amount" => $formData["amount"],
+        //     "pos" => $this_agent_pos->id
+        // ];
+        // Decredite_Pos_Account($countData);
 
         return self::sendResponse($command, 'Commande éffectuée avec succès!!');
     }
