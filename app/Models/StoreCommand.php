@@ -54,6 +54,6 @@ class StoreCommand extends Model
 
     function products(): BelongsToMany
     {
-        return $this->belongsToMany(StoreProduit::class, "commands_products", "command_id", "product_id");
+        return $this->belongsToMany(StoreProduit::class, "commands_products", "command_id", "product_id")->withPivot(["qty","total_amount"]);
     }
 }
