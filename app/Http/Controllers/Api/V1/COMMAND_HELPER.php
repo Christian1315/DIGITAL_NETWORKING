@@ -259,7 +259,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "products", "store", "session", "products"])->where(["visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "store", "session", "products"])->where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
