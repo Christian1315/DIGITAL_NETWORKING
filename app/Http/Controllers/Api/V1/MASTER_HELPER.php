@@ -92,7 +92,6 @@ class MASTER_HELPER extends BASE_HELPER
         $formData['user_id'] = $user['id'];
         $formData['number'] = $number;
 
-
         #============= SON ENREGISTREMENT EN TANT QU'UN MASTER ==========#
 
         ##GESTION DES FICHIERS
