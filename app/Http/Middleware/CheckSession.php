@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Agent;
+use App\Models\Pos;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +29,5 @@ class CheckSession
                 "message" => "Aucune de vos session n'est active. Veuillez activer une"
             ], 404);
         }
-        return $next($request);
     }
 }

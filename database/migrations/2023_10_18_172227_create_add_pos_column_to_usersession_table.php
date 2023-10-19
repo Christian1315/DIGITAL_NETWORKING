@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::table('user_sessions', function (Blueprint $table) {
-        //     $table->foreignId("pos")
-        //         ->nullable()
-        //         ->constrained('poss', 'id')
-        //         ->onUpdate("CASCADE")
-        //         ->onDelete("CASCADE");
-                
-        // });
+        Schema::table('user_sessions', function (Blueprint $table) {
+            $table->integer("pos")->nullable();
+        });
     }
 
     /**

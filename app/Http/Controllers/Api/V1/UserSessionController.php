@@ -10,6 +10,7 @@ class UserSessionController extends USER_SESSION_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login', 'UpdatePassword']);
+        $this->middleware('CheckAgent')->except(["_SessionRetrieve", "DeleteSession"]);
     }
 
     function CreateSession(Request $request)
@@ -19,6 +20,15 @@ class UserSessionController extends USER_SESSION_HELPER
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS USER_SESSION_HELPER
             return $this->sendError("La méthode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
+
+
+        // #VALIDATION DES DATAs DEPUIS LA CLASS USER_SESSION_HELPER
+        // $validator = $this->Session_Validator($request->all());
+
+        // if ($validator->fails()) {
+        //     #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS USER_HELPER
+        //     return $this->sendError($validator->errors(), 404);
+        // }
 
         return $this->_createSession($request);
     }

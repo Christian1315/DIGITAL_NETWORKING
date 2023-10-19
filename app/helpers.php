@@ -270,7 +270,7 @@ function Decredite_Pos_Account($formData)
 
     $pos_solde = Sold::where(['pos' => $formData["pos"], 'visible' => 1])->get();
 
-    if (count($pos_solde)!=0) {
+    if (count($pos_solde) != 0) {
         ##~~l'ancien solde DU POS
         $pos_old_solde = $pos_solde[0];
         $pos_old_solde->visible = 0;
@@ -278,7 +278,7 @@ function Decredite_Pos_Account($formData)
         $pos_old_solde->status = null;
         $pos_old_solde->decredited_at = now();
         $pos_old_solde->save();
-    
+
         ##~~le nouveau solde DU POS
         $pos_solde = new Sold();
         $pos_solde->amount = $pos_old_solde->amount - $formData["amount"]; ##decreditation du compte
@@ -383,6 +383,17 @@ function CheckIfUserHasASession($user_id)
         return false; #IL N'A PAS DE SESSION
     }
     return true; #IL A UNE SESSION
+}
+
+##======== CE HELPER PERMET DE SAVOIR SI LE POS DE L'(agent) A UNE SESSION DANS SON POS ==========## 
+
+function CheckIfAgentPosHasASessionActivated($agent_pos_id)
+{
+    $session = UserSession::where(["pos" => $agent_pos_id,"active" => 1])->get();
+    if ($session->count() == 0) {
+        return false; #IL N' Y A PAS DE SESSION OUVERTE DANS SON POS
+    }
+    return true; #IL Y A UNE SESSION OUVERTE DANS SON POS
 }
 
 ##======== CE HELPER PERMET DE SAVOIR SI LE USER A UNE SESSION ACTIVE==========## 

@@ -62,7 +62,6 @@ return new class extends Migration
             $table->boolean("visible")->default(true);
             $table->boolean("affected")->default(false);
 
-
             #on lui associe son type d'agent
             $table->foreignId("type_id")
                 ->constrained('agent_types', 'id')
