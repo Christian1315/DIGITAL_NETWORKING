@@ -130,15 +130,15 @@ class MASTER_HELPER extends BASE_HELPER
 
 
         #=====ENVOIE DE MAIL =======~####
-        try {
-            Send_Notification(
-                $user,
-                "Création de compte Master",
-                "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
-            );
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
+        // try {
+        Send_Notification(
+            $user,
+            "Création de compte Master",
+            "Votre compte Master a été crée avec succès sur DIGITAL NETWORKING. Voici ci-dessous vos identifiants de connexion: Username::" . $number . "; Password par defaut::" . $default_password,
+        );
+        // } catch (\Throwable $th) {
+        //     //throw $th;
+        // }
 
         // Send_Email(
         //     $formData['email'],

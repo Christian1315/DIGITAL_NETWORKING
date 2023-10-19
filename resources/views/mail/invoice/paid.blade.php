@@ -6,6 +6,10 @@
 
 <p class="">{{$message}}</p>
 
+<x-mail::button :url="''">
+Visitez notre plateforme
+</x-mail::button>
+
 <br><br>
 Merci cordialement,<br>
 {{ config('app.name') }}
