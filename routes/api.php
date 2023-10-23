@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\V1\CardRechargeController;
 use App\Http\Controllers\Api\V1\CardRechargeStatusController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
+use App\Http\Controllers\Api\V1\CommandStatusController;
 use App\Http\Controllers\Api\V1\ModuleController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
@@ -269,7 +270,16 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/delete', '_DeleteCommand'); #SUPPRESSION D'UN COMMANDE
             Route::any('{id}/update', 'UpdateCommand'); #MODIFICATION D'UN COMMANDE
         });
+
+        ###========== COMMANDS STATUS ROUTINGS ========###
+        Route::prefix("status")->group(function () {
+            Route::controller(CommandStatusController::class)->group(function () {
+                Route::any('all', 'CommandStatus'); #GET ALL COMMANDS STATUS
+                Route::any('{id}/retrieve', 'RetrieveCommandStatus'); #RECUPERATION D'UN STATUS
+            });
+        });
     });
+
 
     ###========== SUPPLY ROUTINGS ========###
     Route::prefix("supply")->group(function () {

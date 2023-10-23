@@ -35,7 +35,6 @@ class MASTER_HELPER extends BASE_HELPER
     static function Add_Master_Validator($formDatas)
     {
         $rules = self::master_rules();
-
         $validator = Validator::make($formDatas, $rules);
         return $validator;
     }
@@ -45,7 +44,6 @@ class MASTER_HELPER extends BASE_HELPER
         $formData = $request->all();
         #SON ENREGISTREMENT EN TANT QU'UN USER
         $piece_type = Piece::where('id', $formData['type_piece'])->get();
-
         $domaine_activite = ActivityDomain::where('id', $formData['domaine_activite'])->get();
 
         if (count($domaine_activite) == 0) {

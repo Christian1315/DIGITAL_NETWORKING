@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agent;
 use App\Models\Client;
+use App\Models\CommandStatus;
 use App\Models\ProductCommand;
 use App\Models\Store;
 use App\Models\StoreCommand;
@@ -266,8 +267,9 @@ class COMMAND_HELPER extends BASE_HELPER
         return self::sendResponse($command, "Commande récupérée avec succès:!!");
     }
 
-    static function _updateCommand($formData, $id)
+    static function _updateCommand($request, $id)
     {
+        $formData = $request->all();
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
         $command = StoreCommand::where(["visible" => 1])->find($id);
@@ -278,6 +280,13 @@ class COMMAND_HELPER extends BASE_HELPER
         if ($command->owner != $user->id) {
             return self::sendError("Cette Commande ne vous appartient pas!", 404);
         };
+
+        if ($request->get("status")) {
+            $status = CommandStatus::find($request->get("status"));
+            if (!$status) {
+                return self::sendError("Ce status de commande n'existe pas!", 404);
+            }
+        }
 
         $command->update($formData);
         return self::sendResponse($command, 'Cette Commande a été modifiée avec succès!');

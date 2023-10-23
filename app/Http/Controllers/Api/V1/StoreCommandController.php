@@ -37,7 +37,7 @@ class StoreCommandController extends COMMAND_HELPER
         };
 
         #RECUPERATION D'UNE Command VIA SON **id**
-        return $this->_updateCommand($request->all(), $id);
+        return $this->_updateCommand($request, $id);
     }
 
     #RECUPERER UNE Command

@@ -1199,6 +1199,25 @@ class DatabaseSeeder extends Seeder
             \App\Models\SoldStatus::factory()->create($status);
         }
 
+        #======== CREATION DES STATUS DE COMMANDE PAR DEFAUT =========#
+        $commandStatus = [
+            [
+                "name" => "Non traitée",
+                "description" => "Cette commande n'est pas encore traitée",
+            ],
+            [
+                "name" => "En attente",
+                "description" => "Cette commande est en attente de traitement",
+            ],
+            [
+                "name" => "Traitée",
+                "description" => "Cette commande est déjà traitée",
+            ],
+        ];
+        foreach ($commandStatus as $commandStatu) {
+            \App\Models\CommandStatus::factory()->create($commandStatu);
+        }
+
         #======== CREATION DES TYPES D'AGENT PAR DEFAUT =========#
         $agentTypes = [
             [
