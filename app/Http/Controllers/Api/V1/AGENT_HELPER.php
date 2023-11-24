@@ -355,6 +355,7 @@ class AGENT_HELPER extends BASE_HELPER
         $agent->affected = true;
         $agent->save();
 
+        ##__
         return self::sendResponse([], "Affectation effectuée avec succès!!");
     }
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agent;
 use App\Models\Client;
+use App\Models\Master;
 use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreFacturation;
@@ -70,18 +72,33 @@ class FACTURE_HELPER extends BASE_HELPER
 
         $formData = [];
         $formData["reference"] = $reference;
+
+        $current_user = request()->user(); ##(agent)
+
         if (request()->user()) {
-            $formData["facturier"] = request()->user()->id;
+            $formData["facturier"] = $current_user->id;
+        }
+
+        ###___ON RECUPERE LE MASTER DE CET AGENT
+        $agent_attach_to_this_user = Agent::where(["user_id" => $current_user->id])->first();
+        if (!$agent_attach_to_this_user) {
+            return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
+        }
+
+        $master_of_this_agent = Master::find($agent_attach_to_this_user->master_id);
+        if (!$master_of_this_agent) {
+            return self::sendError("Vous ne disposez pas de master! Vous ne pouvez pas générer une facture.", 505);
         }
 
         // $command = StoreCommand::find($commandId);
         // foreach ($commands as $command) {
         //     array_push($command_amounts, $command->amount);
         // }
+
         $products = $command->products;
         $total = $command->amount;
 
-        $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total"]));
+        $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
 
         ###____

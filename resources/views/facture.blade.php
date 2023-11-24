@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Facture Client</title>
 </head>
@@ -38,9 +37,9 @@
                             </td>
                             <td>
                                 <div class="">
-                                    <strong>Company :</strong>{{env("APP_NAME")}}<br>
-                                    <strong>N° IFU :</strong>{{env("DIGITAL_IFU")}} <br>
-                                    <strong>Téléphone:</strong>{{env("DIGITAL_PHONE")}}
+                                    <strong>Company :</strong>{{$master_of_this_agent->raison_sociale}}<br>
+                                    <strong>N° IFU :</strong>{{$master_of_this_agent->ifu}} <br>
+                                    <strong>Téléphone:</strong>{{$master_of_this_agent->phone}}
                                 </div>
                             </td>
                         </tr>
