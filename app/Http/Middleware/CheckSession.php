@@ -29,5 +29,7 @@ class CheckSession
                 "message" => "Aucune de vos session n'est active. Veuillez activer une"
             ], 404);
         }
+
+        return $next($request);
     }
 }

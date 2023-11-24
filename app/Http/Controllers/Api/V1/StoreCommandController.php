@@ -9,7 +9,7 @@ class StoreCommandController extends COMMAND_HELPER
     #VERIFIONS SI LE USER EST AUTHENTIFIE
     public function __construct()
     {
-        $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
+        $this->middleware(['auth:api', 'scope:api-access']);
         // $this->middleware('CheckAgent');
         $this->middleware('CheckSession')->except(["Commands", "RetrieveCommand"]);
     }
