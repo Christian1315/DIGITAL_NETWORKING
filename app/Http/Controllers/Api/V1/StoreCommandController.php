@@ -11,7 +11,7 @@ class StoreCommandController extends COMMAND_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
         // $this->middleware('CheckAgent');
-        // $this->middleware('CheckSession')->except(["Commands", "RetrieveCommand"]);
+        $this->middleware('CheckSession')->except(["Commands", "RetrieveCommand"]);
     }
 
     #GET ALL COMMANDES
