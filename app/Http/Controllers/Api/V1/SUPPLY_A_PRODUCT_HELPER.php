@@ -65,16 +65,46 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Ce produit ne vous appartient pas!", 404);
         }
 
-        //Verifions si le produit a déjà été approvisionné dans ce store
-        // $store_stock = SupplyProduct::where(["product" => $formData["product"], "supply" => $formData["supply"]])->get();
-        // if (!$store_stock->count() == 0) {
-        //     return self::sendError("Ce produit a déjà été approvisionné", 505);
-        // } #dans le cas contraire, on passe outre
+        ###___QUAND IL EST QUESTION D'UN PRODUIT COMPOSANT
+        if ($product->product_classe == 2) {
+            return self::sendError("Ce produit est un composant! Veuillez approvisionner plutôt son produit composé!", 404);
+        }
+
+        ###___QUAND IL EST QUESTION D'UN PRODUIT COMPOSE
+        // if ($product->product_classe == 3) {
+        //     $products = StoreProduit::where(["product_compose" => $product->id])->get();
+
+        //     foreach ($products as $product) {
+        //         $formData["product"] = $product->id;
+        //         $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
+
+        //         #MARQUONS QUE CE PRODUIT A ETE AFFECTE A UN APPROVISIONNEMENT(supply)
+        //         $product->supplied = true;
+        //         $product->save();
+
+        //         #AJOUTONS CE PRODUIT AU STOCK DU STORE EN QUESTION
+        //         $stock = new StoreStock();
+        //         $stock->owner = request()->user()->id;
+        //         $stock->product = $product->id;
+        //         $stock->store = $product->store;
+        //         $stock->quantity = $formData["quantity"];
+
+        //         $stock->comments = "Ajout du produit (" . $product->name . ") au stock";
+        //         $store_stock = StoreStock::where(["product" => $product->id])->get();
+        //         if ($store_stock->count() != 0) {
+        //             #S'il a été ajouté au stock, on incremente la quantité qu'il y a avait dedans
+        //             $store_stock = $store_stock[0];
+        //             $store_stock->quantity = $store_stock->quantity + $formData["quantity"];
+        //             $store_stock->save();
+        //         } else {
+        //             #dans le cas contraire, on enregistre ce nouveau stock
+        //             $stock->save();
+        //         }
+        //     }
+        // }
+
 
         $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
-        $session = GetSession($user->id);
-        $supply->session = $session->id;
-        $supply->save();
 
         #MARQUONS QUE CE PRODUIT A ETE AFFECTE A UN APPROVISIONNEMENT(supply)
         $product->supplied = true;
@@ -82,7 +112,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
 
         #AJOUTONS CE PRODUIT AU STOCK DU STORE EN QUESTION
         $stock = new StoreStock();
-        $stock->session = $session->id;
+        // $stock->session = $session->id;
         $stock->owner = request()->user()->id;
         $stock->product = $product->id;
         $stock->store = $product->store;

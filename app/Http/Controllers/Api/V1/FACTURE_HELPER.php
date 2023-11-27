@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Agent;
 use App\Models\Client;
 use App\Models\Master;
-use App\Models\ProductCommand;
 use App\Models\StoreCommand;
 use App\Models\StoreFacturation;
-use App\Models\StoreProduit;
-use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use PDF;
 
@@ -107,6 +104,9 @@ class FACTURE_HELPER extends BASE_HELPER
 
         // $formData["client"] = $command->client;
         $formData["facture"] = $facturepdf_path;
+        $formData["client"] = $client->id;
+        $formData["command"] = $commandId;
+
         $facture = StoreFacturation::create($formData);
 
         ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES
@@ -129,7 +129,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function retrieveFacture($id)
     {
-        $facture = StoreFacturation::with(["client", "facturier"])->find($id);
+        $facture = StoreFacturation::with(["client", "facturier","command"])->find($id);
         if (!$facture) {
             return self::sendError("Cette facture n'est pas disponible", 404);
         }
@@ -138,7 +138,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function factures()
     {
-        $factures = StoreFacturation::with(["client", "facturier"])->orderBy("id", "desc")->get();
+        $factures = StoreFacturation::with(["client", "facturier","command"])->orderBy("id", "desc")->get();
         if ($factures->count() == 0) {
             return self::sendError("Aucune facture n'est disponible", 404);
         }

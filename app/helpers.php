@@ -178,6 +178,16 @@ function All_Rights()
     return $allrights;
 }
 
+#####========= CE HELPER PERMET DE VOIR SI L'API DE LA DGI EST FONCTIONNELLE========
+function IS_DGI_API_WORKING()
+{
+    $response = Http::withHeaders([
+        'Authorization' => "Bearer " . env("DGI_API_JETON"),
+    ])->get(env("DGI_API_BASE_URL"));
+
+    return $response["status"];
+}
+
 ##======== CE HELPER PERMET D'ENVOYER DES SMS VIA PHONE ==========## 
 
 function Login_To_Frik_SMS()
@@ -389,7 +399,7 @@ function CheckIfUserHasASession($user_id)
 
 function CheckIfAgentPosHasASessionActivated($agent_pos_id)
 {
-    $session = UserSession::where(["pos" => $agent_pos_id,"active" => 1])->get();
+    $session = UserSession::where(["pos" => $agent_pos_id, "active" => 1])->get();
     if ($session->count() == 0) {
         return false; #IL N' Y A PAS DE SESSION OUVERTE DANS SON POS
     }

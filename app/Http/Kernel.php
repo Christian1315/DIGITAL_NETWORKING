@@ -61,6 +61,9 @@ class Kernel extends HttpKernel
         'CheckMaster' => \App\Http\Middleware\CheckMaster::class,
         'CheckPosOrAdmin' => \App\Http\Middleware\CheckPosOrAdmin::class,
         'CheckSession' => \App\Http\Middleware\CheckSession::class,
+
+        'CheckIf_DGI_Api_Work' => \App\Http\Middleware\CheckIf_DGI_Api_Work::class,
+
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

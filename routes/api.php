@@ -34,7 +34,9 @@ use App\Http\Controllers\Api\V1\CardRechargeStatusController;
 use App\Http\Controllers\Api\V1\CardTypeController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\CommandStatusController;
+use App\Http\Controllers\Api\V1\FactureNormalisationController;
 use App\Http\Controllers\Api\V1\ModuleController;
+use App\Http\Controllers\Api\V1\ProductClasseController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
 use App\Http\Controllers\Api\V1\StoreFacturationController;
@@ -228,6 +230,15 @@ Route::prefix('v1')->group(function () {
                 Route::any('{id}/retrieve', 'RetrieveProductType'); #RECUPERATION D'UN TYPE DE PRODUIT
             });
         });
+
+        // LES CLASSES
+        Route::prefix("classe")->group(function () {
+            Route::controller(ProductClasseController::class)->group(function () {
+                Route::any('all', 'ProductClasses');
+                Route::any('{id}/retrieve', 'RetrieveProductClasse');
+            });
+        });
+
         ###========== PRODUCT CATEGORY ROUTINGS ========###
         Route::controller(StoreCategoryController::class)->group(function () {
             Route::prefix('category')->group(function () {
@@ -312,6 +323,14 @@ Route::prefix('v1')->group(function () {
         });
     });
 
+    Route::prefix('normalize-facture')->group(function () {
+        Route::controller(FactureNormalisationController::class)->group(function () {
+            Route::any('all', '_Factures'); #RECUPERER TOUTES LES FACTURES NORMALISEE
+            Route::any('{facture}/demande', 'Create'); #CREER UNE FACTURES NORMALISEE
+            Route::any('/{id}/retrieve', '_Retrieve'); #RECUPERER TOUTES LES FACTURE NORMALISEE
+        });
+    });
+
 
     ###========== SOLDES  ROUTINGS ========###
     Route::controller(SoldController::class)->group(function () {
@@ -366,6 +385,7 @@ Route::prefix('v1')->group(function () {
                 Route::any('{id}/retrieve', 'RetrieveCardType');
             });
         });
+
         // LES CARDS
         Route::controller(CardController::class)->group(function () {
             Route::any('{card}/partial-validate', 'CardPartialValidation');

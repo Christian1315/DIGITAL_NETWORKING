@@ -11,28 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('store_facturations', function (Blueprint $table) {
+        Schema::create('facture_normalisations', function (Blueprint $table) {
             $table->id();
             $table->foreignId("session")
                 ->nullable()
                 ->constrained('user_sessions', 'id')
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
-            $table->text("reference");
-            $table->foreignId('facturier')
+            $table->foreignId("owner")
                 ->nullable()
-                ->constrained('users', "id")
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-            $table->foreignId('client')
+                ->constrained("users", "id")
+                ->onDelete("CASCADE")
+                ->onUpdate("CASCADE");
+            $table->foreignId("facture")
                 ->nullable()
-                ->constrained('users', "id")
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-            $table->text("facture");
-            $table->boolean("paid")->default(false);
-            $table->string("delete_at")->nullable();
+                ->constrained("store_facturations", "id")
+                ->onDelete("CASCADE")
+                ->onUpdate("CASCADE");
             $table->boolean("visible")->default(true);
+            $table->string("delete_at")->nullable();
             $table->timestamps();
         });
     }
@@ -42,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('store_facturations');
+        Schema::dropIfExists('facture_normalisations');
     }
 };

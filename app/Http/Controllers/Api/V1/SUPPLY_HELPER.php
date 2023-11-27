@@ -58,8 +58,8 @@ class SUPPLY_HELPER extends BASE_HELPER
         
         $supply = StoreSupply::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
         $supply->owner = $user->id;
-        $session = GetSession($user->id);
-        $supply->session = $session->id;
+        // $session = GetSession($user->id);
+        // $supply->session = $session->id;
         $supply->save();
         return self::sendResponse($supply, 'Approvisionnement crée avec succès!!');
     }

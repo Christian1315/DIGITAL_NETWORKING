@@ -10,7 +10,7 @@ class StoreCommandController extends COMMAND_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        // $this->middleware('CheckAgent');
+        $this->middleware('CheckAgent');
         $this->middleware('CheckSession')->except(["Commands", "RetrieveCommand"]);
     }
 
@@ -55,7 +55,6 @@ class StoreCommandController extends COMMAND_HELPER
 
     function CreateCommand(Request $request)
     {
-
         #VERIFICATION DE LA METHOD
         if ($this->methodValidation($request->method(), "POST") == False) {
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR COMMAND_HELPER

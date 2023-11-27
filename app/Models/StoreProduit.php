@@ -19,6 +19,7 @@ class StoreProduit extends Model
         "store",
         "active",
         "product_type",
+        "product_classe",
         "img"
     ];
 

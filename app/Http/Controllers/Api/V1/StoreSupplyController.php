@@ -11,7 +11,7 @@ class StoreSupplyController extends SUPPLY_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
         $this->middleware('CheckMaster');
-        $this->middleware('CheckSession')->except(["_AllSupply", "RetrieveSupply"]);
+        // $this->middleware('CheckSession')->except(["_AllSupply", "RetrieveSupply"]);
     }
 
     // #GET ALL SUPPLY

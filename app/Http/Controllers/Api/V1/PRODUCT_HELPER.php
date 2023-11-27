@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\ProductClasse;
 use App\Models\ProductType;
 use App\Models\Store;
 use App\Models\StoreCategory;
 use App\Models\StoreProduit;
+use App\Models\StoreStock;
 use App\Models\StoreSupply;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -36,12 +38,14 @@ class PRODUCT_HELPER extends BASE_HELPER
             'category.required' => 'Le champ category est réquis!',
             // 'store.required' => 'Le champ store est un entier!',
             'product_type.required' => 'Le champ product_type est réquis!',
+            'product_classe.required' => 'La classe du produit est réquise!',
             'active.required' => 'Le champ active est réquis!',
 
             'active.boolean' => 'Le champ active est un boolean!',
             'category.integer' => 'Le champ category est un entier!',
             'store.integer' => 'Le champ store est un entier!',
             'product_type.integer' => 'Le champ product_type est un entier!',
+            'product_classe.integer' => 'Le champ product_classe doit être de type entier!',
         ];
     }
 
@@ -89,6 +93,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         $user = request()->user();
 
         $product_type = ProductType::where(['id' => $formData["product_type"]])->get();
+        $product_classe = ProductClasse::where(['id' => $formData["product_classe"]])->get();
 
         $product_category = StoreCategory::where(['id' => $formData["category"]])->get();
         $store = Store::where(['id' => $formData["store"]])->get();
@@ -97,12 +102,58 @@ class PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Ce type de produit n'existe pas!!", 404);
         }
 
+        if ($product_classe->count() == 0) {
+            return self::sendError("Cette classe de produit n'existe pas!!", 404);
+        }
+
         if ($product_category->count() == 0) {
             return self::sendError("Cette categorie de produit n'existe pas!!", 404);
         }
 
         if ($store->count() == 0) {
             return self::sendError("Ce Store n'existe pas!!", 404);
+        }
+
+        ####____TRAITEMENT DE L'AJOUT DU PRODUIT QUAND SA CLASSE EST UN PRODUIT ¨COMPOSE¨
+        $products = $request->get("products");
+
+        // $products = [
+        //     [
+        //         "id" => 3,
+        //         "qty" => "20L",
+        //     ],
+        //     [
+        //         "id" => 4,
+        //         "qty" => "3L",
+        //     ],
+        // ];
+
+        if ($formData["product_classe"] == 3) {
+            if (!$request->get("products")) {
+                return self::sendError("Veuillez préciser les produits composants inclus dans ce produit composé", 505);
+            }
+
+            foreach ($products as $product) {
+                ####___ON VERIFIE L'EXISTENCE DES PRODUITS
+                $_product = StoreProduit::find($product["id"]);
+
+                if ($_product->owner != $user->id) {
+                    return self::sendError("Ce produit ne vous appartient pas!", 404);
+                }
+
+                if ($_product->product_compose) {
+                    return self::sendError("Ce produit appartient déjà à un produit composé!", 404);
+                }
+
+                if (!$_product) {
+                    return self::sendError("Le produit d'ID " . $product["id"] . " n'existe pas!", 404);
+                }
+
+                ####____QUAND LE PRODUIT N'EST PAS UN COMPOSANT
+                if ($_product->product_classe != 2) {
+                    return self::sendError("Le produit <<" . $_product->name . " >> n'est pas de la classe des composants.", 505);
+                }
+            }
         }
 
         ##GESTION DE L'IMAGE
@@ -114,15 +165,23 @@ class PRODUCT_HELPER extends BASE_HELPER
         //REFORMATION DU $formData AVANT SON ENREGISTREMENT DANS LA TABLE **STORE PRODUCTS**
         $formData["img"] = asset("products/" . $prod_img_name);
 
-        $product = StoreProduit::create($formData); #ENREGISTREMENT DU PRODUIT DANS LA DB
-        $product->img = $formData["img"];
+        $productCreated = StoreProduit::create($formData); #ENREGISTREMENT DU PRODUIT DANS LA DB
+        $productCreated->img = $formData["img"];
+        $productCreated->owner = $user->id;
+        $productCreated->save();
 
-        $product->owner = $user->id;
-        $session = GetSession($user->id);
-        $product->session = $session->id;
+        ##__QUAND LE PRODUIT CREE EST UN COMPOSE
+        if ($formData["product_classe"] == 3) {
+            ####___ASSOCIONS CHAQUE PRODUIT COMPOSANT AU PRODUIT COMPOSE(Si le produit crée est de la classe des produits composés)
+            foreach ($products as $product) {
+                $this_product = StoreProduit::find($product["id"]);
+                $this_product->product_compose = $productCreated->id; ###Le produit compose auquel ce produit appartient
+                $this_product->qty = $product["qty"];
+                $this_product->save();
+            }
+        }
 
-        $product->save();
-        return self::sendResponse($product, 'Produit crée avec succès!!');
+        return self::sendResponse($productCreated, 'Produit crée avec succès!!');
     }
 
     static function allProduct()

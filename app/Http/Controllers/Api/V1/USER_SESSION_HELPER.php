@@ -51,6 +51,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
         $user = request()->user();
 
         ##__
+        
         $agent = Agent::where(["user_id" => $user->id])->first();
         if (!$agent) {
             return self::sendError("L'agent auquel vous êtes associé n'existe plus!", 404);

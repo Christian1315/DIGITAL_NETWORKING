@@ -14,7 +14,8 @@ class StoreFacturation extends Model
         "client",
         "facturier",
         "facture",
-        "reference"
+        "reference",
+        "command"
     ];
 
     function client(): BelongsTo
@@ -25,5 +26,10 @@ class StoreFacturation extends Model
     function facturier(): BelongsTo
     {
         return $this->belongsTo(User::class, "facturier");
+    }
+
+    function command(): BelongsTo
+    {
+        return $this->belongsTo(StoreCommand::class, "command")->with(["products"]);
     }
 }
