@@ -39,16 +39,12 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function createFacture($commandId)
     {
-        // $client = User::find($clientId);
-        // if (!$client) {
-        //     return self::sendError("Ce client n'existe pas!", 404);
-        // }
-
         $command = StoreCommand::find($commandId);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
         $client = Client::find($command->client);
+
 
         if (!$client) {
             return self::sendError("Le client associé à cette commande n'existe pas!", 404);
@@ -59,11 +55,6 @@ class FACTURE_HELPER extends BASE_HELPER
         }
 
         ###___GESTION DES FACTURES
-        // $commands = StoreCommand::where(["owner" => $clientId, "factured" => 0])->orderBy("id", "desc")->get();
-
-        // if (count($commands) == 0) {
-        //     return self::sendError("Vous ne disposez pas de commande à facturer", 404);
-        // }
 
         $reference = Custom_Timestamp();
 
@@ -87,11 +78,6 @@ class FACTURE_HELPER extends BASE_HELPER
             return self::sendError("Vous ne disposez pas de master! Vous ne pouvez pas générer une facture.", 505);
         }
 
-        // $command = StoreCommand::find($commandId);
-        // foreach ($commands as $command) {
-        //     array_push($command_amounts, $command->amount);
-        // }
-
         $products = $command->products;
         $total = $command->amount;
 
@@ -110,8 +96,8 @@ class FACTURE_HELPER extends BASE_HELPER
         $facture = StoreFacturation::create($formData);
 
         ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES
-        $command->factured = 1;
-        $command->save();
+        // $command->factured = 1;
+        // $command->save();
 
         ####___ENVOIE DE MAIL AU CLIENT POUR LUI NOTIFIER LA FACTURE
         try {

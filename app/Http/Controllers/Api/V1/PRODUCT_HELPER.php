@@ -7,7 +7,6 @@ use App\Models\ProductType;
 use App\Models\Store;
 use App\Models\StoreCategory;
 use App\Models\StoreProduit;
-use App\Models\StoreStock;
 use App\Models\StoreSupply;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
