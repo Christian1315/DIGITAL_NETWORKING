@@ -96,8 +96,8 @@ class FACTURE_HELPER extends BASE_HELPER
         $facture = StoreFacturation::create($formData);
 
         ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES
-        // $command->factured = 1;
-        // $command->save();
+        $command->factured = 1;
+        $command->save();
 
         ####___ENVOIE DE MAIL AU CLIENT POUR LUI NOTIFIER LA FACTURE
         try {
