@@ -45,7 +45,6 @@ class FACTURE_HELPER extends BASE_HELPER
         }
         $client = Client::find($command->client);
 
-
         if (!$client) {
             return self::sendError("Le client associé à cette commande n'existe pas!", 404);
         }
@@ -81,18 +80,22 @@ class FACTURE_HELPER extends BASE_HELPER
         $products = $command->products;
         $total = $command->amount;
 
+        ###___GESTION DES TICKETS
         $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
-
-        ###____
-
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
+        ###____
+        $ticket = PDF::loadView('ticket', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
+        $ticket->save(public_path("tickets/" . $reference . ".pdf"));
+        $ticket_path = asset("tickets/" . $reference . ".pdf");
+        ###___
 
-        // $formData["client"] = $command->client;
         $formData["facture"] = $facturepdf_path;
         $formData["client"] = $client->id;
         $formData["command"] = $commandId;
+        $formData["ticket"] = $ticket_path;
 
+        // return $formData["ticket"];
         $facture = StoreFacturation::create($formData);
 
         ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES
@@ -107,15 +110,13 @@ class FACTURE_HELPER extends BASE_HELPER
                 "Cher Client, Vous venez juste d'etre facturé.e sur DIGITAL NETWORK! \n Veuillez cliquer sur le lien ci-dessous pour la télécharger: " . $facturepdf_path
             );
         } catch (\Throwable $th) {
-            //throw $th;
         }
-
         return self::sendResponse($facture, 'Facture générée avec succès!!');
     }
 
     static function retrieveFacture($id)
     {
-        $facture = StoreFacturation::with(["client", "facturier","command"])->find($id);
+        $facture = StoreFacturation::with(["client", "facturier", "command"])->find($id);
         if (!$facture) {
             return self::sendError("Cette facture n'est pas disponible", 404);
         }
@@ -124,7 +125,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function factures()
     {
-        $factures = StoreFacturation::with(["client", "facturier","command"])->orderBy("id", "desc")->get();
+        $factures = StoreFacturation::with(["client", "facturier", "command"])->orderBy("id", "desc")->get();
         if ($factures->count() == 0) {
             return self::sendError("Aucune facture n'est disponible", 404);
         }

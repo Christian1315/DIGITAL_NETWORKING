@@ -22,7 +22,7 @@
 <body>
     <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col-md-12 px-2">
+            <div class="col-md-12">
                 <p class="text-left">Cotonou le, <strong> <?php echo date("Y/m/d") ?> </strong> </p>
                 <p class="text-right">Reference : <strong style="background-color: #000;padding:5px;color:#fff"> {{$reference}} </strong> </p>
                 <table class="table table table-striped px-0 mx-0">
@@ -74,7 +74,6 @@
                         <tr>
                             <th scope="col" class="text-center">N° Commande</th>
                             <th scope="col" class="text-center">Produit</th>
-                            <!-- <th scope="col">Quantité </th> -->
                             <th scope="col" class="text-center">Prix total</th>
                             <th scope="col" class="text-center">Date de la commande</th>
                         </tr>

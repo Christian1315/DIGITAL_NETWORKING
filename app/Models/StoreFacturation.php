@@ -15,7 +15,8 @@ class StoreFacturation extends Model
         "facturier",
         "facture",
         "reference",
-        "command"
+        "command",
+        "ticket"
     ];
 
     function client(): BelongsTo

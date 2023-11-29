@@ -58,6 +58,12 @@ function PRODUCT_QTY($commanId, $produtId)
     return $product->qty;
 }
 
+####____quantite d'un produit en commande
+function TVA($amount)
+{
+    return $amount*0.18;
+}
+
 function PRODUCT_PRICE_X_QTY($price, $qty)
 {
     return $price * $qty;

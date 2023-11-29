@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\V1\Notifications;
 use App\Http\Controllers\Api\V1\PdfController;
-use App\Mail\Inscription;
 use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +43,8 @@ Route::get("user/{id?}", function ($id = null) {
     return 'User ' . $id;
 });
 
-// Route::get('pdf', [PdfController::class, 'getPostPdf']);
-
 Route::get('send-mail', [Notifications::class, 'testMail']);
+
+Route::get("ticket",function () {
+    return view("ticket");
+});
