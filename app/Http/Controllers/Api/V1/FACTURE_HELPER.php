@@ -91,7 +91,7 @@ class FACTURE_HELPER extends BASE_HELPER
         ###___
 
         $formData["facture"] = $facturepdf_path;
-        $formData["client"] = $client->id;
+        $formData["this_client"] = $client->id;
         $formData["command"] = $commandId;
         $formData["ticket"] = $ticket_path;
 

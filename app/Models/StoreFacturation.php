@@ -11,7 +11,7 @@ class StoreFacturation extends Model
     use HasFactory;
 
     protected $fillable = [
-        "client",
+        "this_client",
         "facturier",
         "facture",
         "reference",
@@ -21,7 +21,7 @@ class StoreFacturation extends Model
 
     function client(): BelongsTo
     {
-        return $this->belongsTo(User::class, "client");
+        return $this->belongsTo(User::class, "this_client");
     }
 
     function facturier(): BelongsTo
