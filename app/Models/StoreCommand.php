@@ -32,11 +32,6 @@ class StoreCommand extends Model
         return $this->belongsTo(Store::class, "store");
     }
 
-    // function products(): HasMany
-    // {
-    //     return $this->hasMany(ProductCommand::class, "command")->with(["product"]);
-    // }
-
     function product_datas(): BelongsTo
     {
         return $this->belongsTo(StoreProduit::class, "product")->withDefault(["name", "price"]);
