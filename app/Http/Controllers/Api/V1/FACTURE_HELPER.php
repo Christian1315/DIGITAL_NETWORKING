@@ -54,7 +54,6 @@ class FACTURE_HELPER extends BASE_HELPER
         }
 
         ###___GESTION DES FACTURES
-
         $reference = Custom_Timestamp();
 
         $formData = [];
@@ -84,6 +83,7 @@ class FACTURE_HELPER extends BASE_HELPER
         $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
+
         ###____
         $ticket = PDF::loadView('ticket', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
         $ticket->save(public_path("tickets/" . $reference . ".pdf"));
@@ -95,7 +95,6 @@ class FACTURE_HELPER extends BASE_HELPER
         $formData["command"] = $commandId;
         $formData["ticket"] = $ticket_path;
 
-        // return $formData["ticket"];
         $facture = StoreFacturation::create($formData);
 
         ####_____NOTIFIER QUE LA COMMANDE A ETE FACTURES

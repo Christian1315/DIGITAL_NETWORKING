@@ -136,7 +136,13 @@ class COMMAND_HELPER extends BASE_HELPER
                 return self::sendError("Le product d'ID " . $product["id"] . " n'existe pas!", 404);
             }
 
-            if ($_product->product_type == 1) { #####____produit stockable
+            #####____produit composant
+            if ($_product->product_classe == 2) {
+                return self::sendError("Désolé! Le <<" . $_product->name . ">> est un produit composant. Commandez plutôt son produit composé", 505);
+            }
+
+            #####____produit stockable
+            if ($_product->product_type == 1) {
 
                 #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
                 $product_stock = StoreStock::with(["product", "store"])->where(["product" => $product["id"], "visible" => 1])->get();
