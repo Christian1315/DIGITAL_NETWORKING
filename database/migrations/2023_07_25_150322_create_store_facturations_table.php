@@ -26,7 +26,7 @@ return new class extends Migration
                 ->onDelete('CASCADE');
             $table->foreignId('client')
                 ->nullable()
-                ->constrained('users', "id")
+                ->constrained('clients', "id")
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
             $table->text("facture");
