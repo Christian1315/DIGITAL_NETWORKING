@@ -189,7 +189,7 @@
         </table>
 
         <p class="">
-            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white">{{$total}}</span> FCFA TTC.
+            Arrêtée, la présente facture à la somme de $total FCFA TTC.
         </p>
 
         <p class="text-right">

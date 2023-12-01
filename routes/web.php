@@ -32,9 +32,7 @@ Route::get('/sendMail', function () {
     dd("MESSAGE ENVOYE AVEC SUCCèS");
 });
 
-
 Route::get('pdf', [PdfController::class, 'getPdf']);
-
 
 Route::get('/documentation', function () {
     return view('documentation');
@@ -47,4 +45,8 @@ Route::get('send-mail', [Notifications::class, 'testMail']);
 
 Route::get("ticket",function () {
     return view("ticket");
+});
+
+Route::get("facture",function () {
+    return view("facture-html");
 });

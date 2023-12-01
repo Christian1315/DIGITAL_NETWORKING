@@ -11,6 +11,8 @@ class FactureNormalisationController extends FACTURE_NORMALISATION_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access']);
         $this->middleware("CheckIf_DGI_Api_Work");
+
+        set_time_limit(0);
     }
 
     #CREATION D'UN Facture

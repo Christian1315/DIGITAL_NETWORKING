@@ -16,15 +16,15 @@ class FACTURE_HELPER extends BASE_HELPER
     static function facture_rules(): array
     {
         return [
-            'client' => 'required|integer',
+            'this_client' => 'required|integer',
         ];
     }
 
     static function facture_messages(): array
     {
         return [
-            'client.required' => 'Veuillez precisez l\'id du client à facturer!',
-            'client.integer' => 'Le champ client doit être un entier!',
+            'this_client.required' => 'Veuillez precisez l\'id du client à facturer!',
+            'this_client.integer' => 'Le champ this_client doit être un entier!',
         ];
     }
 
@@ -79,7 +79,7 @@ class FACTURE_HELPER extends BASE_HELPER
         $products = $command->products;
         $total = $command->amount;
 
-        ###___GESTION DES TICKETS
+        ###___GESTION DES  FACTURES & TICKETS
         $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
@@ -115,7 +115,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function retrieveFacture($id)
     {
-        $facture = StoreFacturation::with(["client", "facturier", "command"])->find($id);
+        $facture = StoreFacturation::with(["_client", "facturier", "_command"])->find($id);
         if (!$facture) {
             return self::sendError("Cette facture n'est pas disponible", 404);
         }
@@ -124,7 +124,7 @@ class FACTURE_HELPER extends BASE_HELPER
 
     static function factures()
     {
-        $factures = StoreFacturation::with(["client", "facturier", "command"])->orderBy("id", "desc")->get();
+        $factures = StoreFacturation::with(["_client", "facturier", "_command"])->orderBy("id", "desc")->get();
         if ($factures->count() == 0) {
             return self::sendError("Aucune facture n'est disponible", 404);
         }
@@ -152,6 +152,7 @@ class FACTURE_HELPER extends BASE_HELPER
         if (!$facture) {
             return self::sendError('Cette facture n\'existe pas!', 404);
         };
+        
         $facture->delete();
         return  self::sendResponse($facture, "Facture supprimée avec succès!");
     }

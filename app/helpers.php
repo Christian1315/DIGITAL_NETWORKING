@@ -61,7 +61,7 @@ function PRODUCT_QTY($commanId, $produtId)
 ####____quantite d'un produit en commande
 function TVA($amount)
 {
-    return $amount*0.18;
+    return $amount * 0.18;
 }
 
 function PRODUCT_PRICE_X_QTY($price, $qty)
@@ -189,9 +189,32 @@ function IS_DGI_API_WORKING()
 {
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . env("DGI_API_JETON"),
-    ])->get(env("DGI_API_BASE_URL"));
+    ])->get(env("DGI_API_BASE_URL")."/invoice");
 
     return $response["status"];
+}
+
+#####========= CE HELPER PERMET DE FAIRER LA DEMANDE DE NORMALISATION DE LA FACTURE VIA DGI API========
+function DEMAND_FACTURE_NORMALISATION($normalisationData)
+{
+    $response = Http::withHeaders([
+        'Authorization' => "Bearer " . env("DGI_API_JETON"),
+        "Content-Type"=>"application/json"
+    ])->post(env("DGI_API_BASE_URL") . "/invoice",
+        $normalisationData
+    );
+
+    return $response;
+}
+
+#####========= CE HELPER PERMET DE CONFIRMER LA DEMANDE DE NORMALISATION DE LA FACTURE VIA DGI API========
+function CONFIRM_NORMALISATION_DEMAND($uid)
+{
+    $response = Http::withHeaders([
+        'Authorization' => "Bearer " . env("DGI_API_JETON"),
+    ])->put(env("DGI_API_BASE_URL") . "/invoice/" . $uid . "/confirm");
+
+    return $response;
 }
 
 ##======== CE HELPER PERMET D'ENVOYER DES SMS VIA PHONE ==========## 

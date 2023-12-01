@@ -108,12 +108,21 @@
 
                 <br>
 
+
                 <div class="row">
-                    <div class="col-md-12">
-                        <h6 class="text-center">Ce ticket n'est pas normalisé</h6>
-                        <p class="text-center">
-                            Ce ticket n'est pas encore normalisé! Pensez à sa normalisation.
-                        </p>
+                    <div class="col-md-12 text-center">
+                        <h6 class="text-center">Code MECEF/DGI</h6>
+                        <small class="text-center">{{$dgi_details["codeMECeFDGI"]}}</small>
+
+                        <ul style="list-style-type: none;">
+                            <li><small>MECeF NIM</small><small>: {{$dgi_details["nim"]}}</small></li>
+                            <li><small>MECeF</small><small>: {{$dgi_details["counters"]}}</small></li>
+                            <li><small>MECeF Heure</small><small>: {{$dgi_details["dateTime"]}}</small></li>
+                        </ul>
+
+                        <div class="text-center">
+                            <img src="{{$code_qr_img}}" alt="code QR" srcset="">
+                        </div>
                     </div>
                 </div>
             </div>

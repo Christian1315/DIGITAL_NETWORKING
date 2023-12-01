@@ -19,9 +19,9 @@ class StoreFacturation extends Model
         "ticket"
     ];
 
-    function client(): BelongsTo
+    function _client(): BelongsTo
     {
-        return $this->belongsTo(User::class, "this_client");
+        return $this->belongsTo(Client::class, "this_client");
     }
 
     function facturier(): BelongsTo
@@ -29,7 +29,7 @@ class StoreFacturation extends Model
         return $this->belongsTo(User::class, "facturier");
     }
 
-    function command(): BelongsTo
+    function _command(): BelongsTo
     {
         return $this->belongsTo(StoreCommand::class, "command")->with(["products"]);
     }
