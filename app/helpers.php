@@ -58,10 +58,34 @@ function PRODUCT_QTY($commanId, $produtId)
     return $product->qty;
 }
 
-####____quantite d'un produit en commande
+####____tva d'un produit en commande
 function TVA($amount)
 {
     return $amount * 0.18;
+}
+
+####____TS d'un produit en commande
+function TS($amount)
+{
+    return 0;
+}
+
+####____remise d'un produit en commande
+function REMISE($amount)
+{
+    return $amount - env("REMISE_PRODUCT") / 100;
+}
+
+####____Ht d'un produit en commande
+function HT($amount)
+{
+    return $amount - env("REMISE_PRODUCT") / 100;
+}
+
+####____TTC d'un produit en commande
+function TTC($amount)
+{
+    return HT($amount) * 0.18;
 }
 
 function PRODUCT_PRICE_X_QTY($price, $qty)
@@ -189,7 +213,7 @@ function IS_DGI_API_WORKING()
 {
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . env("DGI_API_JETON"),
-    ])->get(env("DGI_API_BASE_URL")."/invoice");
+    ])->get(env("DGI_API_BASE_URL") . "/invoice");
 
     return $response["status"];
 }
@@ -199,8 +223,9 @@ function DEMAND_FACTURE_NORMALISATION($normalisationData)
 {
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . env("DGI_API_JETON"),
-        "Content-Type"=>"application/json"
-    ])->post(env("DGI_API_BASE_URL") . "/invoice",
+        "Content-Type" => "application/json"
+    ])->post(
+        env("DGI_API_BASE_URL") . "/invoice",
         $normalisationData
     );
 

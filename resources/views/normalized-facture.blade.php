@@ -47,10 +47,27 @@
     <div class="container-fluid content">
         <div class="row mt-3">
             <div class="col-md-12">
-                <p class="text-center">Cotonou le, <strong> <?php echo date("Y/m/d") ?> </strong> </p>
-                <br>
-                <h3 class="text-center reference">Reference N°: <strong> {{$facture->reference}} </strong> </h3>
-                <br>
+                <table class="table table table-striped px-0 mx-0">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">
+                                <img src="{{$agency_of_this_agent_img}}" width="100px" height="100px" alt="" srcset="">
+                            </td>
+                            <td>
+                                <p class="text-right">Cotonou le, <strong> <?php echo date("Y/m/d") ?> </strong> </p>
+                                <br>
+                                <h5 class="text-right reference">Reference N°: <strong> {{$reference}} </strong> </h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
 
                 <table class="table table table-striped px-0 mx-0">
                     <thead>
@@ -63,16 +80,16 @@
                         <tr>
                             <td>
                                 <div class="text-center block one">
-                                    <h4 class="title">{{$master_of_this_agent->raison_sociale}}</h4>
+                                    <h4 class="title">{{$agency_of_this_agent->name}}</h4>
                                     <!-- <br> -->
                                     <p class="info-master">
-                                        <strong>Téléphone</strong>: <small>{{$master_of_this_agent->raison_sociale}}</small> <br>
-                                        <strong>Pays</strong> : <small>{{$master_of_this_agent->country}}</small> <br>
-                                        <strong>Commune</strong>: <small>{{$master_of_this_agent->commune}}</small> <br>
+                                        <strong>Téléphone</strong>: <small>{{$agency_of_this_agent->name}}</small> <br>
+                                        <strong>Pays</strong> : <small>{{$agency_of_this_agent->country}}</small> <br>
+                                        <strong>Commune</strong>: <small>{{$agency_of_this_agent->commune}}</small> <br>
                                     </p>
                                     <!-- <br></br><br> -->
                                     <p class="">
-                                        <strong>IFU</strong> : <small>{{$master_of_this_agent->ifu}}</small> <br>
+                                        <strong>IFU</strong> : <small>{{$agency_of_this_agent->ifu}}</small> <br>
                                         <span> <strong>FACTURE DU :</strong> <?php echo date("Y/m/d") ?> </span> <br>
                                         <span> <strong>Réference : </strong> {{$facture->reference}}</span> <br>
                                     </p>
@@ -124,12 +141,12 @@
                 <tr>
                     <td class="block">{{$product->name}}</td>
                     <td class="block">{{$product->description}}</td>
-                    <td class="block">{{$product->price}}</td>
+                    <td class="block">{{TTC($product->price)}}</td>
                     <td class="block"> <?php echo $product->qty ? $product->qty : 1 ?></td>
-                    <td class="block"></td>
+                    <td class="block">{{REMISE($product->price)}}</td>
                     <td class="block">{{TVA($product->price)}}</td>
-                    <td class="block"></td>
-                    <td class="block">{{$product->price}}</td>
+                    <td class="block">{{TS($product->price)}}</td>
+                    <td class="block">{{TTC($product->price)}}</td>
                 </tr>
                 @endforeach
 
@@ -153,12 +170,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="block text-end">B-TAX</td>
-                    <td class="block text-end">504 288</td>
-                    <td class="block text-end">90 772</td>
-                    <td class="block text-end">2</td>
+                    <td class="block text-end">{{env("OUR_FACTURE_TAX_GROUP")}}-TAX</td>
+                    <td class="block text-end">{{HT($total)}}</td>
+                    <td class="block text-end">{{TVA($total)}}</td>
+                    <td class="block text-end"></td>
                 </tr>
-
             </tbody>
         </table>
 
@@ -177,19 +193,19 @@
             </thead>
             <tbody>
                 <tr class="totaux">
-                    <td class="block text-end">504 288</td>
-                    <td class="block text-end">90 772</td>
-                    <td class="block text-end">0</td>
                     <td class="block text-end"></td>
                     <td class="block text-end"></td>
-                    <td class="block text-end">595060</td>
-                    <td class="block text-end">595 060</td>
+                    <td class="block text-end"></td>
+                    <td class="block text-end"></td>
+                    <td class="block text-end"></td>
+                    <td class="block text-end"></td>
+                    <td class="block text-end"><?php echo $total + TVA($total) ?></td>
                 </tr>
             </tbody>
         </table>
 
         <p class="">
-            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white">{{$total}}</span> FCFA TTC.
+            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white"><?php echo $total + TVA($total) ?></span> FCFA .
         </p>
 
         <p class="text-right">
@@ -211,8 +227,8 @@
             <tbody>
                 <tr class="totaux">
                     <td class="">
-                        <span> <strong>SOCIETE: </strong>{{$master_of_this_agent->raison_sociale}}</span><br>
-                        <span> <strong>RCCM: </strong> {{$master_of_this_agent->rccm}}</span><br>
+                        <span> <strong>SOCIETE: </strong>{{$agency_of_this_agent->name}}</span><br>
+                        <span> <strong>RCCM: </strong> {{$agency_of_this_agent->rccm}}</span><br>
                     </td>
                     <td>
                         <p class="text-right">Fait à Cotonou le, <strong> <?php echo date("Y/m/d") ?> </strong> </p>

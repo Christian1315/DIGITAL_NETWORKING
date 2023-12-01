@@ -69,7 +69,6 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             "adress" => $facture->_client->email,
         ];
 
-
         ##__RECUPERATION DES PRODUITS DE LA COMMANDE ET
         ##__TRANSFORMATION EN DES ITEMS
 
@@ -116,17 +115,21 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             $facture->normalized = true;
             $facture->save();
 
-            // ___ON RECUPERE LE MASTER DE CET AGENT
+            ###___ON RECUPERE L'AGENCE DE CET AGENT
             $current_user = request()->user();
+
             $agent_attach_to_this_user = Agent::where(["user_id" => $current_user->id])->first();
             if (!$agent_attach_to_this_user) {
                 return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
             }
+            $agency_of_this_agent =  $agent_attach_to_this_user->agency;
 
-            $master_of_this_agent = Master::find($agent_attach_to_this_user->master_id);
-            if (!$master_of_this_agent) {
-                return self::sendError("Vous ne disposez pas de master! Vous ne pouvez pas générer une facture.", 505);
+            if (!$agency_of_this_agent) {
+                return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
             }
+
+            $photoName = explode("pieces/", $agency_of_this_agent->photo)[1];
+            $agency_of_this_agent_img = "data:image/png;base64," . base64_encode(file_get_contents("pieces/" . $photoName));
 
             ###__REGENERATION DE LA FACTURE
             $client = $facture->_client;
@@ -135,7 +138,7 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             $products = $facture->_command->products;
             $total = $facture->_command->amount;
             $dgi_details = $confirm_response;
-            $code_qr_img = "data:image/png;base64,".base64_encode(file_get_contents("factureQrcodes/" . $qrcode));
+            $code_qr_img = "data:image/png;base64," . base64_encode(file_get_contents("factureQrcodes/" . $qrcode));
 
             $pdf = PDF::loadView('normalized-facture', compact([
                 "facture",
@@ -144,9 +147,10 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
                 "reference",
                 "products",
                 "total",
-                "master_of_this_agent",
                 "dgi_details",
-                "code_qr_img"
+                "code_qr_img",
+                "agency_of_this_agent",
+                "agency_of_this_agent_img"
             ]));
 
             $pdf->save(public_path("factures_nomalizes/" . $reference . ".pdf"));
@@ -160,9 +164,10 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
                 "reference",
                 "products",
                 "total",
-                "master_of_this_agent",
                 "dgi_details",
-                "code_qr_img"
+                "code_qr_img",
+                "agency_of_this_agent",
+                "agency_of_this_agent_img"
             ]));
 
             ##__

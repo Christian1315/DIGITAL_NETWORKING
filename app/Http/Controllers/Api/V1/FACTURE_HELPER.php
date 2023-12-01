@@ -65,27 +65,39 @@ class FACTURE_HELPER extends BASE_HELPER
             $formData["facturier"] = $current_user->id;
         }
 
-        ###___ON RECUPERE LE MASTER DE CET AGENT
+        ###___ON RECUPERE L'AGENCE DE CET AGENT
         $agent_attach_to_this_user = Agent::where(["user_id" => $current_user->id])->first();
         if (!$agent_attach_to_this_user) {
             return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
         }
+        $agency_of_this_agent =  $agent_attach_to_this_user->agency;
 
-        $master_of_this_agent = Master::find($agent_attach_to_this_user->master_id);
-        if (!$master_of_this_agent) {
-            return self::sendError("Vous ne disposez pas de master! Vous ne pouvez pas générer une facture.", 505);
+        if (!$agency_of_this_agent) {
+            return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
         }
 
+        $photoName = explode("pieces/", $agency_of_this_agent->photo)[1];
         $products = $command->products;
         $total = $command->amount;
+        $agency_of_this_agent_img = "data:image/png;base64," . base64_encode(file_get_contents("pieces/" . $photoName));
+
 
         ###___GESTION DES  FACTURES & TICKETS
-        $pdf = PDF::loadView('facture', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
+        $pdf = PDF::loadView('facture', compact([
+            "command", 
+            "client", 
+            "reference", 
+            "products", 
+            "total", 
+            "agency_of_this_agent",
+            "agency_of_this_agent_img"
+        ]));
+
         $pdf->save(public_path("factures/" . $reference . ".pdf"));
         $facturepdf_path = asset("factures/" . $reference . ".pdf");
 
         ###____
-        $ticket = PDF::loadView('ticket', compact(["command", "client", "reference", "products", "total", "master_of_this_agent"]));
+        $ticket = PDF::loadView('ticket', compact(["command", "client", "reference", "products", "total", "agency_of_this_agent"]));
         $ticket->save(public_path("tickets/" . $reference . ".pdf"));
         $ticket_path = asset("tickets/" . $reference . ".pdf");
         ###___
@@ -152,7 +164,7 @@ class FACTURE_HELPER extends BASE_HELPER
         if (!$facture) {
             return self::sendError('Cette facture n\'existe pas!', 404);
         };
-        
+
         $facture->delete();
         return  self::sendResponse($facture, "Facture supprimée avec succès!");
     }

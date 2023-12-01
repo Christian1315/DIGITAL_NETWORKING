@@ -35,11 +35,11 @@
                 <div class="text-center">
                     <small>*********************</small>
                 </div>
-                <h5 class="" style="font-style: italic;text-align:center">{{$master_of_this_agent->raison_sociale}}</h5>
-                <p class="text-center">{{$master_of_this_agent->country}} / {{$master_of_this_agent->commune}}</p>
+                <h5 class="" style="font-style: italic;text-align:center">{{$agency_of_this_agent->name}}</h5>
+                <p class="text-center">{{$agency_of_this_agent->country}} / {{$agency_of_this_agent->commune}}</p>
                 <p class="text-center">
-                    <span> IFU: {{$master_of_this_agent->ifu}}</span><br>
-                    <span> Tel: {{$master_of_this_agent->phone}}</span>
+                    <span> IFU: {{$agency_of_this_agent->ifu}}</span><br>
+                    <span> Tel: {{$agency_of_this_agent->phone}}</span>
                 </p>
 
                 <div class="text-center">
@@ -50,7 +50,7 @@
 
                 <hr>
                 <p class="">Le <strong> <?php echo date("Y/m/d") ?></p>
-                <p class="">{{$master_of_this_agent->raison_sociale}}</p>
+                <p class="">{{$agency_of_this_agent->name}}</p>
                 <p class="">Ticket N° {{$reference}}</p>
                 <hr>
 
