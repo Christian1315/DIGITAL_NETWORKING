@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agent;
 use App\Models\Pos;
+use App\Models\StoreCommand;
+use App\Models\StoreRapport;
 use App\Models\UserSession;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-
+use PDF;
 
 class USER_SESSION_HELPER extends BASE_HELPER
 {
@@ -51,7 +53,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
         $user = request()->user();
 
         ##__
-        
+
         $agent = Agent::where(["user_id" => $user->id])->first();
         if (!$agent) {
             return self::sendError("L'agent auquel vous êtes associé n'existe plus!", 404);
@@ -131,20 +133,56 @@ class USER_SESSION_HELPER extends BASE_HELPER
             return self::sendError("Session non active, ou inexistante", 404);
         }
 
+        ###___ON RECUPERE L'AGENCE DE CET AGENT
+        $agent_attach_to_this_user = Agent::where(["user_id" => $user->id])->first();
+        if (!$agent_attach_to_this_user) {
+            return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
+        }
+        $agency_of_this_agent =  $agent_attach_to_this_user->agency;
 
-        // if (!$request->session_ip) {
-        //     return self::sendError("Le champ session_ip est réquis!", 404);
-        // }
-        // $user_session = UserSession::where(["user" => $user->id, "ip" => $request->session_ip])->get();
-        // if (count($user_session) == 0) {
-        //     return self::sendError("Cette Session n'existe pas!", 404);
-        // };
+        if (!$agency_of_this_agent) {
+            return self::sendError("L'agence auquelle vous êtes associé(e) n'existe plus! Vous ne pouvez pas générer une facture.", 505);
+        }
 
-        // if (!$session->active) {
-        //     return self::sendError("Cette session est déjà deconnectée!", 505);
-        // }
+        $photoName = explode("pieces/", $agency_of_this_agent->photo)[1];
+        $agency_of_this_agent_img = "data:image/png;base64," . base64_encode(file_get_contents("pieces/" . $photoName));
+
+
+        ###____RECUPERATION DES COMMANDES DE LA SESSION
+        $commands = StoreCommand::with(["products"])->where([
+            "session" => $session->id,
+            "owner" => $user->id,
+        ])->get();
+
+
+        ###___GESTION DES  RAPPORTS A LA FERMETURE
+        ###___D'UNE SESSION
+
+        $pdf = PDF::loadView('rapport', compact([
+            "session",
+            "agency_of_this_agent",
+            "agency_of_this_agent_img",
+            "commands",
+        ]));
+
+        $pdf->save(public_path("rapports/" . $session->id . ".pdf"));
+        $facturepdf_path = asset("rapports/" . $session->id . ".pdf");
+
+        ##__
+        $rapport = new StoreRapport();
+        $rapport->rapport = $facturepdf_path;
+        $rapport->session = $session->id;
+        $rapport->owner = $user->id;
+        $rapport->save();
+
+        ##__
+
+        ##__DECONNEXION DE LA SESSION
         $session->active = 0;
         $session->save();
+        ##____
+        $session["rapport"] = $rapport->rapport;
+
         return self::sendResponse($session, 'Déconnexion éffectuée avec succès!');
     }
 
@@ -174,7 +212,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
         if (CheckIfUserHasAnActiveSession($userId)) {
             return self::sendError("Vous avez déjà une section active! Veuillez vous en déconnecter avant de vous connecter à celle-ci!", 201);
         }
- 
+
         ###___BLOCAGE DE CONNEXION A LA SESSION TANT QU'UNE AUTRE SESSION EST ACTIVE DANS LE POS DE L'AGENT
         $agent_pos_id = null; ###___LE POS DE L'AGENT
         $poss = Pos::all();

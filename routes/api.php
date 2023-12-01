@@ -40,6 +40,7 @@ use App\Http\Controllers\Api\V1\ProductClasseController;
 use App\Http\Controllers\Api\V1\SoldController;
 use App\Http\Controllers\Api\V1\SoldStatusController;
 use App\Http\Controllers\Api\V1\StoreFacturationController;
+use App\Http\Controllers\Api\V1\StoreRapportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -205,6 +206,14 @@ Route::prefix('v1')->group(function () {
             Route::any('login', '_SessionLogin');
             Route::any('{id}/retrieve', '_SessionRetrieve');
             Route::any('{id}/delete', 'DeleteSession');
+        });
+    });
+
+    ### ========= SESSION RAPPORT ROUTINGS ========###
+    Route::prefix('rapport')->group(function () {
+        Route::controller(StoreRapportController::class)->group(function () {
+            Route::any('all', '_AllRapport');
+            Route::any('{id}/retrieve', 'RetrieveRapport');
         });
     });
 
