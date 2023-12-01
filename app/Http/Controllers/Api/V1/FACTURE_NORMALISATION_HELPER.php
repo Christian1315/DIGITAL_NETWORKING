@@ -137,7 +137,7 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             $dgi_details = $confirm_response;
             $code_qr_img = "data:image/png;base64,".base64_encode(file_get_contents("factureQrcodes/" . $qrcode));
 
-            $pdf = PDF::loadView('facture', compact([
+            $pdf = PDF::loadView('normalized-facture', compact([
                 "facture",
                 "command",
                 "client",

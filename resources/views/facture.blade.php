@@ -56,7 +56,6 @@
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,26 +78,6 @@
                                 </div>
                             </td>
 
-                            <td>
-                                <div class="text-center block two">
-                                    <div class="" style="align-items:center;padding-right:50px">
-                                        <span>
-                                            <h4 class="text-center">Code MECEF/DGI</h4>
-                                            <p class="text-center"> <strong> {{$dgi_details["codeMECeFDGI"]}}</strong></p>
-                                            <ul style="list-style-type: none;">
-                                                <li> <strong>MECeF NIM :</strong> {{$dgi_details["nim"]}}</li>
-                                                <li> <strong>MECeF :</strong> {{$dgi_details["counters"]}}</li>
-                                                <li> <strong>MECeF Heure :</strong> {{$dgi_details["dateTime"]}}</li>
-                                            </ul>
-                                        </span>
-                                        <span>
-                                            <div class="text-center code_qr">
-                                                <img src="{{$code_qr_img}}" width="80px" alt="" srcset="">
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
