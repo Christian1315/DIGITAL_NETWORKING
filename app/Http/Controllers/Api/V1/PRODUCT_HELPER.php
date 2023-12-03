@@ -23,7 +23,6 @@ class PRODUCT_HELPER extends BASE_HELPER
             'img' => ['required'],
             'description' => ['required'],
             'category' => ['required', "integer"],
-            // 'store' => ['required', "integer"],
             'active' => ['required', "boolean"],
             'product_type' => ['required', "integer"],
         ];
@@ -35,7 +34,6 @@ class PRODUCT_HELPER extends BASE_HELPER
             'name.required' => 'Le champ name est réquis!',
             'description.required' => 'Le champ description est réquis!',
             'category.required' => 'Le champ category est réquis!',
-            // 'store.required' => 'Le champ store est un entier!',
             'product_type.required' => 'Le champ product_type est réquis!',
             'product_classe.required' => 'La classe du produit est réquise!',
             'active.required' => 'Le champ active est réquis!',

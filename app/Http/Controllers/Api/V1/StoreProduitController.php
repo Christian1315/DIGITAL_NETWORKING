@@ -11,7 +11,7 @@ class StoreProduitController extends PRODUCT_HELPER
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
         // $this->middleware('CheckAgent')->except(["CreateProduct", "Products", "RetrieveProduct"]);
-        $this->middleware('CheckMaster')->only(["CreateProduct"]);
+        // $this->middleware('CheckMaster')->only(["CreateProduct"]);
         // $this->middleware('CheckSession')->only(["UpdateProduct", "CreateProduct", "_SupplyProduct"]);
     }
 
