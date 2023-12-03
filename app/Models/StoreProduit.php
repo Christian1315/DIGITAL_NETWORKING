@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class StoreProduit extends Model
@@ -61,5 +63,10 @@ class StoreProduit extends Model
     function commands(): BelongsTo
     {
         return $this->belongsTo(StoreCommand::class, "commands_products", "command_id", "product_id");
+    }
+
+    function composants(): BelongsToMany
+    {
+        return $this->belongsToMany(ProductComposant::class, "products_composants", "compose", "composant");
     }
 }

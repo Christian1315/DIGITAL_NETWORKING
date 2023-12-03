@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\ProductClasse;
+use App\Models\ProductComposant;
 use App\Models\ProductType;
 use App\Models\Store;
 use App\Models\StoreCategory;
@@ -125,6 +126,8 @@ class PRODUCT_HELPER extends BASE_HELPER
         //     ],
         // ];
 
+        // $products = explode()
+
         if ($formData["product_classe"] == 3) {
             if (!$request->get("products")) {
                 return self::sendError("Veuillez préciser les produits composants inclus dans ce produit composé", 505);
@@ -171,13 +174,18 @@ class PRODUCT_HELPER extends BASE_HELPER
         if ($formData["product_classe"] == 3) {
             ####___ASSOCIONS CHAQUE PRODUIT COMPOSANT AU PRODUIT COMPOSE(Si le produit crée est de la classe des produits composés)
             foreach ($products as $product) {
-                $this_product = StoreProduit::find($product["id"]);
-                $this_product->product_compose = $productCreated->id; ###Le produit compose auquel ce produit appartient
-                $this_product->qty = $product["qty"];
-                $this_product->save();
+                $is_this_relation_exist = ProductComposant::where(["compose" => $productCreated->id, "composant" => $product["id"]])->first();
+
+                ####__ON VERIFIE SI CE COMPOSANT EXISTAIT DEJA SOUS CE COMPOSE
+                if (!$is_this_relation_exist) {
+                    $compose_composant_relation = new ProductComposant();
+                    $compose_composant_relation->compose = $productCreated->id; ###Le produit compose auquel ce produit appartient
+                    $compose_composant_relation->composant = $product["id"]; ###Le produit composant associé
+                    $compose_composant_relation->qty = $product["qty"];
+                    $compose_composant_relation->save();
+                }
             }
         }
-
         return self::sendResponse($productCreated, 'Produit crée avec succès!!');
     }
 
@@ -195,16 +203,16 @@ class PRODUCT_HELPER extends BASE_HELPER
             }
 
             if (Is_User_A_Master($his_owner->id)) { ###___si c'est un master
-                $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
+                $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
             }
         }
 
         if ($user->is_admin) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->orderBy('id', 'desc')->get();
         }
 
         if (Is_User_A_Master($user->id)) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->where("owner", $user->id)->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "composants"])->where("owner", $user->id)->orderBy('id', 'desc')->get();
         }
 
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
@@ -215,7 +223,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->find($id);
+        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product","composants"])->find($id);
         if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
