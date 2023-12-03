@@ -67,6 +67,6 @@ class StoreProduit extends Model
 
     function composants(): BelongsToMany
     {
-        return $this->belongsToMany(ProductComposant::class, "products_composants", "compose", "composant");
+        return $this->belongsToMany(StoreProduit::class, "products_composants", "compose", "composant");
     }
 }
