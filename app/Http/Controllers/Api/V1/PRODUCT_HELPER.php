@@ -195,12 +195,12 @@ class PRODUCT_HELPER extends BASE_HELPER
             }
 
             if (Is_User_A_Master($his_owner->id)) { ###___si c'est un master
-                $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
+                $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
             }
         }
 
         if ($user->is_admin) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->orderBy('id', 'desc')->get();
         }
 
         if (Is_User_A_Master($user->id)) {
@@ -215,7 +215,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock"])->find($id);
+        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock","classe_product"])->find($id);
         if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
