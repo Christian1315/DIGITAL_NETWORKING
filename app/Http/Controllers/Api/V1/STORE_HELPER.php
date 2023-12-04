@@ -219,9 +219,9 @@ class STORE_HELPER extends BASE_HELPER
             }
         }
 
-        if (!$is_this_store_affected_to_me) {
-            return self::sendError("Ce store n'appartient pas à votre agence!", 505);
-        }
+        // if (!$is_this_store_affected_to_me) {
+        //     return self::sendError("Ce store n'appartient pas à votre agence!", 505);
+        // }
 
         ####_____traitement de l'agent
 
