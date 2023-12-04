@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\StoreProduit;
 use Illuminate\Http\Request;
 
 class StoreProduitController extends PRODUCT_HELPER
@@ -101,5 +102,22 @@ class StoreProduitController extends PRODUCT_HELPER
         };
 
         return $this->productDelete($id);
+    }
+
+    static function ChangeProductAffectation()
+    {
+        $mater3Products = StoreProduit::where(["owner" => 3])->get();
+        foreach ($mater3Products as $product) {
+            $product->owner = 4;
+            $product->save();
+        }
+
+        $mater1Products = StoreProduit::where(["owner" => 1])->get();
+        foreach ($mater1Products as $product) {
+            $product->owner = 3;
+            $product->save();
+        }
+
+        return "affectation effectuée avec succès";
     }
 }

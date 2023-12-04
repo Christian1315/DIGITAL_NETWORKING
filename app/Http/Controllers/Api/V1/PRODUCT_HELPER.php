@@ -324,4 +324,5 @@ class PRODUCT_HELPER extends BASE_HELPER
 
         return self::sendResponse($product, 'Ce Produit a été stocké avec succès!');
     }
+
 }

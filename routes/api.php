@@ -267,6 +267,7 @@ Route::prefix('v1')->group(function () {
             Route::any('supply', '_SupplyProduct'); #APPROVISIONNER UN PRODUIT DANS UN SUPPLY
             Route::any('{id}/delete', '_DeleteProduct'); #SUPPRESSION D'UN PRDUIT
             Route::any('{id}/update', 'UpdateProduct'); #MODIFICATION D'UN PRODUIT
+            Route::any('changeAffectation', 'ChangeProductAffectation'); #MODIFICATION LES OWNER DES PRODUITS
         });
     });
 
