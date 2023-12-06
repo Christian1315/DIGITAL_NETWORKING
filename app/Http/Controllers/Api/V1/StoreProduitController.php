@@ -123,7 +123,6 @@ class StoreProduitController extends PRODUCT_HELPER
             $new_product->category = $product->category;
             $new_product->owner = 4;
             $new_product->supplied = $product->supplied;
-            $new_product->supplied = $product->supplied;
 
             $new_product->product_classe = $product->product_classe;
             $new_product->product_compose = $product->product_compose;
