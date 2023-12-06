@@ -321,9 +321,9 @@ class AGENT_HELPER extends BASE_HELPER
             return self::sendError("Cet agent ne vous appartient pas!", 404);
         };
 
-        if ($agent->pos_id) {
-            return self::sendError("Ce agent est déjà affecté à un pos", 505);
-        }
+        // if ($agent->pos_id) {
+        //     return self::sendError("Ce agent est déjà affecté à un pos", 505);
+        // }
 
         ####AFFECTATION DE L'AGENT AU POS CE USER AU CAS OU LE USER EST UNE AGENCE
         if (Is_User_An_Agency($user->id)) {
