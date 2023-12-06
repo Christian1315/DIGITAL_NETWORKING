@@ -208,11 +208,11 @@ class PRODUCT_HELPER extends BASE_HELPER
         }
 
         if ($user->is_admin) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
         }
 
         if (Is_User_A_Master($user->id)) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "composants"])->where("owner", $user->id)->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "composants"])->where(["owner"=> $user->id,"visible"=>1])->orderBy('id', 'desc')->get();
         }
 
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
