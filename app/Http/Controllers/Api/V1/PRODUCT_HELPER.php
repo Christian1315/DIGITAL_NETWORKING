@@ -223,7 +223,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product","composants"])->find($id);
+        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product","composants"])->where(["visible"=>1])->find($id);
         if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
@@ -257,8 +257,6 @@ class PRODUCT_HELPER extends BASE_HELPER
         }
 
         $product->update($formData);
-        // $product->img = $formData["img"];
-        // $product->save();
         return self::sendResponse($product, 'Ce Produit a été modifié avec succès!');
     }
 
