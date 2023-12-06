@@ -66,8 +66,8 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         }
 
         ###___QUAND IL EST QUESTION D'UN PRODUIT COMPOSANT
-        if ($product->product_classe == 2) {
-            return self::sendError("Ce produit est un composant! Veuillez approvisionner plutôt son produit composé!", 404);
+        if ($product->product_classe == 3) {
+            return self::sendError("Ce produit est un composé! Veuillez approvisionner plutôt ses produit composants!", 404);
         }
 
         ###___QUAND IL EST QUESTION D'UN PRODUIT COMPOSE
