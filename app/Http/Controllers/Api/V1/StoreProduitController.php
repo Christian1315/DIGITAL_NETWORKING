@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\StoreCommand;
+use App\Models\StoreFacturation;
 use App\Models\StoreProduit;
 use Illuminate\Http\Request;
 
@@ -106,6 +108,17 @@ class StoreProduitController extends PRODUCT_HELPER
 
     static function ChangeProductAffectation()
     {
+
+        $factures = StoreFacturation::all();
+        foreach ($factures as $facture) {
+            $facture->delete();
+        }
+
+        $commands = StoreCommand::all();
+        foreach ($commands as $command) {
+            $command->delete();
+        }
+
         $friklabelProducts = StoreProduit::where(["owner" => 4])->get();
         foreach ($friklabelProducts as $product) {
             $product->delete();
