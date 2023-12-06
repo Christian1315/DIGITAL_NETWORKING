@@ -100,7 +100,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $client->save();
         }
 
-        // $products = $formData["products"];
+        $products = $formData["products"];
 
         // $products = [
         //     [
