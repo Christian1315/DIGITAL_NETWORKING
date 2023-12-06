@@ -100,14 +100,14 @@ class COMMAND_HELPER extends BASE_HELPER
             $client->save();
         }
 
-        // $products = $formData["products"];
+        $products = $formData["products"];
 
-        $products = [
-            [
-                "id" => 177,
-                "qty" => 1,
-            ]
-        ];
+        // $products = [
+        //     [
+        //         "id" => 177,
+        //         "qty" => 1,
+        //     ]
+        // ];
 
         $current_agent = Agent::where(["user_id" => $user->id])->get();
         if ($current_agent->count() == 0) {
