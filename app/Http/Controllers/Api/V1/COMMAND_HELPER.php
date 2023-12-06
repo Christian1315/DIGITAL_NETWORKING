@@ -105,7 +105,7 @@ class COMMAND_HELPER extends BASE_HELPER
         $products = [
             [
                 "id" => 177,
-                "qty" => 20,
+                "qty" => 1,
             ]
         ];
 
