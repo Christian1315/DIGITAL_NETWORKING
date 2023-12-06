@@ -57,7 +57,7 @@
                     <tbody>
                         <tr>
                             <td class="text-left">
-                                <img src="{{$agency_of_this_agent_img}}" width="auto" height="100px" alt="" srcset="">
+                                <img src="{{$agency_of_this_agent_img}}" width="50%" height="100px" alt="" srcset="">
                             </td>
                             <td>
                                 <p class="text-right">Cotonou le, <strong> <?php echo date("Y/m/d") ?> </strong> </p>
