@@ -106,18 +106,11 @@ class StoreProduitController extends PRODUCT_HELPER
 
     static function ChangeProductAffectation()
     {
-        $mater3Products = StoreProduit::where(["owner" => 3])->get();
-        foreach ($mater3Products as $product) {
-            $product->owner = 4;
-            $product->save();
+        $friklabelProducts = StoreProduit::where(["owner" => 4])->get();
+        foreach ($friklabelProducts as $product) {
+            $product->delete();
         }
 
-        $mater1Products = StoreProduit::where(["owner" => 1])->get();
-        foreach ($mater1Products as $product) {
-            $product->owner = 3;
-            $product->save();
-        }
-
-        return "affectation effectuée avec succès";
+        return "suppression effectuée avec succès";
     }
 }
