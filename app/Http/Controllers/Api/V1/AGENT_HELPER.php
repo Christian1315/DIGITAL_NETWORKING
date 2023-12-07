@@ -316,9 +316,11 @@ class AGENT_HELPER extends BASE_HELPER
             return  self::sendError("Ce Agent n'existe pas!!", 404);
         }
 
-        if ($agent->owner != $user->id) {
-            return self::sendError("Cet agent ne vous appartient pas!", 404);
-        };
+        if (!$user->is_admin) {
+            if ($agent->owner != $user->id) {
+                return self::sendError("Cet agent ne vous appartient pas!", 404);
+            };
+        }
 
         // if ($agent->pos_id) {
         //     return self::sendError("Ce agent est déjà affecté à un pos", 505);
