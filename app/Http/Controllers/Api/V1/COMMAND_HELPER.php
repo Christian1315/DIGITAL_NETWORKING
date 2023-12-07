@@ -194,6 +194,7 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             $this_product_command_amount = intval($product["qty"]) * $_product->price;
+            
             ###___
             array_push($total_command_amount, $this_product_command_amount);
             array_push($total_command_qty, intval($product["qty"]));
@@ -210,6 +211,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
         ####___TRAITEMENT DE LA COMMANDE
         $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
+
+
         if ($_product->product_classe == 3) {
             #####____produit composé
             #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
@@ -269,7 +272,7 @@ class COMMAND_HELPER extends BASE_HELPER
                     $productCommand->product_id = $prod_composant["id"];
                     $productCommand->command_id = $command->id;
                     $productCommand->qty = intval($prod_composant["qty"]);
-                    $productCommand->total_amount = intval($prod_composant["qty"]) * $prod_composant->price;
+                    $productCommand->total_amount = intval(explode(" ",$prod_composant["qty"])[0]) * $prod_composant->price;
                     $productCommand->save();
 
                     if ($prod_composant->product_type == 1) { ####____quand le produit est stockble
@@ -286,7 +289,7 @@ class COMMAND_HELPER extends BASE_HELPER
                         $new_stock->owner = $old_product_stock->owner;
                         $new_stock->product = $old_product_stock->product;
                         $new_stock->store = $old_product_stock->store;
-                        $new_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
+                        $new_stock->quantity = $old_product_stock->quantity - intval(explode(" ",$prod_composant["qty"])[0]);
                         $new_stock->comments = $old_product_stock->comments;
                         $new_stock->save();
                     }
