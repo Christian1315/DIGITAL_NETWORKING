@@ -110,23 +110,23 @@ class STORE_HELPER extends BASE_HELPER
         }
 
         if ($user->is_admin) {
-            $stores = Store::all();
+            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->all();
         }
 
         if (Is_User_An_Agent($user->id)) {
-            $agent = Agent::where(["user_id" => $user->id])->get();
+            $agent = Agent::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["user_id" => $user->id])->get();
             if (count($agent) == 0) {
                 return self::sendError("L'agent auquel vous etes associé n'existe plus!", 505);
             }
             $agent = $agent[0];
-            $stores = Store::where(["agent_id" => $agent->id])->get();
+            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["agent_id" => $agent->id])->get();
         }
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
 
     static function _retrieveStore($id)
     {
-        $store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["id" => $id, "owner" => request()->user()->id, "visible" => 1])->get();
+        $store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["id" => $id, "visible" => 1])->get();
         if ($store->count() == 0) {
             return self::sendError("Ce store n'existe pas!", 404);
         }
