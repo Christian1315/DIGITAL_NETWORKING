@@ -39,6 +39,8 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
 
     static function demandeFactureNormalisation($facture)
     {
+        set_time_limit(0);
+
         $user = request()->user();
         $facture = StoreFacturation::with(["_client", "facturier", "_command"])->where(["visible" => 1])->find($facture);
         if (!$facture) {
@@ -74,6 +76,7 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
 
         $items = [];
         $commands_products =  $facture->_command->products;
+
         foreach ($commands_products as $product) {
             $item = [];
             $item["name"] = $product->name;

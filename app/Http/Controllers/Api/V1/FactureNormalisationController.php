@@ -23,14 +23,7 @@ class FactureNormalisationController extends FACTURE_NORMALISATION_HELPER
             #RENVOIE D'ERREURE VIA **sendError** DE LA CLASS BASE_HELPER HERITEE PAR Facture_HELPER
             return $this->sendError("La methode " . $request->method() . " n'est pas supportée pour cette requete!!", 404);
         };
-        // $validator = $this->Facture_Validator($request->all());
-
-        // if ($validator->fails()) {
-        //     #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER HERITEE PAR Facture_HELPER
-        //     return $this->sendError($validator->errors(), 404);
-        // }
-
-        // $clientId = $request->get("client");
+        
         return $this->demandeFactureNormalisation($id);
     }
 

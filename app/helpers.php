@@ -221,6 +221,7 @@ function IS_DGI_API_WORKING()
 #####========= CE HELPER PERMET DE FAIRER LA DEMANDE DE NORMALISATION DE LA FACTURE VIA DGI API========
 function DEMAND_FACTURE_NORMALISATION($normalisationData)
 {
+    set_time_limit(0);
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . env("DGI_API_JETON"),
         "Content-Type" => "application/json"
@@ -235,6 +236,7 @@ function DEMAND_FACTURE_NORMALISATION($normalisationData)
 #####========= CE HELPER PERMET DE CONFIRMER LA DEMANDE DE NORMALISATION DE LA FACTURE VIA DGI API========
 function CONFIRM_NORMALISATION_DEMAND($uid)
 {
+    set_time_limit(0);
     $response = Http::withHeaders([
         'Authorization' => "Bearer " . env("DGI_API_JETON"),
     ])->put(env("DGI_API_BASE_URL") . "/invoice/" . $uid . "/confirm");

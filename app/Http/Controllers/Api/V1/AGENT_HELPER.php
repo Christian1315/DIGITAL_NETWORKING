@@ -130,7 +130,6 @@ class AGENT_HELPER extends BASE_HELPER
             $Agent->save();
         };
 
-
         #=====ENVOIE DE MAIL =======~####
         // return $create_user;
         try {
