@@ -187,9 +187,12 @@ class STORE_HELPER extends BASE_HELPER
         if ($store->owner != $user->id) {
             return self::sendError("Ce store ne vous appartient pas!", 404);
         };
-        if ($pos->owner != $user->id) {
-            return self::sendError("Ce pos ne vous appartient pas!", 404);
-        };
+
+        if (!$user->is_admin) {
+            if ($pos->owner != $user->id) {
+                return self::sendError("Ce pos ne vous appartient pas!", 404);
+            };
+        }
 
         $store->pos_id = $formData["pos_id"];
         $store->affected = true;
@@ -219,8 +222,10 @@ class STORE_HELPER extends BASE_HELPER
             }
         }
 
-        if (!$is_this_store_affected_to_me) {
-            return self::sendError("Ce store n'appartient pas à votre agence!", 505);
+        if (!$user->is_admin) {
+            if (!$is_this_store_affected_to_me) {
+                return self::sendError("Ce store n'appartient pas à votre agence!", 505);
+            }
         }
 
         ####_____traitement de l'agent
@@ -233,9 +238,13 @@ class STORE_HELPER extends BASE_HELPER
                 $is_this_agent_affected_to_me = true;
             }
         }
-        if (!$is_this_agent_affected_to_me) {
-            return self::sendError("Ce agent n'appartient pas à votre agence!", 505);
+
+        if (!$user->is_admin) {
+            if (!$is_this_agent_affected_to_me) {
+                return self::sendError("Ce agent n'appartient pas à votre agence!", 505);
+            }
         }
+
 
         #####_____
 
