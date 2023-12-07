@@ -110,7 +110,7 @@ class STORE_HELPER extends BASE_HELPER
         }
 
         if ($user->is_admin) {
-            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->all();
+            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->get();
         }
 
         if (Is_User_An_Agent($user->id)) {
