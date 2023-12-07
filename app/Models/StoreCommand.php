@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class StoreCommand extends Model
 {
@@ -48,6 +49,11 @@ class StoreCommand extends Model
 
     function products(): BelongsToMany
     {
-        return $this->belongsToMany(StoreProduit::class, "commands_products", "command_id", "product_id")->withPivot(["qty","total_amount"]);
+        return $this->belongsToMany(StoreProduit::class, "commands_products", "command_id", "product_id")->withPivot(["qty", "total_amount"]);
+    }
+
+    function factures(): HasMany
+    {
+        return $this->hasMany(StoreFacturation::class, "command");
     }
 }

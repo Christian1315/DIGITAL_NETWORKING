@@ -167,7 +167,7 @@ class COMMAND_HELPER extends BASE_HELPER
 
                         #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
                         if ($product_stock->quantity < $prod_composant->qty) {
-                            return self::sendError("Stock insuffisant dans le store pour ce produit composant <<" . $prod_composant->name . ">> ! Dimuniez la quantité de votre commande", 505);
+                            return self::sendError("Stock insuffisant dans le store pour ce produit composant <<" . $prod_composant->name . ">>", 505);
                         }
                     }
                 }
@@ -360,9 +360,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
 
         if ($user->is_admin) {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
         } else {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
@@ -371,7 +371,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "store", "session", "products"])->where(["visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
