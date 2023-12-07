@@ -198,13 +198,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         if (Is_User_An_Agent($user->id)) {
             ####___le proprietaire(admin ou master) de l'agent
             $his_owner = User::find($user->owner);
-            if ($his_owner->is_admin) { ####___si c'est un admin
-                return [];
-            }
-
-            if (Is_User_A_Master($his_owner->id)) { ###___si c'est un master
-                $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
-            }
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->where(["owner" => $his_owner->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
 
         if ($user->is_admin) {
@@ -212,7 +206,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         }
 
         if (Is_User_A_Master($user->id)) {
-            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "composants"])->where(["owner"=> $user->id,"visible"=>1])->orderBy('id', 'desc')->get();
+            $product =  StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "composants"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
 
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
@@ -223,7 +217,7 @@ class PRODUCT_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LE PRODUIT A ETE CREE
-        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product","composants"])->where(["visible"=>1])->find($id);
+        $product = StoreProduit::with(['owner', "store", "session", "category", "product_type", "product_stock", "classe_product", "composants"])->where(["visible" => 1])->find($id);
         if (!$product) {
             return self::sendError("Ce Product n'existe pas!", 404);
         }
