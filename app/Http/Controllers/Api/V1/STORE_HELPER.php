@@ -232,7 +232,7 @@ class STORE_HELPER extends BASE_HELPER
 
         $my_agents = AGENT_HELPER::allAgents(true);
         $is_this_agent_affected_to_me = false;
-        return $my_agents;
+        return  self::sendResponse($my_agents, "agents recupere avec succès!");
         foreach ($my_agents as $agent) {
             if ($agent->id == $formData['agent_id']) {
                 $is_this_agent_affected_to_me = true;
