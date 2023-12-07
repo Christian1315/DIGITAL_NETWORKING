@@ -55,7 +55,7 @@ class SUPPLY_HELPER extends BASE_HELPER
             return self::sendError("Ce Pos de ce Store n'existe pas", 404);
         }
         $formData["pos"] =  $store_pos->id;
-        
+
         $supply = StoreSupply::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
         $supply->owner = $user->id;
         // $session = GetSession($user->id);
@@ -68,7 +68,12 @@ class SUPPLY_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $supplies =  StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+
+        if ($user->is_admin) {
+            $supplies =  StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+        } else {
+            $supplies =  StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["visible" => 1, "owner" => $user->id])->orderBy('id', 'desc')->get();
+        }
         return self::sendResponse($supplies, 'Tout les approvisionnement récupérés avec succès!!');
     }
 
@@ -76,7 +81,12 @@ class SUPPLY_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $supply = StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["id" => $id, "visible" => 1])->get();
+
+        if ($user->is_admin) {
+            $supply = StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["visible" => 1])->find($id);
+        } else {
+            $supply = StoreSupply::with(['owner', "pos", "store", "supply_products", "session"])->where(["owner" => $user->id, "visible" => 1])->find($id);
+        }
         if ($supply->count() == 0) {
             return self::sendError("Ce supply n'existe pas!", 404);
         }
