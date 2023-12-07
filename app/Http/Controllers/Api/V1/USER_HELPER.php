@@ -108,7 +108,6 @@ class USER_HELPER extends BASE_HELPER
 
             if ($user[0]->is_admin) { #IL peut se connecter avec son password default s'il est un admin
                 $user = Auth::user();
-                // return $user->email;
                 $token = $user->createToken('MyToken', ['api-access'])->accessToken;
                 $user["session_active"] = Do_I_HAVE_AN_ACTIVE_SESSION($user->id);
                 $user['rang'] = $user->rang;
@@ -127,18 +126,8 @@ class USER_HELPER extends BASE_HELPER
 
 
                 #renvoie des droits du user 
-                $attached_rights = $user->drts; #drts represente les droits associés au user par relation #Les droits attachés
-                // return $attached_rights;
-
-                if ($attached_rights->count() == 0) { #si aucun droit ne lui est attaché
-                    if (Is_User_An_Admin($user->id)) { #s'il est un admin
-                        $user['rights'] = All_Rights();
-                    } else {
-                        $user['rights'] = User_Rights($user->rang['id'], $user->profil['id']);
-                    }
-                } else {
-                    $user['rights'] = $attached_rights; #Il prend uniquement les droits qui lui sont attachés
-                }
+                ##les admins prennent tout les droits, même si on leur affecte des droits specifiques
+                $user['rights'] = All_Rights();
 
                 #RENVOIE D'ERREURE VIA **sendResponse** DE LA CLASS BASE_HELPER
                 return self::sendResponse($user, 'Vous etes connecté(e) avec succès!!');

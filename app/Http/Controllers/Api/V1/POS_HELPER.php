@@ -177,9 +177,9 @@ class POS_HELPER extends BASE_HELPER
             return self::sendError("Ce pos ne vous appartient pas!", 404);
         }
 
-        if ($pos->affected) {
-            return  self::sendError("Ce Pos est déjà affecté à une agence!!", 404);
-        }
+        // if ($pos->affected) {
+        //     return  self::sendError("Ce Pos est déjà affecté à une agence!!", 404);
+        // }
 
         if (!$agency) {
             return  self::sendError("Cette Agence n'existe pas!!", 404);
