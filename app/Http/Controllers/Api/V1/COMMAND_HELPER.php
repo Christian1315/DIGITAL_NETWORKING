@@ -6,6 +6,7 @@ use App\Models\Agent;
 use App\Models\Client;
 use App\Models\CommandStatus;
 use App\Models\ProductCommand;
+use App\Models\ProductComposant;
 use App\Models\Store;
 use App\Models\StoreCommand;
 use App\Models\StoreProduit;
@@ -104,7 +105,7 @@ class COMMAND_HELPER extends BASE_HELPER
 
         // $products = [
         //     [
-        //         "id" => 177,
+        //         "id" => 5,
         //         "qty" => 1,
         //     ]
         // ];
@@ -136,7 +137,6 @@ class COMMAND_HELPER extends BASE_HELPER
             if ($_product->product_classe == 3) {
                 $prod_composants = $_product->composants;
 
-                return $_product->composants;
 
                 if (count($prod_composants) == 0) {
                     return self::sendError("Ce produit composé " . $_product->name . " ne dispose pas de produits composants", 505);
@@ -162,12 +162,12 @@ class COMMAND_HELPER extends BASE_HELPER
 
                         #Verifions la quantité du produit
                         if ($product_stock->quantity < 0 || $product_stock->quantity == 0) {
-                            return self::sendError("Le produit <<" . $prod_composant->name . ">> est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
+                            return self::sendError("Le produit composant <<" . $prod_composant->name . ">> est fini dans le stock! Veuillez approvisionner le stock avant de passer aux commandes", 505);
                         }
 
                         #Verifions si la quantité de la commande est inferieur à celle du produit existant dans le stock
                         if ($product_stock->quantity < $prod_composant->qty) {
-                            return self::sendError("Stock insuffisant dans le store pour ce produit <<" . $prod_composant->name . ">> ! Dimuniez la quantité de votre commande", 505);
+                            return self::sendError("Stock insuffisant dans le store pour ce produit composant <<" . $prod_composant->name . ">> ! Dimuniez la quantité de votre commande", 505);
                         }
                     }
                 }
@@ -196,7 +196,7 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             $this_product_command_amount = intval($product["qty"]) * $_product->price;
-            
+
             ###___
             array_push($total_command_amount, $this_product_command_amount);
             array_push($total_command_qty, intval($product["qty"]));
@@ -213,7 +213,6 @@ class COMMAND_HELPER extends BASE_HELPER
 
         ####___TRAITEMENT DE LA COMMANDE
         $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
-
 
         if ($_product->product_classe == 3) {
             #####____produit composé
@@ -274,24 +273,40 @@ class COMMAND_HELPER extends BASE_HELPER
                     $productCommand->product_id = $prod_composant["id"];
                     $productCommand->command_id = $command->id;
                     $productCommand->qty = intval($prod_composant["qty"]);
-                    $productCommand->total_amount = intval(explode(" ",$prod_composant["qty"])[0]) * $prod_composant->price;
+                    $productCommand->total_amount = intval(explode(" ", $prod_composant["qty"])[0]) * $prod_composant->price;
                     $productCommand->save();
 
                     if ($prod_composant->product_type == 1) { ####____quand le produit est stockble
 
                         #Decreditons l'ancienne ligne 
                         $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant["id"], "visible" => 1])->first();
+
                         // $old_product_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
+                        $this_product_composant = ProductComposant::where([
+                            "compose" => $product["id"],
+                            "composant" => $prod_composant["id"]
+                        ])->first();
+
+                        if (!$this_product_composant) {
+                            return self::sendError("La relation qui lie le composant <<" . $prod_composant["name"] . ">> au composé <<" . $product["name"] . ">> n'existe plus!", 505);
+                        }
+
+                        if ($old_product_stock->quantity < intval(explode(" ", $this_product_composant["qty"])[0])) {
+                            return self::sendError("La quantité de ce produit composant <<" . $prod_composant["name"] . ">> est insuffisant dans son stock! ", 505);
+                        }
+
                         $old_product_stock->visible = 0;
                         $old_product_stock->save();
 
                         #& Recréeons une nouvelle ligne de ce produit dans la table des stocks
+
+
                         $new_stock = new StoreStock();
                         $new_stock->session = $session->id;
                         $new_stock->owner = $old_product_stock->owner;
                         $new_stock->product = $old_product_stock->product;
                         $new_stock->store = $old_product_stock->store;
-                        $new_stock->quantity = $old_product_stock->quantity - intval(explode(" ",$prod_composant["qty"])[0]);
+                        $new_stock->quantity = $old_product_stock->quantity - intval(explode(" ", $prod_composant["qty"])[0]);
                         $new_stock->comments = $old_product_stock->comments;
                         $new_stock->save();
                     }
@@ -337,6 +352,7 @@ class COMMAND_HELPER extends BASE_HELPER
 
         return self::sendResponse($command, 'Commande éffectuée avec succès!!');
     }
+
 
     static function allCommands()
     {
