@@ -52,8 +52,10 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Ce approvisionnement n'existe pas", 404);
         }
 
-        if ($supply->owner != $user->id) {
-            return self::sendError("Ce approvisionnement ne vous appartient pas!", 404);
+        if (!$user->is_admin) {
+            if ($supply->owner != $user->id) {
+                return self::sendError("Ce approvisionnement ne vous appartient pas!", 404);
+            }
         }
 
         ####____product
@@ -61,8 +63,10 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Ce Produit n'existe pas", 404);
         }
 
-        if ($product->owner != $user->id) {
-            return self::sendError("Ce produit ne vous appartient pas!", 404);
+        if ($user->is_admin) {
+            if ($product->owner != $user->id) {
+                return self::sendError("Ce produit ne vous appartient pas!", 404);
+            }
         }
 
         ###___QUAND IL EST QUESTION D'UN PRODUIT COMPOSANT

@@ -10,7 +10,7 @@ class SupplyProductController extends SUPPLY_A_PRODUCT_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access'])->except(['Login']);
-        $this->middleware('CheckMaster');
+        $this->middleware('CheckMasterOrAdmin');
         // $this->middleware('CheckSession');
     }
 
