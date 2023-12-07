@@ -188,11 +188,11 @@ class POS_HELPER extends BASE_HELPER
         if ($agency->owner != $user->id) {
             return self::sendError("Cette agence ne vous appartient pas!", 404);
         }
-        // return $pos;
+
         $pos->agency_id = $formData["agency_id"];
         $pos->affected = 1;
-        $pos->save();
 
+        $pos->save();
         return self::sendResponse([], "Affectation effectuée avec succès!!");
     }
 }

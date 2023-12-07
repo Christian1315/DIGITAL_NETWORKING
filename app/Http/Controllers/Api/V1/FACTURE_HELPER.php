@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Client;
 use App\Models\Master;
+use App\Models\Pos;
 use App\Models\StoreCommand;
 use App\Models\StoreFacturation;
 use Illuminate\Support\Facades\Validator;
@@ -70,7 +72,15 @@ class FACTURE_HELPER extends BASE_HELPER
         if (!$agent_attach_to_this_user) {
             return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
         }
-        $agency_of_this_agent =  $agent_attach_to_this_user->agency;
+
+        if (!$agent_attach_to_this_user->pos_id) {
+            return self::sendError("Vous n'avez pas été affecté à un POS! Ou celui auquel vous avez été affecté n'existe plus. Vous ne pouvez donc generer une facture dans ce cas!", 505);
+        }
+
+        $agent_pos = Pos::find($agent_attach_to_this_user->pos_id);
+        $agency_pos = Agency::find($agent_pos->agency_id);
+
+        $agency_of_this_agent =  $agency_pos;
 
         if (!$agency_of_this_agent) {
             return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
@@ -84,11 +94,11 @@ class FACTURE_HELPER extends BASE_HELPER
 
         ###___GESTION DES  FACTURES & TICKETS
         $pdf = PDF::loadView('facture', compact([
-            "command", 
-            "client", 
-            "reference", 
-            "products", 
-            "total", 
+            "command",
+            "client",
+            "reference",
+            "products",
+            "total",
             "agency_of_this_agent",
             "agency_of_this_agent_img"
         ]));
