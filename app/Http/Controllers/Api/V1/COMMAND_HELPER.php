@@ -136,6 +136,8 @@ class COMMAND_HELPER extends BASE_HELPER
             if ($_product->product_classe == 3) {
                 $prod_composants = $_product->composants;
 
+                return $_product->composants;
+
                 if (count($prod_composants) == 0) {
                     return self::sendError("Ce produit composé " . $_product->name . " ne dispose pas de produits composants", 505);
                 }

@@ -14,7 +14,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     static function product_category_rules(): array
     {
         return [
-            'name' => ['required', Rule::unique("store_categories")],
+            'name' => ['required'],
             'active' => ['required', 'boolean'],
         ];
     }
@@ -23,7 +23,7 @@ class CATEGORY_PRODUCT_HELPER extends BASE_HELPER
     {
         return [
             'name.required' => 'Le champ name est réquis!',
-            'name.unique' => 'Cette categorie existe déjà',
+            // 'name.unique' => 'Cette categorie existe déjà',
             'active.required' => 'Le champ active est réquis!',
             'active.boolean' => 'Le champ active est un boolean!',
         ];
