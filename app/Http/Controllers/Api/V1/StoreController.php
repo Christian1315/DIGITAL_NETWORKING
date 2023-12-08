@@ -10,7 +10,7 @@ class StoreController extends STORE_HELPER
     public function __construct()
     {
         $this->middleware(['auth:api', 'scope:api-access']);
-        $this->middleware('CheckMasterOrAdmin')->except(['Stores', "RetrieveStore", "Stores"]);
+        $this->middleware('CheckMasterOrAdmin')->except(['Stores', "RetrieveStore", "Stores", "AffectToAgent"]);
         $this->middleware('CheckAgency')->only(["AffectToAgent"]);
     }
 
