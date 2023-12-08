@@ -146,7 +146,7 @@ class USER_SESSION_HELPER extends BASE_HELPER
 
         $agency_of_this_agent = $agency_of_this_pos;
         if (!$agency_of_this_agent) {
-            return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
+            return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas vous déconnecter.", 505);
         }
 
 
