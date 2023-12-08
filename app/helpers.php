@@ -477,11 +477,8 @@ function CheckIfUserHasAnActiveSession($user_id)
 
 function GetSession($user_id)
 {
-    $session = UserSession::where(["user" => $user_id, "active" => 1])->get();
-    if ($session->count() != 0) {
-        return $session[0];
-    }
-    return null;
+    $session = UserSession::where(["user" => $user_id, "active" => 1])->first();
+    return $session;
 }
 
 
