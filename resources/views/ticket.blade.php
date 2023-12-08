@@ -45,16 +45,11 @@
                 <div class="text-center">
                     <small>*********************</small>
                 </div>
-
-                <br>
-
                 <hr>
                 <p class="">Le <strong> <?php echo date("Y/m/d") ?></p>
                 <p class="">{{$agency_of_this_agent->name}}</p>
                 <p class="">Ticket N° {{$reference}}</p>
                 <hr>
-
-                <br>
 
                 <!-- LES PRODUITS -->
                 <table class="table table table-striped">
@@ -99,14 +94,11 @@
                 </table>
                 <hr>
 
-                <br>
                 <!--  -->
 
                 <p class="text-center">
                     Les articles achetés ne seront ni échanger ni retourner. <br> Merci de votre visite.
                 </p>
-
-                <br>
 
                 <div class="row">
                     <div class="col-md-12">
