@@ -91,7 +91,7 @@ class User extends Authenticatable
 
     function drts(): HasMany
     {
-        return $this->hasMany(Right::class, "user_id");
+        return $this->hasMany(Right::class, "user_id")->with(["rang", "action", "profil"]);
     }
 
     function stores(): HasMany

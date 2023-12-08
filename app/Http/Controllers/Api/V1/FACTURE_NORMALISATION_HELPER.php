@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Agency;
 use App\Models\Agent;
-use App\Models\Master;
 use App\Models\Pos;
 use App\Models\StoreFacturation;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Http;
 use QrCode;
 use PDF;
 
