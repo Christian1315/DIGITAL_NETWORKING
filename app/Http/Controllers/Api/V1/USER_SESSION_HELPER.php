@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Pos;
 use App\Models\StoreCommand;
@@ -134,15 +135,20 @@ class USER_SESSION_HELPER extends BASE_HELPER
         }
 
         ###___ON RECUPERE L'AGENCE DE CET AGENT
-        $agent_attach_to_this_user = Agent::where(["user_id" => $user->id])->first();
+        $current_user = request()->user();
+
+        $agent_attach_to_this_user = Agent::where(["user_id" => $current_user->id])->first();
         if (!$agent_attach_to_this_user) {
             return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
         }
-        $agency_of_this_agent =  $agent_attach_to_this_user->agency;
+        $pos_of_this_agent = Pos::find($agent_attach_to_this_user->pos_id);
+        $agency_of_this_pos = Agency::find($pos_of_this_agent->agency_id);
 
+        $agency_of_this_agent = $agency_of_this_pos;
         if (!$agency_of_this_agent) {
-            return self::sendError("L'agence auquelle vous êtes associé(e) n'existe plus! Vous ne pouvez pas générer une facture.", 505);
+            return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
         }
+
 
         $photoName = explode("pieces/", $agency_of_this_agent->photo)[1];
         $agency_of_this_agent_img = "data:image/png;base64," . base64_encode(file_get_contents("pieces/" . $photoName));
