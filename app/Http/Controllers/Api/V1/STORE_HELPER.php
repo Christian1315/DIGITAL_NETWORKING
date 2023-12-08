@@ -260,6 +260,10 @@ class STORE_HELPER extends BASE_HELPER
         //     return self::sendError("Ce agent ne vous appartient pas!", 404);
         // };
 
+        if (!$store->agent_id) {
+            return self::sendError("Ce store appartient déjà à un agent!", 404);
+        }
+
         $store->agent_id = $formData["agent_id"];
         $store->affected = true;
         $store->save();
