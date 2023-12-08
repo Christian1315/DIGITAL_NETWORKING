@@ -106,7 +106,7 @@
                 <tr>
                     <th scope="col">Items</th>
                     <th scope="col">Designation</th>
-                    <th scope="col">P.U.TTC (en FCFA)</th>
+                    <th scope="col">Prix (en FCFA)</th>
                     <th scope="col">Qté</th>
                     <th scope="col">% Rem</th>
                     <th scope="col">% TVA</th>
@@ -119,8 +119,8 @@
                 <tr>
                     <td class="block">{{$product->name}}</td>
                     <td class="block">{{$product->description}}</td>
-                    <td class="block">{{TTC($product->price)}}</td>
-                    <td class="block"> <?php echo $product->qty ? $product->qty : 1 ?></td>
+                    <td class="block">{{$product->price}}</td>
+                    <td class="block"> <?php echo $product->pivot->qty ? $product->pivot->qty : 1 ?></td>
                     <td class="block">{{REMISE($product->price)}}</td>
                     <td class="block">{{TVA($product->price)}}</td>
                     <td class="block">{{TS($product->price)}}</td>
