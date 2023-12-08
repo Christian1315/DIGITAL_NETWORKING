@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\Master;
+use App\Models\Pos;
 use App\Models\StoreFacturation;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
@@ -115,8 +117,7 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             $qrcode = "facture_qrCode_" . $facture->id . ".png";
             QrCode::format("png")->size(200)->generate($confirm_response["qrCode"], "factureQrcodes/" . $qrcode);
             $facture->qr_code = asset("factureQrcodes/" . $qrcode);
-            $facture->normalized = true;
-            $facture->save();
+            
 
             ###___ON RECUPERE L'AGENCE DE CET AGENT
             $current_user = request()->user();
@@ -125,8 +126,10 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             if (!$agent_attach_to_this_user) {
                 return self::sendError("Le compte agent qui vous est associé n'existe plus!", 505);
             }
-            $agency_of_this_agent =  $agent_attach_to_this_user->agency;
+            $pos_of_this_agent = Pos::find($agent_attach_to_this_user->pos_id);
+            $agency_of_this_pos = Agency::find($pos_of_this_agent->agency_id);
 
+            $agency_of_this_agent = $agency_of_this_pos;
             if (!$agency_of_this_agent) {
                 return self::sendError("L'agence auquelle vous êtes associée n'existe plus! Vous ne pouvez pas générer une facture.", 505);
             }
@@ -182,6 +185,8 @@ class FACTURE_NORMALISATION_HELPER extends BASE_HELPER
             ###___
             $facture->facture = $facturepdf_path;
             $facture->ticket = $ticket_path;
+
+            $facture->normalized = true;
             $facture->save();
 
             return self::sendResponse($facture, "Facture normalisée avec succès!");
