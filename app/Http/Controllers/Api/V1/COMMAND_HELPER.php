@@ -65,13 +65,10 @@ class COMMAND_HELPER extends BASE_HELPER
         ####____verifions si cet agent a été affecté à un store
 
         if (Is_User_An_Agent($user->id)) {
-            $agent = Agent::where(["user_id" => $user->id])->get();
-            if (count($agent) != 0) {
-                $agent = $agent[0];
-                $store = Store::where(["agent_id" => $agent->id])->get();
-                if (count($store) != 0) {
-                    $store = $store[0];
-                    $formData["store"] = $store->id;
+            $agent = Agent::where(["user_id" => $user->id])->first();
+            if ($agent) {
+                if ($agent->store) {
+                    $formData["store"] = $agent->store->id;
                 } else {
                     return self::sendError("Vous n'avez pas été affecté à un store! Impossible d'effectuer cette opération", 505);
                 }

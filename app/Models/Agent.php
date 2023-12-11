@@ -53,6 +53,6 @@ class Agent extends Model
 
     public function store(): BelongsTo
     {
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(Store::class,"store_id");
     }
 }
