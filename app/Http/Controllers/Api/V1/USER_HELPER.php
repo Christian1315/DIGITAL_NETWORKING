@@ -153,11 +153,11 @@ class USER_HELPER extends BASE_HELPER
                         $user['sold'] = $user->sold;
                         $user["stores"] = $user->stores;
                         $user["poss"] = $user->poss;
-                        $user["agents"] = $user->agents;
-                        $user["agencies"] = $user->agencies;
+                        // $user["agents"] = $user->agents;
+                        // $user["agencies"] = $user->agencies;
 
-                        $user["AGENT"]  = AGENT(request()->user()->id);
-                        $user["AGENCY"]  = AGENCY(request()->user()->id);
+                        // $user["AGENT"]  = AGENT(request()->user()->id);
+                        // $user["AGENCY"]  = AGENCY(request()->user()->id);
                         $user["MASTER"]  = MASTER(request()->user()->id);
 
                         #renvoie des droits du user 
