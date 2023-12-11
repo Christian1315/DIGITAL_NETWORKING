@@ -22,9 +22,9 @@ class Store extends Model
         return $this->belongsTo(User::class, "owner");
     }
 
-    public function agent(): BelongsTo
+    public function agents(): HasMany
     {
-        return $this->belongsTo(Agent::class,"agent_id");
+        return $this->hasMany(Agent::class, "store_id");
     }
 
     public function agency(): BelongsTo

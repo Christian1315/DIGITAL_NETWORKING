@@ -51,8 +51,8 @@ class Agent extends Model
         return $this->belongsTo(User::class,"owner");
     }
 
-    public function stores(): HasMany
+    public function store(): BelongsTo
     {
-        return $this->hasMany(Store::class,"agent_id");
+        return $this->belongsTo(Store::class);
     }
 }

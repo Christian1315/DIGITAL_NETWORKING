@@ -82,7 +82,7 @@ class STORE_HELPER extends BASE_HELPER
             foreach ($all_my_poss as $all_my_pos) {
                 ###___je parcoure les stores des pos et je les recupere
                 foreach ($all_my_pos->stores as $posStore) {
-                    $pos_store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->find($posStore->id);
+                    $pos_store = Store::with(['owner', "agents", "agency", "pos", "supplies", "stocks"])->find($posStore->id);
                     if ($pos_store) {
                         array_push($my_stores, $pos_store);
                     }
@@ -102,7 +102,7 @@ class STORE_HELPER extends BASE_HELPER
 
         $stores = [];
         if (Is_User_A_Master($user->id)) {
-            $stores =  Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $stores =  Store::with(['owner', "agents", "agency", "pos", "supplies", "stocks"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
 
         if (Is_User_An_Agency($user->id)) {
@@ -110,23 +110,23 @@ class STORE_HELPER extends BASE_HELPER
         }
 
         if ($user->is_admin) {
-            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->get();
+            $stores = Store::with(['owner', "agents", "agency", "pos", "supplies", "stocks"])->get();
         }
 
         if (Is_User_An_Agent($user->id)) {
-            $agent = Agent::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["user_id" => $user->id])->get();
+            $agent = Agent::with(['owner', "store", "agency", "pos", "supplies", "stocks"])->where(["user_id" => $user->id])->get();
             if (count($agent) == 0) {
                 return self::sendError("L'agent auquel vous etes associé n'existe plus!", 505);
             }
             $agent = $agent[0];
-            $stores = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["agent_id" => $agent->id])->get();
+            $stores = Store::with(['owner', "agents", "agency", "pos", "supplies", "stocks"])->where(["agent_id" => $agent->id])->get();
         }
         return self::sendResponse($stores, 'Tout les stores récupérés avec succès!!');
     }
 
     static function _retrieveStore($id)
     {
-        $store = Store::with(['owner', "agent", "agency", "pos", "supplies", "stocks"])->where(["id" => $id, "visible" => 1])->get();
+        $store = Store::with(['owner', "agents", "agency", "pos", "supplies", "stocks"])->where(["id" => $id, "visible" => 1])->get();
         if ($store->count() == 0) {
             return self::sendError("Ce store n'existe pas!", 404);
         }
@@ -260,13 +260,13 @@ class STORE_HELPER extends BASE_HELPER
         //     return self::sendError("Ce agent ne vous appartient pas!", 404);
         // };
 
-        if (!$store->agent_id) {
-            return self::sendError("Ce store appartient déjà à un agent!", 404);
+        if ($agent->store_id) {
+            return self::sendError("Ce agent appartient déjà à un store!", 404);
         }
 
-        $store->agent_id = $formData["agent_id"];
-        $store->affected = true;
-        $store->save();
+        $agent->store_id = $formData["store_id"];
+        $agent->affected = true;
+        $agent->save();
         return self::sendResponse([], "Affectation effectuée avec succès!!");
     }
 

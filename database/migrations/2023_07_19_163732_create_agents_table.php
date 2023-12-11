@@ -58,6 +58,8 @@ return new class extends Migration
                 ->onUpdate("CASCADE")
                 ->onDelete("CASCADE");
 
+           
+
             $table->string("delete_at")->nullable();
             $table->boolean("visible")->default(true);
             $table->boolean("affected")->default(false);
