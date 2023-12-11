@@ -193,30 +193,27 @@ class COMMAND_HELPER extends BASE_HELPER
                 }
             }
 
-            $this_product_command_amount = intval($product["qty"]) * $_product->price;
-
             ###___
+            $this_product_command_amount = intval($product["qty"]) * $_product->price;
             array_push($total_command_amount, $this_product_command_amount);
             array_push($total_command_qty, intval($product["qty"]));
         }
 
         $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
         $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
-
         $formData["client"] = $client->id;
-
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
 
-        ####___TRAITEMENT DE LA COMMANDE
+        #####___TRAITEMENT DE LA COMMANDE
         $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0, "visible" => 1])->first();
 
         // if ($_product->product_classe == 3) {
         #####____produit composé
         #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
         #####____ON ATTAQUE PLUTÖT SES PRODUITS COMPOSANTS
-        $prod_composants = $_product->composants;
+        // $prod_composants = $_product->composants;
 
         // foreach ($prod_composants as $prod_composant) {
         //     if ($previous_command) {
@@ -266,6 +263,14 @@ class COMMAND_HELPER extends BASE_HELPER
                     return self::sendError("Ce produit composé " . $_product->name . " ne dispose pas de produits composants", 505);
                 }
 
+                ###___ON PASSE EN COMMANDE LE PRODUIT COMPOSEE MEME DANS LA DB
+                $productCommand = new ProductCommand();
+                $productCommand->product_id = $product["id"];
+                $productCommand->command_id = $command->id;
+                $productCommand->qty = intval($product["qty"]);
+                $productCommand->total_amount = $_product["price"] * $formData["qty"];
+                $productCommand->save();
+
                 foreach ($prod_composants as $prod_composant) {
                     ###___
                     // $productCommand = new ProductCommand();
@@ -309,14 +314,7 @@ class COMMAND_HELPER extends BASE_HELPER
                     }
                 }
 
-                ###___ON PASSE EN COMMANDE LE PRODUIT COMPOSEE MEME DANS LA DB
-                $productCommand = new ProductCommand();
-                $productCommand->product_id = $product["id"];
-                $productCommand->command_id = $command->id;
-                $productCommand->qty = intval($product["qty"]);
-                $productCommand->total_amount = $formData["amount"];
-                $productCommand->save();
-
+                
             } else {
                 ###___
                 $productCommand = new ProductCommand();
