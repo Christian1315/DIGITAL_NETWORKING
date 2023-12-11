@@ -100,12 +100,12 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $products = $formData["products"];
 
-        // $products = [
-        //     [
-        //         "id" => 5,
-        //         "qty" => 1,
-        //     ]
-        // ];
+        $products = [
+            [
+                "id" => 1,
+                "qty" => 1,
+            ]
+        ];
 
         $current_agent = Agent::where(["user_id" => $user->id])->get();
         if ($current_agent->count() == 0) {
@@ -150,8 +150,8 @@ class COMMAND_HELPER extends BASE_HELPER
 
                         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
                         $product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant->id, "store" => $formData["store"], "visible" => 1])->get();
-                        
-                        return self::sendResponse([], $prod_composant->name ."  & ".$prod_composant->id); 
+
+                        // return self::sendResponse([], $prod_composant->name ."  & ".$prod_composant->id); 
                         if ($product_stock->count() == 0) {
                             return self::sendError("Le Produit composant <<" . $prod_composant->name . ">> n'existe pas dans le stock du store! Veuillez l'approvisionner!", 404);
                         }
@@ -298,18 +298,25 @@ class COMMAND_HELPER extends BASE_HELPER
                         $old_product_stock->save();
 
                         #& Recréeons une nouvelle ligne de ce produit dans la table des stocks
-
-
                         $new_stock = new StoreStock();
                         $new_stock->session = $session->id;
                         $new_stock->owner = $old_product_stock->owner;
                         $new_stock->product = $old_product_stock->product;
                         $new_stock->store = $old_product_stock->store;
-                        $new_stock->quantity = $old_product_stock->quantity - intval(explode(" ", $prod_composant["qty"])[0]);
+                        $new_stock->quantity = $old_product_stock->quantity - intval(explode(" ", $this_product_composant["qty"])[0]);
                         $new_stock->comments = $old_product_stock->comments;
                         $new_stock->save();
                     }
                 }
+
+                ###___ON PASSE EN COMMANDE LE PRODUIT COMPOSEE MEME DANS LA DB
+                $productCommand = new ProductCommand();
+                $productCommand->product_id = $product["id"];
+                $productCommand->command_id = $command->id;
+                $productCommand->qty = intval($product["qty"]);
+                $productCommand->total_amount = $formData["amount"];
+                $productCommand->save();
+
             } else {
                 ###___
                 $productCommand = new ProductCommand();

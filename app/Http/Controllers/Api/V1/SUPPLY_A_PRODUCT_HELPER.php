@@ -108,12 +108,12 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         // }
 
 
-        $supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
+        $_supply = SupplyProduct::create($formData); #ENREGISTREMENT DE LA TABLE DANS LA DB
 
         #MARQUONS QUE CE PRODUIT A ETE AFFECTE A UN APPROVISIONNEMENT(supply)
         $product->supplied = true;
         $product->save();
-
+        // return $supply;
         #AJOUTONS CE PRODUIT AU STOCK DU STORE EN QUESTION
         $stock = new StoreStock();
         // $stock->session = $session->id;
@@ -135,7 +135,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
             $stock->save();
         }
 
-        return self::sendResponse($supply, 'Produit approvisionné avec succès!!');
+        return self::sendResponse($_supply, 'Produit approvisionné avec succès!!');
     }
 
     // static function allSupplyProducts()

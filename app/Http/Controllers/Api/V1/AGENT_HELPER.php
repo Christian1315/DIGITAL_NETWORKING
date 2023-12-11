@@ -180,7 +180,7 @@ class AGENT_HELPER extends BASE_HELPER
                 array_push($my_agents, $agent_dad);
 
                 ##___GET DES AUTRES AGENTS EXISTANT DANS MES POS
-                $all_my_poss = Pos::with(["owner", "agents", "agencie", "store", "sold"])->where(["agency_id" => $my_agency->id])->get();
+                $all_my_poss = Pos::with(["owner", "agents", "agencie", "stores", "sold"])->where(["agency_id" => $my_agency->id])->get();
                 ###___je parcoure les pos et je les recupere
                 foreach ($all_my_poss as $all_my_pos) {
                     ###___je parcoure les agents des pos et je les recupere
