@@ -149,7 +149,7 @@ class COMMAND_HELPER extends BASE_HELPER
                     if ($prod_composant->product_type == 1) {
 
                         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
-                        $product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant->id, "visible" => 1])->get();
+                        $product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant->id, "store" => $formData["store"], "visible" => 1])->get();
 
                         if ($product_stock->count() == 0) {
                             return self::sendError("Le Produit composant <<" . $prod_composant->name . ">> n'existe pas dans le stock du store! Veuillez l'approvisionner!", 404);
@@ -276,7 +276,7 @@ class COMMAND_HELPER extends BASE_HELPER
                     if ($prod_composant->product_type == 1) { ####____quand le produit est stockble
 
                         #Decreditons l'ancienne ligne 
-                        $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant["id"], "visible" => 1])->first();
+                        $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant["id"], "store" => $formData["store"], "visible" => 1])->first();
 
                         // $old_product_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
                         $this_product_composant = ProductComposant::where([
