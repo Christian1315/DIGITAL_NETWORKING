@@ -100,12 +100,12 @@ class COMMAND_HELPER extends BASE_HELPER
 
         $products = $formData["products"];
 
-        $products = [
-            [
-                "id" => 1,
-                "qty" => 1,
-            ]
-        ];
+        // $products = [
+        //     [
+        //         "id" => 1,
+        //         "qty" => 1,
+        //     ]
+        // ];
 
         $current_agent = Agent::where(["user_id" => $user->id])->get();
         if ($current_agent->count() == 0) {
@@ -327,7 +327,6 @@ class COMMAND_HELPER extends BASE_HELPER
                 $productCommand->save();
 
                 if ($_product->product_type == 1) { ####_______quand le produit est stockble
-
                     #Decreditons l'ancienne ligne 
                     $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $product["id"], "visible" => 1])->first();
                     // $old_product_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
