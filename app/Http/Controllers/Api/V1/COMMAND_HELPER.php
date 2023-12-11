@@ -151,10 +151,10 @@ class COMMAND_HELPER extends BASE_HELPER
                         #ON VERIFIE L'EXISTENCE DU PRODUIT DANS LE STOCK DU STORE
                         $product_stock = StoreStock::with(["product", "store"])->where(["product" => $prod_composant->id])->first();
                         
+                        return self::sendResponse($product_stock, $prod_composant->id . " " . $formData["store"]);
                         if (!$product_stock) {
                             return self::sendError("Le Produit composant <<" . $prod_composant->name . ">> n'existe pas dans le stock du store! Veuillez l'approvisionner!", 404);
                         }
-                        return self::sendResponse($product_stock, $prod_composant->id . " " . $formData["store"]);
 
                         $product_stock = $product_stock[0];
 
