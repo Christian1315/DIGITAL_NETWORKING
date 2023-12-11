@@ -192,7 +192,6 @@ class PRODUCT_HELPER extends BASE_HELPER
     static function allProduct()
     {
         $user = request()->user();
-
         $product = [];
 
         if (Is_User_An_Agent($user->id)) {
