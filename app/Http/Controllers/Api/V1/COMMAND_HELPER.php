@@ -137,7 +137,6 @@ class COMMAND_HELPER extends BASE_HELPER
             if ($_product->product_classe == 3) {
                 $prod_composants = $_product->composants;
 
-
                 if (count($prod_composants) == 0) {
                     return self::sendError("Ce produit composé " . $_product->name . " ne dispose pas de produits composants", 505);
                 }
@@ -203,62 +202,63 @@ class COMMAND_HELPER extends BASE_HELPER
         }
 
         $formData["qty"] = array_sum($total_command_qty); ###__somme des qty lies à chaque produit
+        $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
+
         $formData["client"] = $client->id;
 
-        ####____VOYONS SI LE POS DISPOSE D'UN SOLDE SUFFISANT
-        $formData["amount"] = array_sum($total_command_amount); ###__somme des soldes lies à chaque produit et quantite
 
         $formData["session"] = $session->id;
         $formData["owner"] = $user->id;
 
         ####___TRAITEMENT DE LA COMMANDE
-        $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0])->first();
+        $previous_command = StoreCommand::where(["client" => $client->id, "factured" => 0, "visible" => 1])->first();
 
-        if ($_product->product_classe == 3) {
-            #####____produit composé
-            #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
-            #####____ON ATTAQUE PLUTÖT SES PRODUITS COMPOSANTS
-            $prod_composants = $_product->composants;
+        // if ($_product->product_classe == 3) {
+        #####____produit composé
+        #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
+        #####____ON ATTAQUE PLUTÖT SES PRODUITS COMPOSANTS
+        $prod_composants = $_product->composants;
 
-            foreach ($prod_composants as $prod_composant) {
-                if ($previous_command) {
-                    ####S'IL AVAIT UNE COMMANDE NON FACTUREE, ON AJOUTE CETTE NOUVELLE COMMANDE A CETTE FACTURE
-                    $command = $previous_command;
-                    $command->firstname = $firstname;
-                    $command->lastname = $lastname;
-                    $command->amount = $previous_command->amount + $prod_composant->price;
-                } else {
-                    #Passons à la validation de la commande
-                    $command = new StoreCommand(); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-                    $command->firstname = $firstname;
-                    $command->lastname = $lastname;
-                    $command->amount = $prod_composant->price;
-                }
-                $command->save();
-            }
-        } else {
-            if ($previous_command) {
-                ####S'IL AVAIT UNE COMMANDE NON FACTUREE, ON AJOUTE CETTE NOUVELLE COMMANDE A CETTE FACTURE
-                $command = $previous_command;
-                $command->firstname = $firstname;
-                $command->lastname = $lastname;
-                $command->amount = $previous_command->amount + $formData["amount"];
-                $command->save();
-            } else {
-                #Passons à la validation de la commande
-                $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
-                $command->firstname = $firstname;
-                $command->lastname = $lastname;
-            }
+        // foreach ($prod_composants as $prod_composant) {
+        //     if ($previous_command) {
+        //         ####S'IL AVAIT UNE COMMANDE NON FACTUREE, ON AJOUTE CETTE NOUVELLE COMMANDE A CETTE FACTURE
+        //         $command = $previous_command;
+        //         $command->firstname = $firstname;
+        //         $command->lastname = $lastname;
+        //         $command->amount = $previous_command->amount + $prod_composant->price;
+        //     } else {
+        //         #Passons à la validation de la commande
+        //         $command = new StoreCommand(); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
+        //         $command->firstname = $firstname;
+        //         $command->lastname = $lastname;
+        //         $command->amount = $prod_composant->price;
+        //     }
+        //     $command->save();
+        // }
+        // } else {
+        if ($previous_command) {
+            ####S'IL AVAIT UNE COMMANDE NON FACTUREE, ON AJOUTE CETTE NOUVELLE COMMANDE A CETTE FACTURE
+            $command = $previous_command;
+            $command->firstname = $firstname;
+            $command->lastname = $lastname;
+            $command->qty = $previous_command->qty + $formData["qty"];
+            $command->amount = $previous_command->amount + $formData["amount"];
             $command->save();
+        } else {
+            #Passons à la validation de la commande
+            $command = StoreCommand::create($formData); #ENREGISTREMENT DE LA COMMANDE DANS LA DB
+            $command->firstname = $firstname;
+            $command->lastname = $lastname;
         }
+        $command->save();
+        // }
 
         ####ENREGISTREMENT DES PRODUITS ASSOCIES A CETTE COMMANDE
         foreach ($products as $product) {
             $_product = StoreProduit::find($product["id"]);
 
             #####____produit composé
-            #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
+            #####____QUANT IL S'AGIT D'UN PRODUIT COMPOSE
             #####____ON ATTAQUE PLUTÖT SES PRODUITS COMPOSANTS
             if ($_product->product_classe == 3) {
                 $prod_composants = $_product->composants;
@@ -269,12 +269,12 @@ class COMMAND_HELPER extends BASE_HELPER
 
                 foreach ($prod_composants as $prod_composant) {
                     ###___
-                    $productCommand = new ProductCommand();
-                    $productCommand->product_id = $prod_composant["id"];
-                    $productCommand->command_id = $command->id;
-                    $productCommand->qty = intval($prod_composant["qty"]);
-                    $productCommand->total_amount = intval(explode(" ", $prod_composant["qty"])[0]) * $prod_composant->price;
-                    $productCommand->save();
+                    // $productCommand = new ProductCommand();
+                    // $productCommand->product_id = $prod_composant["id"];
+                    // $productCommand->command_id = $command->id;
+                    // $productCommand->qty = intval($prod_composant["qty"]);
+                    // $productCommand->total_amount = intval(explode(" ", $prod_composant["qty"])[0]) * $prod_composant->price;
+                    // $productCommand->save();
 
                     if ($prod_composant->product_type == 1) { ####____quand le produit est stockble
 
@@ -317,7 +317,7 @@ class COMMAND_HELPER extends BASE_HELPER
                 $productCommand->product_id = $product["id"];
                 $productCommand->command_id = $command->id;
                 $productCommand->qty = intval($product["qty"]);
-                $productCommand->total_amount = intval($product["qty"]) * $_product->price;
+                $productCommand->total_amount = $command->amount;
                 $productCommand->save();
 
                 if ($_product->product_type == 1) { ####_______quand le produit est stockble
@@ -360,9 +360,9 @@ class COMMAND_HELPER extends BASE_HELPER
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
 
         if ($user->is_admin) {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session", "products", "factures"])->where(["visible" => 1])->orderBy('id', 'desc')->get();
         } else {
-            $commands =  StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
+            $commands =  StoreCommand::with(['owner', "store", "session", "products", "factures"])->where(["owner" => $user->id, "visible" => 1])->orderBy('id', 'desc')->get();
         }
         return self::sendResponse($commands, 'Toutes les commandes récupérés avec succès!!');
     }
@@ -371,7 +371,7 @@ class COMMAND_HELPER extends BASE_HELPER
     {
         $user = request()->user();
         $session = GetSession($user->id); #LA SESSTION DANS LAQUELLE LA CATEGORY A ETE CREE
-        $command = StoreCommand::with(['owner', "store", "session", "products","factures"])->where(["visible" => 1])->find($id);
+        $command = StoreCommand::with(['owner', "store", "session", "products", "factures"])->where(["visible" => 1])->find($id);
         if (!$command) {
             return self::sendError("Cette commande n'existe pas!", 404);
         }
