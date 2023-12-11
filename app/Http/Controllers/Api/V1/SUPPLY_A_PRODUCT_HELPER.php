@@ -119,7 +119,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
         // $stock->session = $session->id;
         $stock->owner = request()->user()->id;
         $stock->product = $product->id;
-        $stock->store = $product->store;
+        $stock->store = $supply->store;
         $stock->quantity = $formData["quantity"];
 
         $stock->comments = "Ajout du produit (" . $product->name . ") au stock";
