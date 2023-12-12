@@ -68,7 +68,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $agent = Agent::where(["user_id" => $user->id])->first();
             if ($agent) {
                 if ($agent->store) {
-                    $formData["store"] = $agent->store->id;
+                    $formData["store"] = $agent->store_id;
                 } else {
                     return self::sendError("Vous n'avez pas été affecté à un store! Impossible d'effectuer cette opération", 505);
                 }
