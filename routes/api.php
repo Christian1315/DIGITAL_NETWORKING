@@ -268,6 +268,9 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/delete', '_DeleteProduct'); #SUPPRESSION D'UN PRDUIT
             Route::any('{id}/update', 'UpdateProduct'); #MODIFICATION D'UN PRODUIT
             Route::any('changeAffectation', 'ChangeProductAffectation'); #MODIFICATION LES OWNER DES PRODUITS
+
+            Route::any('import', 'ImportProducts'); #IMPORTER DES PRODUITS
+            Route::any('export', 'ExportProducts'); #EXPORTER DES PRODUITS
         });
     });
 
@@ -300,7 +303,6 @@ Route::prefix('v1')->group(function () {
             });
         });
     });
-
 
     ###========== SUPPLY ROUTINGS ========###
     Route::prefix("supply")->group(function () {
@@ -341,7 +343,6 @@ Route::prefix('v1')->group(function () {
         });
     });
 
-
     ###========== SOLDES  ROUTINGS ========###
     Route::controller(SoldController::class)->group(function () {
         Route::prefix('sold')->group(function () {
@@ -361,7 +362,6 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveSold');
         });
     });
-
 
     ###========== CLIENT ROUTINGS ========###
     Route::prefix("client")->group(function () {
@@ -438,7 +438,6 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveModule');
         });
     });
-
 
     ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
     ##~~~~~~~~ MODULE CANAL ~~~~~~~~##

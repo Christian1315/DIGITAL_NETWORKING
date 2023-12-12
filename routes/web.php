@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\Notifications;
 use App\Http\Controllers\Api\V1\PdfController;
+use App\Http\Controllers\Api\V1\StoreProduitController;
 use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -43,10 +44,12 @@ Route::get("user/{id?}", function ($id = null) {
 
 Route::get('send-mail', [Notifications::class, 'testMail']);
 
-Route::get("ticket",function () {
+Route::get("ticket", function () {
     return view("ticket");
 });
 
-Route::get("facture",function () {
+Route::get("facture", function () {
     return view("facture-html");
 });
+
+Route::get("products/export", [StoreProduitController::class, "ExportProducts"]);
