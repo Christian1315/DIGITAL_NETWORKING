@@ -124,7 +124,7 @@ class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
 
         $stock->comments = "Ajout du produit (" . $product->name . ") au stock";
         //Verifions si le produit a déjà été ajouté au stock
-        $store_stock = StoreStock::where(["product" => $product->id])->get();
+        $store_stock = StoreStock::where(["product" => $product->id,"store"=>$supply->store])->get();
         if ($store_stock->count() != 0) {
             #S'il a été ajouté au stock, on incremente la quantité qu'il y a avait dedans
             $store_stock = $store_stock[0];
