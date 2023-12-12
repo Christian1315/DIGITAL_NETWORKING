@@ -152,6 +152,7 @@ class COMMAND_HELPER extends BASE_HELPER
 
                         // return self::sendResponse([], $prod_composant->name ."  & ".$prod_composant->id); 
                         if ($product_stock->count() == 0) {
+                            return self::sendError("product " . $prod_composant->id . " store " . $formData["store"], 404);
                             return self::sendError("Le Produit composant <<" . $prod_composant->name . ">> n'existe pas dans le stock du store! Veuillez l'approvisionner!", 404);
                         }
 
