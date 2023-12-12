@@ -90,7 +90,6 @@ class FACTURE_HELPER extends BASE_HELPER
         $total = $command->amount;
         $agency_of_this_agent_img = "data:image/png;base64," . base64_encode(file_get_contents("pieces/" . $photoName));
 
-
         ###___GESTION DES  FACTURES & TICKETS
         $pdf = PDF::loadView('facture', compact([
             "command",

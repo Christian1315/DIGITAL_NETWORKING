@@ -120,7 +120,6 @@ class COMMAND_HELPER extends BASE_HELPER
         $total_command_amount = [];
         $total_command_qty = [];
 
-
         foreach ($products as $product) {
 
             #ON VERIFIE L'EXISTENCE DES PRODUITS
@@ -130,7 +129,7 @@ class COMMAND_HELPER extends BASE_HELPER
             }
 
             #####____produit composé
-            #####____QUANT IL S'AGIT D'UNPRODUIT COMPOSE
+            #####____QUANT IL S'AGIT D'UN PRODUIT COMPOSE
             #####____ON ATTAQUE PLUTÖT SES PRODUITS COMPOSANTS
             if ($_product->product_classe == 3) {
                 $prod_composants = $_product->composants;
@@ -170,6 +169,7 @@ class COMMAND_HELPER extends BASE_HELPER
                     }
                 }
             } else {
+
                 #####____produit stockable
                 if ($_product->product_type == 1) {
 
@@ -243,6 +243,7 @@ class COMMAND_HELPER extends BASE_HELPER
             $command->amount = $previous_command->amount + $formData["amount"];
             $command->save();
         } else {
+
             #Passons à la validation de la commande
             $command = new StoreCommand();
             $command->firstname = $firstname;
@@ -324,22 +325,25 @@ class COMMAND_HELPER extends BASE_HELPER
             $productCommand->total_amount = $_product["price"] * intval($product["qty"]);
             $productCommand->save();
 
-            if ($_product->product_type == 1) { ####_______quand le produit est stockble
-                #Decreditons l'ancienne ligne 
-                $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $product["id"], "visible" => 1])->first();
-                // $old_product_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
-                $old_product_stock->visible = 0;
-                $old_product_stock->save();
+            ###__ON NE DESTCKE PAS UN PRODUIT COMPOSE
+            if ($_product->product_classe != 3) {
+                if ($_product->product_type == 1) { ####_______quand le produit est stockble
+                    #Decreditons l'ancienne ligne 
+                    $old_product_stock = StoreStock::with(["product", "store"])->where(["product" => $product["id"], "visible" => 1])->first();
+                    // $old_product_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
+                    $old_product_stock->visible = 0;
+                    $old_product_stock->save();
 
-                #& Recréeons une nouvelle ligne de ce produit dans la table des stocks
-                $new_stock = new StoreStock();
-                $new_stock->session = $session->id;
-                $new_stock->owner = $old_product_stock->owner;
-                $new_stock->product = $old_product_stock->product;
-                $new_stock->store = $old_product_stock->store;
-                $new_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
-                $new_stock->comments = $old_product_stock->comments;
-                $new_stock->save();
+                    #& Recréeons une nouvelle ligne de ce produit dans la table des stocks
+                    $new_stock = new StoreStock();
+                    $new_stock->session = $session->id;
+                    $new_stock->owner = $old_product_stock->owner;
+                    $new_stock->product = $old_product_stock->product;
+                    $new_stock->store = $old_product_stock->store;
+                    $new_stock->quantity = $old_product_stock->quantity - intval($product["qty"]);
+                    $new_stock->comments = $old_product_stock->comments;
+                    $new_stock->save();
+                }
             }
         }
 
