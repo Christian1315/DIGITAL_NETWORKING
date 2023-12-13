@@ -171,12 +171,12 @@
             </thead>
             <tbody>
                 <tr class="totaux">
+                    <td class="block text-end">{{HT($total)}}</td>
+                    <td class="block text-end">{{TVA($total)}}</td>
+                    <td class="block text-end">{{REMISE($total)}}</td>
+                    <td class="block text-end">{{TS($total)}}</td>
                     <td class="block text-end"></td>
-                    <td class="block text-end"></td>
-                    <td class="block text-end"></td>
-                    <td class="block text-end"></td>
-                    <td class="block text-end"></td>
-                    <td class="block text-end"></td>
+                    <td class="block text-end">{{TTC($total)}}</td>
                     <td class="block text-end"><?php echo $total + TVA($total) ?></td>
                 </tr>
             </tbody>
