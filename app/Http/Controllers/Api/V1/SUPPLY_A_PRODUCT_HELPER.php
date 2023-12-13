@@ -7,7 +7,6 @@ use App\Models\StoreStock;
 use App\Models\StoreSupply;
 use App\Models\SupplyProduct;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class SUPPLY_A_PRODUCT_HELPER extends BASE_HELPER
 {

@@ -80,7 +80,7 @@ function REMISE($amount)
 ####____AIB d'un produit en commande
 function AIB($amount)
 {
-    return 0 ;#$amount*1/ 100;
+    return $amount*1/ 100;
 }
 
 ####____Ht d'un produit en commande
