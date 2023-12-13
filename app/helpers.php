@@ -73,7 +73,7 @@ function TS($amount)
 ####____remise d'un produit en commande
 function REMISE($amount)
 {
-    return $amount - env("REMISE_PRODUCT") / 100;
+    return env("REMISE_PRODUCT") / 100;
 }
 
 ####____Ht d'un produit en commande
