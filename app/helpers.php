@@ -59,9 +59,10 @@ function PRODUCT_QTY($commanId, $produtId)
 }
 
 ####____tva d'un produit en commande
-function TVA($amount)
+function TVA($amount,$qty)
 {
-    return $amount * 0.18;
+    $mount = $amount*$qty;
+    return $mount * 0.18;
 }
 
 ####____TS d'un produit en commande
@@ -74,6 +75,12 @@ function TS($amount)
 function REMISE($amount)
 {
     return env("REMISE_PRODUCT") / 100;
+}
+
+####____AIB d'un produit en commande
+function AIB($amount)
+{
+    return 0 ;#$amount*1/ 100;
 }
 
 ####____Ht d'un produit en commande

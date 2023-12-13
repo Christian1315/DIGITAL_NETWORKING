@@ -138,13 +138,16 @@
             </thead>
             <tbody>
                 @foreach($products as $product)
+                  @php
+                    $qty = $product->pivot->qty ? $product->pivot->qty : 1;
+                  @endphp
                 <tr>
                     <td class="block">{{$product->name}}</td>
                     <td class="block">{{$product->description}}</td>
                     <td class="block">{{$product->price}}</td>
                     <td class="block"> <?php echo $product->pivot->qty ? $product->pivot->qty : 1 ?></td>
                     <td class="block">{{REMISE($product->price)}}</td>
-                    <td class="block">{{TVA($product->price)}}</td>
+                    <td class="block">{{TVA($product->price, $qty)}}</td>
                     <td class="block">{{TS($product->price)}}</td>
                     <td class="block">{{TTC($product->price)}}</td>
                 </tr>
@@ -172,7 +175,7 @@
                 <tr>
                     <td class="block text-end">{{env("OUR_FACTURE_TAX_GROUP")}}-TAX</td>
                     <td class="block text-end">{{HT($total)}}</td>
-                    <td class="block text-end">{{TVA($total)}}</td>
+                    <td class="block text-end">{{TVA($total,1)}}</td>
                     <td class="block text-end"></td>
                 </tr>
             </tbody>
@@ -195,19 +198,19 @@
             <tbody>
                 <tr class="totaux">
                     <td class="block text-end">{{HT($total)}}</td>
-                    <td class="block text-end">{{TVA($total)}}</td>
+                    <td class="block text-end">{{TVA($total,1)}}</td>
                     <td class="block text-end">{{REMISE($total)}}</td>
                     <td class="block text-end">{{TS($total)}}</td>
-                    <td class="block text-end"></td>
+                    <td class="block text-end">{{AIB($total)}}</td>
                     <td class="block text-end">{{TTC($total)}}</td>
-                    <td class="block text-end"><?php echo $total + TVA($total) ?></td>
+                    <td class="block text-end"><?php echo $total + TVA($total,1) + AIB($total) ?></td>
                 </tr>
             </tbody>
         </table>
 
 
         <p class="">
-            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white"><?php echo $total + TVA($total) ?></span> FCFA .
+            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white"><?php echo $total + TVA($total,1) + AIB($total) ?></span> FCFA .
         </p>
 
         <p class="text-right">

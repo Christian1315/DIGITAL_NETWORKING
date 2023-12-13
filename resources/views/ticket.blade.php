@@ -85,8 +85,8 @@
                             <td class="col-md-6">
                                 <ul>
                                     <li> <strong> <em>{{$total}}</em> </strong></li>
-                                    <li>{{TVA($total)}}</li>
-                                    <li><?php echo ($total + TVA($total)) ?></li>
+                                    <li>{{TVA($total,1)}}</li>
+                                    <li><?php echo ($total + TVA($total,1)) ?></li>
                                 </ul>
                             </td>
                         </tr>
