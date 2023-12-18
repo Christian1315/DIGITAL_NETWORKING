@@ -196,7 +196,6 @@ class COMMAND_HELPER extends BASE_HELPER
 
             ###___
             $this_product_command_amount = intval($product["qty"]) * $_product->price;
-
             array_push($total_command_amount, $this_product_command_amount);
             array_push($total_command_qty, intval($product["qty"]));
         }
