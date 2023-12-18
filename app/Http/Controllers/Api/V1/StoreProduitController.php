@@ -110,16 +110,16 @@ class StoreProduitController extends PRODUCT_HELPER
     static function ChangeProductAffectation()
     {
 
-        $products = StoreProduit::all();
+        // $products = StoreProduit::all();
+        $products =  StoreProduit::where(["owner" => 30])->whereBetween('id', [724, 960])->get();
+
 
         foreach ($products as $product) {
-            if (!$product->owner) {
-                $product->owner = 30;
-                $product->save();
-            }
+            $product->category = 30;
+            $product->save();
         }
 
-        return "produit revu avec succès";
+        return "produit affcete au categories avec succès";
     }
 
     ##__IMPORTATION DE PRODUITS
