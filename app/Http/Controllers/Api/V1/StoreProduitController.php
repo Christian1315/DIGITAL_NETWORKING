@@ -113,26 +113,13 @@ class StoreProduitController extends PRODUCT_HELPER
         $products = StoreProduit::all();
 
         foreach ($products as $product) {
-            $new_product = new StoreProduit();
-            $new_product->session = $product->session;
-            $new_product->name = $product->name;
-            $new_product->price = $product->price;
-            $new_product->img = $product->img;
-            $new_product->description = $product->description;
-            $new_product->store = $product->store;
-            $new_product->product_type = $product->product_type;
-            $new_product->category = $product->category;
-            $new_product->owner = 4;
-            $new_product->supplied = $product->supplied;
-
-            $new_product->product_classe = $product->product_classe;
-            $new_product->product_compose = $product->product_compose;
-            $new_product->qty = $product->qty;
-
-            $new_product->save();
+            if (!$product->owner) {
+                $product->owner = 30;
+                $product->save();
+            }
         }
 
-        return "produit dupliqué avec succès";
+        return "produit revu avec succès";
     }
 
     ##__IMPORTATION DE PRODUITS
