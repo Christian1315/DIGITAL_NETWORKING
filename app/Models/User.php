@@ -6,6 +6,7 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -92,6 +93,12 @@ class User extends Authenticatable
     function drts(): HasMany
     {
         return $this->hasMany(Right::class, "user_id")->with(["rang", "action", "profil"]);
+    }
+
+    function affected_rights(): BelongsToMany
+    {
+        // return $this->belongsToMany(Right::class, "user_id")->with(["rang", "action", "profil"]);
+        return $this->belongsToMany(Right::class, "rights_users", "user_id", "right_id")->with(["rang", "action", "profil"]);
     }
 
     function stores(): HasMany

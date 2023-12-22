@@ -197,8 +197,6 @@ class StoreProduitController extends PRODUCT_HELPER
             $product->save();
         }
 
-
-
         return "produit affcete au categories avec succès";
     }
 
