@@ -371,6 +371,9 @@ Route::prefix('v1')->group(function () {
             Route::any('{id}/retrieve', 'RetrieveClient');
             Route::any('{id}/update', 'UpdateClient');
             Route::any('{id}/delete', 'DeleteClient');
+
+            Route::any('import', 'ImportClients'); #IMPORTER DES CLIENTS
+            Route::any('export', 'ExportClients'); #EXPORTER DES CLIENTS
         });
     });
 
