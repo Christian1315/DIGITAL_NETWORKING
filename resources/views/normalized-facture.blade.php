@@ -203,14 +203,14 @@
                     <td class="block text-end">{{TS($total)}}</td>
                     <td class="block text-end">{{AIB($total)}}</td>
                     <td class="block text-end">{{TTC($total)}}</td>
-                    <td class="block text-end"><?php echo $total + TVA($total,1) + AIB($total) ?></td>
+                    <td class="block text-end">{{TTC($total)}}</td>
                 </tr>
             </tbody>
         </table>
 
 
         <p class="">
-            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white"><?php echo $total + TVA($total,1) + AIB($total) ?></span> FCFA .
+            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white">{{TTC($total)}}</span> FCFA .
         </p>
 
         <p class="text-right">

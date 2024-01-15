@@ -97,7 +97,6 @@ class ClientController extends CLIENT_HELPER
         }
         $formdata = $request->file('clients');
 
-        // return $formdata;
         $data = Excel::import(new ClientImport, $formdata);
         $clients = Client::all();
 

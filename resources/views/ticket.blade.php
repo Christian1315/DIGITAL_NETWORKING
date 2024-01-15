@@ -86,16 +86,15 @@
                                 <ul>
                                     <li> <strong> <em>{{$total}}</em> </strong></li>
                                     <li>{{TVA($total,1)}}</li>
-                                    <li><?php echo ($total + TVA($total,1)) ?></li>
+                                    <li>{{TTC($total)}}</li>
                                 </ul>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <hr>
-
                 <!--  -->
-
+                
                 <p class="text-center">
                     Les articles achetés ne seront ni échanger ni retourner. <br> Merci de votre visite.
                 </p>

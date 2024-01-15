@@ -87,7 +87,7 @@
                                 <ul>
                                     <li> <strong> <em>{{$total}}</em> </strong></li>
                                     <li>{{TVA($total,1)}}</li>
-                                    <li><?php echo ($total + TVA($total,1)) ?></li>
+                                    <li>{{TTC($total)}}</li>
                                 </ul>
                             </td>
                         </tr>

@@ -85,7 +85,7 @@
                                         <strong>Pays</strong> : <small>{{$agency_of_this_agent->country}}</small> <br>
                                         <strong>Commune</strong>: <small>{{$agency_of_this_agent->commune}}</small> <br>
                                     </p>
-                                    <!-- <br></br><br> -->
+                                    
                                     <p class="">
                                         <strong>IFU</strong> : <small>{{$agency_of_this_agent->ifu}}</small> <br>
                                         <span> <strong>FACTURE DU :</strong> <?php echo date("Y/m/d") ?> </span> <br>
@@ -93,7 +93,6 @@
                                     </p>
                                 </div>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
@@ -116,9 +115,9 @@
             </thead>
             <tbody>
                 @foreach($products as $product)
-                  @php
-                    $qty = $product->pivot->qty ? $product->pivot->qty : 1;
-                  @endphp
+                @php
+                $qty = $product->pivot->qty ? $product->pivot->qty : 1;
+                @endphp
                 <tr>
                     <td class="block">{{$product->name}}</td>
                     <td class="block">{{$product->description}}</td>
@@ -180,13 +179,13 @@
                     <td class="block text-end">{{TS($total)}}</td>
                     <td class="block text-end">{{AIB($total)}}</td>
                     <td class="block text-end">{{TTC($total)}}</td>
-                    <td class="block text-end"><?php echo $total + TVA($total,1) + AIB($total)?></td>
+                    <td class="block text-end">{{TTC($total)}}</td>
                 </tr>
             </tbody>
         </table>
 
         <p class="">
-            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white"><?php echo $total + TVA($total,1) + AIB($total)?></span> FCFA .
+            Arrêtée, la présente facture à la somme de <span class="bg-dark p-2 text-white">{{TTC($total)}}</span> FCFA .
         </p>
 
         <p class="text-right">
@@ -195,7 +194,6 @@
             <br>
             Responsable Administratif et Financier
         </p>
-
 
         <!-- FACTURE FOOTER -->
         <table class="table table table-striped px-0 mx-0">
@@ -218,9 +216,6 @@
             </tbody>
         </table>
     </div>
-
-    <!-- Saut de page -->
-    <!-- <div style="page-break-after: always;"></div> -->
 </body>
 
 </html>

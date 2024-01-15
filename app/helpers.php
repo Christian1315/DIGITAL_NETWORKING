@@ -40,6 +40,7 @@ function Get_passCode($user, $type)
     return $passcode;
 }
 
+
 function Add_Number($user, $type)
 {
     $created_date = $user->created_at;
@@ -59,10 +60,10 @@ function PRODUCT_QTY($commanId, $produtId)
 }
 
 ####____tva d'un produit en commande
-function TVA($amount,$qty)
+function TVA($amount, $qty)
 {
-    $mount = $amount*$qty;
-    return $mount * 0.18;
+    $mount = $amount * $qty;
+    return TTC($mount) - ($mount / 1.18);
 }
 
 ####____TS d'un produit en commande
@@ -80,7 +81,7 @@ function REMISE($amount)
 ####____AIB d'un produit en commande
 function AIB($amount)
 {
-    return $amount*1/ 100;
+    return $amount * 1 / 100;
 }
 
 ####____Ht d'un produit en commande
@@ -92,7 +93,7 @@ function HT($amount)
 ####____TTC d'un produit en commande
 function TTC($amount)
 {
-    return HT($amount) * 0.18;
+    return HT($amount) * 1.18;
 }
 
 function PRODUCT_PRICE_X_QTY($price, $qty)
