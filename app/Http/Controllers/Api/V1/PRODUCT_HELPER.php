@@ -26,6 +26,7 @@ class PRODUCT_HELPER extends BASE_HELPER
             'category' => ['required', "integer"],
             'active' => ['required', "boolean"],
             'product_type' => ['required', "integer"],
+            'product_classe' => ['required', "integer"],
         ];
     }
 
@@ -36,14 +37,14 @@ class PRODUCT_HELPER extends BASE_HELPER
             'description.required' => 'Le champ description est réquis!',
             'category.required' => 'Le champ category est réquis!',
             'product_type.required' => 'Le champ product_type est réquis!',
-            'product_classe.required' => 'La classe du produit est réquise!',
+            // 'product_classe.required' => 'La classe du produit est réquise!',
             'active.required' => 'Le champ active est réquis!',
 
             'active.boolean' => 'Le champ active est un boolean!',
             'category.integer' => 'Le champ category est un entier!',
             'store.integer' => 'Le champ store est un entier!',
             'product_type.integer' => 'Le champ product_type est un entier!',
-            'product_classe.integer' => 'Le champ product_classe doit être de type entier!',
+            // 'product_classe.integer' => 'Le champ product_classe doit être de type entier!',
         ];
     }
 
@@ -90,6 +91,11 @@ class PRODUCT_HELPER extends BASE_HELPER
         $formData = $request->all();
         $user = request()->user();
 
+        if ($request->get("product_classe")) {
+            $formData["product_classe"] = $request->get("product_classe");
+        } else {
+            $formData["product_classe"] = 1;
+        }
         $product_type = ProductType::where(['id' => $formData["product_type"]])->get();
         $product_classe = ProductClasse::where(['id' => $formData["product_classe"]])->get();
 
