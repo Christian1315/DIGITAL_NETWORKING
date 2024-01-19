@@ -26,7 +26,7 @@ class PRODUCT_HELPER extends BASE_HELPER
             'category' => ['required', "integer"],
             'active' => ['required', "boolean"],
             'product_type' => ['required', "integer"],
-            'product_classe' => ['required', "integer"],
+            // 'product_classe' => ['required', "integer"],
         ];
     }
 
