@@ -42,7 +42,7 @@ class PRODUCT_HELPER extends BASE_HELPER
 
             'active.boolean' => 'Le champ active est un boolean!',
             'category.integer' => 'Le champ category est un entier!',
-            'store.integer' => 'Le champ store est un entier!',
+            // 'store.integer' => 'Le champ store est un entier!',
             'product_type.integer' => 'Le champ product_type est un entier!',
             // 'product_classe.integer' => 'Le champ product_classe doit être de type entier!',
         ];
@@ -100,7 +100,7 @@ class PRODUCT_HELPER extends BASE_HELPER
         $product_classe = ProductClasse::where(['id' => $formData["product_classe"]])->get();
 
         $product_category = StoreCategory::where(['id' => $formData["category"]])->get();
-        $store = Store::where(['id' => $formData["store"]])->get();
+        // $store = Store::where(['id' => $formData["store"]])->get();
 
         if ($product_type->count() == 0) {
             return self::sendError("Ce type de produit n'existe pas!!", 404);
@@ -114,9 +114,9 @@ class PRODUCT_HELPER extends BASE_HELPER
             return self::sendError("Cette categorie de produit n'existe pas!!", 404);
         }
 
-        if ($store->count() == 0) {
-            return self::sendError("Ce Store n'existe pas!!", 404);
-        }
+        // if ($store->count() == 0) {
+        //     return self::sendError("Ce Store n'existe pas!!", 404);
+        // }
 
         ####____TRAITEMENT DE L'AJOUT DU PRODUIT QUAND SA CLASSE EST UN PRODUIT ¨COMPOSE¨
         $products = $request->get("products");
